@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "Introduction\n\n\nDaptin is a ready-to-deploy API first backend. Create new JSON APIs within minutes for your next mobile or web application. Use it as a middleware or a controller. Host static websites or use the JSON apis to create dynamic sites on top.\n\n\n\n\nUse existing XLS to define and import data\n\n\nCreate relations across your data\n\n\nComponent based architecture to encourage maximum reuse\n\n\n\n\nSetting up\n\n\n\n\nSetting up\n\n\nEntities\n\n\nEntity Relations\n\n\nMarketplace\n\n\n\n\nData\n\n\n\n\nData storage and table structures\n\n\nAuditing\n\n\nData validations\n\n\nData conformations\n\n\nState tracking for entities\n\n\n\n\nActions and streams\n\n\n\n\nActions\n\n\nData Streams\n\n\n\n\nAuthentication and Authorization\n\n\n\n\nUsers and User groups\n\n\nAuthentication\n\n\nAuthorization\n\n\nPermissions\n\n\n\n\nExternal apis and integrations\n\n\n\n\nOauth Connections\n\n\nOauth tokens\n\n\nInteracting with third party APIs\n\n\nStorage connectors\n\n\n\n\nSubsites, Marketplace\n\n\n\n\nSub sites\n\n\nJson schemas",
+            "text": "Introduction\n\n\nDaptin is a ready-to-deploy API first backend. Create new JSON APIs within minutes for your next mobile or web application. Use it as a middleware or a controller. Host static websites or use the JSON apis to create dynamic sites on top.\n\n\n\n\nUse existing XLS to define and import data\n\n\nCreate relations across your data\n\n\nComponent based architecture to encourage maximum reuse\n\n\n\n\nSetting up\n\n\n\n\nSetting up\n\n\nEntities\n\n\nEntity relations\n\n\nMarketplace\n\n\n\n\nData\n\n\n\n\nData storage and table structures\n\n\nAuditing\n\n\nData validations\n\n\nData conformations\n\n\nState tracking for entities\n\n\n\n\nActions and streams\n\n\n\n\nActions\n\n\nData streams\n\n\nOauth connections\n\n\nOauth tokens\n\n\n\n\nAuthentication and Authorization\n\n\n\n\nUsers and user groups\n\n\nAuthentication\n\n\nAuthorization\n\n\nPermissions\n\n\n\n\nExternal apis and integrations\n\n\n\n\nInteracting with third party APIs\n\n\nStorage connectors\n\n\n\n\nSub-sites, Marketplace\n\n\n\n\nSub sites\n\n\nJson schemas",
             "title": "Home"
         },
         {
@@ -12,7 +12,7 @@
         },
         {
             "location": "/#setting-up",
-            "text": "Setting up  Entities  Entity Relations  Marketplace",
+            "text": "Setting up  Entities  Entity relations  Marketplace",
             "title": "Setting up"
         },
         {
@@ -22,27 +22,27 @@
         },
         {
             "location": "/#actions-and-streams",
-            "text": "Actions  Data Streams",
+            "text": "Actions  Data streams  Oauth connections  Oauth tokens",
             "title": "Actions and streams"
         },
         {
             "location": "/#authentication-and-authorization",
-            "text": "Users and User groups  Authentication  Authorization  Permissions",
+            "text": "Users and user groups  Authentication  Authorization  Permissions",
             "title": "Authentication and Authorization"
         },
         {
             "location": "/#external-apis-and-integrations",
-            "text": "Oauth Connections  Oauth tokens  Interacting with third party APIs  Storage connectors",
+            "text": "Interacting with third party APIs  Storage connectors",
             "title": "External apis and integrations"
         },
         {
-            "location": "/#subsites-marketplace",
+            "location": "/#sub-sites-marketplace",
             "text": "Sub sites  Json schemas",
-            "title": "Subsites, Marketplace"
+            "title": "Sub-sites, Marketplace"
         },
         {
             "location": "/setting-up/settingup/",
-            "text": "Setting up Daptin\n\n\nYou can setup daptin on any machine/server of your choice.\n\n\nNative binary\n\n\nDaptin is available as a native binary. You can fetch the lastest binary from the releases\n\n\nhttps://github.com/daptin/daptin/releases\n\n\nTo start daptin, execute \n./daptin\n which will create a local sqlite database and start listening on port 6336. To change the database or port, read below.\n\n\nDocker\n\n\nA docker image is also available which can be deployed on any docker compatible hosting provider (aws, gce, linode, digitalocean, azure)\n\n\nhttps://hub.docker.com/r/daptin/daptin/\n\n\nTo start daptin using docker\n\n\ndocker run daptin/daptin\n\n\nDatabase and data persistence\n\n\nDaptin can use one of the following database for data persistence\n\n\n\n\nMysql\n\n\nPostgres\n\n\nSQLite [Default]\n\n\n\n\nIf nothing specified, a sqlite database is created on the local file system and is used for all purposes. (uploads/blobs are not stored in database)\n\n\nYou can customise the database connection properties when starting daptin\n\n\nmysql\n\n\nTo use mysql, start daptin as follows\n\n\n./daptin -db_type=mysql -db_connection_string='<username>:<password>@tcp(<hostname>:<port>)/<db_name>'\n\n\npostgres\n\n\n./daptin -db_type=postgres -db_connection_string='host=<hostname> port=<port> user=<username> password=<password> dbname=<db_name> sslmode=enable/disable'\n\n\nsqlite\n\n\nBy default a \"daptin.db\" file is created to store data\n\n\n./daptin -db_type=sqlite -db_connection_string=db_file_name.db\n\n\nPort\n\n\nDaptin will listen on port 6336 by default. You can change it by using the following argument\n\n\n-port=8080\n\n\nRestart\n\n\nDaptin relies on self restarts to configure new entities and apis and changes to the other parts of the ststem. As soon as you upload a schema file, daptin will write the file to disk, and restart itself. When it starts it will read the schema file, make appropriate changes to the database and expose JSON apis for the entities and actions.\n\n\nYou can issue a daptin restart from the dashboard. Daptin takes about 15 seconds approx to start up and configure everything.",
+            "text": "Setting up Daptin\n\n\nYou can setup daptin on any machine/server of your choice.\n\n\nNative binary\n\n\nDaptin is available as a native binary. You can fetch the lastest binary from the releases\n\n\nhttps://github.com/daptin/daptin/releases\n\n\nTo start daptin, execute \n./daptin\n which will create a local sqlite database and start listening on port 6336. To change the database or port, read below.\n\n\nDocker\n\n\nA docker image is also available which can be deployed on any docker compatible hosting provider (aws, gce, linode, digitalocean, azure)\n\n\n\n\n\n\n\n\n\n\n\n\nhttps://hub.docker.com/r/daptin/daptin/\n\n\nTo start daptin using docker\n\n\ndocker run daptin/daptin\n\n\nDocker compose\n\n\nversion: '3'\nservices:\n    web:\n        image: devsupport\n        ports:\n            - \"8090:8080\"\n        restart: always\n        environment:\n          DAPTIN_PORT: '8080'\n          DAPTIN_DB_TYPE: 'mysql'\n          DAPTIN_DB_CONNECTION_STRING: 'dev:dev@tcp(mysqldb:3306)/daptin'\n        depends_on:\n            - mysqldb\n    mysqldb:\n        image: mysql\n        container_name: ${MYSQL_HOST}\n        restart: always\n        env_file:\n            - \".env\"\n        environment:\n            - MYSQL_DATABASE=${MYSQL_DATABASE}\n            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}\n            - MYSQL_USER=${MYSQL_USER}\n            - MYSQL_PASSWORD=${MYSQL_PASSWORD}\n        ports:\n            - \"8989:3306\"\n        volumes:\n            - \"./data/db/mysql:/var/lib/mysql\"\n\n\n\n\nKubernetes\n\n\napiVersion: v1\nkind: Service\nmetadata:\n  name: daptin-instance\n  labels:\n    app: daptin\nspec:\n  ports:\n    - port: 8080\n  selector:\n    app: daptin\n    tier: production\n---\napiVersion: extensions/v1beta1\nkind: Deployment\nmetadata:\n  name: daptin-daptin\n  labels:\n    app: daptin\nspec:\n  strategy:\n    type: Recreate\n  template:\n    metadata:\n      labels:\n        app: daptin\n        tier: testing\n    spec:\n      containers:\n      - image: daptin/daptin:latest\n        name: daptin\n        args: ['-db_type', 'mysql', '-db_connection_string', 'user:password@tcp(<mysql_service>:3306)/daptin']\n        ports:\n        - containerPort: 8080\n          name: daptin\n---\napiVersion: extensions/v1beta1\nkind: Ingress\nmetadata:\n  name: daptin-test\nspec:\n  rules:\n  - host: hello.website\n    http:\n      paths:\n      - backend:\n          serviceName: daptin-testing\n          servicePort: 8080\n\n\n\n\nDatabase and data persistence\n\n\nDaptin can use one of the following database for data persistence\n\n\n\n\nMysql\n\n\nPostgres\n\n\nSQLite [Default]\n\n\n\n\nIf nothing specified, a sqlite database is created on the local file system and is used for all purposes. (uploads/blobs are not stored in database)\n\n\nYou can customise the database connection properties when starting daptin\n\n\nmysql\n\n\nTo use mysql, start daptin as follows\n\n\n./daptin -db_type=mysql -db_connection_string='<username>:<password>@tcp(<hostname>:<port>)/<db_name>'\n\n\npostgres\n\n\n./daptin -db_type=postgres -db_connection_string='host=<hostname> port=<port> user=<username> password=<password> dbname=<db_name> sslmode=enable/disable'\n\n\nsqlite\n\n\nBy default a \"daptin.db\" file is created to store data\n\n\n./daptin -db_type=sqlite -db_connection_string=db_file_name.db\n\n\nPort\n\n\nDaptin will listen on port 6336 by default. You can change it by using the following argument\n\n\n-port=8080\n\n\nRestart\n\n\nDaptin relies on self restarts to configure new entities and apis and changes to the other parts of the ststem. As soon as you upload a schema file, daptin will write the file to disk, and restart itself. When it starts it will read the schema file, make appropriate changes to the database and expose JSON apis for the entities and actions.\n\n\nYou can issue a daptin restart from the dashboard. Daptin takes about 15 seconds approx to start up and configure everything.",
             "title": "Setting up"
         },
         {
@@ -57,8 +57,18 @@
         },
         {
             "location": "/setting-up/settingup/#docker",
-            "text": "A docker image is also available which can be deployed on any docker compatible hosting provider (aws, gce, linode, digitalocean, azure)  https://hub.docker.com/r/daptin/daptin/  To start daptin using docker  docker run daptin/daptin",
+            "text": "A docker image is also available which can be deployed on any docker compatible hosting provider (aws, gce, linode, digitalocean, azure)       https://hub.docker.com/r/daptin/daptin/  To start daptin using docker  docker run daptin/daptin",
             "title": "Docker"
+        },
+        {
+            "location": "/setting-up/settingup/#docker-compose",
+            "text": "version: '3'\nservices:\n    web:\n        image: devsupport\n        ports:\n            - \"8090:8080\"\n        restart: always\n        environment:\n          DAPTIN_PORT: '8080'\n          DAPTIN_DB_TYPE: 'mysql'\n          DAPTIN_DB_CONNECTION_STRING: 'dev:dev@tcp(mysqldb:3306)/daptin'\n        depends_on:\n            - mysqldb\n    mysqldb:\n        image: mysql\n        container_name: ${MYSQL_HOST}\n        restart: always\n        env_file:\n            - \".env\"\n        environment:\n            - MYSQL_DATABASE=${MYSQL_DATABASE}\n            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}\n            - MYSQL_USER=${MYSQL_USER}\n            - MYSQL_PASSWORD=${MYSQL_PASSWORD}\n        ports:\n            - \"8989:3306\"\n        volumes:\n            - \"./data/db/mysql:/var/lib/mysql\"",
+            "title": "Docker compose"
+        },
+        {
+            "location": "/setting-up/settingup/#kubernetes",
+            "text": "apiVersion: v1\nkind: Service\nmetadata:\n  name: daptin-instance\n  labels:\n    app: daptin\nspec:\n  ports:\n    - port: 8080\n  selector:\n    app: daptin\n    tier: production\n---\napiVersion: extensions/v1beta1\nkind: Deployment\nmetadata:\n  name: daptin-daptin\n  labels:\n    app: daptin\nspec:\n  strategy:\n    type: Recreate\n  template:\n    metadata:\n      labels:\n        app: daptin\n        tier: testing\n    spec:\n      containers:\n      - image: daptin/daptin:latest\n        name: daptin\n        args: ['-db_type', 'mysql', '-db_connection_string', 'user:password@tcp(<mysql_service>:3306)/daptin']\n        ports:\n        - containerPort: 8080\n          name: daptin\n---\napiVersion: extensions/v1beta1\nkind: Ingress\nmetadata:\n  name: daptin-test\nspec:\n  rules:\n  - host: hello.website\n    http:\n      paths:\n      - backend:\n          serviceName: daptin-testing\n          servicePort: 8080",
+            "title": "Kubernetes"
         },
         {
             "location": "/setting-up/settingup/#database-and-data-persistence",
@@ -138,7 +148,7 @@
         {
             "location": "/setting-up/entity_relations/",
             "text": "Entity relations\n\n\nA data oriented system with no relational knowledge of the data is next to an Excel sheet. Specifying relations in your data is the most important thing after creating your entities.\n\n\nRelations in JSON/YAML schema\n\n\nWhen uploading schema using a JSON / YAML file, relations can be added in the same file and daptin will create appropriate constraints and foreign keys in your underlying database.\n\n\nContinuing with our example of todos, lets say we want to group todo's in \"projects\" and each todo can belong to only a single project.\n\n\nLets design a \"project\" entity:\n\n\n- TableName: project\n  Columns:\n  - Name: name\n    DataType: varchar(200)\n    ColumnType: name\n    IsIndexed: true\n\n\n\n\nA very simple table with just a name column. Now we can tell daptin about the relation between todos and projects\n\n\nRelations:\n- Subject: todo\n  Relation: has_one\n  Object: project\n\n\n\n\nThis tells daptin that todo \"has_one\" project.\n\n\nRelations types\n\n\nAny entity can be associated to any other entity (or to itself) as one of the follows\n\n\n\n\n\n\n\n\nRelation Name\n\n\nRelation Descriptio\n\n\nCan be empty\n\n\n\n\n\n\n\n\n\n\nbelongs_to\n\n\na single object relation\n\n\nNo\n\n\n\n\n\n\nhas_one\n\n\na single object relation\n\n\nYes\n\n\n\n\n\n\nhas_many\n\n\nmany related objects\n\n\nYes\n\n\n\n\n\n\n\n\nDefault relations\n\n\nEvery entity created on daptin has at least two relations\n\n\n\n\n\n\n\n\nRelation Type\n\n\nRelated Entity\n\n\n\n\n\n\n\n\n\n\nbelongs\n\n\nuser\n\n\n\n\n\n\nhas many\n\n\nusergroup\n\n\n\n\n\n\n\n\nTo understand why these two relations will always exist, checkout \ndaptin authorization model\n\n\nMultiple relation\n\n\nThere can be a scenario where two entities are related in more then 1 way. Consider the following example\n\n\n\n\nA blog entity\n\n\nA post entity\n\n\nBlog has many posts\n\n\nEach blog can have a \"highlighted post\" (blog has one \"highlighted post\")\n\n\n\n\nTo achieve the above scenario, our schema would look like as follows\n\n\nTables:\n- TableName: blog\n  Columns:\n  - Name: title\n    DataType: varchar(500)\n    ColumnType: label\n  - Name: view_count\n    DataType: int(11)\n    ColumnType: measurement\n- TableName: post\n  Columns:\n  - Name: title\n    DataType: varchar(200)\n    ColumnType: label\n  - Name: body\n    DataType: text\n    ColumnType: content\n- TableName: comment\n  Columns:\n  - Name: body\n    DataType: text\n    ColumnType: content\n  - Name: likes_count\n    ColumnName: likes_count\n    DataType: int(11)\n    ColumnType: measurement\nRelations:\n- Subject: comment\n  Relation: belongs_to\n  Object: post\n- Subject: post\n  Relation: belongs_to\n  Object: blog                   // this is our post belongs to blog relation\n- Subject: blog\n  Relation: has_one\n  Object: post\n  ObjectName: current_post\n  SubjectName: current_post_of   // this is our highlighted post relation\n\n\n\n\nNotice the \"SubjectName\" and \"ObjectName\" keys which helps to name our relations more intuitively.\n\n\nSQL constraints\n\n\nbelongs to\n\n\n\n\nA column is added to the subject entity, which refers to the Object entity, set to non nullable\n\n\n\n\nhas one\n\n\n\n\nSame as above, but nullable\n\n\n\n\nhas many\n\n\n\n\nA join table is created",
-            "title": "Entity Relations"
+            "title": "Entity relations"
         },
         {
             "location": "/setting-up/entity_relations/#entity-relations",
@@ -184,6 +194,46 @@
             "location": "/setting-up/entity_relations/#has-many",
             "text": "A join table is created",
             "title": "has many"
+        },
+        {
+            "location": "/cloudstore/cloudstore/",
+            "text": "Cloud store\n\n\nDatin can work with the following storage services:\n\n\n\n\nAmazon Drive  \n\n\nAmazon S3  \n\n\nBackblaze B2  \n\n\nBox  \n\n\nCeph  \n\n\nDigitalOcean Spaces  \n\n\nDreamhost  \n\n\nDropbox  \n\n\nFTP  \n\n\nGoogle Cloud Storage  \n\n\nGoogle Drive  \n\n\nHTTP  \n\n\nHubic  \n\n\nMemset Memstore  \n\n\nMicrosoft Azure Blob Storage  \n\n\nMicrosoft OneDrive  \n\n\nMinio  \n\n\nNextloud  \n\n\nOVH  \n\n\nOpenstack Swift  \n\n\nOracle Cloud Storage  \n\n\nOwnloud  \n\n\npCloud  \n\n\nput.io  \n\n\nQingStor  \n\n\nRackspace Cloud Files  \n\n\nSFTP  \n\n\nWasabi  \n\n\nWebDAV  \n\n\nYandex Disk  \n\n\nThe local filesystem  \n\n\n\n\nCreating a new cloud storage instance\n\n\nThing to keep ready\n\n\nIf the service you wan to integrate with requires authentication, create the following:\n\n\n\n\nAn \noauth connection\n\n\nAn \noauth token\n generated from the above connection\n\n\n\n\nSteps\n\n\n\n\nLogin to the dashboard\n\n\nClick \"Storage\" tile\n\n\nClick the green \"+\" icon on the top right\n\n\nUse the \nname\n to identify it uniquely\n\n\nRoot Path\n: in rclone format, eg\n\n\ngdrive: \ndrive:directory/subdirectory\n\n\ndropbox/ftp/local: \nremote/local:directory/subdirectory\n\n\nStore Provider\n: dropbox/drive/local/ftp...\n\n\nStore Type\n: cloud/local",
+            "title": "Cloud storage"
+        },
+        {
+            "location": "/cloudstore/cloudstore/#cloud-store",
+            "text": "Datin can work with the following storage services:   Amazon Drive    Amazon S3    Backblaze B2    Box    Ceph    DigitalOcean Spaces    Dreamhost    Dropbox    FTP    Google Cloud Storage    Google Drive    HTTP    Hubic    Memset Memstore    Microsoft Azure Blob Storage    Microsoft OneDrive    Minio    Nextloud    OVH    Openstack Swift    Oracle Cloud Storage    Ownloud    pCloud    put.io    QingStor    Rackspace Cloud Files    SFTP    Wasabi    WebDAV    Yandex Disk    The local filesystem",
+            "title": "Cloud store"
+        },
+        {
+            "location": "/cloudstore/cloudstore/#creating-a-new-cloud-storage-instance",
+            "text": "",
+            "title": "Creating a new cloud storage instance"
+        },
+        {
+            "location": "/cloudstore/cloudstore/#thing-to-keep-ready",
+            "text": "If the service you wan to integrate with requires authentication, create the following:   An  oauth connection  An  oauth token  generated from the above connection",
+            "title": "Thing to keep ready"
+        },
+        {
+            "location": "/cloudstore/cloudstore/#steps",
+            "text": "Login to the dashboard  Click \"Storage\" tile  Click the green \"+\" icon on the top right  Use the  name  to identify it uniquely  Root Path : in rclone format, eg  gdrive:  drive:directory/subdirectory  dropbox/ftp/local:  remote/local:directory/subdirectory  Store Provider : dropbox/drive/local/ftp...  Store Type : cloud/local",
+            "title": "Steps"
+        },
+        {
+            "location": "/subsite/subsite/",
+            "text": "Sub site\n\n\nYou can host multiple sites using daptin. A sub site is exposing a cloud storage folder statically under a sub-domain, domain or a path. \n\n\nCreating a new sub-site\n\n\n\n\nGoto dashboard https://dashboard.domain.com/\n\n\nClick \"Sub sites\"\n\n\nClick the green \"+\" icon\n\n\nType in the \nhostname\n this should be exposed to\n\n\nthis can be a domain or a sub-domain\n\n\nthe domain should be pointing to the daptin instance\n\n\nChoose a \nname\n\n\nPath\n: select a sub directory name to expose this sub-site. Your sub-site will be accessible at domain.com/\n\n\nCloud store Id\n: choose an existing \ncloud store\n.\n\n\n\n\nRestart to enable serving the site. \n\n\nDaptin will sync the cloud store locally and start serving it under the domain/path.",
+            "title": "Subsites"
+        },
+        {
+            "location": "/subsite/subsite/#sub-site",
+            "text": "You can host multiple sites using daptin. A sub site is exposing a cloud storage folder statically under a sub-domain, domain or a path.",
+            "title": "Sub site"
+        },
+        {
+            "location": "/subsite/subsite/#creating-a-new-sub-site",
+            "text": "Goto dashboard https://dashboard.domain.com/  Click \"Sub sites\"  Click the green \"+\" icon  Type in the  hostname  this should be exposed to  this can be a domain or a sub-domain  the domain should be pointing to the daptin instance  Choose a  name  Path : select a sub directory name to expose this sub-site. Your sub-site will be accessible at domain.com/  Cloud store Id : choose an existing  cloud store .   Restart to enable serving the site.   Daptin will sync the cloud store locally and start serving it under the domain/path.",
+            "title": "Creating a new sub-site"
         },
         {
             "location": "/auth/users_and_usergroups/",
@@ -383,7 +433,7 @@
         {
             "location": "/setting-up/marketplace/",
             "text": "Marketplace\n\n\nDocumentation not ready yet",
-            "title": "Marketplace"
+            "title": "Market place"
         },
         {
             "location": "/setting-up/marketplace/#marketplace",
@@ -393,7 +443,7 @@
         {
             "location": "/data-modeling/auditing/",
             "text": "Data Audits\n\n\nAll changes in daptin are recorded and history is maintained in audit tables. Audit table are entities just like regular entities. All Patch/Put/Delete calls to daptin will create an entry if the audit table if the entity is changed.\n\n\nAudit tables\n\n\nFor any entity named \nx\n, another tables \nx_audit\n is added by daptin. The audit table will contain all the columns which are present in the original table, plus an extra column \nis_audit_of\n is added, which contains the ID of the original row. The \nis_audit_of\n is a foreign key column to the parent tables \nid\n column.\n\n\nAudit row\n\n\nEach row in the audit table is the copy of the original row just before it is being modified. The audit rows can be accessed just like any other relation.\n\n\nAudit table permissions\n\n\nBy default, everyone has the access to create audit row, and noone has the access to update or delete them. These permissions can be changed, but it is not recommanded at present.\n\n\n\n\n\n\n\n\nType\n\n\nPermission\n\n\n\n\n\n\n\n\n\n\nAudit table permission\n\n\n007007007\n\n\n\n\n\n\nAudit object permission\n\n\n003003003",
-            "title": "Data Auditing"
+            "title": "Data auditing"
         },
         {
             "location": "/data-modeling/auditing/#data-audits",
@@ -437,7 +487,7 @@
         },
         {
             "location": "/data-modeling/state_tracking/",
-            "text": "State tracking for entities\n\n\nTracking the status of things is one of the most common operation in most business flows. Daptin has a native support for state tracking and allows a lot of convienent features.\n\n\nState machine\n\n\nA state machine is a description of \"states\" which the object can be in, and list of all valid transactions from one state to another. Lets begin with an example:\n\n\nThe following JSON defines a state machine which has (a hypothetical state machine for tracking todos):\n\n\n\n\nInitial state: to_be_done\n\n\nList of valid states: to_be_done, delayed, started, ongoing, interrupted, completed\n\n\nList of valid transitions, giving name to each event\n\n\n\n\n        {\n        \"Name\": \"task_status\",\n        \"Label\": \"Task Status\",\n        \"InitialState\": \"to_be_done\",\n        \"Events\": [{\n                \"Name\": \"start\",\n                \"Label\": \"Start\",\n                \"Src\": [\n                    \"to_be_done\",\n                    \"delayed\"\n                ],\n                \"Dst\": \"started\"\n            },\n            {\n                \"Name\": \"delayed\",\n                \"Label\": \"Unable to pick up\",\n                \"Src\": [\n                    \"to_be_done\"\n                ],\n                \"Dst\": \"delayed\"\n            },\n            {\n                \"Name\": \"ongoing\",\n                \"Label\": \"Record progress\",\n                \"Src\": [\n                    \"started\",\n                    \"ongoing\"\n                ],\n                \"Dst\": \"ongoing\"\n            },\n            {\n                \"Name\": \"interrupted\",\n                \"Label\": \"Interrupted\",\n                \"Src\": [\n                    \"started\",\n                    \"ongoing\"\n                ],\n                \"Dst\": \"interrupted\"\n            },\n            {\n                \"Name\": \"resume\",\n                \"Label\": \"Resume from interruption\",\n                \"Src\": [\n                    \"interrupted\"\n                ],\n                \"Dst\": \"ongoing\"\n            },\n            {\n                \"Name\": \"completed\",\n                \"Label\": \"Mark as completed\",\n                \"Src\": [\n                    \"ongoing\",\n                    \"started\"\n                ],\n                \"Dst\": \"completed\"\n            }\n        ]\n    }\n\n\n\n\n\nState machines can be uploaded to Daptin just like entities and actions. A JSON/YAML file with a \nStateMachineDescriptions\n top level key can contain an array of state machine descriptions.\n\n\nEnabling state tracking for entity\n\n\nFirst we need to tell goms that an entity is trackable. To do this, go to the world table page and edit the corresponding entity. Check the \"Is state tracking enabled\" checkbox.\n\n\nThis \"is_state_tracking_enabled\" options tells daptin to create the associated state table for the entity. Even though we have not yet specified which state machines are available for this entity.\n\n\nTo make a state machine available for an entity, go to the \"SMD\" tab of the entity and add the state machine by searching it by name.\n\n\nIt would not make a lot of sense if the above state machine was allowed for all type of entities. Also since state of the objects in maintained in a separate table",
+            "text": "State tracking for entities\n\n\nTracking the status of things is one of the most common operation in most business flows. Daptin has a native support for state tracking and allows a lot of convienent features.\n\n\nState machine\n\n\nA state machine is a description of \"states\" which the object can be in, and list of all valid transitions from one state to another. Let us begin with an example:\n\n\nThe following JSON defines a state machine which has (a hypothetical state machine for tracking todos):\n\n\n\n\nInitial state: to_be_done\n\n\nList of valid states: to_be_done, delayed, started, ongoing, interrupted, completed\n\n\nList of valid transitions, giving name to each event\n\n\n\n\n        {\n        \"Name\": \"task_status\",\n        \"Label\": \"Task Status\",\n        \"InitialState\": \"to_be_done\",\n        \"Events\": [{\n                \"Name\": \"start\",\n                \"Label\": \"Start\",\n                \"Src\": [\n                    \"to_be_done\",\n                    \"delayed\"\n                ],\n                \"Dst\": \"started\"\n            },\n            {\n                \"Name\": \"delayed\",\n                \"Label\": \"Unable to pick up\",\n                \"Src\": [\n                    \"to_be_done\"\n                ],\n                \"Dst\": \"delayed\"\n            },\n            {\n                \"Name\": \"ongoing\",\n                \"Label\": \"Record progress\",\n                \"Src\": [\n                    \"started\",\n                    \"ongoing\"\n                ],\n                \"Dst\": \"ongoing\"\n            },\n            {\n                \"Name\": \"interrupted\",\n                \"Label\": \"Interrupted\",\n                \"Src\": [\n                    \"started\",\n                    \"ongoing\"\n                ],\n                \"Dst\": \"interrupted\"\n            },\n            {\n                \"Name\": \"resume\",\n                \"Label\": \"Resume from interruption\",\n                \"Src\": [\n                    \"interrupted\"\n                ],\n                \"Dst\": \"ongoing\"\n            },\n            {\n                \"Name\": \"completed\",\n                \"Label\": \"Mark as completed\",\n                \"Src\": [\n                    \"ongoing\",\n                    \"started\"\n                ],\n                \"Dst\": \"completed\"\n            }\n        ]\n    }\n\n\n\n\n\nState machines can be uploaded to Daptin just like entities and actions. A JSON/YAML file with a \nStateMachineDescriptions\n top level key can contain an array of state machine descriptions.\n\n\nREST API\n\n\nStart tracking an object by state machine reference id\n\n\nRequest\n\n\n    POST  /track/start/:stateMachineId\n    {\"typeName\": <entityTypeName>, \"referenceId\": <ReferenceIdOfTheObject> }\n\n\n\n\nResponse\n\n\n        \"current_state\": <InitialStateOfTheStateMachine>\n        \"<typename>_smd\": <ObjectStateInstanceReferenceId>\n        \"is_state_of_<typename>\" = <ObjectInstanceId>\n        \"permission\": <AuthPermission>\n\n\n\n\nTrigger an event by name in the state of an object\n\n\n    POST  /track/event/:typename/:ObjectStateInstanceReferenceId/:eventName\n\n\n\n\nResponse\n\n\n        \"current_state\": <NewStateAfterEvent>\n        \"<typename>_smd\": <ObjectStateInstanceReferenceId>\n        \"is_state_of_<typename>\" = <ObjectInstanceId>\n\n\n\n\nEnabling state tracking for entity\n\n\nBegin with marking an entity as trackable. To do this, \n\n\n\n\n\n\ngo to the world tables page and edit the an entity\n\n\n\n\n\n\nCheck the \"Is state tracking enabled\" checkbox\n\n\n\n\n\n\nThis \"is_state_tracking_enabled\" options tells daptin to create the associated state table for the entity. Even though we have not yet specified which state machines are available for this entity.\n\n\nTo make a state machine available for an entity, go to the \"SMD\" tab of this entity on the same page and add the state machine by searching it by name and adding it.\n\n\nIt would not make a lot of sense if the above state machine was allowed for all type of entities.",
             "title": "State tracking"
         },
         {
@@ -447,18 +497,33 @@
         },
         {
             "location": "/data-modeling/state_tracking/#state-machine",
-            "text": "A state machine is a description of \"states\" which the object can be in, and list of all valid transactions from one state to another. Lets begin with an example:  The following JSON defines a state machine which has (a hypothetical state machine for tracking todos):   Initial state: to_be_done  List of valid states: to_be_done, delayed, started, ongoing, interrupted, completed  List of valid transitions, giving name to each event           {\n        \"Name\": \"task_status\",\n        \"Label\": \"Task Status\",\n        \"InitialState\": \"to_be_done\",\n        \"Events\": [{\n                \"Name\": \"start\",\n                \"Label\": \"Start\",\n                \"Src\": [\n                    \"to_be_done\",\n                    \"delayed\"\n                ],\n                \"Dst\": \"started\"\n            },\n            {\n                \"Name\": \"delayed\",\n                \"Label\": \"Unable to pick up\",\n                \"Src\": [\n                    \"to_be_done\"\n                ],\n                \"Dst\": \"delayed\"\n            },\n            {\n                \"Name\": \"ongoing\",\n                \"Label\": \"Record progress\",\n                \"Src\": [\n                    \"started\",\n                    \"ongoing\"\n                ],\n                \"Dst\": \"ongoing\"\n            },\n            {\n                \"Name\": \"interrupted\",\n                \"Label\": \"Interrupted\",\n                \"Src\": [\n                    \"started\",\n                    \"ongoing\"\n                ],\n                \"Dst\": \"interrupted\"\n            },\n            {\n                \"Name\": \"resume\",\n                \"Label\": \"Resume from interruption\",\n                \"Src\": [\n                    \"interrupted\"\n                ],\n                \"Dst\": \"ongoing\"\n            },\n            {\n                \"Name\": \"completed\",\n                \"Label\": \"Mark as completed\",\n                \"Src\": [\n                    \"ongoing\",\n                    \"started\"\n                ],\n                \"Dst\": \"completed\"\n            }\n        ]\n    }  State machines can be uploaded to Daptin just like entities and actions. A JSON/YAML file with a  StateMachineDescriptions  top level key can contain an array of state machine descriptions.",
+            "text": "A state machine is a description of \"states\" which the object can be in, and list of all valid transitions from one state to another. Let us begin with an example:  The following JSON defines a state machine which has (a hypothetical state machine for tracking todos):   Initial state: to_be_done  List of valid states: to_be_done, delayed, started, ongoing, interrupted, completed  List of valid transitions, giving name to each event           {\n        \"Name\": \"task_status\",\n        \"Label\": \"Task Status\",\n        \"InitialState\": \"to_be_done\",\n        \"Events\": [{\n                \"Name\": \"start\",\n                \"Label\": \"Start\",\n                \"Src\": [\n                    \"to_be_done\",\n                    \"delayed\"\n                ],\n                \"Dst\": \"started\"\n            },\n            {\n                \"Name\": \"delayed\",\n                \"Label\": \"Unable to pick up\",\n                \"Src\": [\n                    \"to_be_done\"\n                ],\n                \"Dst\": \"delayed\"\n            },\n            {\n                \"Name\": \"ongoing\",\n                \"Label\": \"Record progress\",\n                \"Src\": [\n                    \"started\",\n                    \"ongoing\"\n                ],\n                \"Dst\": \"ongoing\"\n            },\n            {\n                \"Name\": \"interrupted\",\n                \"Label\": \"Interrupted\",\n                \"Src\": [\n                    \"started\",\n                    \"ongoing\"\n                ],\n                \"Dst\": \"interrupted\"\n            },\n            {\n                \"Name\": \"resume\",\n                \"Label\": \"Resume from interruption\",\n                \"Src\": [\n                    \"interrupted\"\n                ],\n                \"Dst\": \"ongoing\"\n            },\n            {\n                \"Name\": \"completed\",\n                \"Label\": \"Mark as completed\",\n                \"Src\": [\n                    \"ongoing\",\n                    \"started\"\n                ],\n                \"Dst\": \"completed\"\n            }\n        ]\n    }  State machines can be uploaded to Daptin just like entities and actions. A JSON/YAML file with a  StateMachineDescriptions  top level key can contain an array of state machine descriptions.",
             "title": "State machine"
         },
         {
+            "location": "/data-modeling/state_tracking/#rest-api",
+            "text": "",
+            "title": "REST API"
+        },
+        {
+            "location": "/data-modeling/state_tracking/#start-tracking-an-object-by-state-machine-reference-id",
+            "text": "Request      POST  /track/start/:stateMachineId\n    {\"typeName\": <entityTypeName>, \"referenceId\": <ReferenceIdOfTheObject> }  Response          \"current_state\": <InitialStateOfTheStateMachine>\n        \"<typename>_smd\": <ObjectStateInstanceReferenceId>\n        \"is_state_of_<typename>\" = <ObjectInstanceId>\n        \"permission\": <AuthPermission>",
+            "title": "Start tracking an object by state machine reference id"
+        },
+        {
+            "location": "/data-modeling/state_tracking/#trigger-an-event-by-name-in-the-state-of-an-object",
+            "text": "POST  /track/event/:typename/:ObjectStateInstanceReferenceId/:eventName  Response          \"current_state\": <NewStateAfterEvent>\n        \"<typename>_smd\": <ObjectStateInstanceReferenceId>\n        \"is_state_of_<typename>\" = <ObjectInstanceId>",
+            "title": "Trigger an event by name in the state of an object"
+        },
+        {
             "location": "/data-modeling/state_tracking/#enabling-state-tracking-for-entity",
-            "text": "First we need to tell goms that an entity is trackable. To do this, go to the world table page and edit the corresponding entity. Check the \"Is state tracking enabled\" checkbox.  This \"is_state_tracking_enabled\" options tells daptin to create the associated state table for the entity. Even though we have not yet specified which state machines are available for this entity.  To make a state machine available for an entity, go to the \"SMD\" tab of the entity and add the state machine by searching it by name.  It would not make a lot of sense if the above state machine was allowed for all type of entities. Also since state of the objects in maintained in a separate table",
+            "text": "Begin with marking an entity as trackable. To do this,     go to the world tables page and edit the an entity    Check the \"Is state tracking enabled\" checkbox    This \"is_state_tracking_enabled\" options tells daptin to create the associated state table for the entity. Even though we have not yet specified which state machines are available for this entity.  To make a state machine available for an entity, go to the \"SMD\" tab of this entity on the same page and add the state machine by searching it by name and adding it.  It would not make a lot of sense if the above state machine was allowed for all type of entities.",
             "title": "Enabling state tracking for entity"
         },
         {
             "location": "/actions-streams/streams/",
             "text": "Streams\n\n\nStreams are complimentary to \nactions\n. Think of streams as views in SQL. A stream is basically one entity + set of transformations and filters on the entity. Streams are read-only and exposed with similar semantics of that of entities. Daptin will expose JSONAPI for each stream just like it does for entities.\n\n\nHere is an example of a stream which exposes list of completed todos only\n\n\n{\n        StreamName:     \"transformed_user\",\n        RootEntityName: \"todo\",\n        Columns: []api2go.ColumnInfo{          // List of columns in this stream\n            {\n                Name:       \"transformed_todo_title\",  \n                ColumnType: \"label\",\n            },\n            {\n                Name:       \"completed_on\",\n                ColumnType: \"datetime\",\n            },\n        },\n        QueryParams: QueryParams{\n            \"Filter\": \"completed=true\",\n            \"Select\": \"title,deadline\",\n        },\n        Transformations: []Transformation{\n            {\n                Operation: \"select\",\n                Attributes: map[string]interface{}{\n                    \"columns\": []string{\"title\", \"deadline\"},\n                },\n            },\n            {\n                Operation: \"rename\",\n                Attributes: map[string]interface{}{\n                    \"oldName\": \"title\",\n                    \"newName\": \"transformed_todo_title\",\n                },\n            },\n            {\n                Operation: \"rename\",\n                Attributes: map[string]interface{}{\n                    \"oldName\": \"deadline\",\n                    \"newName\": \"completed_on\",\n                },\n            },\n        },\n}   \n\n\n\n\nDaptin uses the library \nkniren/gota\n to systematically specific list of transformations which are applied to the original data stream.",
-            "title": "Data Streams"
+            "title": "Data streams"
         },
         {
             "location": "/actions-streams/streams/#streams",
@@ -467,23 +532,43 @@
         },
         {
             "location": "/auth/permissions/",
-            "text": "Permission model\n\n\nThe world table contains to relevant columns:\n\n\n\n\nPermission: defines the entity level permission\n\n\nDefault permission: defines the default permission for a new object of this entity type\n\n\n\n\nThe default permission for an object is picked from the default permission setting, and can be changed after the object creation (if the permission allows so).",
+            "text": "Permission model\n\n\nThe \nworld\n table contains two columns:\n\n\n\n\nPermission\n: defines the entity level permission\n\n\nDefault permission\n: defines the default permission for a new object of this entity type\n\n\n\n\nThe default permission for an object is picked from the default permission setting, and can be changed after the object creation (if the permission allows so).",
             "title": "Permission model"
         },
         {
             "location": "/auth/permissions/#permission-model",
-            "text": "The world table contains to relevant columns:   Permission: defines the entity level permission  Default permission: defines the default permission for a new object of this entity type   The default permission for an object is picked from the default permission setting, and can be changed after the object creation (if the permission allows so).",
+            "text": "The  world  table contains two columns:   Permission : defines the entity level permission  Default permission : defines the default permission for a new object of this entity type   The default permission for an object is picked from the default permission setting, and can be changed after the object creation (if the permission allows so).",
             "title": "Permission model"
         },
         {
             "location": "/extend/oauth_connection/",
-            "text": "OAuth Connections\n\n\nDaptin is natively aware of oauth2 flows and can seamlessly handle both oauth tokens and refresh tokens (if provided).\n\n\nTo begin using oauth involved flows (eg GoogleDrive as data storage) first goms need to be told about oauth integration.",
-            "title": "OAuth Connections"
+            "text": "OAuth Connections\n\n\nDaptin is natively aware of oauth2 flows and can seamlessly handle oauth tokens and refresh tokens (if provided).\n\n\nOauth connection are useful in consuming other parts of daptin easily, like cloud storage, sub-sites, 3rd party logins.\n\n\nTo begin using oauth involved flows (eg GoogleDrive as data storage) first daptin needs to be configured about the oauth connection parameters. \n\n\nCreating a new oauth connection\n\n\n\n\nLog into the dashboard\n\n\nClick the tile \"OAuth connections\"\n\n\nClick the green \"+\" button on the top right\n\n\nLeave \"Allow Login\" unchecked. We can change this later\n\n\nEnter your service's auth endpoint, eg for google its \"https://accounts.google.com/o/oauth2/auth\"\n\n\nClient Id\n: Client Id generated by the service for daptin\n\n\nClient Secret\n: Client secret, this will be stored after encryption and wont be retrievable from daptin.\n\n\nName\n: Identify it with a name \n\n\nRedirect Uri\n: Change this to \nhttp://<Domain>/oauth/response\n instead of \n/oauth/response\n\n\nResponse Type\n: code\n\n\nScope\n: Appropriate score defined by the oauth service to access the resource\n\n\nEg: \n\n\nfor gdrive: \nhttps://www.googleapis.com/auth/drive\n\n\nfor gsheet: \nhttps://www.googleapis.com/auth/spreadsheets\n\n\n\n\n\n\nToken Url\n: The token info url of the oauth service: eg: \nhttps://accounts.google.com/o/oauth2/token\n\n\n\n\nNow you can \ngenerate a token",
+            "title": "OAuth connections"
         },
         {
             "location": "/extend/oauth_connection/#oauth-connections",
-            "text": "Daptin is natively aware of oauth2 flows and can seamlessly handle both oauth tokens and refresh tokens (if provided).  To begin using oauth involved flows (eg GoogleDrive as data storage) first goms need to be told about oauth integration.",
+            "text": "Daptin is natively aware of oauth2 flows and can seamlessly handle oauth tokens and refresh tokens (if provided).  Oauth connection are useful in consuming other parts of daptin easily, like cloud storage, sub-sites, 3rd party logins.  To begin using oauth involved flows (eg GoogleDrive as data storage) first daptin needs to be configured about the oauth connection parameters.",
             "title": "OAuth Connections"
+        },
+        {
+            "location": "/extend/oauth_connection/#creating-a-new-oauth-connection",
+            "text": "Log into the dashboard  Click the tile \"OAuth connections\"  Click the green \"+\" button on the top right  Leave \"Allow Login\" unchecked. We can change this later  Enter your service's auth endpoint, eg for google its \"https://accounts.google.com/o/oauth2/auth\"  Client Id : Client Id generated by the service for daptin  Client Secret : Client secret, this will be stored after encryption and wont be retrievable from daptin.  Name : Identify it with a name   Redirect Uri : Change this to  http://<Domain>/oauth/response  instead of  /oauth/response  Response Type : code  Scope : Appropriate score defined by the oauth service to access the resource  Eg:   for gdrive:  https://www.googleapis.com/auth/drive  for gsheet:  https://www.googleapis.com/auth/spreadsheets    Token Url : The token info url of the oauth service: eg:  https://accounts.google.com/o/oauth2/token   Now you can  generate a token",
+            "title": "Creating a new oauth connection"
+        },
+        {
+            "location": "/extend/oauth_token/",
+            "text": "Oauth Token\n\n\nOauth tokens can be used internally to connect to other services which require authentication.\n\n\n\n\nTokens and Refresh token are stored encrytped inside the database\n\n\nRefresh token is used to generate new tokens if the existing token expires\n\n\n\n\nUse the oauth connection to generate a new token\n\n\n\n\nClick the \"expand\" icon on the card to go into detailed view\n\n\nOn the right side, under the \"Actions\" find \"Authenticate via OAuth\"\n\n\nClick it and click \"Submit\" in the next form to initiate the flow",
+            "title": "OAuth tokens"
+        },
+        {
+            "location": "/extend/oauth_token/#oauth-token",
+            "text": "Oauth tokens can be used internally to connect to other services which require authentication.   Tokens and Refresh token are stored encrytped inside the database  Refresh token is used to generate new tokens if the existing token expires",
+            "title": "Oauth Token"
+        },
+        {
+            "location": "/extend/oauth_token/#use-the-oauth-connection-to-generate-a-new-token",
+            "text": "Click the \"expand\" icon on the card to go into detailed view  On the right side, under the \"Actions\" find \"Authenticate via OAuth\"  Click it and click \"Submit\" in the next form to initiate the flow",
+            "title": "Use the oauth connection to generate a new token"
         }
     ]
 }

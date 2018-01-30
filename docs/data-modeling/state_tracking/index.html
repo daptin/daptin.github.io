@@ -64,7 +64,17 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../../setting-up/entity_relations/">Entity Relations</a>
+    <a class="" href="../../setting-up/entity_relations/">Entity relations</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../cloudstore/cloudstore/">Cloud storage</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../subsite/subsite/">Subsites</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -94,12 +104,12 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../../setting-up/marketplace/">Marketplace</a>
+    <a class="" href="../../setting-up/marketplace/">Market place</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../auditing/">Data Auditing</a>
+    <a class="" href="../auditing/">Data auditing</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -123,6 +133,8 @@
         
             <li><a class="toctree-l3" href="#state-machine">State machine</a></li>
         
+            <li><a class="toctree-l3" href="#rest-api">REST API</a></li>
+        
             <li><a class="toctree-l3" href="#enabling-state-tracking-for-entity">Enabling state tracking for entity</a></li>
         
         </ul>
@@ -133,7 +145,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../../actions-streams/streams/">Data Streams</a>
+    <a class="" href="../../actions-streams/streams/">Data streams</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -143,7 +155,12 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../../extend/oauth_connection/">OAuth Connections</a>
+    <a class="" href="../../extend/oauth_connection/">OAuth connections</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../extend/oauth_token/">OAuth tokens</a>
 	    </li>
           
         </ul>
@@ -181,7 +198,7 @@
                 <h1 id="state-tracking-for-entities">State tracking for entities</h1>
 <p>Tracking the status of things is one of the most common operation in most business flows. Daptin has a native support for state tracking and allows a lot of convienent features.</p>
 <h2 id="state-machine">State machine</h2>
-<p>A state machine is a description of "states" which the object can be in, and list of all valid transactions from one state to another. Lets begin with an example:</p>
+<p>A state machine is a description of "states" which the object can be in, and list of all valid transitions from one state to another. Let us begin with an example:</p>
 <p>The following JSON defines a state machine which has (a hypothetical state machine for tracking todos):</p>
 <ul>
 <li>Initial state: to_be_done</li>
@@ -250,12 +267,43 @@
 </code></pre>
 
 <p>State machines can be uploaded to Daptin just like entities and actions. A JSON/YAML file with a <code>StateMachineDescriptions</code> top level key can contain an array of state machine descriptions.</p>
+<h2 id="rest-api">REST API</h2>
+<h3 id="start-tracking-an-object-by-state-machine-reference-id">Start tracking an object by state machine reference id</h3>
+<p>Request</p>
+<pre><code>    POST  /track/start/:stateMachineId
+    {&quot;typeName&quot;: &lt;entityTypeName&gt;, &quot;referenceId&quot;: &lt;ReferenceIdOfTheObject&gt; }
+</code></pre>
+
+<p>Response</p>
+<pre><code>        &quot;current_state&quot;: &lt;InitialStateOfTheStateMachine&gt;
+        &quot;&lt;typename&gt;_smd&quot;: &lt;ObjectStateInstanceReferenceId&gt;
+        &quot;is_state_of_&lt;typename&gt;&quot; = &lt;ObjectInstanceId&gt;
+        &quot;permission&quot;: &lt;AuthPermission&gt;
+</code></pre>
+
+<h3 id="trigger-an-event-by-name-in-the-state-of-an-object">Trigger an event by name in the state of an object</h3>
+<pre><code>    POST  /track/event/:typename/:ObjectStateInstanceReferenceId/:eventName
+</code></pre>
+
+<p>Response</p>
+<pre><code>        &quot;current_state&quot;: &lt;NewStateAfterEvent&gt;
+        &quot;&lt;typename&gt;_smd&quot;: &lt;ObjectStateInstanceReferenceId&gt;
+        &quot;is_state_of_&lt;typename&gt;&quot; = &lt;ObjectInstanceId&gt;
+</code></pre>
+
 <h2 id="enabling-state-tracking-for-entity">Enabling state tracking for entity</h2>
-<p>First we need to tell goms that an entity is trackable. To do this, go to the world table page and edit the corresponding entity. Check the "Is state tracking enabled" checkbox.</p>
+<p>Begin with marking an entity as trackable. To do this, </p>
+<ul>
+<li>
+<p>go to the world tables page and edit the an entity</p>
+</li>
+<li>
+<p>Check the "Is state tracking enabled" checkbox</p>
+</li>
+</ul>
 <p>This "is_state_tracking_enabled" options tells daptin to create the associated state table for the entity. Even though we have not yet specified which state machines are available for this entity.</p>
-<p>To make a state machine available for an entity, go to the "SMD" tab of the entity and add the state machine by searching it by name.</p>
-<p>It would not make a lot of sense if the above state machine was allowed for all type of entities. Also since state of the objects in maintained in a separate table</p>
-<p><img alt="Entity designer" src="../gifs/enable_state_machine_for_todo.gif" /></p>
+<p>To make a state machine available for an entity, go to the "SMD" tab of this entity on the same page and add the state machine by searching it by name and adding it.</p>
+<p>It would not make a lot of sense if the above state machine was allowed for all type of entities. </p>
               
             </div>
           </div>
@@ -263,7 +311,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../actions-streams/streams/" class="btn btn-neutral float-right" title="Data Streams">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../actions-streams/streams/" class="btn btn-neutral float-right" title="Data streams">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../data_conformation/" class="btn btn-neutral" title="Data conformations"><span class="icon icon-circle-arrow-left"></span> Previous</a>

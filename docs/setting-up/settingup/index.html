@@ -65,6 +65,10 @@
         
             <li><a class="toctree-l3" href="#docker">Docker</a></li>
         
+            <li><a class="toctree-l3" href="#docker-compose">Docker compose</a></li>
+        
+            <li><a class="toctree-l3" href="#kubernetes">Kubernetes</a></li>
+        
             <li><a class="toctree-l3" href="#database-and-data-persistence">Database and data persistence</a></li>
         
             <li><a class="toctree-l3" href="#port">Port</a></li>
@@ -84,7 +88,17 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../entity_relations/">Entity Relations</a>
+    <a class="" href="../entity_relations/">Entity relations</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../cloudstore/cloudstore/">Cloud storage</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../subsite/subsite/">Subsites</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -114,12 +128,12 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../marketplace/">Marketplace</a>
+    <a class="" href="../marketplace/">Market place</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../../data-modeling/auditing/">Data Auditing</a>
+    <a class="" href="../../data-modeling/auditing/">Data auditing</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -139,7 +153,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../../actions-streams/streams/">Data Streams</a>
+    <a class="" href="../../actions-streams/streams/">Data streams</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -149,7 +163,12 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../../extend/oauth_connection/">OAuth Connections</a>
+    <a class="" href="../../extend/oauth_connection/">OAuth connections</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../extend/oauth_token/">OAuth tokens</a>
 	    </li>
           
         </ul>
@@ -192,9 +211,96 @@
 <p>To start daptin, execute <code>./daptin</code> which will create a local sqlite database and start listening on port 6336. To change the database or port, read below.</p>
 <h2 id="docker">Docker</h2>
 <p>A docker image is also available which can be deployed on any docker compatible hosting provider (aws, gce, linode, digitalocean, azure)</p>
+<p><img src="/images/aws.png" style="width: 200px">
+<img src="/images/digitalocean.jpg" style="width: 200px">
+<img src="/images/gce.png" style="width: 200px">
+<img src="/images/linode.jpg" style="width: 200px">
+<img src="/images/azure.jpg" style="width: 200px"></p>
 <p><a href="https://hub.docker.com/r/daptin/daptin/">https://hub.docker.com/r/daptin/daptin/</a></p>
 <p>To start daptin using docker</p>
 <p><code>docker run daptin/daptin</code></p>
+<h2 id="docker-compose">Docker compose</h2>
+<pre><code class="yaml">version: '3'
+services:
+    web:
+        image: devsupport
+        ports:
+            - &quot;8090:8080&quot;
+        restart: always
+        environment:
+          DAPTIN_PORT: '8080'
+          DAPTIN_DB_TYPE: 'mysql'
+          DAPTIN_DB_CONNECTION_STRING: 'dev:dev@tcp(mysqldb:3306)/daptin'
+        depends_on:
+            - mysqldb
+    mysqldb:
+        image: mysql
+        container_name: ${MYSQL_HOST}
+        restart: always
+        env_file:
+            - &quot;.env&quot;
+        environment:
+            - MYSQL_DATABASE=${MYSQL_DATABASE}
+            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+            - MYSQL_USER=${MYSQL_USER}
+            - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+        ports:
+            - &quot;8989:3306&quot;
+        volumes:
+            - &quot;./data/db/mysql:/var/lib/mysql&quot;
+</code></pre>
+
+<h2 id="kubernetes">Kubernetes</h2>
+<pre><code class="yaml">apiVersion: v1
+kind: Service
+metadata:
+  name: daptin-instance
+  labels:
+    app: daptin
+spec:
+  ports:
+    - port: 8080
+  selector:
+    app: daptin
+    tier: production
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: daptin-daptin
+  labels:
+    app: daptin
+spec:
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: daptin
+        tier: testing
+    spec:
+      containers:
+      - image: daptin/daptin:latest
+        name: daptin
+        args: ['-db_type', 'mysql', '-db_connection_string', 'user:password@tcp(&lt;mysql_service&gt;:3306)/daptin']
+        ports:
+        - containerPort: 8080
+          name: daptin
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: daptin-test
+spec:
+  rules:
+  - host: hello.website
+    http:
+      paths:
+      - backend:
+          serviceName: daptin-testing
+          servicePort: 8080
+</code></pre>
+
 <h2 id="database-and-data-persistence">Database and data persistence</h2>
 <p>Daptin can use one of the following database for data persistence</p>
 <ul>
