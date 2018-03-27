@@ -207,14 +207,16 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#daptin">DAPTIN</a></li>
-            <li><a href="#create-an-instance">Create an instance</a></li>
-            <li><a href="#import-data">Import data</a></li>
+        <li class="main active"><a href="#deploy">Deploy</a></li>
+        <li class="main "><a href="#import-data">Import data</a></li>
             <li><a href="#upload-from-dashboard">Upload from dashboard</a></li>
-            <li><a href="#tables">Tables</a></li>
-            <li><a href="#relations">Relations</a></li>
+        <li class="main "><a href="#apis">APIs</a></li>
+        <li class="main "><a href="#users-and-usergroups">Users and Usergroups</a></li>
+            <li><a href="#adding-users">Adding users</a></li>
+            <li><a href="#social-login">Social login</a></li>
+            <li><a href="#creating-usergroups">Creating usergroups</a></li>
             <li><a href="#actions">Actions</a></li>
-            <li><a href="#exchanges">Exchanges </a></li>
+            <li><a href="#data-exchanges">Data Exchanges </a></li>
             <li><a href="#state-machine-apis">State Machine APIs</a></li>
             <li><a href="#users-and-access">Users and access</a></li>
             <li><a href="#user-registration-api">User registration API</a></li>
@@ -232,11 +234,13 @@
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="daptin">DAPTIN<a class="headerlink" href="#daptin" title="Permanent link">Link</a></h1>
-<h2 id="create-an-instance"><a href="setting-up/settingup/">Create an instance</a><a class="headerlink" href="#create-an-instance" title="Permanent link">Link</a></h2>
-<h2 id="import-data">Import data<a class="headerlink" href="#import-data" title="Permanent link">Link</a></h2>
+<h1 id="deploy">Deploy<a class="headerlink" href="#deploy" title="Permanent link">Link</a></h1>
+<p><a href="setting-up/settingup/">Create an instance</a></p>
+<h1 id="import-data">Import data<a class="headerlink" href="#import-data" title="Permanent link">Link</a></h1>
 <p><img src="images/create_data.png"></p>
-<h2 id="upload-from-dashboard">Upload from dashboard<a class="headerlink" href="#upload-from-dashboard" title="Permanent link">Link</a></h2>
+<p>You can either directly import a csv or xls file to import unknown data and let daptin identify the columns and types.</p>
+<p>Read more <a href="http://localhost:8000/setting-up/entities/">here</a> </p>
+<h3 id="upload-from-dashboard">Upload from dashboard<a class="headerlink" href="#upload-from-dashboard" title="Permanent link">Link</a></h3>
 <p>Upload one of these files:</p>
 <table>
 <thead>
@@ -264,7 +268,150 @@
 </tr>
 </tbody>
 </table>
-<h2 id="tables">Tables<a class="headerlink" href="#tables" title="Permanent link">Link</a></h2>
+<h1 id="apis">APIs<a class="headerlink" href="#apis" title="Permanent link">Link</a></h1>
+<table>
+<thead>
+<tr>
+<th>GET</th>
+<th>/api/{entityName}</th>
+<th>Query Params</th>
+<th>Request Body</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POST</td>
+<td>/api/{entityName}</td>
+<td>page[size]= page[number] query filter</td>
+<td></td>
+<td>Find all rows, paginated with query and filters</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>/api/{entityName}/{id}</td>
+<td></td>
+<td>{"attributes": {  } "type": "{entityType} }</td>
+<td>Update row by reference id</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>/api/{entityName}/{id}</td>
+<td></td>
+<td>{"attributes": { } "type": "{entityType} }</td>
+<td>Update row by reference id</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/api/{entityName}/{id}</td>
+<td></td>
+<td></td>
+<td>Delete a row</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/api/{entityName}/{id}/{relationName}</td>
+<td>page[size]= page[number] query filter</td>
+<td></td>
+<td>Find all related rows by relation name, eg, "posts" of a user</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/api/{entityName}/{id}/{relationName}</td>
+<td></td>
+<td>{"id": , "type":  }</td>
+<td>Delete a related row, eg: delete post of a user. this only removes a relation and not the actual row.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/action/{entityName}/{actionName}</td>
+<td>Parameters for action</td>
+<td></td>
+<td>Invoke an action on an entity</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/action/{entityName}/{actionName}</td>
+<td></td>
+<td>{ "attribute": { Parameters for action }, "id": "&lt; object id &gt;" type: "&lt; entity type &gt;" }</td>
+<td>Invoke an action on an entity</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/track/start/{stateMachineId}</td>
+<td></td>
+<td>{ "id": " &lt; reference id &gt;", type: " &lt; entity type &gt; " }</td>
+<td>Start tracking according to the state machine for an object</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/track/event/{typename}/{objectStateId}/{eventName}</td>
+<td></td>
+<td></td>
+<td>Invoke an event on a particular track of the state machine for a object</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/live</td>
+<td></td>
+<td></td>
+<td>Initiate a web socket connection</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/apispec.raml</td>
+<td></td>
+<td></td>
+<td>RAML Spec for all API's</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/ping</td>
+<td></td>
+<td></td>
+<td>Replies with PONG, Good for liveness probe</td>
+</tr>
+</tbody>
+</table>
+<h1 id="users-and-usergroups">Users and Usergroups<a class="headerlink" href="#users-and-usergroups" title="Permanent link">Link</a></h1>
+<p>Daptin has a built-in user system. Users are identified by their authorization token or other means of identification. Users are idenfied as registered users or guests.</p>
+<p>You can choose to disable new user registration by disallowing the signup action in permissions.</p>
+<h2 id="adding-users">Adding users<a class="headerlink" href="#adding-users" title="Permanent link">Link</a></h2>
+<p>You can manually add users from the users page, or allow sign-up action to be performed by guests which will take care of creating a user and an associated usergroup for that user. All new signed up users will also be added to the "users" usergroup.</p>
+<p>Users and usergroups are just like other data in the system and is available over <code>/api/users</code> endpoint. You can choose to allow read/write permission directly to that table to allow other users/processes to use this api to read/create/update/delete users.</p>
+<h2 id="social-login">Social login<a class="headerlink" href="#social-login" title="Permanent link">Link</a></h2>
+<p>Daptin can work with any oauth flow aware identity provider to allow new users to be registered (if you have disabled normal signup).</p>
+<p>Create a <a href="extend/oauth_connection/">OAuth Connection</a> and mark "Allow login" to enable APIs for OAuth flow.</p>
+<p>Examples</p>
+<div class="admonition note">
+<p class="admonition-title">Google login configuration</p>
+<p><img alt="Google oauth" src="./images/oauth/google.png" /></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Dropbox login configuration</p>
+<p><img alt="Google oauth" src="./images/oauth/dropbox.png" /></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Github login configuration</p>
+<p><img alt="Google oauth" src="./images/oauth/github.png" /></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Linkedin login configuration</p>
+<p><img alt="Google oauth" src="./images/oauth/linkedin.png" /></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Encrypted values</p>
+<p>The secrets are stored after encryption so the value you see in above screenshots are encrypted values.</p>
+</div>
+<h2 id="creating-usergroups">Creating usergroups<a class="headerlink" href="#creating-usergroups" title="Permanent link">Link</a></h2>
+<h3 id="tables">Tables<a class="headerlink" href="#tables" title="Permanent link">Link</a></h3>
 <p>Tables are the basic data structure. Tables have columns. Each column has a particular data type. These tables are exposed over APIs under the <code>/api/</code> path. Checkout <a href="setting-up/entities/">entity documentation</a> for details.</p>
 <div class="admonition note">
 <p class="admonition-title">YAML example</p>
@@ -298,7 +445,7 @@
 </pre></div>
 
 </div>
-<h2 id="relations">Relations<a class="headerlink" href="#relations" title="Permanent link">Link</a></h2>
+<h3 id="relations">Relations<a class="headerlink" href="#relations" title="Permanent link">Link</a></h3>
 <p>Relations are constraints among tables and help you keep clean and consistent data. Relational data is easily accessible over APIs using a path structure like <code>/api/&lt;entityName&gt;/&lt;id&gt;/&lt;relationName&gt;</code> and the response is consistent with <a href="https://JSONAPI.org">JSONAPI.org</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">YAML example</p>
@@ -403,7 +550,7 @@
 </pre></div>
 
 </div>
-<h2 id="exchanges">Exchanges <img style="float: right" src="images/exchanges.png" class="cloud-provider"><a class="headerlink" href="#exchanges" title="Permanent link">Link</a></h2>
+<h2 id="data-exchanges">Data Exchanges <img style="float: right" src="images/exchanges.png" class="cloud-provider"><a class="headerlink" href="#data-exchanges" title="Permanent link">Link</a></h2>
 <p>Exchanges are internal hooks to external apis, to either push data and update an external service, or pull data and update itself from some external service.</p>
 <p>Example, use exchange to sync data creation call to Google Sheets. So on every row created using the POST API also creates a corresponding row in your google sheet.</p>
 <div class="admonition note">
@@ -682,5 +829,5 @@
 
 <!--
 MkDocs version : 0.17.2
-Build Date UTC : 2018-03-04 18:29:08
+Build Date UTC : 2018-03-27 11:24:03
 -->
