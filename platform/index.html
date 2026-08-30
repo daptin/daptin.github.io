@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Platform — Daptin</title>
-  <meta name="description" content="See how Daptin turns one resource model into APIs, permissions, actions, events, storage, integrations, protocols, and operational controls.">
+  <title>Platform | Daptin</title>
+  <meta name="description" content="See how Daptin creates API routes, permission checks, actions, events, file storage, integrations, and protocols from configured tables.">
   <meta name="theme-color" content="#111316">
   <link rel="canonical" href="https://daptin.github.io/platform/">
   <link rel="icon" href="../images/theme-favicon.png">
   <link rel="stylesheet" href="../styles.css">
-  <meta property="og:type" content="website"><meta property="og:title" content="Inside the Daptin application server"><meta property="og:description" content="One resource graph, one policy layer, and many connected backend surfaces."><meta property="og:url" content="https://daptin.github.io/platform/">
-  <meta property="og:image" content="https://daptin.github.io/images/og-card.png"><meta property="og:image:alt" content="Daptin — Your data model is the backend"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://daptin.github.io/images/og-card.png">
+  <meta property="og:type" content="website"><meta property="og:title" content="Inside the Daptin application server"><meta property="og:description" content="Resource metadata, policy checks, request handling, and deployment structure in Daptin."><meta property="og:url" content="https://daptin.github.io/platform/">
+  <meta property="og:image" content="https://daptin.github.io/images/og-card.png"><meta property="og:image:alt" content="Daptin: Your data model is the backend"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://daptin.github.io/images/og-card.png">
 </head>
 <body class="inner-page">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -22,13 +22,13 @@
 
   <main id="main">
     <section class="page-hero page-hero-orange">
-      <div><p class="eyebrow"><span></span> Platform architecture</p><h1>One resource graph.<br><em>Every product surface.</em></h1></div>
-      <div class="page-hero-copy"><p>Daptin’s core idea is simple: backend capabilities work better when they share the same data model, identity, permissions, and runtime configuration.</p><a class="button button-primary" href="https://github.com/daptin/daptin/wiki/Daptin-Application-Server-Feature-Map">Read the technical feature map <span>→</span></a></div>
+      <div><p class="eyebrow"><span></span> How Daptin works</p><h1>From a table definition<br><em>to API requests.</em></h1></div>
+      <div class="page-hero-copy"><p>Daptin loads table definitions and uses them to create routes, validate fields, check permissions, run actions, store files, and publish events.</p><a class="button button-primary" href="https://github.com/daptin/daptin/wiki/Daptin-Application-Server-Feature-Map">Read the technical feature map <span>→</span></a></div>
     </section>
 
     <section class="platform-stack" aria-labelledby="stack-title">
-      <div class="platform-stack-copy"><span class="kicker">THE RUNTIME CONTRACT</span><h2 id="stack-title">Schema enters once.<br>Policy follows everywhere.</h2><p>Daptin loads schema and configuration into a resource runtime. Each configured table becomes data, API routes, permission checks, relationship behavior, metadata, and an attachment point for actions and events.</p></div>
-      <div class="stack-diagram" role="img" aria-label="Schema flows through resource runtime and policy into backend surfaces">
+      <div class="platform-stack-copy"><span class="kicker">SCHEMA LOADING</span><h2 id="stack-title">Daptin reads YAML<br>or JSON at startup.</h2><p>For each table, it creates database access, API routes, validation, relationships, permission checks, metadata, and action and event hooks.</p></div>
+      <div class="stack-diagram" role="img" aria-label="A schema passes through validation and permission checks before Daptin exposes APIs and services">
         <div class="stack-input"><span>YAML / JSON</span><strong>Schema &amp; configuration</strong></div>
         <i aria-hidden="true"></i>
         <div class="stack-core"><small>SHARED CORE</small><strong>Resource runtime</strong><span>Validation · Relations · Permissions · Metering · Events</span></div>
@@ -38,14 +38,14 @@
     </section>
 
     <section class="system-data">
-      <div><span class="kicker">CONFIGURATION AS DATA</span><h2>The backend can describe itself.</h2><p>Many Daptin capabilities are configured through ordinary system resources. You manage them through the same APIs and permission model as application data.</p></div>
+      <div><span class="kicker">CONFIGURATION AS DATA</span><h2>System resources configure the runtime.</h2><p>Tables such as <code>action</code>, <code>task</code>, <code>cloud_store</code>, <code>integration</code>, <code>llm_provider</code>, and <code>api_plan</code> use the API and permission model.</p></div>
       <div class="system-table-list">
         <article><code>world</code><p>Schema and table metadata</p></article><article><code>action</code><p>Executable backend operations</p></article><article><code>task</code><p>Scheduled action invocation</p></article><article><code>site</code><p>Hosted site and route configuration</p></article><article><code>cloud_store</code><p>Local and remote storage</p></article><article><code>integration</code><p>External API operations</p></article><article><code>llm_provider</code><p>Model and provider routing</p></article><article><code>api_plan</code><p>Metering, quota, and price policy</p></article><article><code>credential</code><p>Encrypted runtime secrets</p></article><article><code>mail_server</code><p>Mail domains and delivery</p></article>
       </div>
     </section>
 
     <section class="request-flow">
-      <div class="request-flow-heading"><span class="kicker">ONE REQUEST / ONE POLICY CHAIN</span><h2>Consistency is a runtime property.</h2><p>Every resource request moves through a shared sequence instead of duplicating rules in each transport or feature.</p></div>
+      <div class="request-flow-heading"><span class="kicker">REQUEST FLOW</span><h2>How Daptin handles<br>a resource request.</h2><p>Daptin identifies the user, checks permissions, validates fields, reads or changes the record, records usage when enabled, and publishes successful changes.</p></div>
       <ol>
         <li><span>01</span><strong>Authenticate</strong><p>Resolve the session, user, and groups.</p></li>
         <li><span>02</span><strong>Authorize</strong><p>Check entity, object, relation, or action access.</p></li>
@@ -57,7 +57,7 @@
     </section>
 
     <section class="deployment-section">
-      <div class="deployment-heading"><span class="kicker">DEPLOYMENT SHAPE</span><h2>Start compact.<br>Scale the shared services.</h2></div>
+      <div class="deployment-heading"><span class="kicker">DEPLOYMENT</span><h2>One process locally.<br>Multiple instances when needed.</h2></div>
       <div class="deployment-grid">
         <article><span>LOCAL</span><h3>One process</h3><p>Run one binary with SQLite and local files for evaluation, prototyping, demos, or edge installations.</p><code>./daptin -port=6336</code></article>
         <article><span>PRODUCTION</span><h3>Durable infrastructure</h3><p>Use PostgreSQL or MySQL, persistent object storage, stable secrets, HTTPS, backups, monitoring, and enabled-only protocols.</p><code>app + database + storage</code></article>
@@ -66,12 +66,12 @@
     </section>
 
     <section class="principles">
-      <div><span class="kicker">DESIGN PRINCIPLES</span><h2>What Daptin optimizes for.</h2></div>
-      <div class="principle-grid"><article><h3>Own the data</h3><p>Use standard databases and infrastructure you control.</p></article><article><h3>Compose, don’t stitch</h3><p>Capabilities meet at shared resource and permission boundaries.</p></article><article><h3>Make behavior discoverable</h3><p>Expose metadata and OpenAPI rather than hiding runtime contracts.</p></article><article><h3>Enable only what you use</h3><p>GraphQL, YJS, mail, FTP, and WebDAV-style routes stay config-gated.</p></article><article><h3>Keep product logic server-side</h3><p>Actions, schedules, credentials, and metering remain behind the API.</p></article><article><h3>Exit cleanly</h3><p>Readiness, bounded drains, and ordered dependency shutdown protect work in flight.</p></article></div>
+      <div><span class="kicker">DESIGN PRINCIPLES</span><h2>Runtime design choices.</h2></div>
+      <div class="principle-grid"><article><h3>Standard databases</h3><p>Use SQLite, MySQL, MariaDB, or PostgreSQL.</p></article><article><h3>Shared permission checks</h3><p>Records, relationships, actions, topics, and integrations use the same user and group permissions.</p></article><article><h3>API descriptions</h3><p>Metadata and OpenAPI list the available resources and actions.</p></article><article><h3>Optional services</h3><p>GraphQL, YJS, mail, FTP, and WebDAV-style routes start when enabled.</p></article><article><h3>Server-side actions</h3><p>Actions and schedules run in Daptin, where they can access stored credentials and metering records.</p></article><article><h3>Ordered shutdown</h3><p>Daptin stops accepting requests, waits for active work, then closes its services and database.</p></article></div>
     </section>
 
-    <section class="final-cta"><div><span class="kicker">SEE THE SURFACE AREA</span><h2>Explore everything<br>the runtime provides.</h2></div><div class="final-actions"><a class="button button-light" href="../features/">Browse all features <span>→</span></a><a href="https://github.com/daptin/daptin/wiki/Production-Deployment">Production deployment guide ↗</a></div></section>
+    <section class="final-cta"><div><span class="kicker">FEATURE REFERENCE</span><h2>Browse the APIs,<br>services, and tools.</h2></div><div class="final-actions"><a class="button button-light" href="../features/">Browse all features <span>→</span></a><a href="https://github.com/daptin/daptin/wiki/Production-Deployment">Production deployment guide ↗</a></div></section>
   </main>
-  <footer><div class="brand footer-brand"><img src="../images/theme-logo.png" width="36" height="36" alt=""><span>Daptin</span></div><p>Open source application infrastructure for teams that want to own their backend.</p><nav aria-label="Footer navigation"><a href="../features/">Features</a><a href="../why-daptin/">Why Daptin</a><a href="../ecosystem/">Ecosystem</a><a href="https://github.com/daptin/daptin/wiki">Docs</a><a href="https://github.com/daptin/daptin/releases">Releases</a><a href="https://discord.gg/t564q8SQVk">Discord</a></nav><small>LGPL-3.0 · Built in Go</small></footer>
+  <footer><div class="brand footer-brand"><img src="../images/theme-logo.png" width="36" height="36" alt=""><span>Daptin</span></div><p>Self-hosted application server built in Go.</p><nav aria-label="Footer navigation"><a href="../features/">Features</a><a href="../why-daptin/">Why Daptin</a><a href="../ecosystem/">Ecosystem</a><a href="https://github.com/daptin/daptin/wiki">Docs</a><a href="https://github.com/daptin/daptin/releases">Releases</a><a href="https://discord.gg/t564q8SQVk">Discord</a></nav><small>LGPL-3.0 · Built in Go</small></footer>
 </body>
 </html>

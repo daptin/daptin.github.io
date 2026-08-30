@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ecosystem — Daptin</title>
-  <meta name="description" content="Explore Daptin's CLI, JavaScript and Go clients, package-manager distribution, reusable schemas, applications, and runnable API contract demos.">
+  <title>Ecosystem | Daptin</title>
+  <meta name="description" content="Daptin CLI, JavaScript and Go clients, installation packages, reusable schemas, applications, and runnable demos.">
   <meta name="theme-color" content="#111316">
   <link rel="canonical" href="https://daptin.github.io/ecosystem/">
   <link rel="icon" href="../images/theme-favicon.png">
   <link rel="stylesheet" href="../styles.css">
   <meta property="og:type" content="website">
   <meta property="og:title" content="The Daptin ecosystem">
-  <meta property="og:description" content="Developer tools, clients, schemas, complete applications, and runnable proofs around the Daptin application server.">
+  <meta property="og:description" content="Developer tools, clients, schemas, applications, and runnable demos for Daptin.">
   <meta property="og:url" content="https://daptin.github.io/ecosystem/">
   <meta property="og:image" content="https://daptin.github.io/images/og-card.png">
-  <meta property="og:image:alt" content="Daptin — Your data model is the backend">
+  <meta property="og:image:alt" content="Daptin: Your data model is the backend">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://daptin.github.io/images/og-card.png">
 </head>
@@ -28,12 +28,12 @@
 
   <main id="main">
     <section class="page-hero page-hero-dark">
-      <div><p class="eyebrow"><span></span> Tools, clients, examples, proof</p><h1>The server is only<br><em>the beginning.</em></h1></div>
-      <div class="page-hero-copy"><p>Use Daptin through plain HTTP, a self-describing CLI, JavaScript and TypeScript, or Go. Start from reusable schemas, inspect focused contract demos, and see complete applications built on the same runtime.</p><a class="button button-light" href="https://github.com/orgs/daptin/repositories">Browse the organization <span>↗</span></a></div>
+      <div><p class="eyebrow"><span></span> Daptin repositories</p><h1>Server, clients,<br><em>schemas, and demos.</em></h1></div>
+      <div class="page-hero-copy"><p>Call Daptin through HTTP, its CLI, the JavaScript client, or the Go client. The organization also contains reusable schemas, runnable demos, and application examples.</p><a class="button button-light" href="https://github.com/orgs/daptin/repositories">Browse the organization <span>↗</span></a></div>
     </section>
 
     <section class="toolchain-section">
-      <div class="toolchain-heading"><span class="kicker">CHOOSE YOUR INTERFACE</span><h2>One backend.<br>Four practical entry points.</h2><p>The API remains the contract. The surrounding tools make common development and operations work faster without making them mandatory.</p></div>
+      <div class="toolchain-heading"><span class="kicker">CLIENT OPTIONS</span><h2>Choose an interface.</h2><p>The server exposes HTTP APIs. The CLI, JavaScript client, and Go client call those APIs and add helpers for common operations.</p></div>
       <div class="toolchain-grid">
         <article><span>SERVER</span><h3>Run the binary</h3><code>docker run -p 127.0.0.1:6336:8080 daptin/daptin:v0.12.36</code><p>Start locally with SQLite, then choose a production database and storage.</p><a href="https://github.com/daptin/daptin/releases/latest">Latest release ↗</a></article>
         <article><span>CLI</span><h3>Discover and operate</h3><code>daptin-cli describe action integration install_integration</code><p>Manage contexts, resources, relations, actions, OAuth, storage, and assets.</p><a href="https://github.com/daptin/daptin-cli">Explore the CLI ↗</a></article>
@@ -48,18 +48,18 @@
     </section>
 
     <section class="proof-lab proof-lab-light">
-      <div class="proof-lab-heading"><span class="kicker">RUNNABLE CONTRACT PROOFS</span><h2>Verify the difficult parts.</h2><p>These focused repositories exercise real Daptin surfaces end to end. They are implementation evidence, not invented customer stories.</p></div>
+      <div class="proof-lab-heading"><span class="kicker">RUNNABLE DEMOS</span><h2>Test specific Daptin flows.</h2><p>Each repository includes setup instructions and runs its OAuth, LLM, metering, or integration flow against Daptin.</p></div>
       <div class="proof-grid">
-        <a href="https://github.com/daptin/daptin-llm-demo"><span>LLM API CONTRACT</span><h3>Official OpenAI SDK compatibility</h3><p>Exercises model listing, chat, streaming, completions, embeddings, usage, and structured errors through Daptin’s <code>/v1</code> routes.</p><b>Open demo ↗</b></a>
+        <a href="https://github.com/daptin/daptin-llm-demo"><span>LLM API</span><h3>Official OpenAI SDK compatibility</h3><p>Exercises model listing, chat, streaming, completions, embeddings, usage, and structured errors through Daptin’s <code>/v1</code> routes.</p><b>Open demo ↗</b></a>
         <a href="https://github.com/daptin/daptin-oauth-provider-demo"><span>IDENTITY PROVIDER</span><h3>OAuth 2.0 and OpenID Connect</h3><p>Runs authorization code with PKCE, confidential token exchange, client registration, userinfo, and Daptin consuming its own provider.</p><b>Open demo ↗</b></a>
         <a href="https://github.com/daptin/daptin-metering-credit-demo"><span>PRODUCT CONTROLS</span><h3>Metering, quotas, and credits</h3><p>Demonstrates metered CRUD and model usage, hard quota denial, usage audit records, credit wallets, and post-metering debits.</p><b>Open demo ↗</b></a>
         <a href="https://github.com/daptin/daptin-integration-auth-demo"><span>CREDENTIAL BOUNDARIES</span><h3>Per-user integration authentication</h3><p>Tests OAuth tokens and encrypted custom credentials, including ownership checks and wrong-user denial paths.</p><b>Open demo ↗</b></a>
-        <a href="https://github.com/daptin/daptin-oauth-two-instance-demo"><span>COMPOSITION</span><h3>Provider and consumer instances</h3><p>Runs two Daptin instances through the standard OAuth authorization-code flow without a helper application server.</p><b>Open demo ↗</b></a>
+        <a href="https://github.com/daptin/daptin-oauth-two-instance-demo"><span>TWO INSTANCES</span><h3>Provider and consumer instances</h3><p>Runs the OAuth provider and consumer roles on separate Daptin instances through the authorization code flow.</p><b>Open demo ↗</b></a>
       </div>
     </section>
 
     <section class="starting-points">
-      <div><span class="kicker">APPLICATION STARTING POINTS</span><h2>Move from capability<br>to product shape.</h2><p>The application repositories range from reusable schemas to complete interfaces. Older examples are labeled honestly: useful for understanding the model, not promises of a current design system.</p></div>
+      <div><span class="kicker">SCHEMAS AND APPLICATIONS</span><h2>Start from an<br>existing repository.</h2><p>Schema samples are current. Dadadash is a complete application. The other repositories are marked as historical examples where applicable.</p></div>
       <div class="starting-grid">
         <a href="https://github.com/daptin/daptin-schema-samples"><span class="repo-state current">SCHEMAS</span><strong>Schema samples</strong><p>Blog, FAQ, store, construction, payment, style, transaction, and todo resource models.</p></a>
         <a href="https://github.com/daptin/dadadash"><span class="repo-state example">COMPLETE APP</span><strong>Dadadash</strong><p>An office-style application with workspaces, tables, files, documents, spreadsheets, and calendars.</p></a>
@@ -72,18 +72,18 @@
     </section>
 
     <section class="repository-map">
-      <div><span class="kicker">THE COMPLETE ORGANIZATION MAP</span><h2>Every public repository,<br>with its role made clear.</h2></div>
+      <div><span class="kicker">REPOSITORY DIRECTORY</span><h2>Daptin organization<br>repositories.</h2></div>
       <div class="repo-groups">
         <section><h3>Runtime &amp; developer tools</h3><div><a href="https://github.com/daptin/daptin">daptin <span>Core server</span></a><a href="https://github.com/daptin/daptin-cli">daptin-cli <span>Operations CLI</span></a><a href="https://github.com/daptin/daptin-js-client">daptin-js-client <span>JS/TS client</span></a><a href="https://github.com/daptin/daptin-go-client">daptin-go-client <span>Go client</span></a><a href="https://github.com/daptin/homebrew-tap">homebrew-tap <span>macOS/Linux packages</span></a><a href="https://github.com/daptin/scoop-bucket">scoop-bucket <span>Windows packages</span></a></div></section>
-        <section><h3>Current focused demos</h3><div><a href="https://github.com/daptin/daptin-llm-demo">daptin-llm-demo <span>OpenAI contract</span></a><a href="https://github.com/daptin/daptin-metering-credit-demo">daptin-metering-credit-demo <span>Usage and credits</span></a><a href="https://github.com/daptin/daptin-integration-auth-demo">daptin-integration-auth-demo <span>Credential isolation</span></a><a href="https://github.com/daptin/daptin-oauth-provider-demo">daptin-oauth-provider-demo <span>OAuth/OIDC provider</span></a><a href="https://github.com/daptin/daptin-oauth-two-instance-demo">daptin-oauth-two-instance-demo <span>Provider/consumer flow</span></a></div></section>
+        <section><h3>Current focused demos</h3><div><a href="https://github.com/daptin/daptin-llm-demo">daptin-llm-demo <span>OpenAI API</span></a><a href="https://github.com/daptin/daptin-metering-credit-demo">daptin-metering-credit-demo <span>Usage and credits</span></a><a href="https://github.com/daptin/daptin-integration-auth-demo">daptin-integration-auth-demo <span>Credential isolation</span></a><a href="https://github.com/daptin/daptin-oauth-provider-demo">daptin-oauth-provider-demo <span>OAuth/OIDC provider</span></a><a href="https://github.com/daptin/daptin-oauth-two-instance-demo">daptin-oauth-two-instance-demo <span>Provider/consumer flow</span></a></div></section>
         <section><h3>Apps, schemas &amp; examples</h3><div><a href="https://github.com/daptin/dadadash">dadadash <span>Office-style application</span></a><a href="https://github.com/daptin/daptin-schema-samples">daptin-schema-samples <span>Reusable resource models</span></a><a href="https://github.com/daptin/daptin-sites">daptin-sites <span>Site template experiment</span></a><a href="https://github.com/daptin/dashboard-classic">dashboard-classic <span>Classic admin UI</span></a><a href="https://github.com/daptin/image-gallery">image-gallery <span>Asset example</span></a><a href="https://github.com/daptin/vue_typescript_starter_kit">vue_typescript_starter_kit <span>Frontend starter</span></a><a href="https://github.com/daptin/todomvc-examples">todomvc-examples <span>Todo example</span></a></div></section>
         <section><h3>Project infrastructure &amp; history</h3><div><a href="https://github.com/daptin/daptin.github.io">daptin.github.io <span>This website</span></a><a href="https://github.com/daptin/documentation">documentation <span>Historical docs source</span></a><a href="https://github.com/daptin/headlesscms.org">headlesscms.org <span>Forked community project</span></a><a href="https://github.com/daptin/olric">olric <span>Forked runtime dependency</span></a><a href="https://github.com/daptin/xgo">xgo <span>Forked release tooling</span></a></div></section>
       </div>
     </section>
 
-    <section class="final-cta"><div><span class="kicker">START WITH THE CORE</span><h2>Run Daptin.<br>Then choose your interface.</h2></div><div class="final-actions"><a class="button button-light" href="https://github.com/daptin/daptin/wiki/Getting-Started-Guide">Follow the quickstart <span>→</span></a><a href="../why-daptin/">Decide if Daptin fits ↗</a></div></section>
+    <section class="final-cta"><div><span class="kicker">RUN DAPTIN LOCALLY</span><h2>Install the server,<br>then choose a client.</h2></div><div class="final-actions"><a class="button button-light" href="https://github.com/daptin/daptin/wiki/Getting-Started-Guide">Follow the quickstart <span>→</span></a><a href="../why-daptin/">Compare deployment options ↗</a></div></section>
   </main>
 
-  <footer><div class="brand footer-brand"><img src="../images/theme-logo.png" width="36" height="36" alt=""><span>Daptin</span></div><p>Open source application infrastructure for teams that want to own their backend.</p><nav aria-label="Footer navigation"><a href="../features/">Features</a><a href="../platform/">Platform</a><a href="../why-daptin/">Why Daptin</a><a href="https://github.com/daptin/daptin/wiki">Docs</a><a href="https://github.com/daptin/daptin/releases">Releases</a><a href="https://discord.gg/t564q8SQVk">Discord</a></nav><small>LGPL-3.0 · Built in Go</small></footer>
+  <footer><div class="brand footer-brand"><img src="../images/theme-logo.png" width="36" height="36" alt=""><span>Daptin</span></div><p>Self-hosted application server built in Go.</p><nav aria-label="Footer navigation"><a href="../features/">Features</a><a href="../platform/">Platform</a><a href="../why-daptin/">Why Daptin</a><a href="https://github.com/daptin/daptin/wiki">Docs</a><a href="https://github.com/daptin/daptin/releases">Releases</a><a href="https://discord.gg/t564q8SQVk">Discord</a></nav><small>LGPL-3.0 · Built in Go</small></footer>
 </body>
 </html>
