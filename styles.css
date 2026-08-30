@@ -136,6 +136,7 @@ main, footer { margin: 0 auto; max-width: 1440px; }
 .interface-rail { display: grid; grid-template-columns: repeat(8,1fr); padding-inline: clamp(1.5rem,6vw,6rem); }
 .interface-rail span { border: 1px solid var(--line); color: var(--muted); font: .58rem ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing: .05em; margin: -1px 0 0 -1px; padding: .9rem .4rem; text-align: center; text-transform: uppercase; }
 .developer-bridge { display: grid; gap: clamp(3rem,7vw,7rem); grid-template-columns: .7fr 1.3fr; padding: clamp(5rem,10vw,9rem) clamp(1.5rem,6vw,6rem); }
+.developer-bridge > *, .evidence-body > * { min-width: 0; }
 .developer-bridge h2, .ecosystem-gateway h2 { font-size: clamp(2.4rem,5vw,4.7rem); letter-spacing: -.055em; line-height: .98; margin: 1rem 0 1.5rem; }
 .developer-bridge > div:first-child > p, .ecosystem-gateway > div:first-child > p { color: var(--muted); line-height: 1.75; max-width: 34rem; }
 .developer-panels { background: var(--ink); color: var(--white); padding: 1.2rem; }
@@ -406,6 +407,26 @@ footer small { grid-column: 2; }
 .proof-lab-light .proof-grid a > span, .proof-lab-light .proof-grid b { color: var(--blue-deep); }
 .proof-lab-light .proof-grid code { color: #9b5a00; }
 
+.product-evidence { background: var(--paper); border-top: 1px solid var(--line); padding: clamp(5rem,10vw,9rem) clamp(1.5rem,6vw,6rem); }
+.evidence-heading { display: grid; gap: 1.5rem 4rem; grid-template-columns: .9fr 1.1fr; }
+.evidence-heading .kicker { grid-column: 1 / -1; }
+.evidence-heading h2 { font-size: clamp(2.5rem,5vw,4.8rem); letter-spacing: -.055em; line-height: .98; margin: 0; }
+.evidence-heading > p { color: var(--muted); line-height: 1.75; margin: .25rem 0 0; max-width: 38rem; }
+.evidence-links { display: flex; flex-wrap: wrap; gap: .8rem 1.4rem; grid-column: 2; }
+.evidence-links a, .terminal-links a { color: var(--blue-deep); font-size: .7rem; font-weight: 750; }
+.evidence-body { display: grid; gap: 1.5rem; grid-template-columns: 1.35fr .65fr; margin-top: 4rem; }
+.product-shot { background: var(--white); border: 1px solid var(--line); margin: 0; overflow: hidden; }
+.product-shot img { aspect-ratio: 1728 / 405; height: auto; object-fit: cover; width: 100%; }
+.product-shot figcaption { align-items: center; display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 1.2rem; }
+.product-shot figcaption strong { font-size: .78rem; }
+.product-shot figcaption span { color: var(--muted); font-size: .66rem; text-align: right; }
+.product-shot figcaption a { color: var(--blue-deep); }
+.evidence-terminal { background: var(--ink); color: var(--white); min-width: 0; }
+.evidence-terminal pre { color: #e8edf0; font: .72rem/1.65 ui-monospace,SFMono-Regular,Menlo,monospace; margin: 0; overflow: auto; padding: 1.4rem; }
+.terminal-comment { color: #7b858d; }
+.terminal-links { border-top: 1px solid #373a3f; display: flex; flex-wrap: wrap; gap: 1rem; padding: 1rem 1.4rem; }
+.terminal-links a { color: #78cae4; }
+
 .starting-points { display: grid; gap: 4rem; grid-template-columns: .65fr 1.35fr; }
 .starting-grid { display: grid; grid-template-columns: repeat(2,1fr); }
 .starting-grid a { border: 1px solid var(--line); display: flex; flex-direction: column; margin: -1px 0 0 -1px; min-height: 190px; padding: 1.4rem; }
@@ -477,7 +498,8 @@ footer small { grid-column: 2; }
   .hero { grid-template-columns: 1fr; min-height: auto; }
   .system-card { max-width: 640px; }
   .quickstart { grid-template-columns: 1fr; }
-  .section-intro, .architecture, .final-cta, .use-case-preview, .ownership-band, .page-hero, .platform-stack, .system-data, .principles, .example-projects, .ecosystem-section, .deployment-ladder, .install-band, .license-band, .distribution-band, .starting-points, .repository-map, .difference-section, .replacement-map, .adoption-section, .nonfit-section, .proof-callout, .developer-bridge, .ecosystem-gateway { gap: 2.5rem; grid-template-columns: 1fr; }
+  .section-intro, .architecture, .final-cta, .use-case-preview, .ownership-band, .page-hero, .platform-stack, .system-data, .principles, .example-projects, .ecosystem-section, .deployment-ladder, .install-band, .license-band, .distribution-band, .starting-points, .repository-map, .difference-section, .replacement-map, .adoption-section, .nonfit-section, .proof-callout, .developer-bridge, .ecosystem-gateway, .evidence-heading, .evidence-body { gap: 2.5rem; grid-template-columns: 1fr; }
+  .evidence-heading .kicker, .evidence-links { grid-column: auto; }
   .interface-rail { grid-template-columns: repeat(4,1fr); }
   .feature-grid { grid-template-columns: repeat(2,1fr); }
   .feature-index { position: static; }
@@ -499,6 +521,8 @@ footer small { grid-column: 2; }
   .actions { align-items: stretch; flex-direction: column; }
   .system-card { box-shadow: 10px 12px 0 #d9edf4; }
   .feature-grid, .how ol, .outputs, .ownership-points, .detail-grid, .stack-outputs, .system-table-list, .request-flow ol, .deployment-grid, .principle-grid, .fit-grid, .project-grid, .ecosystem-grid, .ownership-pillars, .tradeoff-grid, .deployment-ladder ol, .toolchain-grid, .distribution-grid, .proof-grid, .starting-grid, .repo-groups section > div, .difference-grid, .decision-cards, .adoption-grid, .nonfit-grid, .ecosystem-stack { grid-template-columns: 1fr; }
+  .product-shot figcaption { align-items: flex-start; flex-direction: column; }
+  .product-shot figcaption span { text-align: left; }
   .interface-rail { grid-template-columns: repeat(2,1fr); }
   .feature { min-height: 280px; }
   .how li { margin-bottom: 2rem; }

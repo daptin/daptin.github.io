@@ -13,8 +13,13 @@
   <meta property="og:title" content="Daptin — Your data model is the backend">
   <meta property="og:description" content="A self-hosted application server with APIs, auth, storage, automation, integrations, and realtime built in.">
   <meta property="og:url" content="https://daptin.github.io/">
-  <meta property="og:image" content="https://daptin.github.io/images/theme-logo.png">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://daptin.github.io/images/og-card.png">
+  <meta property="og:image:alt" content="Daptin — Your data model is the backend">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Daptin — Your data model is the backend">
+  <meta name="twitter:description" content="A self-hosted application server with APIs, auth, storage, automation, integrations, and realtime built in.">
+  <meta name="twitter:image" content="https://daptin.github.io/images/og-card.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Daptin","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, macOS, Windows, Docker","description":"A self-hosted application server that turns a data model into APIs, identity, permissions, files, automation, integrations, and realtime delivery.","url":"https://daptin.github.io/","downloadUrl":"https://github.com/daptin/daptin/releases/latest","softwareHelp":"https://github.com/daptin/daptin/wiki","license":"https://www.gnu.org/licenses/lgpl-3.0.html","codeRepository":"https://github.com/daptin/daptin"}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -70,7 +75,7 @@
         <span class="kicker">01 / RUN</span>
         <h2 id="quickstart-title">A backend in one command</h2>
       </div>
-      <code><span>$</span> docker run --rm -p 6336:8080 daptin/daptin:latest</code>
+      <code><span>$</span> docker run --rm -p 127.0.0.1:6336:8080 daptin/daptin:v0.12.36</code>
       <a href="https://github.com/daptin/daptin/wiki/Getting-Started-Guide">Open localhost:6336 →</a>
     </section>
 
@@ -161,6 +166,38 @@
         <div class="outputs">
           <span>APIs</span><span>Auth</span><span>Actions</span><span>Storage</span><span>Realtime</span><span>Ops</span>
         </div>
+      </div>
+    </section>
+
+    <section class="product-evidence" aria-labelledby="evidence-title">
+      <div class="evidence-heading">
+        <span class="kicker">CURRENT PRODUCT EVIDENCE</span>
+        <h2 id="evidence-title">Inspect the interface.<br>Reproduce the contracts.</h2>
+        <p>The examples below come from the current server and focused public repositories. Every claim links to code, setup instructions, or project history you can inspect yourself.</p>
+        <div class="evidence-links"><a href="https://github.com/daptin/daptin/releases">Release history ↗</a><a href="https://github.com/daptin/daptin/commits/master/">Commit history ↗</a><a href="https://github.com/daptin/daptin/graphs/contributors">Contributors ↗</a><a href="https://github.com/daptin/daptin/issues">Public issues ↗</a></div>
+      </div>
+      <div class="evidence-body">
+        <figure class="product-shot">
+          <img src="images/product/metering-credit-demo.png" width="1728" height="405" loading="lazy" alt="Daptin metering demo showing regular API billing, LLM token billing, rate-limit checks, and a usage snapshot">
+          <figcaption><strong>Metering and credits</strong><span>Current runnable interface from <a href="https://github.com/daptin/daptin-metering-credit-demo">daptin-metering-credit-demo ↗</a></span></figcaption>
+        </figure>
+        <section class="evidence-terminal" aria-label="Schema to API and CLI examples">
+          <div class="window-bar"><i aria-hidden="true"></i><span>schema → API → CLI</span></div>
+          <pre><span class="code-key">TableName:</span> product
+<span class="code-key">Columns:</span>
+  - <span class="code-accent">Name:</span> name
+    <span class="code-accent">DataType:</span> varchar(200)
+
+<span class="terminal-comment"># available after startup</span>
+GET    /api/product
+POST   /api/product
+PATCH  /api/product/{reference_id}
+
+<span class="terminal-comment"># discover the running model</span>
+daptin-cli list world
+daptin-cli describe action world import_data</pre>
+          <div class="terminal-links"><a href="https://github.com/daptin/daptin/wiki/Schema-Definition">Follow schema setup ↗</a><a href="https://github.com/daptin/daptin-cli">Inspect the CLI ↗</a></div>
+        </section>
       </div>
     </section>
 

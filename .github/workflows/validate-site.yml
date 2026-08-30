@@ -1,0 +1,45 @@
+name: Validate website
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate HTML and CSS
+        run: |
+          npx --yes html-validate@9.7.1 "index.html" "404.html" "*/index.html"
+          npx --yes lightningcss-cli@1.30.2 styles.css -o /tmp/daptin-styles.css
+      - name: Check required routes and assets
+        run: |
+          test -f images/og-card.png
+          test -f images/product/metering-credit-demo.png
+          for route in features platform use-cases open-source ecosystem why-daptin; do
+            test -f "$route/index.html"
+          done
+          if grep -R -nE 'href="/daptin/|https://daptin.github.io/daptin/' --include='*.html' .; then
+            echo "Legacy /daptin/ links must remain redirects, not canonical site links"
+            exit 1
+          fi
+          if grep -R -n 'daptin/daptin:latest' --include='*.html' .; then
+            echo "The Docker repository has no latest manifest; use an explicit release tag"
+            exit 1
+          fi
+      - name: Serve and smoke-test routes
+        run: |
+          python3 -m http.server 8765 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          sleep 1
+          for route in / /features/ /platform/ /use-cases/ /open-source/ /ecosystem/ /why-daptin/ /images/og-card.png; do
+            curl --fail --silent --show-error "http://127.0.0.1:8765$route" >/dev/null
+          done
