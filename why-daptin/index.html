@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why Daptin — A connected, self-hosted backend</title>
+  <meta name="description" content="Understand when Daptin is the right backend choice, what makes its connected runtime different, and when another approach is a better fit.">
+  <meta name="theme-color" content="#111316">
+  <link rel="canonical" href="https://daptin.github.io/why-daptin/">
+  <link rel="icon" href="../images/theme-favicon.png">
+  <link rel="stylesheet" href="../styles.css">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Why choose Daptin">
+  <meta property="og:description" content="Choose a connected application runtime when backend glue is becoming the product.">
+  <meta property="og:url" content="https://daptin.github.io/why-daptin/">
+</head>
+<body class="inner-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="Daptin home"><img src="../images/theme-logo.png" width="40" height="40" alt=""><span>Daptin</span></a>
+    <nav aria-label="Primary navigation"><a href="../features/">Features</a><a aria-current="page" href="./">Why Daptin</a><a href="../use-cases/">Use cases</a><a href="../ecosystem/">Ecosystem</a><a href="../open-source/">Open source</a><a href="https://github.com/daptin/daptin/wiki">Docs</a></nav>
+    <a class="header-cta" href="https://github.com/daptin/daptin/wiki/Getting-Started-Guide">Get started <span>→</span></a>
+  </header>
+
+  <main id="main">
+    <section class="page-hero page-hero-orange">
+      <div><p class="eyebrow"><span></span> A backend architecture decision</p><h1>Choose one backend.<br><em>Not seven islands.</em></h1></div>
+      <div class="page-hero-copy"><p>Daptin is for products whose data, identity, files, automation, integrations, realtime behavior, and business controls need to agree. It trades mandatory managed infrastructure for a compact runtime you operate and own.</p><a class="button button-primary" href="#decision">See the decision framework <span>↓</span></a></div>
+    </section>
+
+    <section class="difference-section">
+      <div><span class="kicker">THE CENTRAL DIFFERENCE</span><h2>Integration is the architecture,<br>not an afterthought.</h2><p>Many backend stacks assemble separate products for data, identity, jobs, files, events, integrations, and metering. Daptin places those concerns around one resource graph and one permission model.</p></div>
+      <div class="difference-grid"><article><span>01</span><h3>One model</h3><p>Schema, relationships, validation, metadata, permissions, and events start from the same resource definition.</p></article><article><span>02</span><h3>One policy boundary</h3><p>Users and groups govern rows, relations, actions, topics, credentials, and metered operations.</p></article><article><span>03</span><h3>Many standard surfaces</h3><p>JSON:API, GraphQL, OpenAPI, WebSockets, OAuth/OIDC, OpenAI-compatible routes, files, and optional protocols.</p></article><article><span>04</span><h3>One deployable runtime</h3><p>A Go binary starts compact and can coordinate shared database, storage, cache, PubSub, and counters as demand grows.</p></article></div>
+    </section>
+
+    <section class="decision-section" id="decision">
+      <div class="decision-heading"><span class="kicker">DECISION FRAMEWORK</span><h2>Choose for the constraint<br>that matters most.</h2><p>No backend is right for every team. The useful question is which responsibility you want to own and which kind of complexity your product actually has.</p></div>
+      <div class="decision-cards">
+        <article class="decision-primary"><span>CHOOSE DAPTIN WHEN</span><h3>Connected capability and ownership matter.</h3><ul><li>You want APIs, auth, files, jobs, integrations, realtime, or metering to share one policy model.</li><li>You need self-hosting, standard databases, portable schemas, and source-visible behavior.</li><li>Your product benefits from unusual protocol breadth or an OpenAI-compatible gateway.</li><li>A single operational runtime is easier for your team than stitching and securing several services.</li></ul></article>
+        <article><span>CONSIDER A MANAGED BAAS WHEN</span><h3>Operational delegation is the priority.</h3><ul><li>You want a vendor to operate the database, global delivery, scaling, and most service reliability.</li><li>Your application maps cleanly to that provider’s services and commercial model.</li><li>Cloud-specific SDKs, control planes, or deployment constraints are acceptable.</li><li>Your team values managed infrastructure more than runtime portability.</li></ul></article>
+        <article><span>BUILD CUSTOM SERVICES WHEN</span><h3>Your domain logic is the platform.</h3><ul><li>The backend is dominated by specialized computation, unusual consistency, or custom network behavior.</li><li>Independent service scaling and ownership are requirements, not future possibilities.</li><li>Your team can maintain identity, policy, observability, deployment, and integration glue deliberately.</li><li>Generated resource APIs would be incidental rather than central to the product.</li></ul></article>
+      </div>
+    </section>
+
+    <section class="replacement-map">
+      <div><span class="kicker">WHAT CONSOLIDATION CHANGES</span><h2>Fewer seams to design,<br>secure, and operate.</h2></div>
+      <div class="replacement-table-wrap">
+        <table class="replacement-table">
+          <caption class="visually-hidden">Common backend concerns and Daptin's connected alternative</caption>
+          <thead><tr><th scope="col">Common concern</th><th scope="col">Usually separated</th><th scope="col">Connected in Daptin</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Data delivery</th><td>CRUD service, query layer, API specification</td><td>JSON:API, GraphQL, aggregation, OpenAPI, and metadata from one model</td></tr>
+            <tr><th scope="row">Identity and policy</th><td>Auth provider plus application authorization code</td><td>Users, groups, ownership, row, relation, action, and topic permissions</td></tr>
+            <tr><th scope="row">Backend work</th><td>Functions, queues, cron, workflow glue</td><td>Actions, ordered outcomes, scheduled invocation, state tracking, and events</td></tr>
+            <tr><th scope="row">Files and content</th><td>Object store, upload service, file metadata, site host</td><td>Asset columns, cloud stores, upload flows, templates, feeds, and subsites</td></tr>
+            <tr><th scope="row">External systems</th><td>Provider SDKs, OAuth token stores, secret plumbing</td><td>OpenAPI integrations, OAuth or custom credentials, and governed action execution</td></tr>
+            <tr><th scope="row">API business controls</th><td>Gateway limits, usage pipeline, quota service, billing hooks</td><td>Plans, memberships, rate limits, usage records, quotas, and credit actions</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="adoption-section">
+      <div><span class="kicker">ADOPT WITHOUT A REWRITE</span><h2>Start at the boundary<br>that hurts today.</h2></div>
+      <div class="adoption-grid"><article><span>01</span><h3>New backend</h3><p>Model the product in YAML or JSON and use the complete runtime from the first API.</p></article><article><span>02</span><h3>Governed data API</h3><p>Put structured resources, relations, permissions, imports, and administration beside an existing application.</p></article><article><span>03</span><h3>Integration gateway</h3><p>Centralize external operations, OAuth tokens, encrypted credentials, and provider discovery.</p></article><article><span>04</span><h3>AI and usage gateway</h3><p>Expose one OpenAI-compatible API, route providers, stream responses, and meter model usage.</p></article><article><span>05</span><h3>Files and protocols</h3><p>Add governed assets, cloud storage, hosted sites, mail, FTP, feeds, or realtime delivery without replacing the core app.</p></article></div>
+    </section>
+
+    <section class="nonfit-section">
+      <div><span class="kicker">HONEST BOUNDARIES</span><h2>What Daptin does not pretend to be.</h2></div>
+      <div class="nonfit-grid"><article><h3>Not a managed cloud</h3><p>Daptin provides the application runtime. You remain responsible for production infrastructure, backups, monitoring, upgrades, and incidents.</p></article><article><h3>Not an unlimited workflow engine</h3><p>Actions, schedules, and state tracking cover backend orchestration; they do not claim full BPM semantics or every distributed workflow pattern.</p></article><article><h3>Not every protocol in full</h3><p>Some optional surfaces—especially CalDAV/CardDAV—are deliberately basic and should be evaluated against the exact compatibility you need.</p></article><article><h3>Not a substitute for domain design</h3><p>A generated API cannot decide your resource boundaries, security model, failure behavior, or product rules for you.</p></article></div>
+    </section>
+
+    <section class="proof-callout"><div><span class="kicker">VERIFY THE CLAIMS</span><h2>The difficult surfaces have runnable demos.</h2><p>Inspect focused repositories for LLM API compatibility, OAuth/OIDC provider flows, per-user integration credentials, and metered credit accounting.</p></div><a class="button button-primary" href="../ecosystem/">Explore the ecosystem <span>→</span></a></section>
+
+    <section class="final-cta"><div><span class="kicker">MAKE THE DECISION WITH REAL CODE</span><h2>Run it locally.<br>Inspect the contract.</h2></div><div class="final-actions"><a class="button button-light" href="https://github.com/daptin/daptin/wiki/Getting-Started-Guide">Start the quickstart <span>→</span></a><a href="../platform/">See the runtime architecture ↗</a></div></section>
+  </main>
+
+  <footer><div class="brand footer-brand"><img src="../images/theme-logo.png" width="36" height="36" alt=""><span>Daptin</span></div><p>Open source application infrastructure for teams that want to own their backend.</p><nav aria-label="Footer navigation"><a href="../features/">Features</a><a href="../platform/">Platform</a><a href="../ecosystem/">Ecosystem</a><a href="https://github.com/daptin/daptin/wiki">Docs</a><a href="https://github.com/daptin/daptin/releases">Releases</a><a href="https://discord.gg/t564q8SQVk">Discord</a></nav><small>LGPL-3.0 · Built in Go</small></footer>
+</body>
+</html>
