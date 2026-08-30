@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Why Daptin | Connected self-hosted backend</title>
+  <title>Compare backend options | Daptin</title>
   <meta name="description" content="Compare Daptin with a managed backend or custom services, including deployment responsibilities and current limits.">
   <meta name="theme-color" content="#111316">
   <link rel="canonical" href="https://daptin.github.io/why-daptin/">
   <link rel="icon" href="../images/theme-favicon.png">
   <link rel="stylesheet" href="../styles.css">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Why choose Daptin">
+  <meta property="og:title" content="Compare Daptin with other backend options">
   <meta property="og:description" content="Compare Daptin with managed backends and custom services.">
   <meta property="og:url" content="https://daptin.github.io/why-daptin/">
   <meta property="og:image" content="https://daptin.github.io/images/og-card.png">
@@ -34,15 +34,15 @@
 
     <section class="difference-section">
       <div><span class="kicker">ONE DAPTIN PROCESS</span><h2>Services use the same<br>tables and permissions.</h2><p>API requests, actions, files, events, integrations, and metering refer to the same records, users, and groups.</p></div>
-      <div class="difference-grid"><article><span>01</span><h3>Resource definitions</h3><p>Schema, relationships, validation, metadata, permissions, and events start from the same resource definition.</p></article><article><span>02</span><h3>Permission checks</h3><p>Users and groups govern rows, relations, actions, topics, credentials, and metered operations.</p></article><article><span>03</span><h3>Exposed interfaces</h3><p>JSON:API, GraphQL, OpenAPI, WebSockets, OAuth/OIDC, OpenAI-compatible routes, files, and optional protocols.</p></article><article><span>04</span><h3>Deployment</h3><p>A Go binary can coordinate a shared database, storage, cache, PubSub, and counters across instances.</p></article></div>
+      <div class="difference-grid"><article><span>01</span><h3>Table definitions</h3><p>A table’s columns, relationships, validation, and permission settings determine its API routes and record events.</p></article><article><span>02</span><h3>Permission checks</h3><p>Users and groups control who may read or change records, follow relationships, run actions, subscribe to topics, and use stored credentials.</p></article><article><span>03</span><h3>Available APIs</h3><p>Clients can use JSON:API, GraphQL, OpenAPI, WebSockets, OAuth/OIDC, OpenAI-compatible routes, file routes, and enabled protocols.</p></article><article><span>04</span><h3>Deployment</h3><p>One Go binary runs the services. Multiple instances can share the database, file storage, cache, PubSub, and rate-limit counters.</p></article></div>
     </section>
 
     <section class="decision-section" id="decision">
-      <div class="decision-heading"><span class="kicker">DECISION FRAMEWORK</span><h2>Compare deployment<br>responsibilities.</h2><p>Compare Daptin with a managed backend or custom services by checking the responsibilities in each column.</p></div>
+      <div class="decision-heading"><span class="kicker">DEPLOYMENT RESPONSIBILITIES</span><h2>Daptin, managed BaaS,<br>or custom services.</h2><p>The choice determines who runs the database and application services, which APIs clients use, and how much custom server code your team maintains.</p></div>
       <div class="decision-cards">
         <article class="decision-primary"><span>CHOOSE DAPTIN WHEN</span><h3>You need several Daptin services.</h3><ul><li>You need some combination of APIs, users, permissions, files, scheduled actions, integrations, WebSockets, or metering.</li><li>You want to self-host and use SQLite, MySQL, MariaDB, or PostgreSQL.</li><li>You need Daptin’s mail, FTP, WebDAV-style, OAuth/OIDC, or OpenAI-compatible routes.</li><li>Your team wants to operate these services in one Daptin deployment.</li></ul></article>
         <article><span>CONSIDER A MANAGED BAAS WHEN</span><h3>You want the vendor to run production.</h3><ul><li>You want a vendor to operate the database, global delivery, scaling, and service reliability.</li><li>Your application uses the provider’s available services and pricing model.</li><li>Cloud-specific SDKs, control panels, and deployment requirements are acceptable.</li><li>Your team does not want to maintain the application server or database.</li></ul></article>
-        <article><span>BUILD CUSTOM SERVICES WHEN</span><h3>Your domain requires specialized services.</h3><ul><li>The backend is dominated by specialized computation, unusual consistency, or custom network behavior.</li><li>Independent service scaling and ownership are already required.</li><li>Your team can maintain identity, policy, observability, deployment, and integration code.</li><li>Generated resource APIs are incidental to the product.</li></ul></article>
+        <article><span>BUILD CUSTOM SERVICES WHEN</span><h3>Daptin’s APIs do not match the work.</h3><ul><li>The backend mainly performs specialized computation such as media processing, simulation, or low-latency transaction handling.</li><li>Different services already need separate scaling, deployment, or engineering ownership.</li><li>Your team can maintain authentication, authorization, monitoring, deployment, and integration code.</li><li>Most requests do not read or change ordinary database records.</li></ul></article>
       </div>
     </section>
 
@@ -50,12 +50,12 @@
       <div><span class="kicker">SERVICE COMPARISON</span><h2>Services combined<br>in Daptin.</h2></div>
       <div class="replacement-table-wrap">
         <table class="replacement-table">
-          <caption class="visually-hidden">Common backend concerns and Daptin's connected alternative</caption>
-          <thead><tr><th scope="col">Common concern</th><th scope="col">Usually separated</th><th scope="col">Connected in Daptin</th></tr></thead>
+          <caption class="visually-hidden">Backend services compared with the corresponding Daptin features</caption>
+          <thead><tr><th scope="col">Need</th><th scope="col">Separate services</th><th scope="col">Daptin features</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Data delivery</th><td>CRUD service, query layer, API specification</td><td>JSON:API, GraphQL, aggregation, OpenAPI, and metadata from one model</td></tr>
+            <tr><th scope="row">Data delivery</th><td>CRUD service, query layer, API specification</td><td>JSON:API, GraphQL, aggregation, OpenAPI, and table metadata generated from the schema</td></tr>
             <tr><th scope="row">Identity and policy</th><td>Auth provider plus application authorization code</td><td>Users, groups, ownership, row, relation, action, and topic permissions</td></tr>
-            <tr><th scope="row">Backend work</th><td>Functions, queues, cron, workflow glue</td><td>Actions, ordered outcomes, scheduled invocation, state tracking, and events</td></tr>
+            <tr><th scope="row">Backend work</th><td>Functions, queues, cron jobs, workflow code</td><td>Actions with ordered steps, cron schedules, status changes, and record events</td></tr>
             <tr><th scope="row">Files and content</th><td>Object store, upload service, file metadata, site host</td><td>Asset columns, cloud stores, upload flows, templates, feeds, and subsites</td></tr>
             <tr><th scope="row">External systems</th><td>Provider SDKs, OAuth token stores, secret handling</td><td>OpenAPI integrations, OAuth or custom credentials, and permission-checked action calls</td></tr>
             <tr><th scope="row">API business controls</th><td>Gateway limits, usage pipeline, quota service, billing hooks</td><td>Plans, memberships, rate limits, usage records, quotas, and credit actions</td></tr>
@@ -70,13 +70,13 @@
     </section>
 
     <section class="nonfit-section">
-      <div><span class="kicker">CURRENT SCOPE</span><h2>Check these boundaries<br>before choosing Daptin.</h2></div>
-      <div class="nonfit-grid"><article><h3>Infrastructure operations</h3><p>Your team manages production infrastructure, backups, monitoring, upgrades, and incidents.</p></article><article><h3>Workflow semantics</h3><p>Actions, schedules, and state tracking cover backend orchestration. Full BPM semantics and every distributed workflow pattern are outside the current scope.</p></article><article><h3>Protocol compatibility</h3><p>CalDAV/CardDAV provide basic WebDAV-style storage. Test optional protocols against the clients you need to support.</p></article><article><h3>Application design</h3><p>You still define resource boundaries, permissions, failure behavior, and product rules.</p></article></div>
+      <div><span class="kicker">CURRENT LIMITS</span><h2>Check these limits<br>before choosing Daptin.</h2></div>
+      <div class="nonfit-grid"><article><h3>Infrastructure operations</h3><p>Your team manages production infrastructure, backups, monitoring, upgrades, and incidents.</p></article><article><h3>Workflow features</h3><p>Daptin can run ordered action steps and cron schedules and restrict status changes. It does not implement hierarchical states, parallel workflow branches, or a full BPM engine.</p></article><article><h3>Protocol compatibility</h3><p>CalDAV/CardDAV provide basic WebDAV-style storage. Test optional protocols against the clients you need to support.</p></article><article><h3>Application design</h3><p>You must choose the tables, relationships, permissions, validation rules, error handling, and server-side actions for your application.</p></article></div>
     </section>
 
-    <section class="proof-callout"><div><span class="kicker">RUNNABLE DEMOS</span><h2>Test the implementation.</h2><p>Run repositories for LLM API compatibility, OAuth/OIDC provider flows, per-user integration credentials, and metered credit accounting.</p></div><a class="button button-primary" href="../ecosystem/">Explore the ecosystem <span>→</span></a></section>
+    <section class="proof-callout"><div><span class="kicker">RUNNABLE DEMOS</span><h2>Run the demo repositories.</h2><p>The demos test the OpenAI-compatible API, OAuth/OIDC provider, per-user integration credentials, metering, quotas, and credit accounting.</p></div><a class="button button-primary" href="../ecosystem/">Browse demos and clients <span>→</span></a></section>
 
-    <section class="final-cta"><div><span class="kicker">TRY DAPTIN LOCALLY</span><h2>Run the server and<br>inspect its API.</h2></div><div class="final-actions"><a class="button button-light" href="https://github.com/daptin/daptin/wiki/Getting-Started-Guide">Start the quickstart <span>→</span></a><a href="../platform/">See the runtime architecture ↗</a></div></section>
+    <section class="final-cta"><div><span class="kicker">TRY DAPTIN LOCALLY</span><h2>Run the server and<br>inspect its API.</h2></div><div class="final-actions"><a class="button button-light" href="https://github.com/daptin/daptin/wiki/Getting-Started-Guide">Start the quickstart <span>→</span></a><a href="../platform/">See how requests are handled ↗</a></div></section>
   </main>
 
   <footer><div class="brand footer-brand"><img src="../images/theme-logo.png" width="36" height="36" alt=""><span>Daptin</span></div><p>Self-hosted application server built in Go.</p><nav aria-label="Footer navigation"><a href="../features/">Features</a><a href="../platform/">Platform</a><a href="../ecosystem/">Ecosystem</a><a href="https://github.com/daptin/daptin/wiki">Docs</a><a href="https://github.com/daptin/daptin/releases">Releases</a><a href="https://discord.gg/t564q8SQVk">Discord</a></nav><small>LGPL-3.0 · Built in Go</small></footer>

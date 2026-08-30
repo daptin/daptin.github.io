@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://daptin.github.io/open-source/">
   <link rel="icon" href="../images/theme-favicon.png">
   <link rel="stylesheet" href="../styles.css">
-  <meta property="og:type" content="website"><meta property="og:title" content="Own your backend with Daptin"><meta property="og:description" content="Open source, self-hosted application infrastructure in one Go binary."><meta property="og:url" content="https://daptin.github.io/open-source/">
+  <meta property="og:type" content="website"><meta property="og:title" content="Self-host Daptin"><meta property="og:description" content="Run the LGPL-3.0 Go server with SQLite, MySQL, MariaDB, or PostgreSQL."><meta property="og:url" content="https://daptin.github.io/open-source/">
   <meta property="og:image" content="https://daptin.github.io/images/og-card.png"><meta property="og:image:alt" content="Daptin: Your data model is the backend"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://daptin.github.io/images/og-card.png">
 </head>
 <body class="inner-page">
@@ -28,19 +28,19 @@
 
     <section class="ownership-pillars">
       <article><span>01</span><h2>Choose the database</h2><p>Daptin stores records in SQLite, MySQL, MariaDB, or PostgreSQL. Files can stay on local storage or use a configured rclone provider.</p></article>
-      <article><span>02</span><h2>Own the deployment</h2><p>Run a downloadable binary, build from source, package it in a container, or schedule it on your preferred infrastructure. Enable only the protocols your application needs.</p></article>
+      <article><span>02</span><h2>Choose how to run it</h2><p>Download the binary, build it from source, use the Docker image, or schedule the container on your infrastructure. Optional protocols start only when enabled.</p></article>
       <article><span>03</span><h2>Use documented HTTP APIs</h2><p>Define the schema in YAML or JSON. Clients can use JSON:API, GraphQL, OpenAPI, WebSockets, OAuth/OIDC, and OpenAI-compatible routes.</p></article>
     </section>
 
     <section class="install-band">
       <div><span class="kicker">LOCAL INSTALLATION</span><h2>Run the current release locally.</h2></div>
-      <div><code><span>$</span> docker run --rm -p 127.0.0.1:6336:8080 daptin/daptin:v0.12.36</code><p>Open <strong>localhost:6336</strong>, create the first administrator, and start with SQLite. Move to durable infrastructure when the product is ready.</p><a class="text-link" href="https://github.com/daptin/daptin/wiki/Installation">Installation options <span>→</span></a></div>
+      <div><code><span>$</span> docker run --rm -p 127.0.0.1:6336:8080 daptin/daptin:v0.12.36</code><p>Open <strong>localhost:6336</strong> and create the first administrator. This command stores records and files inside the temporary container; use persistent storage and an external database for production.</p><a class="text-link" href="https://github.com/daptin/daptin/wiki/Installation">Installation options <span>→</span></a></div>
     </section>
 
     <section class="tradeoff-section">
       <div><span class="kicker">OPERATING RESPONSIBILITY</span><h2>Your team operates production.</h2><p>Daptin supplies the application server and health endpoints. Your deployment still needs backups, TLS, monitoring, capacity planning, upgrades, and incident response.</p></div>
       <div class="tradeoff-grid">
-        <article class="gain"><h3>Included in Daptin</h3><ul><li>APIs, users, permissions, files, actions, events, and integrations</li><li>SQLite, MySQL, MariaDB, and PostgreSQL support</li><li>Public source code and release history</li><li>YAML and JSON schema files</li><li>Services enabled through configuration</li><li>Health, statistics, audit, cache, TLS, and graceful shutdown controls</li></ul></article>
+        <article class="gain"><h3>Included in Daptin</h3><ul><li>APIs, users, permissions, files, actions, events, and integrations</li><li>SQLite, MySQL, MariaDB, and PostgreSQL support</li><li>Public source code and release history</li><li>YAML and JSON schema files</li><li>GraphQL, mail, FTP, and other optional services that can be disabled</li><li>Health, statistics, audit, cache, TLS, and graceful shutdown controls</li></ul></article>
         <article><h3>What production still requires</h3><ul><li>Database backups and tested restores</li><li>Stable JWT and encryption secrets</li><li>HTTPS, DNS, and certificate operations</li><li>Durable storage and capacity planning</li><li>Monitoring, alerting, and log retention</li><li>Upgrade, security, and incident processes</li></ul></article>
       </div>
     </section>
@@ -52,7 +52,7 @@
 
     <section class="ecosystem-section">
       <div><span class="kicker">CLIENTS AND EXAMPLES</span><h2>Code, clients, schemas,<br>and demos.</h2><p>The Daptin organization contains the server, CLI, JavaScript and Go clients, schema samples, and runnable examples.</p></div>
-      <div class="ecosystem-grid"><a href="https://github.com/daptin/daptin"><strong>Core server</strong><span>Go application runtime →</span></a><a href="https://github.com/daptin/daptin-cli"><strong>Daptin CLI</strong><span>Manage backend resources →</span></a><a href="https://github.com/daptin/daptin-js-client"><strong>JavaScript client</strong><span>Browser and Node client →</span></a><a href="https://github.com/daptin/daptin-go-client"><strong>Go client</strong><span>Typed Go integration →</span></a><a href="https://github.com/daptin/daptin-schema-samples"><strong>Schema samples</strong><span>Reusable starting points →</span></a><a href="../ecosystem/"><strong>Complete ecosystem</strong><span>Tools, demos, apps, and repository map →</span></a></div>
+      <div class="ecosystem-grid"><a href="https://github.com/daptin/daptin"><strong>Core server</strong><span>Go application server →</span></a><a href="https://github.com/daptin/daptin-cli"><strong>Daptin CLI</strong><span>Manage tables, records, and actions →</span></a><a href="https://github.com/daptin/daptin-js-client"><strong>JavaScript client</strong><span>Browser and Node client →</span></a><a href="https://github.com/daptin/daptin-go-client"><strong>Go client</strong><span>Typed Go client →</span></a><a href="https://github.com/daptin/daptin-schema-samples"><strong>Schema samples</strong><span>Starter YAML and JSON files →</span></a><a href="../ecosystem/"><strong>All repositories</strong><span>Tools, demos, apps, and packages →</span></a></div>
     </section>
 
     <section class="license-band"><div><span class="kicker">LICENSE</span><h2>LGPL-3.0</h2></div><div><p>Daptin is distributed under the GNU Lesser General Public License v3. Review the license text for the terms that apply to your distribution and modifications.</p><a class="detail-cta" href="https://github.com/daptin/daptin/blob/master/LICENSE">Read the license ↗</a></div></section>

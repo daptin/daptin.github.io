@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://daptin.github.io/platform/">
   <link rel="icon" href="../images/theme-favicon.png">
   <link rel="stylesheet" href="../styles.css">
-  <meta property="og:type" content="website"><meta property="og:title" content="Inside the Daptin application server"><meta property="og:description" content="Resource metadata, policy checks, request handling, and deployment structure in Daptin."><meta property="og:url" content="https://daptin.github.io/platform/">
+  <meta property="og:type" content="website"><meta property="og:title" content="How Daptin handles API requests"><meta property="og:description" content="How table definitions become routes, validation, permission checks, actions, file storage, and events."><meta property="og:url" content="https://daptin.github.io/platform/">
   <meta property="og:image" content="https://daptin.github.io/images/og-card.png"><meta property="og:image:alt" content="Daptin: Your data model is the backend"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://daptin.github.io/images/og-card.png">
 </head>
 <body class="inner-page">
@@ -27,20 +27,20 @@
     </section>
 
     <section class="platform-stack" aria-labelledby="stack-title">
-      <div class="platform-stack-copy"><span class="kicker">SCHEMA LOADING</span><h2 id="stack-title">Daptin reads YAML<br>or JSON at startup.</h2><p>For each table, it creates database access, API routes, validation, relationships, permission checks, metadata, and action and event hooks.</p></div>
+      <div class="platform-stack-copy"><span class="kicker">SCHEMA LOADING</span><h2 id="stack-title">Daptin reads YAML<br>or JSON at startup.</h2><p>For each table, it connects to the database, creates API routes, validates fields and relationships, checks permissions, lists the table for clients, and connects actions and record events.</p></div>
       <div class="stack-diagram" role="img" aria-label="A schema passes through validation and permission checks before Daptin exposes APIs and services">
         <div class="stack-input"><span>YAML / JSON</span><strong>Schema &amp; configuration</strong></div>
         <i aria-hidden="true"></i>
-        <div class="stack-core"><small>SHARED CORE</small><strong>Resource runtime</strong><span>Validation · Relations · Permissions · Metering · Events</span></div>
+        <div class="stack-core"><small>DAPTIN SERVER</small><strong>Request handling</strong><span>Validation · Relations · Permissions · Metering · Events</span></div>
         <i aria-hidden="true"></i>
         <div class="stack-outputs"><span>JSON:API</span><span>GraphQL</span><span>Actions</span><span>WebSockets</span><span>Files</span><span>Integrations</span><span>Protocols</span><span>OpenAI /v1</span></div>
       </div>
     </section>
 
     <section class="system-data">
-      <div><span class="kicker">CONFIGURATION AS DATA</span><h2>System resources configure the runtime.</h2><p>Tables such as <code>action</code>, <code>task</code>, <code>cloud_store</code>, <code>integration</code>, <code>llm_provider</code>, and <code>api_plan</code> use the API and permission model.</p></div>
+      <div><span class="kicker">SETTINGS STORED IN TABLES</span><h2>Configure Daptin<br>through its API.</h2><p>Daptin stores actions, scheduled tasks, file storage, integrations, LLM providers, usage plans, credentials, and mail servers in system tables. Administrators manage those rows through the API or dashboard.</p></div>
       <div class="system-table-list">
-        <article><code>world</code><p>Schema and table metadata</p></article><article><code>action</code><p>Executable backend operations</p></article><article><code>task</code><p>Scheduled action invocation</p></article><article><code>site</code><p>Hosted site and route configuration</p></article><article><code>cloud_store</code><p>Local and remote storage</p></article><article><code>integration</code><p>External API operations</p></article><article><code>llm_provider</code><p>Model and provider routing</p></article><article><code>api_plan</code><p>Metering, quota, and price policy</p></article><article><code>credential</code><p>Encrypted runtime secrets</p></article><article><code>mail_server</code><p>Mail domains and delivery</p></article>
+        <article><code>world</code><p>Table and field definitions</p></article><article><code>action</code><p>Input fields and ordered action steps</p></article><article><code>task</code><p>Cron schedules for actions</p></article><article><code>site</code><p>Host names, paths, and site storage</p></article><article><code>cloud_store</code><p>Local and rclone file storage</p></article><article><code>integration</code><p>Imported external API calls</p></article><article><code>llm_provider</code><p>Model names, providers, and credentials</p></article><article><code>api_plan</code><p>Prices, rate limits, and quotas</p></article><article><code>credential</code><p>Encrypted OAuth and API credentials</p></article><article><code>mail_server</code><p>Mail domains and delivery settings</p></article>
       </div>
     </section>
 
@@ -49,8 +49,8 @@
       <ol>
         <li><span>01</span><strong>Authenticate</strong><p>Resolve the session, user, and groups.</p></li>
         <li><span>02</span><strong>Authorize</strong><p>Check entity, object, relation, or action access.</p></li>
-        <li><span>03</span><strong>Validate</strong><p>Apply field validation and conformation.</p></li>
-        <li><span>04</span><strong>Execute</strong><p>Read, mutate, aggregate, or run backend outcomes.</p></li>
+        <li><span>03</span><strong>Validate</strong><p>Check field types, required values, validation rules, and input transformations.</p></li>
+        <li><span>04</span><strong>Execute</strong><p>Read or change records, calculate aggregates, or run action steps.</p></li>
         <li><span>05</span><strong>Meter</strong><p>Enforce plan limits and record usage when configured.</p></li>
         <li><span>06</span><strong>Publish</strong><p>Emit successful data changes to realtime consumers.</p></li>
       </ol>
@@ -60,14 +60,14 @@
       <div class="deployment-heading"><span class="kicker">DEPLOYMENT</span><h2>One process locally.<br>Multiple instances when needed.</h2></div>
       <div class="deployment-grid">
         <article><span>LOCAL</span><h3>One process</h3><p>Run one binary with SQLite and local files for evaluation, prototyping, demos, or edge installations.</p><code>./daptin -port=6336</code></article>
-        <article><span>PRODUCTION</span><h3>Durable infrastructure</h3><p>Use PostgreSQL or MySQL, persistent object storage, stable secrets, HTTPS, backups, monitoring, and enabled-only protocols.</p><code>app + database + storage</code></article>
-        <article><span>SCALE</span><h3>Coordinated instances</h3><p>Run multiple instances with Olric-backed cache, PubSub, counters, and clustered rate-limit behavior around a shared database.</p><code>instances + olric + database</code></article>
+        <article><span>PRODUCTION</span><h3>Production services</h3><p>Use PostgreSQL or MySQL, persistent file storage, stable secrets, HTTPS, backups, monitoring, and only the protocols you need.</p><code>app + database + storage</code></article>
+        <article><span>SCALE</span><h3>Multiple instances</h3><p>Instances share the database and use Olric for cache entries, PubSub messages, usage counters, and rate limits.</p><code>instances + olric + database</code></article>
       </div>
     </section>
 
     <section class="principles">
-      <div><span class="kicker">DESIGN PRINCIPLES</span><h2>Runtime design choices.</h2></div>
-      <div class="principle-grid"><article><h3>Standard databases</h3><p>Use SQLite, MySQL, MariaDB, or PostgreSQL.</p></article><article><h3>Shared permission checks</h3><p>Records, relationships, actions, topics, and integrations use the same user and group permissions.</p></article><article><h3>API descriptions</h3><p>Metadata and OpenAPI list the available resources and actions.</p></article><article><h3>Optional services</h3><p>GraphQL, YJS, mail, FTP, and WebDAV-style routes start when enabled.</p></article><article><h3>Server-side actions</h3><p>Actions and schedules run in Daptin, where they can access stored credentials and metering records.</p></article><article><h3>Ordered shutdown</h3><p>Daptin stops accepting requests, waits for active work, then closes its services and database.</p></article></div>
+      <div><span class="kicker">IMPLEMENTATION DETAILS</span><h2>How the server is built.</h2></div>
+      <div class="principle-grid"><article><h3>Standard databases</h3><p>Use SQLite, MySQL, MariaDB, or PostgreSQL.</p></article><article><h3>Shared permission checks</h3><p>Records, relationships, actions, topics, and integrations use the same user and group permissions.</p></article><article><h3>API descriptions</h3><p>Table metadata and OpenAPI list the available tables, fields, routes, and actions.</p></article><article><h3>Optional services</h3><p>GraphQL, YJS, mail, FTP, and WebDAV-style routes start when enabled.</p></article><article><h3>Server-side actions</h3><p>Actions and schedules run in Daptin, where they can access stored credentials and metering records.</p></article><article><h3>Ordered shutdown</h3><p>Daptin stops accepting requests, waits for active work, then closes its services and database.</p></article></div>
     </section>
 
     <section class="final-cta"><div><span class="kicker">FEATURE REFERENCE</span><h2>Browse the APIs,<br>services, and tools.</h2></div><div class="final-actions"><a class="button button-light" href="../features/">Browse all features <span>→</span></a><a href="https://github.com/daptin/daptin/wiki/Production-Deployment">Production deployment guide ↗</a></div></section>
