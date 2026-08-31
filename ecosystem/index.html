@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ecosystem | Daptin</title>
-  <meta name="description" content="Daptin CLI, JavaScript and Go clients, installation packages, reusable schemas, applications, and runnable demos.">
+  <meta name="description" content="Install Daptin, connect from JavaScript or Go, and run examples for customer sign-in, external credentials, paid API plans, and AI providers.">
   <meta name="theme-color" content="#111316">
   <link rel="canonical" href="https://daptin.github.io/ecosystem/">
   <link rel="icon" href="../images/theme-favicon.png">
@@ -28,38 +28,38 @@
 
   <main id="main">
     <section class="page-hero page-hero-dark">
-      <div><p class="eyebrow"><span></span> Daptin repositories</p><h1>Server, clients,<br><em>schemas, and demos.</em></h1></div>
-      <div class="page-hero-copy"><p>Call Daptin through HTTP, its CLI, the JavaScript client, or the Go client. The organization also contains reusable schemas, runnable demos, and application examples.</p><a class="button button-light" href="https://github.com/orgs/daptin/repositories">Browse the organization <span>↗</span></a></div>
+      <div><p class="eyebrow"><span></span> Start from working code</p><h1>Install, connect,<br><em>and run an example.</em></h1></div>
+      <div class="page-hero-copy"><p>Choose how to run the server and how your application will call it. Then use a focused demo to see customer sign-in, connected external accounts, paid API plans, or AI-provider routing working end to end.</p><a class="button button-light" href="https://github.com/orgs/daptin/repositories">Browse every repository <span>↗</span></a></div>
     </section>
 
     <section class="toolchain-section">
-      <div class="toolchain-heading"><span class="kicker">CLIENT OPTIONS</span><h2>Choose an interface.</h2><p>The server exposes HTTP APIs. The CLI and language clients add commands or methods for signing in, listing tables, reading records, running actions, and uploading files.</p></div>
+      <div class="toolchain-heading"><span class="kicker">CONNECT YOUR APPLICATION</span><h2>Use plain HTTP or<br>a client that saves time.</h2><p>No SDK is required. The CLI and language clients package common work such as signing in, reading related records, running an operation, and uploading a file.</p></div>
       <div class="toolchain-grid">
-        <article><span>SERVER</span><h3>Run the binary</h3><code>docker run -p 127.0.0.1:6336:8080 daptin/daptin:v0.12.36</code><p>Start locally with SQLite, then choose a production database and storage.</p><a href="https://github.com/daptin/daptin/releases/latest">Latest release ↗</a></article>
-        <article><span>CLI</span><h3>Inspect and manage the server</h3><code>daptin-cli describe action integration install_integration</code><p>Switch server contexts, sign in, inspect tables and actions, change records, and manage OAuth, file storage, and uploads.</p><a href="https://github.com/daptin/daptin-cli">Explore the CLI ↗</a></article>
-        <article><span>JAVASCRIPT / TYPESCRIPT</span><h3>Build the client</h3><code>npm install daptin-client</code><p>Use typed entities, JSON:API, actions, auth, assets, and direct storage uploads.</p><a href="https://github.com/daptin/daptin-js-client">Explore the JS client ↗</a></article>
-        <article><span>GO</span><h3>Use the Go client</h3><code>go get github.com/daptin/daptin-go-client</code><p>Read and change Daptin records and call actions from a Go service.</p><a href="https://github.com/daptin/daptin-go-client">Explore the Go client ↗</a></article>
+        <article><span>SERVER</span><h3>Start a local backend</h3><code>docker run -p 127.0.0.1:6336:8080 daptin/daptin:v0.12.36</code><p>Try the product model with SQLite, then choose a production database and persistent storage.</p><a href="https://github.com/daptin/daptin/releases/latest">Get the latest release ↗</a></article>
+        <article><span>CLI</span><h3>Explore without writing a frontend</h3><code>daptin-cli describe action integration install_integration</code><p>Sign in, inspect tables and operation inputs, change records, connect OAuth, and test file uploads from the terminal.</p><a href="https://github.com/daptin/daptin-cli">Explore the CLI ↗</a></article>
+        <article><span>JAVASCRIPT / TYPESCRIPT</span><h3>Connect a web or Node application</h3><code>npm install daptin-client</code><p>Use typed records, authentication, operation calls, asset URLs, and direct or multipart uploads.</p><a href="https://github.com/daptin/daptin-js-client">Explore the JS client ↗</a></article>
+        <article><span>GO</span><h3>Connect a Go service</h3><code>go get github.com/daptin/daptin-go-client</code><p>Read and change application records or call a Daptin operation from an existing Go program.</p><a href="https://github.com/daptin/daptin-go-client">Explore the Go client ↗</a></article>
       </div>
     </section>
 
     <section class="distribution-band">
-      <div><span class="kicker">INSTALL WHERE YOU WORK</span><h2>Container, package manager, binary, or source.</h2></div>
+      <div><span class="kicker">INSTALL WHERE YOU WORK</span><h2>Use a native build or<br>the container tools you know.</h2></div>
       <div class="distribution-grid"><a href="https://github.com/daptin/daptin/releases/latest"><strong>Native downloads</strong><span>Windows · Linux · macOS · ARM64 ↗</span></a><a href="https://hub.docker.com/r/daptin/daptin"><strong>Docker</strong><span>Container image ↗</span></a><a href="https://github.com/daptin/daptin/blob/master/docker-compose.yml"><strong>Docker Compose</strong><span>Daptin with PostgreSQL ↗</span></a><a href="https://github.com/daptin/daptin/tree/master/kubernetes"><strong>Kubernetes</strong><span>Deployment and service manifests ↗</span></a></div>
     </section>
 
     <section class="proof-lab proof-lab-light">
-      <div class="proof-lab-heading"><span class="kicker">RUNNABLE DEMOS</span><h2>Test specific Daptin flows.</h2><p>Each repository includes setup instructions and runs its OAuth, LLM, metering, or integration flow against Daptin.</p></div>
+      <div class="proof-lab-heading"><span class="kicker">RUNNABLE DEMOS</span><h2>See the difficult parts<br>working end to end.</h2><p>Each repository answers a practical question: can another app sign in through Daptin, can customer credentials stay isolated, can a quota stop a call, and can an ordinary OpenAI client switch providers?</p></div>
       <div class="proof-grid">
-        <a href="https://github.com/daptin/daptin-llm-demo"><span>LLM API</span><h3>Official OpenAI SDK compatibility</h3><p>Exercises model listing, chat, streaming, completions, embeddings, usage, and structured errors through Daptin’s <code>/v1</code> routes.</p><b>Open demo ↗</b></a>
-        <a href="https://github.com/daptin/daptin-oauth-provider-demo"><span>IDENTITY PROVIDER</span><h3>OAuth 2.0 and OpenID Connect</h3><p>Registers a client, signs in with authorization code and PKCE, exchanges the code for tokens, calls userinfo, and uses Daptin as both provider and client.</p><b>Open demo ↗</b></a>
-        <a href="https://github.com/daptin/daptin-metering-credit-demo"><span>API METERING</span><h3>Metering, quotas, and credits</h3><p>Records API and model calls, rejects calls after a quota is reached, keeps usage records, and debits a credit wallet.</p><b>Open demo ↗</b></a>
-        <a href="https://github.com/daptin/daptin-integration-auth-demo"><span>STORED CREDENTIALS</span><h3>Per-user integration authentication</h3><p>Stores OAuth tokens and encrypted credentials for each user and confirms that one user cannot use another user’s credentials.</p><b>Open demo ↗</b></a>
-        <a href="https://github.com/daptin/daptin-oauth-two-instance-demo"><span>TWO INSTANCES</span><h3>Provider and consumer instances</h3><p>Runs the OAuth provider and consumer roles on separate Daptin instances through the authorization code flow.</p><b>Open demo ↗</b></a>
+        <a href="https://github.com/daptin/daptin-llm-demo"><span>AI PROVIDERS</span><h3>Keep the client while changing the provider</h3><p>Use the official OpenAI SDK for model listing, chat, streaming, completions, and embeddings through Daptin’s <code>/v1</code> address.</p><b>Run the demo ↗</b></a>
+        <a href="https://github.com/daptin/daptin-oauth-provider-demo"><span>CUSTOMER SIGN-IN</span><h3>Let another application sign in through Daptin</h3><p>Register a client and complete an OAuth 2.0 / OpenID Connect authorization-code flow with PKCE, tokens, and user information.</p><b>Run the demo ↗</b></a>
+        <a href="https://github.com/daptin/daptin-metering-credit-demo"><span>PAID API PLANS</span><h3>Stop calls at a quota and debit credits</h3><p>Record API and model use, reject calls when the plan is exhausted, preserve usage history, and charge a credit wallet.</p><b>Run the demo ↗</b></a>
+        <a href="https://github.com/daptin/daptin-integration-auth-demo"><span>CONNECTED ACCOUNTS</span><h3>Keep every customer’s credentials separate</h3><p>Store OAuth tokens and encrypted credentials for each person and verify that one account cannot use another account’s secret.</p><b>Run the demo ↗</b></a>
+        <a href="https://github.com/daptin/daptin-oauth-two-instance-demo"><span>SEPARATE APPLICATIONS</span><h3>Use one Daptin server to sign in to another</h3><p>Run provider and consumer roles on separate instances and follow the complete authorization-code flow between them.</p><b>Run the demo ↗</b></a>
       </div>
     </section>
 
     <section class="starting-points">
-      <div><span class="kicker">SCHEMAS AND APPLICATIONS</span><h2>Start from an<br>existing repository.</h2><p>Schema samples are current. Dadadash is a complete application. The other repositories are marked as historical examples where applicable.</p></div>
+      <div><span class="kicker">SCHEMAS AND APPLICATIONS</span><h2>Borrow a model or<br>inspect a larger app.</h2><p>Current schema samples are useful starting points. Dadadash shows a larger application. Older repositories remain listed as historical examples, not recommended starters.</p></div>
       <div class="starting-grid">
         <a href="https://github.com/daptin/daptin-schema-samples"><span class="repo-state current">SCHEMAS</span><strong>Schema samples</strong><p>YAML and JSON table definitions for blogs, FAQs, stores, construction, payments, styles, transactions, and todos.</p></a>
         <a href="https://github.com/daptin/dadadash"><span class="repo-state example">COMPLETE APP</span><strong>Dadadash</strong><p>An office-style application with workspaces, tables, files, documents, spreadsheets, and calendars.</p></a>

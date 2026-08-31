@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Features | Daptin</title>
-  <meta name="description" content="Reference for Daptin data APIs, identity, actions, storage, realtime, integrations, LLM routing, metering, protocols, and operations.">
+  <meta name="description" content="Build application data, accounts, permissions, uploads, business operations, live updates, external API connections, and usage plans with Daptin.">
   <meta name="theme-color" content="#111316">
   <link rel="canonical" href="https://daptin.github.io/features/">
   <link rel="icon" href="../images/theme-favicon.png">
   <link rel="stylesheet" href="../styles.css">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Daptin feature reference">
-  <meta property="og:description" content="APIs, identity, actions, files, protocols, integrations, LLM routing, metering, and operations available in Daptin.">
+  <meta property="og:title" content="What you can build with Daptin">
+  <meta property="og:description" content="The backend jobs Daptin handles for applications, from customer accounts and uploads to scheduled work and paid APIs.">
   <meta property="og:url" content="https://daptin.github.io/features/">
   <meta property="og:image" content="https://daptin.github.io/images/og-card.png">
   <meta property="og:image:alt" content="Daptin: Your data model is the backend">
@@ -30,138 +30,101 @@
 
   <main id="main">
     <section class="page-hero page-hero-blue">
-      <div><p class="eyebrow"><span></span> Feature reference</p><h1>What Daptin<br><em>provides.</em></h1></div>
-      <div class="page-hero-copy"><p>Define tables in YAML or JSON. Daptin creates API routes for their records and applies the same user, group, and row permissions to actions, files, events, and integrations.</p><div class="hero-facts"><span><b>9</b> feature groups</span><span><b>1</b> permission system</span><span><b>1</b> standalone executable</span></div></div>
+      <div><p class="eyebrow"><span></span> What Daptin handles</p><h1>Stop rebuilding<br><em>the backend basics.</em></h1></div>
+      <div class="page-hero-copy"><p>Start with the records your product needs. Daptin supplies the APIs, customer accounts, permissions, uploads, business operations, scheduled jobs, and live updates around them.</p><div class="hero-facts"><span><b>8</b> application jobs</span><span><b>1</b> permission model</span><span><b>1</b> deployable server</span></div></div>
     </section>
 
     <nav class="feature-index" aria-label="Feature categories">
-      <a href="#data">Data &amp; schema</a><a href="#apis">APIs &amp; descriptions</a><a href="#identity">Identity &amp; access</a><a href="#automation">Actions &amp; schedules</a><a href="#files">Files &amp; sites</a><a href="#realtime">Realtime &amp; protocols</a><a href="#integrations">Integrations &amp; LLMs</a><a href="#operations">Metering &amp; operations</a><a href="#tooling">Clients &amp; tools</a>
+      <a href="#data">Application data</a><a href="#apis">Client APIs</a><a href="#identity">Accounts &amp; teams</a><a href="#automation">Business operations</a><a href="#files">Files &amp; content</a><a href="#realtime">Live experiences</a><a href="#integrations">External APIs &amp; AI</a><a href="#operations">Plans &amp; operations</a>
     </nav>
 
     <div class="feature-details">
       <section class="detail-block" id="data">
-        <div class="detail-heading"><span>01</span><div><p class="kicker">FOUNDATION</p><h2>Tables &amp; schema</h2><p>Define tables, columns, relationships, validation, and indexes in YAML or JSON.</p></div></div>
+        <div class="detail-heading"><span>01</span><div><p class="kicker">APPLICATION DATA</p><h2>Model the records your product runs on</h2><p>Describe products, orders, customers, tickets, invoices, or any other records and how they relate.</p></div></div>
         <div class="detail-grid">
-          <article><h3>Schema files</h3><p>A YAML or JSON schema can define tables, columns, indexes, relationships, validation rules, default values, and table settings.</p></article>
-          <article><h3>Fields added by Daptin</h3><p>Each record receives a public <code>reference_id</code>, creation and update times, a version number, and permission bits.</p></article>
-          <article><h3>Field types</h3><p>Use fields for text, numbers, dates, JSON, locations, ratings, measurements, files, images, audio, and video.</p></article>
-          <article><h3>Database choice</h3><p>Use SQLite locally or connect Daptin to MySQL, MariaDB, or PostgreSQL.</p></article>
-          <article><h3>Relations and joins</h3><p>Model belongs-to, has-one, has-many, and many-to-many relationships with generated relationship APIs.</p></article>
-          <article><h3>Import, export &amp; audit</h3><p>Import CSV, XLSX, JSON, or YAML; export records; generate test records; and enable multilingual fields, auditing, status tracking, or metering.</p></article>
+          <article><h3>Shape data around the product</h3><p>Define fields, relationships, validation, defaults, and indexes in YAML or JSON. Daptin creates the database structure and keeps the model available to clients.</p></article>
+          <article><h3>Bring existing records with you</h3><p>Import CSV, spreadsheets, JSON, or YAML and export records when another team or system needs them. Generate test records while building a new screen.</p></article>
+          <article><h3>Start locally, choose the database you need</h3><p>Run with SQLite for a quick local setup, or connect Daptin to MySQL, MariaDB, or PostgreSQL for a deployed application.</p></article>
         </div>
         <a class="detail-cta" href="https://github.com/daptin/daptin/wiki/Schema-Definition">Explore schema definition <span>→</span></a>
       </section>
 
       <section class="detail-block detail-tint" id="apis">
-        <div class="detail-heading"><span>02</span><div><p class="kicker">HTTP APIS</p><h2>APIs &amp; descriptions</h2><p>Daptin creates JSON:API routes, optional GraphQL, aggregation queries, an OpenAPI document, and routes that list the configured tables and fields.</p></div></div>
+        <div class="detail-heading"><span>02</span><div><p class="kicker">CLIENT APIS</p><h2>Give every screen a usable data API</h2><p>Your web, mobile, or internal app can list, search, create, and update records as soon as the model is loaded.</p></div></div>
         <div class="detail-grid">
-          <article><h3>JSON:API resources</h3><p>Create, read, update, and delete records and relationships. Requests support filtering, sorting, pagination, includes, and sparse fields; responses omit records the user cannot read.</p></article>
-          <article><h3>Optional GraphQL</h3><p>Enable GraphQL queries and mutations for configured tables, relationships, aggregates, and actions.</p></article>
-          <article><h3>Aggregation API</h3><p>Group, join, filter, sample, order, and calculate count, sum, average, minimum, maximum, first, or last values.</p></article>
-          <article><h3>OpenAPI output</h3><p>Download an OpenAPI description of the available tables, fields, actions, integrations, authentication requirements, and request examples.</p></article>
-          <article><h3>Table metadata</h3><p>Metadata routes list the configured tables, fields, relationships, and actions so clients can build requests from the running server.</p></article>
-          <article><h3>Plain HTTP clients</h3><p>Call the API from web, mobile, server, automation, or agent clients. The JavaScript and Go clients are optional.</p></article>
+          <article><h3>Build list, detail, and edit screens</h3><p>JSON:API routes cover records and relationships with filtering, sorting, pagination, includes, and field selection. Results already respect the signed-in user’s permissions.</p></article>
+          <article><h3>Answer dashboard questions</h3><p>Group and join records, then calculate counts, totals, averages, minimums, and maximums without adding a separate reporting endpoint.</p></article>
+          <article><h3>Let clients discover the backend</h3><p>OpenAPI and metadata describe the running tables, fields, actions, and authentication. Enable GraphQL when a client is better served by queries and mutations.</p></article>
         </div>
         <a class="detail-cta" href="https://github.com/daptin/daptin/wiki/API-Overview">Explore the APIs <span>→</span></a>
       </section>
 
       <section class="detail-block" id="identity">
-        <div class="detail-heading"><span>03</span><div><p class="kicker">ACCESS CONTROL</p><h2>Identity &amp; permissions</h2><p>Users, groups, ownership, and permission bits control access to records, relationships, actions, topics, and integrations.</p></div></div>
+        <div class="detail-heading"><span>03</span><div><p class="kicker">ACCOUNTS AND TEAMS</p><h2>Give customers private accounts and shared workspaces</h2><p>Protect each customer’s data, let teams work together, and use the same access rules throughout the application.</p></div></div>
         <div class="detail-grid">
-          <article><h3>Users and groups</h3><p>Create users and groups, assign memberships, set record owners, and use groups for teams or tenant accounts.</p></article>
-          <article><h3>Granular permissions</h3><p>Set read, create, update, delete, refer, execute, and peek permissions for a table, record, relationship, or action.</p></article>
-          <article><h3>Authentication flows</h3><p>Support password signup and signin, JWT sessions, reset flows, and TOTP-based two-factor authentication.</p></article>
-          <article><h3>OAuth client</h3><p>Redirect users to an external OAuth provider, handle the callback, and save the resulting token in an encrypted credential record.</p></article>
-          <article><h3>OAuth/OIDC provider</h3><p>Issue, refresh, revoke, and introspect tokens through authorization, JWKS, userinfo, and discovery endpoints.</p></article>
-          <article><h3>Multi-tenant patterns</h3><p>Combine ownership, usergroups, relations, and row permissions to isolate tenant workspaces on one Daptin deployment.</p></article>
+          <article><h3>Handle sign-up and sign-in</h3><p>Use password accounts, JWT sessions, password resets, and TOTP two-factor authentication instead of building those flows around every new product.</p></article>
+          <article><h3>Separate customers and teams</h3><p>Use ownership, groups, relationships, and row permissions so people see the records for their account or workspace—not somebody else’s.</p></article>
+          <article><h3>Connect identity in either direction</h3><p>Let users sign in through an external OAuth provider, or let another application use Daptin as its OAuth/OIDC provider. Daptin stores external tokens in encrypted credential records.</p></article>
         </div>
         <a class="detail-cta" href="https://github.com/daptin/daptin/wiki/Permissions">Read the permissions guide <span>→</span></a>
       </section>
 
       <section class="detail-block detail-tint" id="automation">
-        <div class="detail-heading"><span>04</span><div><p class="kicker">BACKEND LOGIC</p><h2>Actions, schedules &amp; state</h2><p>Define server-side actions, call them through the API, or run them on a cron schedule.</p></div></div>
+        <div class="detail-heading"><span>04</span><div><p class="kicker">BUSINESS OPERATIONS</p><h2>Turn a complete operation into one API call</h2><p>Give the frontend a single endpoint for work such as approving an order, importing a catalog, sending a receipt, or closing a ticket.</p></div></div>
         <div class="detail-grid">
-          <article><h3>Action definitions</h3><p>Define an action’s input fields, validation, conditions, ordered steps, response, and whether it requires an existing record.</p></article>
-          <article><h3>Action steps</h3><p>Create or change records, call registered Go functions, render content, download files, set headers or cookies, and run further steps.</p></article>
-          <article><h3>Scheduled tasks</h3><p>Call the same actions on cron schedules under a selected user identity and permission context.</p></article>
-          <article><h3>Status changes</h3><p>List the status changes a record may make, reject changes that are not listed, and keep a version and audit history.</p></article>
-          <article><h3>Data exchange</h3><p>Before or after an action, map fields and copy records to or from a configured external source.</p></article>
-          <article><h3>Included actions</h3><p>Daptin includes actions for sign-in, OAuth, file storage, mail, sites, integrations, certificates, publishing, imports, exports, and administration.</p></article>
+          <article><h3>Run the whole operation on the server</h3><p>Validate input, check conditions, update records, call a registered function, render content, download a file, or set the response in an ordered action.</p></article>
+          <article><h3>Repeat work on a schedule</h3><p>Run the same actions on cron schedules for reminders, imports, clean-up, publishing, or other recurring work, under a selected user’s permissions.</p></article>
+          <article><h3>Prevent invalid status changes</h3><p>Define which simple transitions are allowed—such as draft to approved—and reject attempts to skip the process. Versions and audit records show what changed.</p></article>
+          <article><h3>Move data at the right moment</h3><p>Before or after an action, map fields and copy records to or from an external source—for example, importing a customer before creating an invoice.</p></article>
         </div>
-        <p class="scope-note"><strong>Current scope:</strong> state tracking records allowed transitions. Hierarchical states, parallel branches, and implicit entry or exit actions are outside its scope.</p>
         <a class="detail-cta" href="https://github.com/daptin/daptin/wiki/Actions-Overview">Build with actions <span>→</span></a>
       </section>
 
       <section class="detail-block" id="files">
-        <div class="detail-heading"><span>05</span><div><p class="kicker">CONTENT</p><h2>Files, storage &amp; sites</h2><p>Attach files to records, store them locally or through rclone, and serve websites by host name or path.</p></div></div>
+        <div class="detail-heading"><span>05</span><div><p class="kicker">FILES AND CONTENT</p><h2>Keep uploads with the records they belong to</h2><p>A product image stays with its product, an invoice with its order, and an attachment with its ticket.</p></div></div>
         <div class="detail-grid">
-          <article><h3>Asset columns</h3><p>Attach images, video, audio, documents, or other blobs to records with dedicated retrieval and upload routes.</p></article>
-          <article><h3>Storage locations</h3><p>Save files on the local filesystem or connect an rclone-supported service with encrypted credentials.</p></article>
-          <article><h3>File uploads</h3><p>Upload through Daptin, use multipart uploads, or obtain a provider URL for direct upload when the storage service supports it.</p></article>
-          <article><h3>HTTP caching</h3><p>Serve files with ETags, cache headers, gzip, in-memory caching, and negative caching for missing files.</p></article>
-          <article><h3>Subsites</h3><p>Route sites by host or path, sync content from storage, apply basic auth, and serve multiple frontends from Daptin.</p></article>
-          <article><h3>Go templates</h3><p>Render records into hosted HTML pages with Go templates.</p></article>
+          <article><h3>Add files to real application records</h3><p>Upload images, video, audio, documents, and other files through routes tied to the same records and access rules as the rest of the product.</p></article>
+          <article><h3>Choose where the bytes live</h3><p>Store files on the local filesystem or connect an rclone-supported service. Clients keep the same Daptin routes when the storage location changes.</p></article>
+          <article><h3>Publish and deliver content</h3><p>Serve files with browser caching, render records into HTML with Go templates, and host multiple small sites by domain or path.</p></article>
         </div>
         <a class="detail-cta" href="https://github.com/daptin/daptin/wiki/Cloud-Storage-Complete-Guide">Explore storage and assets <span>→</span></a>
       </section>
 
       <section class="detail-block detail-tint" id="realtime">
-        <div class="detail-heading"><span>06</span><div><p class="kicker">CONNECTIONS</p><h2>Realtime &amp; protocols</h2><p>Enable WebSockets, feeds, YJS, SMTP, IMAP, FTP, or WebDAV-style routes from the Daptin process.</p></div></div>
+        <div class="detail-heading"><span>06</span><div><p class="kicker">LIVE EXPERIENCES</p><h2>Let people see changes without refreshing</h2><p>Update dashboards and shared workspaces when the underlying records change.</p></div></div>
         <div class="detail-grid">
-          <article><h3>Record events</h3><p>Publish create, update, and delete events through a worker pool. Multiple instances can exchange the events through Olric PubSub.</p></article>
-          <article><h3>WebSockets</h3><p>Subscribe to table or topic updates through <code>/live</code>. Daptin checks that the user may read the requested records or topic.</p></article>
-          <article><h3>YJS collaboration</h3><p>Enable YJS endpoints on selected columns for collaborative document editing.</p></article>
-          <article><h3>Feeds and streams</h3><p>Expose selected data through stream definitions and RSS, Atom, or JSON-style feed routes.</p></article>
-          <article><h3>Mail and files</h3><p>Enable database-backed SMTP, IMAP, FTP, and FTPS services alongside the HTTP application server.</p></article>
-          <article><h3>WebDAV-style routes</h3><p>Enable CalDAV/CardDAV routes for basic file storage and discovery.</p></article>
+          <article><h3>Keep dashboards current</h3><p>Publish record creation, updates, and deletion over WebSockets. Subscriptions use the same read permissions as ordinary API requests.</p></article>
+          <article><h3>Build collaborative documents</h3><p>Enable YJS on selected document fields when several people need to edit the same content together.</p></article>
+          <article><h3>Publish updates outside the app</h3><p>Turn selected data into RSS, Atom, or JSON feeds. Optional mail and file-transfer services can expose records through tools a team already uses.</p></article>
         </div>
-        <p class="scope-note"><strong>Current scope:</strong> CalDAV/CardDAV routes provide basic WebDAV-style file storage. Full calendar and contact protocol compatibility is outside their current scope.</p>
         <a class="detail-cta" href="https://github.com/daptin/daptin/wiki/Event-System">Explore events and protocols <span>→</span></a>
       </section>
 
       <section class="detail-block" id="integrations">
-        <div class="detail-heading"><span>07</span><div><p class="kicker">EXTERNAL APIS</p><h2>Integrations &amp; LLM routing</h2><p>Import operations from OpenAPI, store the required OAuth or API credentials, and call those operations through Daptin. OpenAI-compatible routes send model requests to the configured provider.</p></div></div>
+        <div class="detail-heading"><span>07</span><div><p class="kicker">EXTERNAL APIS AND AI</p><h2>Connect providers without exposing their credentials</h2><p>Put external services behind your own authenticated API, whether each customer connects an account or the whole product shares one.</p></div></div>
         <div class="detail-grid">
-          <article><h3>OpenAPI imports</h3><p>Import operations from an OpenAPI v2 or v3 document. Daptin creates routes to list and call the imported operations.</p></article>
-          <article><h3>Supported API types</h3><p>Imported integrations can call REST, GraphQL, short-lived WebSocket, and unary gRPC endpoints.</p></article>
-          <article><h3>Stored credentials</h3><p>Daptin loads OAuth tokens or encrypted credentials when it calls an integration. Callers submit operation fields and do not receive the stored secret.</p></article>
-          <article><h3>OpenAI-compatible API</h3><p>Serve chat completions, streaming chat, completions, embeddings, models, and tool-call-compatible payloads under <code>/v1</code>.</p></article>
-          <article><h3>Provider routing</h3><p>Map model names to configured providers and credentials. Clients send requests to Daptin’s <code>/v1</code> routes.</p></article>
-          <article><h3>OpenAPI listing</h3><p>Daptin adds installed provider operations to its OpenAPI document.</p></article>
+          <article><h3>Turn an API description into callable operations</h3><p>Import an OpenAPI document and call its operations through Daptin instead of writing a new proxy for every REST, GraphQL, WebSocket, or unary gRPC service.</p></article>
+          <article><h3>Protect each user’s external account</h3><p>Store OAuth tokens or custom credentials in encrypted records. Daptin loads the right credential for the call without returning the secret to the client.</p></article>
+          <article><h3>Give clients one address for AI models</h3><p>Route OpenAI-compatible chat, streaming, completion, embedding, and model-list requests to configured providers while keeping provider credentials on the server.</p></article>
         </div>
         <a class="detail-cta" href="https://github.com/daptin/daptin/wiki/Integrations">Explore integrations <span>→</span></a>
       </section>
 
       <section class="detail-block detail-dark" id="operations">
-        <div class="detail-heading"><span>08</span><div><p class="kicker">OPERATIONS</p><h2>Metering, caching &amp; health</h2><p>Configure usage plans and quotas, inspect health and statistics, and coordinate caches and events across instances.</p></div></div>
+        <div class="detail-heading"><span>08</span><div><p class="kicker">PLANS AND OPERATIONS</p><h2>Offer plans, enforce limits, and run the server</h2><p>Keep usage rules beside the APIs they govern and expose the health information your deployment needs.</p></div></div>
         <div class="detail-grid">
-          <article><h3>Plans and quotas</h3><p>Create API plans, assign users to them, and set prices, request limits, compute limits, overage rules, and quotas for each billing period.</p></article>
-          <article><h3>Usage metering</h3><p>Record calls that read or change records, run actions, or use an LLM. LLM records include input and output token counts. An action can debit credits after the call.</p></article>
-          <article><h3>Rate limits</h3><p>Count calls with Olric across instances and reject a call when its rate or quota limit has been reached.</p></article>
-          <article><h3>Cache and PubSub</h3><p>Use embedded Olric, LRU or file caches, event queues, and distributed PubSub across Daptin instances.</p></article>
-          <article><h3>Health and diagnostics</h3><p>Check liveness and readiness endpoints and inspect server statistics, configuration, logs, profiles, table metadata, and optional audit records.</p></article>
-          <article><h3>Startup and shutdown</h3><p>Daptin reports listener and TLS errors during startup. On shutdown, it drains HTTP and protocol sessions, flushes events, and then closes the database.</p></article>
+          <article><h3>Turn API access into plans</h3><p>Assign users to plans with request or compute limits, prices, billing periods, overage rules, and quotas. Reject calls when a configured limit is reached.</p></article>
+          <article><h3>Record usage and charge credits</h3><p>Meter data, action, and LLM calls—including input and output tokens—and run an action after the call to debit credits or update billing records.</p></article>
+          <article><h3>Deploy and observe</h3><p>Use liveness, readiness, statistics, logs, profiles, metadata, and optional audit records. Multiple instances can share events, caches, usage counters, and rate limits through Olric.</p></article>
         </div>
         <a class="detail-cta" href="https://github.com/daptin/daptin/wiki/Production-Deployment">Plan a production deployment <span>→</span></a>
       </section>
 
-      <section class="detail-block detail-tint" id="tooling">
-        <div class="detail-heading"><span>09</span><div><p class="kicker">CLIENTS AND TOOLS</p><h2>CLI, clients &amp; examples</h2><p>Call Daptin with HTTP, its CLI, the JavaScript client, or the Go client. Schema samples and demo repositories provide working examples.</p></div></div>
-        <div class="detail-grid">
-          <article><h3>Command-line client</h3><p>Switch server contexts, sign in, list tables, inspect action inputs, read related records, run actions, and manage integrations, OAuth, storage, and files.</p></article>
-          <article><h3>JavaScript &amp; TypeScript</h3><p>Use typed entities, JSON:API, action calls, authentication, asset URLs, and direct or multipart storage uploads.</p></article>
-          <article><h3>Go client</h3><p>Read and change Daptin records and call actions from a Go application.</p></article>
-          <article><h3>Downloads &amp; containers</h3><p>Download Daptin for Windows x86-64, Linux x86-64, Linux ARM64, or macOS Intel. Linux ARM64 supports 64-bit Raspberry Pi systems. Docker, Compose, and Kubernetes files are included.</p></article>
-          <article><h3>Schema samples</h3><p>Start with YAML or JSON table definitions for blogs, FAQs, stores, payments, construction projects, transactions, styles, and todos.</p></article>
-          <article><h3>Runnable demos</h3><p>Example repositories test the OpenAI-compatible API, OAuth/OIDC, per-user integration credentials, metering, quotas, and credit accounting.</p></article>
-        </div>
-        <a class="detail-cta" href="../ecosystem/">Browse clients and examples <span>→</span></a>
-      </section>
     </div>
 
     <section class="final-cta">
-      <div><span class="kicker">REQUEST PROCESSING</span><h2>See how Daptin<br>handles a request.</h2></div>
-      <div class="final-actions"><a class="button button-light" href="../platform/">See how requests are handled <span>→</span></a><a href="https://github.com/daptin/daptin/wiki/Getting-Started-Guide">Follow the getting started guide ↗</a></div>
+      <div><span class="kicker">START WITH A REAL JOB</span><h2>Choose what you want<br>to build first.</h2></div>
+      <div class="final-actions"><a class="button button-light" href="../use-cases/">Explore use cases <span>→</span></a><a href="https://github.com/daptin/daptin/wiki/Getting-Started-Guide">Create your first API ↗</a></div>
     </section>
   </main>
 

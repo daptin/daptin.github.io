@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Compare backend options | Daptin</title>
-  <meta name="description" content="Compare Daptin with a managed backend or custom services, including deployment responsibilities and current limits.">
+  <meta name="description" content="Compare Daptin with Firebase, Supabase, Appwrite, PocketBase, headless CMS products, and a custom backend—and see when self-hosting Daptin fits.">
   <meta name="theme-color" content="#111316">
   <link rel="canonical" href="https://daptin.github.io/why-daptin/">
   <link rel="icon" href="../images/theme-favicon.png">
@@ -28,50 +28,50 @@
 
   <main id="main">
     <section class="page-hero page-hero-orange">
-      <div><p class="eyebrow"><span></span> Compare backend options</p><h1>Run APIs, auth, files,<br><em>and jobs together.</em></h1></div>
-      <div class="page-hero-copy"><p>Daptin serves data, identity, files, actions, integrations, realtime events, and metering from one process. You run that process on your infrastructure.</p><a class="button button-primary" href="#decision">See the decision framework <span>↓</span></a></div>
+      <div><p class="eyebrow"><span></span> Compare backend options</p><h1>Choose what your team<br><em>wants to own.</em></h1></div>
+      <div class="page-hero-copy"><p>Daptin is for teams that want a broad backend they can run themselves. A managed backend removes more operational work; a headless CMS gives editors a stronger content experience; custom services give engineers complete control.</p><a class="button button-primary" href="#decision">Find the right fit <span>↓</span></a></div>
     </section>
 
     <section class="difference-section">
-      <div><span class="kicker">ONE DAPTIN PROCESS</span><h2>Services use the same<br>tables and permissions.</h2><p>API requests, actions, files, events, integrations, and metering refer to the same records, users, and groups.</p></div>
-      <div class="difference-grid"><article><span>01</span><h3>Table definitions</h3><p>A table’s columns, relationships, validation, and permission settings determine its API routes and record events.</p></article><article><span>02</span><h3>Permission checks</h3><p>Users and groups control who may read or change records, follow relationships, run actions, subscribe to topics, and use stored credentials.</p></article><article><span>03</span><h3>Available APIs</h3><p>Clients can use JSON:API, GraphQL, OpenAPI, WebSockets, OAuth/OIDC, OpenAI-compatible routes, file routes, and enabled protocols.</p></article><article><span>04</span><h3>Deployment options</h3><p>Download Daptin for Windows, Linux, or macOS, including Linux ARM64 for 64-bit Raspberry Pi systems. Docker, Compose, and Kubernetes files are also available.</p></article></div>
+      <div><span class="kicker">WHY TEAMS CONSIDER DAPTIN</span><h2>Fewer backend pieces<br>to connect and maintain.</h2><p>A customer losing access to a project should lose its records, files, actions, and live updates at the same time. Daptin applies that decision in one server.</p></div>
+      <div class="difference-grid"><article><span>01</span><h3>One model for the product</h3><p>Define customers, projects, orders, tickets, or content once. The API, files, actions, and events work with those same records.</p></article><article><span>02</span><h3>One place for access rules</h3><p>Users, teams, ownership, and row permissions decide what a person can see and do across the backend.</p></article><article><span>03</span><h3>Handle the work around CRUD</h3><p>Add uploads, scheduled operations, connected accounts, realtime updates, OAuth provider flows, and metered API or AI use without adding a vendor for each one.</p></article><article><span>04</span><h3>Run it in familiar places</h3><p>Use native builds for Windows, Linux, macOS Intel, and Linux ARM64—including 64-bit Raspberry Pi—or deploy with Docker, Compose, and the included Kubernetes manifests.</p></article></div>
     </section>
 
     <section class="decision-section" id="decision">
-      <div class="decision-heading"><span class="kicker">DEPLOYMENT RESPONSIBILITIES</span><h2>Daptin, managed BaaS,<br>or custom services.</h2><p>The choice determines who runs the database and application services, which APIs clients use, and how much custom server code your team maintains.</p></div>
+      <div class="decision-heading"><span class="kicker">THE PRACTICAL DECISION</span><h2>Daptin, a managed backend,<br>a CMS, or custom code.</h2><p>There is no universal winner. Choose based on the product you are building, the experience your team needs, and who should operate the backend.</p></div>
       <div class="decision-cards">
-        <article class="decision-primary"><span>CHOOSE DAPTIN WHEN</span><h3>You need several Daptin services.</h3><ul><li>You need some combination of APIs, users, permissions, files, scheduled actions, integrations, WebSockets, or metering.</li><li>You want to self-host and use SQLite, MySQL, MariaDB, or PostgreSQL.</li><li>You need Daptin’s mail, FTP, WebDAV-style, OAuth/OIDC, or OpenAI-compatible routes.</li><li>Your team wants to operate these services in one Daptin deployment.</li></ul></article>
-        <article><span>CONSIDER A MANAGED BAAS WHEN</span><h3>You want the vendor to run production.</h3><ul><li>You want a vendor to operate the database, global delivery, scaling, and service reliability.</li><li>Your application uses the provider’s available services and pricing model.</li><li>Cloud-specific SDKs, control panels, and deployment requirements are acceptable.</li><li>Your team does not want to maintain the application server or database.</li></ul></article>
-        <article><span>BUILD CUSTOM SERVICES WHEN</span><h3>Daptin’s APIs do not match the work.</h3><ul><li>The backend mainly performs specialized computation such as media processing, simulation, or low-latency transaction handling.</li><li>Different services already need separate scaling, deployment, or engineering ownership.</li><li>Your team can maintain authentication, authorization, monitoring, deployment, and integration code.</li><li>Most requests do not read or change ordinary database records.</li></ul></article>
+        <article class="decision-primary"><span>CHOOSE DAPTIN WHEN</span><h3>You need a broad backend on your infrastructure.</h3><ul><li>The product needs several of these together: data APIs, customer accounts, row permissions, uploads, scheduled operations, integrations, realtime updates, or usage limits.</li><li>You want to keep application data and credentials in infrastructure you control.</li><li>A portable server and standard HTTP APIs matter more than a vendor-specific cloud SDK.</li><li>Your team is prepared to operate the server, database, storage, backups, and monitoring.</li></ul></article>
+        <article><span>CHOOSE A MANAGED BACKEND WHEN</span><h3>You want somebody else to operate it.</h3><ul><li>Firebase, Supabase Cloud, Appwrite Cloud, or Convex already cover the product’s needs.</li><li>Managed database operations, scaling, delivery, and reliability are worth the ongoing service cost.</li><li>The provider’s SDKs, region choices, limits, and product roadmap are acceptable.</li><li>Your team would rather build product features than run backend infrastructure.</li></ul></article>
+        <article><span>CHOOSE CMS OR CUSTOM CODE WHEN</span><h3>Editing or specialized computation is the core job.</h3><ul><li>Choose Directus, Strapi, Payload, Keystone, or another CMS when editorial workflows and content authoring are the center of the product.</li><li>Build custom services for specialized computation, strict latency requirements, or independently scaled workloads.</li><li>Custom code is also the better fit when the domain cannot be expressed clearly as records plus server-side operations.</li><li>Your team accepts the cost of maintaining its own auth, policy, deployment, and integration code.</li></ul></article>
       </div>
     </section>
 
     <section class="replacement-map">
-      <div><span class="kicker">SERVICE COMPARISON</span><h2>Services combined<br>in Daptin.</h2></div>
+      <div><span class="kicker">CATEGORY COMPARISON</span><h2>Where Daptin is<br>different.</h2></div>
       <div class="replacement-table-wrap">
         <table class="replacement-table">
-          <caption class="visually-hidden">Backend services compared with the corresponding Daptin features</caption>
-          <thead><tr><th scope="col">Need</th><th scope="col">Separate services</th><th scope="col">Daptin features</th></tr></thead>
+          <caption class="visually-hidden">Daptin compared with common backend product categories</caption>
+          <thead><tr><th scope="col">Option</th><th scope="col">Best reason to choose it</th><th scope="col">What to check</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Data delivery</th><td>CRUD service, query layer, API specification</td><td>JSON:API, GraphQL, aggregation, OpenAPI, and table metadata generated from the schema</td></tr>
-            <tr><th scope="row">Identity and policy</th><td>Auth provider plus application authorization code</td><td>Users, groups, ownership, row, relation, action, and topic permissions</td></tr>
-            <tr><th scope="row">Backend work</th><td>Functions, queues, cron jobs, workflow code</td><td>Actions with ordered steps, cron schedules, status changes, and record events</td></tr>
-            <tr><th scope="row">Files and content</th><td>Object store, upload service, file metadata, site host</td><td>Asset columns, cloud stores, upload flows, templates, feeds, and subsites</td></tr>
-            <tr><th scope="row">External systems</th><td>Provider SDKs, OAuth token stores, secret handling</td><td>OpenAPI integrations, OAuth or custom credentials, and permission-checked action calls</td></tr>
-            <tr><th scope="row">API business controls</th><td>Gateway limits, usage pipeline, quota service, billing hooks</td><td>Plans, memberships, rate limits, usage records, quotas, and credit actions</td></tr>
+            <tr><th scope="row">Daptin</th><td>Self-host many application-backend jobs in one deployable server.</td><td>Your team owns operations; verify its APIs and action model fit the product.</td></tr>
+            <tr><th scope="row">Firebase / managed BaaS</th><td>Start quickly with mature managed services and client SDKs.</td><td>Pricing at scale, platform coupling, regions, and service-specific limits.</td></tr>
+            <tr><th scope="row">Supabase / Appwrite</th><td>Use a familiar backend product with hosted and self-hosted paths.</td><td>Which features are available in the deployment model you choose.</td></tr>
+            <tr><th scope="row">PocketBase</th><td>Use a compact single-binary backend for smaller applications.</td><td>Whether its narrower database, automation, integration, and scaling scope is enough.</td></tr>
+            <tr><th scope="row">Directus / headless CMS</th><td>Give content and operations teams a polished data-management interface.</td><td>Whether application auth, jobs, integrations, metering, and non-content work need other services.</td></tr>
+            <tr><th scope="row">Custom backend</th><td>Build exactly the domain behavior and performance profile you need.</td><td>The continuing cost of auth, policy, storage, jobs, APIs, observability, and upgrades.</td></tr>
           </tbody>
         </table>
       </div>
     </section>
 
     <section class="adoption-section">
-      <div><span class="kicker">ADD DAPTIN TO AN EXISTING STACK</span><h2>Start with<br>one service.</h2></div>
-      <div class="adoption-grid"><article><span>01</span><h3>New application</h3><p>Define its tables in YAML or JSON and use Daptin for the API, users, files, and actions.</p></article><article><span>02</span><h3>Data API</h3><p>Add structured records, relationships, permissions, imports, and a web dashboard beside an existing application.</p></article><article><span>03</span><h3>Integration proxy</h3><p>Store OAuth tokens and encrypted credentials, import OpenAPI operations, and call them through Daptin.</p></article><article><span>04</span><h3>LLM and usage proxy</h3><p>Expose OpenAI-compatible routes, select providers, stream responses, and record model usage.</p></article><article><span>05</span><h3>Files and protocols</h3><p>Add file storage, hosted sites, mail, FTP, feeds, or WebSockets beside the core application.</p></article></div>
+      <div><span class="kicker">ADOPT IT WITHOUT A REWRITE</span><h2>Start with the gap<br>that hurts today.</h2></div>
+      <div class="adoption-grid"><article><span>01</span><h3>New customer portal</h3><p>Put accounts, private records, uploads, and customer-facing actions behind a new frontend.</p></article><article><span>02</span><h3>Operations database</h3><p>Move a spreadsheet-driven process into related records with imports, permissions, reports, and action buttons.</p></article><article><span>03</span><h3>Connected accounts</h3><p>Keep each user’s OAuth or API credentials on the server and expose only the operations your product permits.</p></article><article><span>04</span><h3>Paid API or AI feature</h3><p>Place an authenticated, metered endpoint in front of application data, actions, or model providers.</p></article><article><span>05</span><h3>Files and live updates</h3><p>Add protected uploads or WebSocket record updates while the existing backend continues to do the rest.</p></article></div>
     </section>
 
     <section class="nonfit-section">
       <div><span class="kicker">CURRENT LIMITS</span><h2>Check these limits<br>before choosing Daptin.</h2></div>
-      <div class="nonfit-grid"><article><h3>Infrastructure operations</h3><p>Your team manages production infrastructure, backups, monitoring, upgrades, and incidents.</p></article><article><h3>Workflow features</h3><p>Daptin can run ordered action steps and cron schedules and restrict status changes. It does not implement hierarchical states, parallel workflow branches, or a full BPM engine.</p></article><article><h3>Protocol compatibility</h3><p>CalDAV/CardDAV provide basic WebDAV-style storage. Test optional protocols against the clients you need to support.</p></article><article><h3>Application design</h3><p>You must choose the tables, relationships, permissions, validation rules, error handling, and server-side actions for your application.</p></article></div>
+      <div class="nonfit-grid"><article><h3>You do not want to run production</h3><p>Daptin is self-hosted. Your team is responsible for backups, monitoring, upgrades, capacity, security, and incidents.</p></article><article><h3>You need a full workflow engine</h3><p>Actions can run ordered steps, schedules can repeat work, and status rules can block invalid changes. Use a dedicated workflow product for parallel branches, nested processes, and business-process modeling.</p></article><article><h3>A protocol must work with a specific client</h3><p>Optional mail, FTP, CalDAV, and CardDAV services cover particular use cases. Test the exact client and behavior you need before depending on them.</p></article><article><h3>Your backend is mostly specialized computation</h3><p>Media processing, simulation, hard realtime work, and unusual transaction models are usually clearer as custom services.</p></article></div>
     </section>
 
     <section class="proof-callout"><div><span class="kicker">RUNNABLE DEMOS</span><h2>Run the demo repositories.</h2><p>The demos test the OpenAI-compatible API, OAuth/OIDC provider, per-user integration credentials, metering, quotas, and credit accounting.</p></div><a class="button button-primary" href="../ecosystem/">Browse demos and clients <span>→</span></a></section>

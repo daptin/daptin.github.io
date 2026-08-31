@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Open source &amp; self-hosting | Daptin</title>
-  <meta name="description" content="Download Daptin for Windows, Linux x86-64, Linux ARM64, or macOS Intel and run it with SQLite, MySQL, MariaDB, or PostgreSQL.">
+  <meta name="description" content="Run Daptin on Windows, Linux, macOS Intel, Raspberry Pi, Docker, Compose, or Kubernetes with a database and storage you control.">
   <meta name="theme-color" content="#111316">
   <link rel="canonical" href="https://daptin.github.io/open-source/">
   <link rel="icon" href="../images/theme-favicon.png">
@@ -22,14 +22,14 @@
 
   <main id="main">
     <section class="page-hero page-hero-blue">
-      <div><p class="eyebrow"><span></span> LGPL-3.0 application server</p><h1>Run Daptin<br><em>on your infrastructure.</em></h1></div>
-      <div class="page-hero-copy"><p>Inspect the source, download a release, and run it on a server that can reach your database and file storage. Application tables are defined in YAML or JSON.</p><div class="actions"><a class="button button-primary" href="https://github.com/daptin/daptin">Explore the repository ↗</a><a class="button button-secondary" href="https://github.com/daptin/daptin/releases/latest">Download a release</a></div></div>
+      <div><p class="eyebrow"><span></span> Open source and self-hosted</p><h1>Put the backend<br><em>where you want it.</em></h1></div>
+      <div class="page-hero-copy"><p>Run Daptin on a developer laptop, a Raspberry Pi, your own server, or a container platform. Keep the application database, uploaded files, encryption keys, and provider credentials under your control.</p><div class="actions"><a class="button button-primary" href="https://github.com/daptin/daptin">Inspect the source ↗</a><a class="button button-secondary" href="https://github.com/daptin/daptin/releases/latest">Download a release</a></div></div>
     </section>
 
     <section class="ownership-pillars">
-      <article><span>01</span><h2>Choose the database</h2><p>Daptin stores records in SQLite, MySQL, MariaDB, or PostgreSQL. Files can stay on local storage or use a configured rclone provider.</p></article>
-      <article><span>02</span><h2>Choose your platform</h2><p>Download Daptin for Windows x86-64, Linux x86-64, Linux ARM64, or macOS Intel. The ARM64 build runs on 64-bit Raspberry Pi systems. Docker, Compose, and Kubernetes files are in the repository.</p></article>
-      <article><span>03</span><h2>Use documented HTTP APIs</h2><p>Define the schema in YAML or JSON. Clients can use JSON:API, GraphQL, OpenAPI, WebSockets, OAuth/OIDC, and OpenAI-compatible routes.</p></article>
+      <article><span>01</span><h2>Keep control of application data</h2><p>Store records in SQLite, MySQL, MariaDB, or PostgreSQL. Keep files on the local filesystem or connect storage through rclone.</p></article>
+      <article><span>02</span><h2>Use the machine you already have</h2><p>Native releases cover Windows x86-64, Linux x86-64, Linux ARM64, and macOS Intel. Linux ARM64 runs on 64-bit Raspberry Pi systems. Docker, Compose, and Kubernetes files are included.</p></article>
+      <article><span>03</span><h2>Avoid a required client SDK</h2><p>Web, mobile, server, automation, and agent clients can use documented HTTP APIs. JavaScript, TypeScript, Go, and CLI clients are available when they make the work easier.</p></article>
     </section>
 
     <section class="install-band">
@@ -38,16 +38,16 @@
     </section>
 
     <section class="tradeoff-section">
-      <div><span class="kicker">OPERATING RESPONSIBILITY</span><h2>Your team operates production.</h2><p>Daptin supplies the application server and health endpoints. Your deployment still needs backups, TLS, monitoring, capacity planning, upgrades, and incident response.</p></div>
+      <div><span class="kicker">THE SELF-HOSTING TRADE-OFF</span><h2>You control production.<br>You also operate it.</h2><p>Daptin reduces the application services you have to build. It does not remove the work of running a reliable database, storage, network, and server.</p></div>
       <div class="tradeoff-grid">
-        <article class="gain"><h3>Included in Daptin</h3><ul><li>APIs, users, permissions, files, actions, events, and integrations</li><li>SQLite, MySQL, MariaDB, and PostgreSQL support</li><li>Public source code and release history</li><li>YAML and JSON schema files</li><li>GraphQL, mail, FTP, and other optional services that can be disabled</li><li>Health, statistics, audit, cache, TLS, and graceful shutdown controls</li></ul></article>
+        <article class="gain"><h3>What Daptin gives the product team</h3><ul><li>Data APIs, customer accounts, permissions, uploads, operations, live updates, and integrations</li><li>A choice of common SQL databases and file-storage locations</li><li>Source code, issue history, and versioned releases you can inspect</li><li>Portable YAML or JSON application definitions</li><li>Optional GraphQL, mail, FTP, and other services</li><li>Health, statistics, audit, cache, and TLS controls for deployment</li></ul></article>
         <article><h3>What production still requires</h3><ul><li>Database backups and tested restores</li><li>Stable JWT and encryption secrets</li><li>HTTPS, DNS, and certificate operations</li><li>Durable storage and capacity planning</li><li>Monitoring, alerting, and log retention</li><li>Upgrade, security, and incident processes</li></ul></article>
       </div>
     </section>
 
     <section class="deployment-ladder">
-      <div><span class="kicker">DEPLOYMENT OPTIONS</span><h2>Local, production,<br>and multiple instances.</h2></div>
-      <ol><li><span>STEP 1</span><h3>Local</h3><p>One binary, SQLite, and local file storage on a developer machine.</p></li><li><span>STEP 2</span><h3>Production</h3><p>PostgreSQL or MySQL, persistent file storage, HTTPS, backups, and monitoring.</p></li><li><span>STEP 3</span><h3>Multiple instances</h3><p>Shared database and Olric-backed cache, PubSub, counters, and rate limits.</p></li></ol>
+      <div><span class="kicker">A PRACTICAL DEPLOYMENT PATH</span><h2>Prove the model locally.<br>Harden it for production.</h2></div>
+      <ol><li><span>STEP 1</span><h3>Build on one machine</h3><p>Use one binary, SQLite, and local files while creating the model and frontend.</p></li><li><span>STEP 2</span><h3>Add durable services</h3><p>Move to PostgreSQL or MySQL, persistent storage, HTTPS, backups, secrets, and monitoring.</p></li><li><span>STEP 3</span><h3>Add instances when required</h3><p>Share the database and use Olric for cache entries, live events, usage counters, and rate limits.</p></li></ol>
     </section>
 
     <section class="ecosystem-section">
