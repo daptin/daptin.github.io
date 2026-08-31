@@ -4,7 +4,7 @@ Each product fact has one marketing page that owns its explanation. Other pages 
 
 | Topic | Canonical page | Evidence source |
 | --- | --- | --- |
-| Product definition and schema-to-backend mechanism | Home | Daptin README, schema documentation, running server |
+| Product definition, schema-to-runtime mechanism, protocol surface, reliability controls | Home | Tagged Daptin README, server routes, tests, current guides, running server |
 | Data APIs, accounts, permissions, files, actions, integrations, live updates | Product | Current Wiki guides, server source, dashboard3 |
 | Customer portal, operations, content, authenticated API | Use cases | Product capabilities and linked examples |
 | Release version, native artifacts, Docker, Compose, Kubernetes, databases, storage, operations | Deploy | GitHub release API, Docker Hub, daptin deployment files |

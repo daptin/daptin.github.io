@@ -13,6 +13,38 @@ if (( heading_count >= 80 )); then
   exit 1
 fi
 
+homepage_words=$(python3 - "$root_dir/index.html" <<'PY'
+from html.parser import HTMLParser
+from pathlib import Path
+import re
+import sys
+
+class VisibleText(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.skip = 0
+        self.parts = []
+    def handle_starttag(self, tag, attrs):
+        if tag in {"script", "style"}:
+            self.skip += 1
+    def handle_endtag(self, tag):
+        if tag in {"script", "style"} and self.skip:
+            self.skip -= 1
+    def handle_data(self, data):
+        if not self.skip:
+            self.parts.append(data)
+
+parser = VisibleText()
+parser.feed(Path(sys.argv[1]).read_text())
+print(len(re.findall(r"[A-Za-z0-9][A-Za-z0-9:+./'-]*", " ".join(parser.parts))))
+PY
+)
+printf 'Homepage words: %s\n' "$homepage_words"
+if (( homepage_words > 700 )); then
+  printf 'FAIL: expected no more than 700 homepage words\n' >&2
+  exit 1
+fi
+
 banned='powerful|robust|seamless|comprehensive|modern|flexible|unlock|leverage|future-proof|not just|all-in-one|build anything|everything you need'
 if rg -ni "${banned}" "${pages[@]}"; then
   printf 'FAIL: banned marketing phrase found\n' >&2
