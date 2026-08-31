@@ -38,10 +38,10 @@
     </section>
 
     <section class="tradeoff-section">
-      <div><span class="kicker">THE SELF-HOSTING TRADE-OFF</span><h2>You control production.<br>You also operate it.</h2><p>Daptin reduces the application services you have to build. It does not remove the work of running a reliable database, storage, network, and server.</p></div>
+      <div><span class="kicker">YOUR STACK, YOUR CHOICES</span><h2>Keep the application<br>portable.</h2><p>The same Daptin model and HTTP APIs can move from a laptop to your production infrastructure. Choose the database, storage, operating system, and deployment method that fit the application.</p></div>
       <div class="tradeoff-grid">
-        <article class="gain"><h3>What Daptin gives the product team</h3><ul><li>Data APIs, customer accounts, permissions, uploads, operations, live updates, and integrations</li><li>A choice of common SQL databases and file-storage locations</li><li>Source code, issue history, and versioned releases you can inspect</li><li>Portable YAML or JSON application definitions</li><li>Optional GraphQL, mail, FTP, and other services</li><li>Health, statistics, audit, cache, and TLS controls for deployment</li></ul></article>
-        <article><h3>What production still requires</h3><ul><li>Database backups and tested restores</li><li>Stable JWT and encryption secrets</li><li>HTTPS, DNS, and certificate operations</li><li>Durable storage and capacity planning</li><li>Monitoring, alerting, and log retention</li><li>Upgrade, security, and incident processes</li></ul></article>
+        <article class="gain"><h3>Move without changing the product contract</h3><ul><li>Keep schemas in portable YAML or JSON files</li><li>Use the same documented HTTP APIs from every client</li><li>Start with SQLite, then use MySQL, MariaDB, or PostgreSQL</li><li>Keep files locally or connect storage through rclone</li><li>Run a native executable or a container</li><li>Inspect source, issues, commits, and versioned releases</li></ul></article>
+        <article><h3>Building blocks for a production deployment</h3><ul><li>Liveness and readiness endpoints</li><li>TLS and certificate controls</li><li>Server statistics, logs, and optional audit records</li><li>Shared cache, PubSub, counters, and rate limits through Olric</li><li>Ordered shutdown for active services and requests</li><li>Compose and Kubernetes starting points in the repository</li></ul><a class="detail-cta" href="https://github.com/daptin/daptin/wiki/Production-Deployment">Open the production guide <span>→</span></a></article>
       </div>
     </section>
 
