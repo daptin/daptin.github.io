@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>
-      Daptin | APIs, permissions, files, and workflows from one data model
+      Daptin | Self-hosted application server from tables and relationships
     </title>
     <meta
       name="description"
@@ -17,7 +17,7 @@
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
-      content="Daptin: APIs, permissions, files, and workflows from one data model"
+      content="Daptin: Give it tables and relationships. Get a running application server."
     />
     <meta
       property="og:description"
@@ -95,7 +95,8 @@
         <div class="hero-copy">
           <p class="eyebrow">Self-hosted application server · LGPL-3.0</p>
           <h1>
-            Run APIs, permissions, files, and workflows from one data model.
+            Give Daptin your tables and relationships. Get a running application
+            server.
           </h1>
           <p class="lede">
             Define the tables and relationships your product needs. Daptin
@@ -155,7 +156,9 @@
       <section class="section-heading" id="how-it-works">
         <div>
           <p class="kicker">What Daptin creates</p>
-          <h2>Define a table once. Daptin uses it throughout the backend.</h2>
+          <h2>
+            Define a table once. Daptin runs its API, access, admin, and events.
+          </h2>
         </div>
         <div>
           <p>
@@ -205,7 +208,7 @@
         <div class="section-heading">
           <div>
             <p class="kicker">Why Daptin uses established protocols</p>
-            <h2>Use the clients, SDKs, and tools your team already knows.</h2>
+            <h2>Works with the SDKs, clients, and tools you already use.</h2>
           </div>
           <div>
             <p>
@@ -222,7 +225,7 @@
         <div class="protocol-grid">
           <article class="protocol-group">
             <span class="protocol-kind">APIs and realtime</span>
-            <h3>Build clients with ordinary API and realtime tooling.</h3>
+            <h3>JSON:API, optional GraphQL, WebSocket, and Yjs.</h3>
             <div class="protocol-tags">
               <a
                 href="https://github.com/daptin/daptin/wiki/Server-Configuration"
@@ -244,7 +247,7 @@
           </article>
           <article class="protocol-group">
             <span class="protocol-kind">Identity and transport security</span>
-            <h3>Connect authentication libraries and identity providers.</h3>
+            <h3>OAuth 2.0, OpenID Connect, JWT, and TOTP.</h3>
             <div class="protocol-tags">
               <a href="https://github.com/daptin/daptin/wiki/OAuth-Provider"
                 >OAuth 2.0</a
@@ -267,7 +270,7 @@
           <article class="protocol-group">
             <span class="protocol-kind">Mail, files, and syndication</span>
             <h3>
-              Use standard mail, file-transfer, storage, and feed software.
+              Reach your data over mail, file, storage, and feed protocols.
             </h3>
             <div class="protocol-tags">
               <a href="https://github.com/daptin/daptin/wiki/SMTP-Server"
@@ -287,7 +290,7 @@
           </article>
           <article class="protocol-group">
             <span class="protocol-kind">Outbound integrations</span>
-            <h3>Keep provider credentials and API calls on the server.</h3>
+            <h3>Call external APIs without shipping secrets to the browser.</h3>
             <div class="protocol-tags">
               <a href="https://github.com/daptin/daptin/wiki/Integrations"
                 >OpenAPI 2.0 + 3.0</a
@@ -317,7 +320,7 @@
         <div class="section-heading">
           <div>
             <p class="kicker">The shipped admin interface</p>
-            <h2>Inspect records, access, and actions in dashboard3.</h2>
+            <h2>See and edit the live backend in dashboard3.</h2>
           </div>
           <div>
             <p>dashboard3 running on Daptin v0.12.36.</p>
@@ -372,10 +375,7 @@
       <section class="permission-example">
         <div>
           <p class="kicker">Permissions across services</p>
-          <h2>
-            Remove a workspace member once; every Daptin service sees the
-            change.
-          </h2>
+          <h2>Revoke access once. Every Daptin service honors it.</h2>
           <p>
             The former member loses access to records, downloads, actions, and
             live events. Each service checks the same ownership and group rules.
@@ -406,7 +406,9 @@
         <div class="section-heading">
           <div>
             <p class="kicker">Server-side controls</p>
-            <h2>Daptin handles access checks, secrets, and execution state.</h2>
+            <h2>
+              Access checks, secrets, and transactions stay on the server.
+            </h2>
           </div>
           <p>
             Every client and protocol receives the same access decisions. The
@@ -416,7 +418,9 @@
         <div class="reliability-grid">
           <article>
             <span>Permissions</span>
-            <h3>Apply access rules to API rows and related services.</h3>
+            <h3>
+              One access rule covers rows, files, actions, and subscriptions.
+            </h3>
             <p>
               Guest, owner, and group permissions cover rows, relationships,
               assets, actions, WebSocket topics, Yjs rooms, and FTP site paths.
@@ -428,7 +432,7 @@
           </article>
           <article>
             <span>Authentication</span>
-            <h3>Protect token and one-time-password flows.</h3>
+            <h3>Single-use codes, token rotation, and replay protection.</h3>
             <p>
               Actions and scheduled work use database transactions. OAuth codes
               are single-use, refresh tokens rotate, provider PKCE is required,
@@ -440,7 +444,7 @@
           </article>
           <article>
             <span>Operations</span>
-            <h3>Check health and inspect runtime state.</h3>
+            <h3>Health checks, statistics, audits, and live counters.</h3>
             <p>
               <code>/ping</code> reports process liveness;
               <code>/statistics</code> exposes web, database-pool, host, and
@@ -456,7 +460,7 @@
 
       <section class="deploy-band">
         <p class="kicker">Self-hosted deployment</p>
-        <h2>Run a native executable or use the container files.</h2>
+        <h2>Run one executable or a container on your infrastructure.</h2>
         <div class="platform-grid">
           <a
             href="https://github.com/daptin/daptin/releases/download/v0.12.36/daptin-windows-amd64.exe"
@@ -493,7 +497,7 @@
       </section>
 
       <section class="final-cta">
-        <h2>Create a table and inspect its API.</h2>
+        <h2>Define a table, start Daptin, and call its API.</h2>
         <div class="final-links">
           <a
             class="button button-light"

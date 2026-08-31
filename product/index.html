@@ -62,8 +62,7 @@
         <div>
           <p class="eyebrow">Product</p>
           <h1>
-            APIs, access control, files, and automation from one application
-            model.
+            One application model. APIs, access control, files, and automation.
           </h1>
         </div>
         <div class="page-hero-copy">
@@ -84,12 +83,12 @@
         <div class="split">
           <div>
             <p class="kicker">Generated from the model</p>
-            <h2>What Daptin creates when it loads a model.</h2>
+            <h2>What Daptin builds when it loads your model.</h2>
           </div>
           <div>
             <div class="detail-grid">
               <article class="detail-card">
-                <h3>Database structure</h3>
+                <h3>Tables, indexes, and relationships</h3>
                 <p>
                   Daptin creates tables, base identifiers, timestamps, declared
                   columns, indexes, and relationship tables in SQLite, MySQL, or
@@ -102,7 +101,7 @@
                 >
               </article>
               <article class="detail-card">
-                <h3>HTTP resources</h3>
+                <h3>JSON:API resources</h3>
                 <p>
                   Each application table receives JSON:API collection, record,
                   relationship, filter, sort, pagination, and aggregation
@@ -115,7 +114,7 @@
                 >
               </article>
               <article class="detail-card">
-                <h3>Machine descriptions</h3>
+                <h3>OpenAPI and GraphQL interfaces</h3>
                 <p>
                   OpenAPI describes routes and action inputs. GraphQL exposes
                   generated query access for clients that use it.
@@ -127,7 +126,7 @@
                 >
               </article>
               <article class="detail-card">
-                <h3>Operator screens</h3>
+                <h3>Admin screens</h3>
                 <p>
                   dashboard3 reads the live model and gives administrators
                   screens for records, permissions, actions, users, storage, and
@@ -142,7 +141,7 @@
       <section class="product-row" id="data">
         <div>
           <p class="kicker">Data and APIs</p>
-          <h2>Create and query application records.</h2>
+          <h2>Create, query, filter, and relate records immediately.</h2>
           <p>
             Define fields and relationships for a product, customer, order, or
             ticket. Daptin creates database tables and JSON:API routes for
@@ -191,10 +190,7 @@ PATCH /api/product/{reference_id}</code></pre>
         </figure>
         <div>
           <p class="kicker">Accounts and access</p>
-          <h2>
-            Apply the same access rules to rows, files, actions, and
-            subscriptions.
-          </h2>
+          <h2>One permission system for rows, files, actions, and events.</h2>
           <p>
             Daptin signs users in and evaluates guest, user, owner, and group
             permissions for each table. A customer portal can give every person
@@ -215,7 +211,9 @@ PATCH /api/product/{reference_id}</code></pre>
       <section class="product-row" id="files">
         <div>
           <p class="kicker">Files and content</p>
-          <h2>Attach files to records and inherit their permissions.</h2>
+          <h2>
+            Attach files to records. They inherit the record's permissions.
+          </h2>
           <p>
             Add an asset column to store a product image with its product, an
             invoice with its order, or a support attachment with its ticket. The
@@ -271,7 +269,7 @@ PATCH /api/product/{reference_id}</code></pre>
         </figure>
         <div>
           <p class="kicker">Actions and scheduled work</p>
-          <h2>Move multi-step backend work into a named action.</h2>
+          <h2>Turn multi-step backend work into one API call.</h2>
           <p>
             Define an <strong>approve order</strong> action that validates the
             request, changes the order status, creates an audit record, and
@@ -293,7 +291,7 @@ PATCH /api/product/{reference_id}</code></pre>
       <section class="product-row" id="integrations">
         <div>
           <p class="kicker">External services</p>
-          <h2>Call external APIs with credentials stored on the server.</h2>
+          <h2>Call providers with credentials kept on the server.</h2>
           <p>
             Install an OpenAPI description and expose selected operations as
             Daptin actions. Store one shared provider credential on the server
@@ -310,14 +308,14 @@ PATCH /api/product/{reference_id}</code></pre>
         </div>
         <div class="detail-grid">
           <article class="detail-card">
-            <h3>Connected account</h3>
+            <h3>Each user calls providers with their own OAuth token.</h3>
             <p>
               A support agent connects their own provider account. Daptin
               selects that user's encrypted token when the action runs.
             </p>
           </article>
           <article class="detail-card">
-            <h3>Shared provider</h3>
+            <h3>One server-held key powers shared integrations.</h3>
             <p>
               A billing action uses one server-held credential. The frontend
               sends order data, not the provider secret.
@@ -339,7 +337,7 @@ socket.onmessage = ({ data }) =&gt; {
         </div>
         <div>
           <p class="kicker">Live updates</p>
-          <h2>Subscribe to record changes over WebSocket.</h2>
+          <h2>Subscribe to allowed record changes over WebSocket.</h2>
           <p>
             Daptin publishes record events through its live WebSocket endpoint.
             Subscribe a dashboard to order changes, a customer portal to ticket
@@ -361,7 +359,7 @@ socket.onmessage = ({ data }) =&gt; {
         <div class="split">
           <div>
             <p class="kicker">Protocol servers and optional services</p>
-            <h2>Enable the services required by the application.</h2>
+            <h2>Turn on mail, feeds, FTP, collaboration, or metering.</h2>
           </div>
           <div class="capability-list">
             <a href="https://github.com/daptin/daptin/wiki/Email-Actions"
@@ -410,7 +408,7 @@ socket.onmessage = ({ data }) =&gt; {
         </div>
       </section>
       <section class="final-cta">
-        <h2>Create a table and inspect the generated API.</h2>
+        <h2>Load a schema and call the generated API.</h2>
         <div class="final-links">
           <a
             class="button button-light"
