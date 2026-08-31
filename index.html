@@ -41,6 +41,12 @@
   </header>
 
   <main id="main">
+    <div class="platform-ribbon" role="group" aria-label="Supported platforms and deployment options">
+      <strong>RUN DAPTIN ANYWHERE</strong>
+      <span>Windows</span><span>Linux</span><span>macOS</span><span>Raspberry Pi</span><span>Docker</span><span>Kubernetes</span>
+      <a href="#downloads">Choose a download <b>↓</b></a>
+    </div>
+
     <section class="hero" id="top">
       <div class="hero-copy">
         <p class="eyebrow"><span></span> Open source · Self-hosted · LGPL-3.0</p>
@@ -50,7 +56,6 @@
           <a class="button button-primary" href="https://github.com/daptin/daptin/wiki/Getting-Started-Guide">Start building <span>→</span></a>
           <a class="button button-secondary" href="https://github.com/daptin/daptin">View on GitHub ↗</a>
         </div>
-        <p class="proof">Windows · Linux · macOS · ARM64 · Docker</p>
       </div>
 
       <div class="system-card" role="img" aria-label="A product table definition and the API routes Daptin creates from it">
@@ -70,13 +75,25 @@
       </div>
     </section>
 
-    <section class="quickstart" aria-labelledby="quickstart-title">
-      <div>
-        <span class="kicker">01 / RUN</span>
-        <h2 id="quickstart-title">A backend in one command</h2>
+    <section class="install-showcase" id="downloads" aria-labelledby="downloads-title">
+      <div class="install-heading">
+        <div>
+          <span class="kicker">01 / DOWNLOAD</span>
+          <h2 id="downloads-title">Choose your platform.</h2>
+        </div>
+        <p>Use a native executable, start the Docker image, or deploy from the Compose and Kubernetes files in the repository.</p>
       </div>
-      <code><span>$</span> docker run --rm -p 127.0.0.1:6336:8080 daptin/daptin:v0.12.36</code>
-      <a href="https://github.com/daptin/daptin/wiki/Getting-Started-Guide">Open localhost:6336 →</a>
+      <div class="platform-downloads">
+        <a href="https://github.com/daptin/daptin/releases/latest/download/daptin-windows-amd64.exe"><span>WINDOWS</span><strong>Windows</strong><em>x86-64 · .exe</em><b>Download ↓</b></a>
+        <a href="https://github.com/daptin/daptin/releases/latest/download/daptin-linux-amd64"><span>LINUX</span><strong>Linux</strong><em>x86-64</em><b>Download ↓</b></a>
+        <a class="platform-arm" href="https://github.com/daptin/daptin/releases/latest/download/daptin-linux-arm64"><span>LINUX ARM64</span><strong>Raspberry Pi</strong><em>64-bit ARM systems</em><b>Download ↓</b></a>
+        <a href="https://github.com/daptin/daptin/releases/latest/download/daptin-darwin-amd64"><span>macOS</span><strong>macOS</strong><em>Intel</em><b>Download ↓</b></a>
+      </div>
+      <div class="deployment-options">
+        <article class="docker-command"><span>DOCKER</span><h3>Start the server now</h3><code><b>$</b> docker run --rm -p 127.0.0.1:6336:8080 daptin/daptin:v0.12.36</code><a href="https://hub.docker.com/r/daptin/daptin">Open Docker Hub ↗</a></article>
+        <a href="https://github.com/daptin/daptin/blob/master/docker-compose.yml"><span>DOCKER COMPOSE</span><h3>Daptin + PostgreSQL</h3><p>Use the repository’s Compose file to start the server and database together.</p><b>View compose file ↗</b></a>
+        <a href="https://github.com/daptin/daptin/tree/master/kubernetes"><span>KUBERNETES</span><h3>Deployment manifests</h3><p>Service, deployment, ingress, MySQL, and persistent-volume examples.</p><b>View manifests ↗</b></a>
+      </div>
     </section>
 
     <section class="interface-rail" aria-label="Daptin interfaces"><span>JSON:API</span><span>GraphQL</span><span>OpenAPI</span><span>WebSockets</span><span>OAuth / OIDC</span><span>OpenAI /v1</span><span>CLI</span><span>JS · TS · Go</span></section>
@@ -228,18 +245,6 @@ daptin-cli describe action world import_data</pre>
     <section class="ecosystem-gateway">
       <div><span class="kicker">CLIENTS AND EXAMPLES</span><h2>Clients, schemas,<br>and application examples.</h2><p>Install the CLI, use the JavaScript or Go clients, start from a schema package, or inspect an application repository.</p><a class="button button-primary" href="ecosystem/">Explore the ecosystem <span>→</span></a></div>
       <div class="ecosystem-stack"><a href="https://github.com/daptin/daptin-cli"><span>OPERATE</span><strong>Daptin CLI</strong><em>Tables · actions · OAuth · storage</em></a><a href="https://github.com/daptin/daptin-js-client"><span>BUILD</span><strong>JavaScript / TypeScript</strong><em>Typed APIs · auth · files · uploads</em></a><a href="https://github.com/daptin/daptin-schema-samples"><span>START</span><strong>Schema samples</strong><em>Blog · store · FAQ · payments · todo</em></a><a href="https://github.com/daptin/dadadash"><span>SEE</span><strong>Application example</strong><em>Workspaces · tables · files · documents</em></a></div>
-    </section>
-
-    <section class="ownership-band">
-      <div>
-        <span class="kicker">DEPLOYMENT</span>
-        <h2>Download Daptin<br>for your platform.</h2>
-      </div>
-      <div>
-        <p>Release builds are available for Windows, Linux, and macOS. The Linux ARM64 build runs on 64-bit Raspberry Pi systems. The repository also includes a Docker image, a PostgreSQL Compose file, and Kubernetes manifests.</p>
-        <div class="ownership-points"><span>Windows · Linux · macOS</span><span>x86-64 · ARM64 · Raspberry Pi</span><span>Docker · Compose</span><span>Kubernetes manifests</span></div>
-        <a class="text-link" href="open-source/">Self-hosting and production operations <span>→</span></a>
-      </div>
     </section>
 
     <section class="final-cta">

@@ -54,6 +54,19 @@ img { display: block; }
 .header-cta span { color: var(--blue); margin-left: .6rem; }
 
 main, footer { margin: 0 auto; max-width: 1440px; }
+.platform-ribbon {
+  align-items: stretch;
+  background: var(--ink);
+  color: var(--white);
+  display: grid;
+  grid-template-columns: auto repeat(6,1fr) auto;
+  overflow-x: auto;
+}
+.platform-ribbon > * { align-items: center; border-right: 1px solid #35393e; display: flex; min-height: 48px; padding: .7rem 1rem; white-space: nowrap; }
+.platform-ribbon strong { background: var(--orange); color: var(--ink); font: 750 .63rem ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing: .08em; }
+.platform-ribbon span { color: #d8dde0; font-size: .7rem; font-weight: 750; justify-content: center; }
+.platform-ribbon a { color: #7ed0e8; font-size: .68rem; font-weight: 750; gap: 1.5rem; }
+.platform-ribbon a:hover, .platform-ribbon a:focus-visible { background: #23272b; color: var(--white); }
 .hero {
   align-items: center;
   display: grid;
@@ -100,7 +113,6 @@ main, footer { margin: 0 auto; max-width: 1440px; }
 .button-primary { background: var(--ink); color: var(--white); }
 .button-primary:hover { background: var(--blue-deep); }
 .button-secondary:hover { background: var(--blue-pale); }
-.proof { color: #858b90; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .68rem; margin: 1.3rem 0 0; }
 
 .system-card { background: var(--ink); box-shadow: 20px 24px 0 #d9edf4; color: #f8fafb; overflow: hidden; position: relative; }
 .system-card::after { background: var(--orange); content: ""; height: 5px; left: 0; position: absolute; right: 0; top: 0; }
@@ -119,19 +131,29 @@ main, footer { margin: 0 auto; max-width: 1440px; }
 .surface-grid { display: grid; grid-template-columns: repeat(3,1fr); padding: 1rem; }
 .surface-grid span { border: 1px solid #363a3f; color: #b7bdc3; font: .59rem ui-monospace, SFMono-Regular, Menlo, monospace; margin: -1px 0 0 -1px; padding: .7rem .45rem; text-align: center; text-transform: uppercase; }
 
-.quickstart {
-  align-items: center;
-  background: var(--paper);
-  border-block: 1px solid var(--line);
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: .85fr 1.4fr auto;
-  padding: 1.8rem clamp(1.5rem, 6vw, 6rem);
-}
-.quickstart h2 { font-size: 1rem; margin: .25rem 0 0; }
-.quickstart code { background: var(--white); border: 1px solid var(--line); color: #34383c; display: block; font: clamp(.62rem, 1vw, .76rem) ui-monospace, SFMono-Regular, Menlo, monospace; overflow-x: auto; padding: .9rem 1rem; white-space: nowrap; }
-.quickstart code span { color: var(--orange); }
-.quickstart > a { color: var(--blue-deep); font-size: .72rem; font-weight: 750; white-space: nowrap; }
+.install-showcase { background: var(--paper); border-block: 1px solid var(--line); padding: clamp(3.5rem,7vw,6rem) clamp(1.5rem,6vw,6rem); scroll-margin-top: 76px; }
+.install-heading { align-items: end; display: grid; gap: 3rem; grid-template-columns: 1fr 1fr; }
+.install-heading h2 { font-size: clamp(2.6rem,5vw,4.8rem); letter-spacing: -.05em; line-height: .95; margin: .8rem 0 0; }
+.install-heading > p { color: var(--muted); line-height: 1.7; margin: 0; max-width: 36rem; }
+.platform-downloads { display: grid; grid-template-columns: repeat(4,1fr); margin-top: 3rem; }
+.platform-downloads a { background: var(--white); border: 1px solid var(--line); display: flex; flex-direction: column; margin: -1px 0 0 -1px; min-height: 190px; padding: 1.4rem; transition: background 160ms ease, transform 160ms ease; }
+.platform-downloads a:hover, .platform-downloads a:focus-visible { background: var(--blue-pale); transform: translateY(-3px); z-index: 1; }
+.platform-downloads .platform-arm { background: var(--blue-pale); border-top: 4px solid var(--blue); padding-top: calc(1.4rem - 3px); }
+.platform-downloads span, .deployment-options span { color: var(--blue-deep); font: 750 .59rem ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing: .08em; }
+.platform-downloads strong { font-size: 1.35rem; letter-spacing: -.025em; margin-top: 2rem; }
+.platform-downloads em { color: var(--muted); font-size: .7rem; font-style: normal; margin-top: .35rem; }
+.platform-downloads b { color: var(--blue-deep); font-size: .68rem; margin-top: auto; }
+.deployment-options { display: grid; grid-template-columns: 1.4fr .8fr .8fr; margin-top: 1.2rem; }
+.deployment-options > * { background: var(--white); border: 1px solid var(--line); display: flex; flex-direction: column; margin: -1px 0 0 -1px; min-height: 190px; padding: 1.4rem; }
+.deployment-options > a:hover, .deployment-options > a:focus-visible { background: var(--orange-pale); }
+.deployment-options h3 { font-size: 1rem; margin: 1.4rem 0 .6rem; }
+.deployment-options p { color: var(--muted); font-size: .72rem; line-height: 1.6; margin: 0; }
+.deployment-options > a > b, .docker-command > a { color: var(--blue-deep); font-size: .68rem; margin-top: auto; }
+.docker-command { background: var(--ink); color: var(--white); }
+.docker-command span { color: #79cce5; }
+.docker-command code { background: #23272b; color: #e8edf0; font: clamp(.61rem,1vw,.72rem) ui-monospace,SFMono-Regular,Menlo,monospace; margin: .4rem 0 1rem; overflow-x: auto; padding: .9rem; white-space: nowrap; }
+.docker-command code b { color: var(--orange); }
+.docker-command > a { color: #79cce5; }
 
 .interface-rail { display: grid; grid-template-columns: repeat(8,1fr); padding-inline: clamp(1.5rem,6vw,6rem); }
 .interface-rail span { border: 1px solid var(--line); color: var(--muted); font: .58rem ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing: .05em; margin: -1px 0 0 -1px; padding: .9rem .4rem; text-align: center; text-transform: uppercase; }
@@ -208,7 +230,7 @@ footer small { grid-column: 2; }
 .site-header nav a[aria-current="page"]::after { background: var(--orange); bottom: -.65rem; content: ""; height: 2px; left: 0; position: absolute; right: 0; }
 
 .use-case-preview { background: var(--paper); display: grid; gap: clamp(3rem,7vw,7rem); grid-template-columns: .75fr 1.25fr; padding: clamp(5rem,10vw,9rem) clamp(1.5rem,6vw,6rem); }
-.preview-heading h2, .ownership-band h2 { font-size: clamp(2.4rem,5vw,4.7rem); letter-spacing: -.055em; line-height: .98; margin: 1rem 0 1.5rem; }
+.preview-heading h2 { font-size: clamp(2.4rem,5vw,4.7rem); letter-spacing: -.055em; line-height: .98; margin: 1rem 0 1.5rem; }
 .preview-heading > p { color: var(--muted); line-height: 1.7; max-width: 28rem; }
 .preview-list { border-top: 1px solid #bec4c8; }
 .preview-list a { align-items: center; border-bottom: 1px solid #bec4c8; display: grid; gap: 1.2rem; grid-template-columns: 2rem 1fr 1.2fr auto; padding: 1.4rem 0; transition: padding 160ms ease; }
@@ -217,10 +239,6 @@ footer small { grid-column: 2; }
 .preview-list strong { font-size: .88rem; }
 .preview-list em { color: var(--muted); font-size: .72rem; font-style: normal; }
 .preview-list b { color: var(--blue); }
-.ownership-band { display: grid; gap: clamp(3rem,7vw,7rem); grid-template-columns: 1fr 1fr; padding: clamp(5rem,10vw,9rem) clamp(1.5rem,6vw,6rem); }
-.ownership-band > div:last-child > p { color: var(--muted); font-size: 1.04rem; line-height: 1.75; margin: 0; }
-.ownership-points { display: grid; grid-template-columns: 1fr 1fr; margin-top: 2rem; }
-.ownership-points span { border: 1px solid var(--line); font-size: .72rem; font-weight: 700; margin: -1px 0 0 -1px; padding: .85rem; }
 .ecosystem-gateway { display: grid; gap: clamp(3rem,7vw,7rem); grid-template-columns: .75fr 1.25fr; padding: clamp(5rem,10vw,9rem) clamp(1.5rem,6vw,6rem); }
 .ecosystem-gateway .button { margin-top: 1rem; }
 .ecosystem-stack { display: grid; grid-template-columns: repeat(2,1fr); }
@@ -497,8 +515,10 @@ footer small { grid-column: 2; }
   .site-header nav a { flex: 0 0 auto; }
   .hero { grid-template-columns: 1fr; min-height: auto; }
   .system-card { max-width: 640px; }
-  .quickstart { grid-template-columns: 1fr; }
-  .section-intro, .architecture, .final-cta, .use-case-preview, .ownership-band, .page-hero, .platform-stack, .system-data, .principles, .example-projects, .ecosystem-section, .deployment-ladder, .install-band, .license-band, .distribution-band, .starting-points, .repository-map, .difference-section, .replacement-map, .adoption-section, .nonfit-section, .proof-callout, .developer-bridge, .ecosystem-gateway, .evidence-heading, .evidence-body { gap: 2.5rem; grid-template-columns: 1fr; }
+  .install-heading { grid-template-columns: 1fr; }
+  .platform-downloads { grid-template-columns: repeat(2,1fr); }
+  .deployment-options { grid-template-columns: 1fr; }
+  .section-intro, .architecture, .final-cta, .use-case-preview, .page-hero, .platform-stack, .system-data, .principles, .example-projects, .ecosystem-section, .deployment-ladder, .install-band, .license-band, .distribution-band, .starting-points, .repository-map, .difference-section, .replacement-map, .adoption-section, .nonfit-section, .proof-callout, .developer-bridge, .ecosystem-gateway, .evidence-heading, .evidence-body { gap: 2.5rem; grid-template-columns: 1fr; }
   .evidence-heading .kicker, .evidence-links { grid-column: auto; }
   .interface-rail { grid-template-columns: repeat(4,1fr); }
   .feature-grid { grid-template-columns: repeat(2,1fr); }
@@ -517,10 +537,12 @@ footer small { grid-column: 2; }
   .site-header nav { gap: 1.25rem; }
   .header-cta { font-size: .7rem; }
   .hero { padding-top: 3.5rem; }
+  .platform-ribbon { grid-template-columns: auto repeat(6,auto) auto; }
+  .platform-downloads { grid-template-columns: 1fr; }
   .hero h1 { font-size: clamp(3rem, 16vw, 4.8rem); letter-spacing: -.025em; }
   .actions { align-items: stretch; flex-direction: column; }
   .system-card { box-shadow: 10px 12px 0 #d9edf4; }
-  .feature-grid, .how ol, .outputs, .ownership-points, .detail-grid, .stack-outputs, .system-table-list, .request-flow ol, .deployment-grid, .principle-grid, .fit-grid, .project-grid, .ecosystem-grid, .ownership-pillars, .tradeoff-grid, .deployment-ladder ol, .toolchain-grid, .distribution-grid, .proof-grid, .starting-grid, .repo-groups section > div, .difference-grid, .decision-cards, .adoption-grid, .nonfit-grid, .ecosystem-stack { grid-template-columns: 1fr; }
+  .feature-grid, .how ol, .outputs, .detail-grid, .stack-outputs, .system-table-list, .request-flow ol, .deployment-grid, .principle-grid, .fit-grid, .project-grid, .ecosystem-grid, .ownership-pillars, .tradeoff-grid, .deployment-ladder ol, .toolchain-grid, .distribution-grid, .proof-grid, .starting-grid, .repo-groups section > div, .difference-grid, .decision-cards, .adoption-grid, .nonfit-grid, .ecosystem-stack { grid-template-columns: 1fr; }
   .product-shot figcaption { align-items: flex-start; flex-direction: column; }
   .product-shot figcaption span { text-align: left; }
   .interface-rail { grid-template-columns: repeat(2,1fr); }
