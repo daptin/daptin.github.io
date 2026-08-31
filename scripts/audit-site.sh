@@ -51,6 +51,44 @@ if rg -ni "${banned}" "${pages[@]}"; then
   exit 1
 fi
 
+ai_style='the model is not|it is the contract|one runtime speaks|where your data lives|hard backend rules|reliability is enforced|parts that are hard to fake|one model becomes|short list on purpose|put a complete operation'
+if rg -ni "${ai_style}" "${pages[@]}"; then
+  printf 'FAIL: slogan-like AI copy found\n' >&2
+  exit 1
+fi
+
+python3 - "${pages[@]}" <<'PY'
+from html.parser import HTMLParser
+from pathlib import Path
+import sys
+
+class HeadingBreaks(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.heading = None
+        self.found = False
+    def handle_starttag(self, tag, attrs):
+        if tag in {"h1", "h2"}:
+            self.heading = tag
+        elif tag == "br" and self.heading:
+            self.found = True
+    def handle_startendtag(self, tag, attrs):
+        if tag == "br" and self.heading:
+            self.found = True
+    def handle_endtag(self, tag):
+        if tag == self.heading:
+            self.heading = None
+
+failed = False
+for filename in sys.argv[1:]:
+    parser = HeadingBreaks()
+    parser.feed(Path(filename).read_text())
+    if parser.found:
+        print(f"Manual line break in a primary heading: {filename}", file=sys.stderr)
+        failed = True
+raise SystemExit(1 if failed else 0)
+PY
+
 if rg -n '—' "${pages[@]}"; then
   printf 'FAIL: em dash found in visible site source\n' >&2
   exit 1

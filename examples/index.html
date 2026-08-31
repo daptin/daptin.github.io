@@ -1,15 +1,272 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Examples | Daptin</title><meta name="description" content="Run focused Daptin examples for OAuth, per-user integration credentials, API metering, credits, and OpenAI-compatible routing."><meta name="theme-color" content="#17242a"><link rel="canonical" href="https://daptin.github.io/examples/"><link rel="icon" href="../images/theme-favicon.png"><link rel="stylesheet" href="../styles.css"><meta property="og:type" content="website"><meta property="og:title" content="Daptin examples"><meta property="og:description" content="Run sign-in, credential isolation, metering, credits, and AI routing end to end."><meta property="og:url" content="https://daptin.github.io/examples/"><meta property="og:image" content="https://daptin.github.io/images/og-card.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://daptin.github.io/images/og-card.png"></head><body>
-<a class="skip-link" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="../"><img src="../images/theme-logo.png" alt=""><span>Daptin</span></a><nav class="desktop-nav"><a href="../product/">Product</a><a href="../use-cases/">Use cases</a><a href="../deploy/">Deploy</a><a aria-current="page" href="./">Examples</a><a href="https://github.com/daptin/daptin/wiki">Docs</a><a href="https://github.com/daptin/daptin">GitHub</a></nav><a class="header-cta" href="https://github.com/daptin/daptin/wiki/Getting-Started-Guide">Run Daptin <span>→</span></a><details class="mobile-nav"><summary>Menu</summary><div><a href="../product/">Product</a><a href="../use-cases/">Use cases</a><a href="../deploy/">Deploy</a><a href="./">Examples</a><a href="https://github.com/daptin/daptin/wiki">Docs</a><a href="https://github.com/daptin/daptin">GitHub</a></div></details></header>
-<main id="main"><section class="page-hero"><div><p class="eyebrow">Focused repositories</p><h1>Run the parts<br><em>that are hard to fake.</em></h1></div><div class="page-hero-copy"><p>These examples exercise complete requests against Daptin. They include security and limit failures, not only the successful path.</p><a class="button button-light" href="https://github.com/daptin/daptin/wiki/Getting-Started-Guide">Start with the server →</a></div></section>
-<section class="content-section"><div class="examples-grid">
-  <article class="example-card"><span>OAuth 2.0 + OpenID Connect</span><h2>Sign another application in through Daptin.</h2><p>Register a client, complete authorization code with PKCE, obtain tokens, and read the signed-in user. The test covers invalid redirect URLs and expired or reused authorization codes.</p><a href="https://github.com/daptin/daptin-oauth-provider-demo">Run the OAuth provider demo ↗</a></article>
-  <article class="example-card"><span>Per-user credentials</span><h2>Let each person call a provider with their own account.</h2><p>Store OAuth or API credentials for each user and execute an installed operation with the matching secret. The demo verifies that one signed-in user cannot use another user's credential.</p><a href="https://github.com/daptin/daptin-integration-auth-demo">Run the integration-auth demo ↗</a></article>
-  <article class="example-card"><span>Usage, quotas, and credits</span><h2>Stop a call when the plan is exhausted.</h2><p>Record ordinary API calls and model tokens, apply a quota, reject excess requests, debit a credit wallet, and keep the resulting usage and debit records.</p><a href="https://github.com/daptin/daptin-metering-credit-demo">Run the metering demo ↗</a></article>
-  <article class="example-card"><span>OpenAI-compatible API</span><h2>Keep the client while changing the model provider.</h2><p>Point the official OpenAI SDK at Daptin. Exercise model listing, chat, streaming, completions, embeddings, tool calls, usage fields, and structured errors.</p><a href="https://github.com/daptin/daptin-llm-demo">Run the LLM demo ↗</a></article>
-</div></section>
-<section class="content-section alt"><div class="split"><div><p class="kicker">Schema reference files</p><h2>Borrow a table definition, then review it.</h2></div><div class="split-copy"><p>The schema-samples repository contains YAML and JSON definitions for blogs, FAQs, stores, payments, transactions, and todos. Its latest published changes are from 2020, so treat it as a syntax reference and compare each model with the current schema documentation before starting a new application.</p><a class="text-link" href="https://github.com/daptin/daptin-schema-samples">Browse schema samples ↗</a><a class="text-link" href="https://github.com/daptin/daptin/wiki/Schema-Definition">Read current schema documentation ↗</a></div></div></section>
-<section class="content-section"><div class="split"><div><p class="kicker">Build your own proof</p><h2>Keep the example small and observable.</h2></div><div class="detail-grid"><article class="detail-card"><h3>Use a clean instance</h3><p>Pin the Daptin version and start with an empty database so setup steps remain visible.</p></article><article class="detail-card"><h3>Name the failure</h3><p>Test another user's credential, an exhausted quota, an invalid redirect URL, or a denied record.</p></article><article class="detail-card"><h3>Inspect the records</h3><p>Show the request, the response, and the usage, permission, token, or audit record it created.</p></article><article class="detail-card"><h3>Keep it runnable</h3><p>Document one command that starts dependencies and one command that exercises the main path.</p></article></div></div></section>
-<section class="content-section alt"><div class="split"><div><p class="kicker">What the demos establish</p><h2>Each result maps to a stored record or rejected request.</h2></div><div class="split-copy"><p>The OAuth demo shows issued codes and tokens. The integration demo proves which user owns a credential. The metering demo shows usage, quota, credit, and debit records. The LLM demo compares streaming and non-streaming responses through the same OpenAI-compatible address.</p><p>Read the repository tests when you need the exact assertion. Copy the setup into a disposable environment before adapting it to application data.</p></div></div></section>
-<section class="content-section"><div class="split"><div><p class="kicker">A short list on purpose</p><h2>Historical repositories stay in GitHub.</h2></div><div class="split-copy"><p>This page omits old frontend starters, retired dashboard code, infrastructure forks, and experiments that no longer represent the product. The Daptin organization still preserves those repositories for people researching project history.</p><p>A complete application will appear here only when its setup is repeatable against a current release, its main path is covered by tests, and its interface demonstrates Daptin work that the focused repositories do not already prove.</p><a class="text-link" href="https://github.com/orgs/daptin/repositories">Browse the full organization directory ↗</a></div></div></section>
-<section class="final-cta"><h2>Run one complete request.</h2><div class="final-links"><a class="button button-light" href="https://github.com/daptin/daptin-metering-credit-demo">Open the metering demo →</a><a href="https://github.com/daptin/daptin">Inspect Daptin ↗</a></div></section></main>
-<footer><div><a class="brand" href="../"><img src="../images/theme-logo.png" alt=""><span>Daptin</span></a><p>Self-hosted application backend generated from your data model.</p></div><nav><a href="../product/">Product</a><a href="../use-cases/">Use cases</a><a href="../deploy/">Deploy</a><a href="./">Examples</a><a href="https://github.com/daptin/daptin/wiki">Docs</a></nav><small>v0.12.36 · LGPL-3.0</small></footer></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Examples | Daptin</title>
+    <meta
+      name="description"
+      content="Run focused Daptin examples for OAuth, per-user integration credentials, API metering, credits, and OpenAI-compatible routing."
+    />
+    <meta name="theme-color" content="#17242a" />
+    <link rel="canonical" href="https://daptin.github.io/examples/" />
+    <link rel="icon" href="../images/theme-favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Daptin examples" />
+    <meta
+      property="og:description"
+      content="Run sign-in, credential isolation, metering, credits, and AI routing end to end."
+    />
+    <meta property="og:url" content="https://daptin.github.io/examples/" />
+    <meta
+      property="og:image"
+      content="https://daptin.github.io/images/og-card.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      content="https://daptin.github.io/images/og-card.png"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="../"
+        ><img src="../images/theme-logo.png" alt="" /><span>Daptin</span></a
+      >
+      <nav class="desktop-nav">
+        <a href="../product/">Product</a><a href="../use-cases/">Use cases</a
+        ><a href="../deploy/">Deploy</a
+        ><a aria-current="page" href="./">Examples</a
+        ><a href="https://github.com/daptin/daptin/wiki">Docs</a
+        ><a href="https://github.com/daptin/daptin">GitHub</a>
+      </nav>
+      <a
+        class="header-cta"
+        href="https://github.com/daptin/daptin/wiki/Getting-Started-Guide"
+        >Run Daptin <span>→</span></a
+      >
+      <details class="mobile-nav">
+        <summary>Menu</summary>
+        <div>
+          <a href="../product/">Product</a><a href="../use-cases/">Use cases</a
+          ><a href="../deploy/">Deploy</a><a href="./">Examples</a
+          ><a href="https://github.com/daptin/daptin/wiki">Docs</a
+          ><a href="https://github.com/daptin/daptin">GitHub</a>
+        </div>
+      </details>
+    </header>
+    <main id="main">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">Runnable examples</p>
+          <h1>Run Daptin through complete request flows.</h1>
+        </div>
+        <div class="page-hero-copy">
+          <p>
+            Each repository configures Daptin, sends real requests, and checks
+            both successful responses and expected rejections.
+          </p>
+          <a
+            class="button button-light"
+            href="https://github.com/daptin/daptin/wiki/Getting-Started-Guide"
+            >Start with the server →</a
+          >
+        </div>
+      </section>
+      <section class="content-section">
+        <div class="examples-grid">
+          <article class="example-card">
+            <span>OAuth 2.0 + OpenID Connect</span>
+            <h2>Use Daptin as an OAuth 2.0 and OIDC provider.</h2>
+            <p>
+              Register a client, complete authorization code with PKCE, obtain
+              tokens, and read the signed-in user. The test covers invalid
+              redirect URLs and expired or reused authorization codes.
+            </p>
+            <a href="https://github.com/daptin/daptin-oauth-provider-demo"
+              >Run the OAuth provider demo ↗</a
+            >
+          </article>
+          <article class="example-card">
+            <span>Per-user credentials</span>
+            <h2>Use a separate provider credential for each user.</h2>
+            <p>
+              Store OAuth or API credentials for each user and execute an
+              installed operation with the matching secret. The demo verifies
+              that one signed-in user cannot use another user's credential.
+            </p>
+            <a href="https://github.com/daptin/daptin-integration-auth-demo"
+              >Run the integration-auth demo ↗</a
+            >
+          </article>
+          <article class="example-card">
+            <span>Usage, quotas, and credits</span>
+            <h2>Enforce usage limits and credit balances.</h2>
+            <p>
+              Record ordinary API calls and model tokens, apply a quota, reject
+              excess requests, debit a credit wallet, and keep the resulting
+              usage and debit records.
+            </p>
+            <a href="https://github.com/daptin/daptin-metering-credit-demo"
+              >Run the metering demo ↗</a
+            >
+          </article>
+          <article class="example-card">
+            <span>OpenAI-compatible API</span>
+            <h2>Use the OpenAI SDK against Daptin.</h2>
+            <p>
+              Point the official OpenAI SDK at Daptin. Exercise model listing,
+              chat, streaming, completions, embeddings, tool calls, usage
+              fields, and structured errors.
+            </p>
+            <a href="https://github.com/daptin/daptin-llm-demo"
+              >Run the LLM demo ↗</a
+            >
+          </article>
+        </div>
+      </section>
+      <section class="content-section alt">
+        <div class="split">
+          <div>
+            <p class="kicker">Older schema examples</p>
+            <h2>Use these files as syntax references.</h2>
+          </div>
+          <div class="split-copy">
+            <p>
+              The schema-samples repository contains YAML and JSON definitions
+              for blogs, FAQs, stores, payments, transactions, and todos. Its
+              latest published changes are from 2020, so treat it as a syntax
+              reference and compare each model with the current schema
+              documentation before starting a new application.
+            </p>
+            <a
+              class="text-link"
+              href="https://github.com/daptin/daptin-schema-samples"
+              >Browse schema samples ↗</a
+            ><a
+              class="text-link"
+              href="https://github.com/daptin/daptin/wiki/Schema-Definition"
+              >Read current schema documentation ↗</a
+            >
+          </div>
+        </div>
+      </section>
+      <section class="content-section">
+        <div class="split">
+          <div>
+            <p class="kicker">Writing an example</p>
+            <h2>What a useful example should show.</h2>
+          </div>
+          <div class="detail-grid">
+            <article class="detail-card">
+              <h3>Use a clean instance</h3>
+              <p>
+                Pin the Daptin version and start with an empty database so setup
+                steps remain visible.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>Name the failure</h3>
+              <p>
+                Test another user's credential, an exhausted quota, an invalid
+                redirect URL, or a denied record.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>Inspect the records</h3>
+              <p>
+                Show the request, the response, and the usage, permission,
+                token, or audit record it created.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>Keep it runnable</h3>
+              <p>
+                Document one command that starts dependencies and one command
+                that exercises the main path.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="content-section alt">
+        <div class="split">
+          <div>
+            <p class="kicker">Verified behavior</p>
+            <h2>What the current demos verify.</h2>
+          </div>
+          <div class="split-copy">
+            <p>
+              The OAuth demo shows issued codes and tokens. The integration demo
+              proves which user owns a credential. The metering demo shows
+              usage, quota, credit, and debit records. The LLM demo compares
+              streaming and non-streaming responses through the same
+              OpenAI-compatible address.
+            </p>
+            <p>
+              Read the repository tests when you need the exact assertion. Copy
+              the setup into a disposable environment before adapting it to
+              application data.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="content-section">
+        <div class="split">
+          <div>
+            <p class="kicker">Repository selection</p>
+            <h2>Why only these repositories are listed.</h2>
+          </div>
+          <div class="split-copy">
+            <p>
+              This page omits old frontend starters, retired dashboard code,
+              infrastructure forks, and experiments that no longer represent the
+              product. The Daptin organization still preserves those
+              repositories for people researching project history.
+            </p>
+            <p>
+              A complete application will appear here only when its setup is
+              repeatable against a current release, its main path is covered by
+              tests, and its interface demonstrates Daptin work that the focused
+              repositories do not already prove.
+            </p>
+            <a
+              class="text-link"
+              href="https://github.com/orgs/daptin/repositories"
+              >Browse the full organization directory ↗</a
+            >
+          </div>
+        </div>
+      </section>
+      <section class="final-cta">
+        <h2>Run a demo against a clean Daptin instance.</h2>
+        <div class="final-links">
+          <a
+            class="button button-light"
+            href="https://github.com/daptin/daptin-metering-credit-demo"
+            >Open the metering demo →</a
+          ><a href="https://github.com/daptin/daptin">Inspect Daptin ↗</a>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div>
+        <a class="brand" href="../"
+          ><img src="../images/theme-logo.png" alt="" /><span>Daptin</span></a
+        >
+        <p>
+          Self-hosted application server for data, APIs, access control, files,
+          and workflows.
+        </p>
+      </div>
+      <nav>
+        <a href="../product/">Product</a><a href="../use-cases/">Use cases</a
+        ><a href="../deploy/">Deploy</a><a href="./">Examples</a
+        ><a href="https://github.com/daptin/daptin/wiki">Docs</a>
+      </nav>
+      <small>v0.12.36 · LGPL-3.0</small>
+    </footer>
+  </body>
+</html>
