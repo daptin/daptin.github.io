@@ -41,12 +41,6 @@
   </header>
 
   <main id="main">
-    <div class="platform-ribbon" role="group" aria-label="Supported platforms and deployment options">
-      <strong>RUN DAPTIN ANYWHERE</strong>
-      <span>Windows</span><span>Linux</span><span>macOS</span><span>Raspberry Pi</span><span>Docker</span><span>Kubernetes</span>
-      <a href="#downloads">Choose a download <b>↓</b></a>
-    </div>
-
     <section class="hero" id="top">
       <div class="hero-copy">
         <p class="eyebrow"><span></span> Open source · Self-hosted · LGPL-3.0</p>
@@ -56,8 +50,21 @@
           <a class="button button-primary" href="https://github.com/daptin/daptin/wiki/Getting-Started-Guide">Start building <span>→</span></a>
           <a class="button button-secondary" href="https://github.com/daptin/daptin">View on GitHub ↗</a>
         </div>
+        <p class="availability"><a href="#downloads">Windows</a><a href="#downloads">Linux</a><a href="#downloads">macOS</a><a href="#downloads">Raspberry Pi</a><a href="#downloads">Docker</a><a href="#downloads">Kubernetes</a></p>
       </div>
 
+    </section>
+
+    <section class="value-rail" aria-label="What Daptin provides">
+      <a href="features/#data"><span>01</span><strong>Data APIs</strong><small>JSON:API, GraphQL, and OpenAPI</small></a>
+      <a href="features/#identity"><span>02</span><strong>Identity</strong><small>Users, groups, and row permissions</small></a>
+      <a href="features/#files"><span>03</span><strong>Files</strong><small>Uploads and local or cloud storage</small></a>
+      <a href="features/#automation"><span>04</span><strong>Automation</strong><small>Actions, schedules, and events</small></a>
+      <a href="features/#integrations"><span>05</span><strong>Integrations</strong><small>OAuth, external APIs, and LLMs</small></a>
+    </section>
+
+    <section class="hero-product">
+      <div><span class="kicker">FROM SCHEMA TO API</span><h2>Describe a table.<br>Use its API.</h2><p>This table definition creates record routes, validation, permissions, API descriptions, and realtime events.</p></div>
       <div class="system-card" role="img" aria-label="A product table definition and the API routes Daptin creates from it">
         <div class="window-bar"><span>schema_product.yaml</span><i aria-hidden="true"></i></div>
         <pre><code><span class="code-accent">Tables:</span>
@@ -78,10 +85,10 @@
     <section class="install-showcase" id="downloads" aria-labelledby="downloads-title">
       <div class="install-heading">
         <div>
-          <span class="kicker">01 / DOWNLOAD</span>
-          <h2 id="downloads-title">Choose your platform.</h2>
+          <span class="kicker">DOWNLOAD</span>
+          <h2 id="downloads-title">Run Daptin your way.</h2>
         </div>
-        <p>Use a native executable, start the Docker image, or deploy from the Compose and Kubernetes files in the repository.</p>
+        <p>Download one executable for your computer or server. Docker, Compose, and Kubernetes files are ready when you need them.</p>
       </div>
       <div class="platform-downloads">
         <a href="https://github.com/daptin/daptin/releases/latest/download/daptin-windows-amd64.exe"><span>WINDOWS</span><strong>Windows</strong><em>x86-64 · .exe</em><b>Download ↓</b></a>
@@ -96,10 +103,8 @@
       </div>
     </section>
 
-    <section class="interface-rail" aria-label="Daptin interfaces"><span>JSON:API</span><span>GraphQL</span><span>OpenAPI</span><span>WebSockets</span><span>OAuth / OIDC</span><span>OpenAI /v1</span><span>CLI</span><span>JS · TS · Go</span></section>
-
     <section class="developer-bridge">
-      <div><span class="kicker">CALL THE API</span><h2>HTTP, CLI, and<br>typed clients.</h2><p>Call JSON:API routes directly, use the CLI, or install the JavaScript or Go client. All three can read records and run actions.</p><a class="text-link" href="ecosystem/">Explore developer tools <span>→</span></a></div>
+      <div><span class="kicker">CALL THE API</span><h2>Use HTTP, the CLI,<br>or a client library.</h2><p>Call JSON:API routes directly, use the CLI, or install the JavaScript or Go client. All three can read records and run actions.</p><a class="text-link" href="ecosystem/">Explore developer tools <span>→</span></a></div>
       <div class="developer-panels">
         <article><span>SELF-DESCRIBING CLI</span><code><b>$</b> daptin-cli describe action integration install_integration</code><p>Inspect an action’s instance requirements and input fields before executing it.</p></article>
         <article><span>TYPED JAVASCRIPT</span><code><b>&gt;</b> await client.jsonApi.findAll&lt;Product&gt;('product')</code><p>Use typed entities, JSON:API, actions, authentication, and direct storage uploads.</p></article>
