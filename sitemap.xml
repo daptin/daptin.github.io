@@ -1,24 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://daptin.github.io/</loc>
-  </url>
-  <url>
-    <loc>https://daptin.github.io/features/</loc>
-  </url>
-  <url>
-    <loc>https://daptin.github.io/platform/</loc>
-  </url>
-  <url>
-    <loc>https://daptin.github.io/why-daptin/</loc>
-  </url>
-  <url>
-    <loc>https://daptin.github.io/use-cases/</loc>
-  </url>
-  <url>
-    <loc>https://daptin.github.io/ecosystem/</loc>
-  </url>
-  <url>
-    <loc>https://daptin.github.io/open-source/</loc>
-  </url>
+  <url><loc>https://daptin.github.io/</loc></url>
+  <url><loc>https://daptin.github.io/product/</loc></url>
+  <url><loc>https://daptin.github.io/use-cases/</loc></url>
+  <url><loc>https://daptin.github.io/deploy/</loc></url>
+  <url><loc>https://daptin.github.io/examples/</loc></url>
 </urlset>
