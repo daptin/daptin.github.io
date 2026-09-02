@@ -1479,7 +1479,7 @@
     "description": "Understand Daptin's schema-driven resource runtime, permission pipeline, system tables, attached services, data flow, and deployment boundaries.",
     "primaryNavigation": "Product",
     "relationshipKey": "platform",
-    "mainWordCount": 1388,
+    "mainWordCount": 1327,
     "mainDestinations": [
       "/",
       "/docs/apis/",

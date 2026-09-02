@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#17242a" />
     <link rel="canonical" href="https://daptin.github.io/platform/" />
     <link rel="icon" href="/images/theme-favicon.png" />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/styles.css?v=c7fb59b9a7" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Daptin platform | How the application server works" />
     <meta property="og:description" content="Follow a model from schema to database, permission-aware APIs, actions, files, realtime delivery, integrations, and operations." />
@@ -84,24 +84,39 @@
       </section>
 
       <section class="content-section alt">
-        <div class="split"><div><p class="kicker">04 · TableInfo contract</p><h2>A table definition controls more than columns.</h2></div><div class="split-copy"><div class="dense-table-wrap"><table class="dense-table"><thead><tr><th>TableInfo field</th><th>Runtime use</th><th>Authored or derived</th></tr></thead><tbody>
-          <tr><td><code>TableName</code>, <code>TableDescription</code></td><td>Name the database/API resource; description enters generated API documentation.</td><td>Authored</td></tr>
-          <tr><td><code>Columns</code></td><td>Define storage, API fields, discovery types, defaults, constraints, field permissions, and external file/store bindings.</td><td>Authored, then standard columns are added</td></tr>
-          <tr><td><code>Relations</code></td><td>Create named one/many relationships, foreign-key or join structures, JSON:API relationship routes, and GraphQL edges.</td><td>Authored plus generated owner/group relations</td></tr>
-          <tr><td><code>DefaultPermission</code>, <code>DefaultGroups</code></td><td>Set the initial permission bitmask and attach configured groups when a new record is created.</td><td>Authored; zero permission receives a runtime default</td></tr>
-          <tr><td><code>Permission</code>, <code>AccessGroups</code></td><td>Protect the schema's <code>world</code> record itself and attach groups allowed to access that schema-managed object.</td><td>Authored</td></tr>
-          <tr><td><code>DefaultRelations</code></td><td>Resolve configured public reference IDs for named relations and attach those rows by default.</td><td>Authored</td></tr>
-          <tr><td><code>Validations</code>, <code>Conformations</code></td><td>Apply table-level field validation and normalization middleware before persistence.</td><td>Authored</td></tr>
-          <tr><td><code>IsAuditEnabled</code></td><td>Generate and write an <code>_audit</code> companion table, subject to the documented field filtering and failure boundaries.</td><td>Authored</td></tr>
-          <tr><td><code>TranslationsEnabled</code></td><td>Generate an <code>_i18n</code> companion and merge translated values on reads.</td><td>Authored</td></tr>
-          <tr><td><code>IsStateTrackingEnabled</code>, <code>StateMachines</code></td><td>Generate an <code>_state</code> resource and expose state definitions assembled from <code>smd</code> rows through the live model.</td><td>Flag authored; state list assembled at runtime</td></tr>
-          <tr><td><code>DefaultOrder</code></td><td>Select the fallback list ordering when a request does not provide a sort expression.</td><td>Authored</td></tr>
-          <tr><td><code>CompositeKeys</code></td><td>Request unique multi-column indexes for business or join-table keys.</td><td>Authored; verify physical DDL</td></tr>
-          <tr><td><code>Metering</code></td><td>Configure request/action cost, meter type, per-action overrides, and an optional post-metering action.</td><td>Authored</td></tr>
-          <tr><td><code>Icon</code>, <code>IsHidden</code>, <code>IsTopLevel</code></td><td>Shape dashboard/discovery presentation and whether the resource is treated as a top-level model.</td><td>Icon/hidden authored; top-level normalized</td></tr>
-          <tr><td><code>IsJoinTable</code></td><td>Exclude relation-only tables from ordinary top-level GraphQL/resource treatment.</td><td>Usually inferred from generated or named join tables</td></tr>
-          <tr><td><code>TableId</code>, <code>UserId</code>, <code>ExplicitFields</code></td><td>Carry persisted schema identity/ownership and remember which incoming fields were explicitly supplied during merge.</td><td>Runtime metadata; not normal schema inputs</td></tr>
-        </tbody></table></div></div></div>
+        <div class="split"><div><p class="kicker">04 · TableInfo contract</p><h2>A table definition controls more than columns.</h2></div><div class="split-copy"><p>The 25 fields fall into four responsibilities. Compact labels identify whether a value comes from the schema, is extended by the runtime, or exists only as runtime metadata.</p></div></div>
+        <div class="field-groups">
+          <article><span>Structure</span><h3>Resource and interface shape</h3><dl>
+            <div><dt><code>TableName</code> · authored</dt><dd>Names the database and API resource.</dd></div>
+            <div><dt><code>TableDescription</code> · authored</dt><dd>Describes it in generated API documentation.</dd></div>
+            <div><dt><code>Columns</code> · extended</dt><dd>Defines fields; the runtime adds standard identity and lifecycle columns.</dd></div>
+            <div><dt><code>Relations</code> · extended</dt><dd>Creates relationship storage and routes; owner/group relations are added.</dd></div>
+          </dl></article>
+          <article><span>Access and defaults</span><h3>Who can see and create what</h3><dl>
+            <div><dt><code>DefaultPermission</code> · authored</dt><dd>Initial permission bitmask for new records.</dd></div>
+            <div><dt><code>DefaultGroups</code> · authored</dt><dd>Groups automatically attached to new records.</dd></div>
+            <div><dt><code>Permission</code> · authored</dt><dd>Protects the schema's own <code>world</code> record.</dd></div>
+            <div><dt><code>AccessGroups</code> · authored</dt><dd>Groups attached to the schema-managed object.</dd></div>
+            <div><dt><code>DefaultRelations</code> · authored</dt><dd>Named relations populated from public reference IDs.</dd></div>
+          </dl></article>
+          <article><span>Data behavior</span><h3>Rules generated around every record</h3><dl>
+            <div><dt><code>Validations</code> · authored</dt><dd>Rejects field values before persistence.</dd></div>
+            <div><dt><code>Conformations</code> · authored</dt><dd>Normalizes field values before persistence.</dd></div>
+            <div><dt><code>IsAuditEnabled</code> · authored</dt><dd>Generates and writes an <code>_audit</code> companion.</dd></div>
+            <div><dt><code>TranslationsEnabled</code> · authored</dt><dd>Generates an <code>_i18n</code> companion and merges reads.</dd></div>
+            <div><dt><code>IsStateTrackingEnabled</code> · authored</dt><dd>Generates an <code>_state</code> resource.</dd></div>
+            <div><dt><code>StateMachines</code> · derived</dt><dd>Exposes definitions assembled from <code>smd</code> rows.</dd></div>
+            <div><dt><code>Metering</code> · authored</dt><dd>Sets cost, meter type, action overrides, and post-metering work.</dd></div>
+          </dl></article>
+          <article><span>Storage and presentation</span><h3>Ordering, constraints, and runtime metadata</h3><dl>
+            <div><dt><code>DefaultOrder</code> · authored</dt><dd>Fallback ordering for list requests.</dd></div>
+            <div><dt><code>CompositeKeys</code> · authored</dt><dd>Requests unique multi-column indexes.</dd></div>
+            <div><dt><code>Icon</code>, <code>IsHidden</code> · authored</dt><dd>Shapes dashboard and discovery presentation.</dd></div>
+            <div><dt><code>IsTopLevel</code>, <code>IsJoinTable</code> · derived</dt><dd>Controls top-level resource treatment.</dd></div>
+            <div><dt><code>TableId</code>, <code>UserId</code> · internal</dt><dd>Persisted schema identity and ownership.</dd></div>
+            <div><dt><code>ExplicitFields</code> · internal</dt><dd>Tracks supplied fields while schemas merge.</dd></div>
+          </dl></article>
+        </div>
         <div class="source-list"><a href="https://github.com/daptin/daptin/blob/master/server/table_info/tableinfo.go">Read TableInfo ↗</a><a href="/docs/data-modeling/">Modeling guide →</a></div>
       </section>
 
@@ -165,6 +180,6 @@
       </nav>
       <div class="footer-bottom"><span>Daptin · Open source · Self-hosted</span><a href="/docs/">Documentation</a><a href="https://github.com/daptin/daptin">GitHub ↗</a></div>
     </footer>
-    <script src="/site.js"></script>
+    <script src="/site.js?v=c7fb59b9a7"></script>
   </body>
 </html>

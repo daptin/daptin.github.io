@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from html import escape
 from html.parser import HTMLParser
+import hashlib
 import json
 from pathlib import Path
 import re
@@ -18,6 +19,7 @@ import unicodedata
 
 ROOT = Path(__file__).resolve().parent.parent
 RELATIONSHIPS = json.loads((ROOT / "site-relationships.json").read_text())
+ASSET_VERSION = hashlib.sha256((ROOT / "styles.css").read_bytes()).hexdigest()[:10]
 
 DOC_GROUPS = {
     "Start": ["getting-started", "data-modeling", "apis"],
@@ -359,6 +361,7 @@ def related(route: str) -> str:
 
 def normalize_head(text: str, route: str) -> str:
     url = "https://daptin.github.io" + route
+    text = re.sub(r'href="(?:\.\./)*/?styles\.css(?:\?v=[^"]+)?"', f'href="/styles.css?v={ASSET_VERSION}"', text)
     text = re.sub(
         r'<link\s+rel="canonical"\s+href="[^"]+"\s*/>',
         f'<link rel="canonical" href="{url}" />',
@@ -449,7 +452,9 @@ def modernize(path: Path) -> dict:
         text = re.sub(r'      <nav class="breadcrumb".*?</nav>\n', crumb, text, count=1, flags=re.S)
 
     if "site.js" not in text:
-        text = text.replace("</body>", '    <script src="/site.js"></script>\n  </body>', 1)
+        text = text.replace("</body>", f'    <script src="/site.js?v={ASSET_VERSION}"></script>\n  </body>', 1)
+    else:
+        text = re.sub(r'src="/site\.js(?:\?v=[^"]+)?"', f'src="/site.js?v={ASSET_VERSION}"', text)
 
     if "nav-toggle" not in text and 'class="desktop-nav"' in text:
         text = text.replace(

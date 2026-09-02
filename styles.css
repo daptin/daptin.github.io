@@ -683,7 +683,7 @@ h2 em {
 }
 .entity-groups {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   margin-top: 2.5rem;
 }
 .entity-groups article {
@@ -709,6 +709,50 @@ h2 em {
 .entity-groups code {
   color: var(--ink);
   font-size: 0.84rem;
+}
+.platform-page .split h2 {
+  font-size: clamp(2rem, 3vw, 3.15rem);
+}
+.field-groups {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 2.5rem;
+}
+.field-groups article {
+  background: var(--white);
+  border: 1px solid var(--line);
+  margin: -1px 0 0 -1px;
+  padding: clamp(1.35rem, 2.5vw, 2rem);
+}
+.field-groups article > span {
+  color: var(--orange);
+  font: 750 0.8rem/1.4 monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.field-groups h3 {
+  font-size: 1.25rem;
+  margin: 0.9rem 0 1rem;
+}
+.field-groups dl,
+.field-groups dd {
+  margin: 0;
+}
+.field-groups dl > div {
+  border-top: 1px solid var(--line);
+  padding: 0.75rem 0;
+}
+.field-groups dt {
+  color: var(--ink);
+  font-size: 0.84rem;
+  font-weight: 800;
+  line-height: 1.5;
+}
+.field-groups dd {
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.55;
+  margin-top: 0.2rem;
 }
 .architecture-flow > div,
 .project-directory > a {
@@ -1557,6 +1601,9 @@ footer nav a {
     grid-template-columns: 1fr;
   }
   .entity-groups {
+    grid-template-columns: 1fr 1fr;
+  }
+  .field-groups {
     grid-template-columns: 1fr;
   }
   .reliability-grid {
@@ -1615,6 +1662,7 @@ footer nav a {
     grid-template-columns: 1fr 1fr;
   }
   .architecture-flow,
+  .entity-groups,
   .project-directory {
     grid-template-columns: 1fr;
   }

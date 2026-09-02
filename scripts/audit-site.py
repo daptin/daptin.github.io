@@ -51,7 +51,7 @@ class AuditParser(HTMLParser):
             self.has_breadcrumb = True
         if tag == "button" and "nav-toggle" in classes:
             self.has_nav_toggle = True
-        if tag == "script" and values.get("src") == "/site.js":
+        if tag == "script" and values.get("src", "").startswith("/site.js"):
             self.has_site_script = True
         if tag == "h1":
             self.h1 += 1
