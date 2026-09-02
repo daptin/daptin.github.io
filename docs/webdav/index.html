@@ -2,11 +2,55 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Page not found | Daptin</title>
-    <meta name="robots" content="noindex" />
-    <link rel="icon" href="/images/theme-favicon.png" />
-    <link rel="stylesheet" href="/styles.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Configure WebDAV-style file access in Daptin</title>
+    <meta
+      name="description"
+      content="Enable and verify Daptin WebDAV-style file operations with a compatible client while keeping the supported protocol boundary explicit."
+    />
+    <link rel="canonical" href="https://daptin.github.io/docs/webdav/" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Configure WebDAV-style file access in Daptin"
+    />
+    <meta
+      property="og:description"
+      content="Enable and verify Daptin WebDAV-style file operations with a compatible client while keeping the supported protocol boundary explicit."
+    />
+    <meta property="og:url" content="https://daptin.github.io/docs/webdav/" />
+    <meta
+      property="og:image"
+      content="https://daptin.github.io/images/og-card.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Daptin",
+            "item": "https://daptin.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Documentation",
+            "item": "https://daptin.github.io/docs/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Configure WebDAV-style file access in Daptin",
+            "item": "https://daptin.github.io/docs/webdav/"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -27,24 +71,62 @@
         >Run Daptin <span>→</span></a
       >
     </header>
-    <main id="main" class="not-found">
-      <a class="brand" href="/"
-        ><img src="/images/theme-logo.png" width="40" height="40" alt="" /><span
-          >Daptin</span
-        ></a
-      >
-      <p class="kicker">404 / PAGE NOT FOUND</p>
-      <h1>Looking for the docs?</h1>
-      <p>
-        The requested page does not exist. Open the local documentation or
-        return to the Daptin homepage.
-      </p>
-      <div class="actions">
-        <a class="button button-primary" href="https://daptin.github.io/docs/"
-          >Open documentation <span>→</span></a
-        >
-        <a class="button button-secondary" href="/">Back to Daptin</a>
-      </div>
+    <main id="main" class="feature-detail">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">WebDAV-style access</p>
+          <h1>Use familiar HTTP file operations.</h1>
+        </div>
+        <div class="page-hero-copy">
+          <p>
+            Connect compatible tools to Daptin’s basic WebDAV-style file routes.
+            Treat this as core file access, not a claim of full CalDAV or
+            CardDAV conformance.
+          </p>
+        </div>
+      </section>
+      <section class="content-section">
+        <div class="split">
+          <div><h2>Fit and boundaries</h2></div>
+          <div class="detail-grid">
+            <article class="detail-card">
+              <h3>Basic file clients</h3>
+              <p>
+                Use supported WebDAV-family methods for managed file operations.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>Application storage</h3>
+              <p>
+                Keep files within storage configured and owned by the Daptin
+                deployment.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>Test your client</h3>
+              <p>
+                WebDAV clients differ in discovery and extension expectations;
+                verify the exact workflow.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>Calendar and contacts</h3>
+              <p>
+                Do not assume full CalDAV or CardDAV semantics from the core
+                file routes.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="final-cta">
+        <h2>Choose the protocol that matches the client.</h2>
+        <div class="final-links">
+          <a class="button button-light" href="../../features/protocols/"
+            >See supported protocols →</a
+          ><a href="../../features/files/">Files and assets ↗</a>
+        </div>
+      </section>
     </main>
     <footer class="grand-footer">
       <div class="footer-intro">

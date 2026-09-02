@@ -4,32 +4,35 @@ Each product fact has one marketing page that owns its explanation. Other pages 
 
 | Topic | Canonical page | Evidence source |
 | --- | --- | --- |
-| Product definition, schema-to-runtime mechanism, protocol surface, reliability controls | Home | Tagged Daptin README, server routes, tests, current guides, running server |
-| Data APIs, accounts, permissions, files, actions, integrations, live updates | Product | Current Wiki guides, server source, dashboard3 |
+| Product definition, primary value proposition, schema-to-runtime mechanism | Home | Tagged Daptin README, server routes, tests, current guides, running server |
+| Data APIs, accounts, permissions, files, actions, integrations, live updates | Product | Local implementation guides, latest-release source, tests, dashboard3 |
+| Buyer-oriented map of all capability families and how they fit together | Feature map | Product evidence map below; detailed configuration lives under `docs/` |
+| Buyer-oriented explanation, use cases, and boundaries for an individual capability | The corresponding page under `features/` | Latest-release implementation, tests, and its local guide |
+| Invisible backend engineering: identity, integrity, transactions, request and resource controls, lifecycle | Engineering | Tagged source, focused tests, authoritative backend and security standards |
 | Customer portal, operations, content, authenticated API | Use cases | Product capabilities and linked examples |
 | Release version, native artifacts, Docker, Compose, Kubernetes, databases, storage, operations | Deploy | GitHub release API, Docker Hub, daptin deployment files |
 | Runnable demos and schema samples | Examples | The linked repositories and their commit history |
 
 Version and artifact claims must be updated on Deploy first. Product capability claims must link to a current guide, source, screenshot, or runnable example.
 
-## v0.12.36 claim map
+## Latest-release claim map
 
-The September 2026 revision was checked against source tag
-[`v0.12.36`](https://github.com/daptin/daptin/tree/v0.12.36). This is the
+Each revision must first resolve GitHub’s current latest release and check claims against that release’s source, artifacts, tests, and notes. Do not hard-code the resolved version into public copy. This is the
 evidence map for every capability family surfaced by the five marketing pages;
 it is deliberately a map of claims, not an inventory of unverified ideas.
 
 | Capability family | Evidence used for the site |
 | --- | --- |
-| Schema, column types, relationships, validation, translations, imports | [Tagged README feature map](https://github.com/daptin/daptin/blob/v0.12.36/README.md) and schema/reference guides in that tag |
-| JSON:API, aggregation, GraphQL, OpenAPI, metadata, JS model routes | [Tagged API overview](https://github.com/daptin/daptin/blob/v0.12.36/wiki/API-Overview.md) and README |
-| Users, groups, row/relation/action permissions, JWT, OTP, OAuth/OIDC | [Tagged permissions and provider guides](https://github.com/daptin/daptin/tree/v0.12.36/wiki) and server tests |
-| Actions, scheduled tasks, state tracking, data exchange | [Tagged README automation boundaries](https://github.com/daptin/daptin/blob/v0.12.36/README.md); state tracking is never described as an action-triggering workflow engine |
-| Asset columns, local/cloud stores, sites, templates | [Tagged asset-column and cloud-storage guides](https://github.com/daptin/daptin/tree/v0.12.36/wiki) |
-| WebSockets, YJS, feeds, mail, FTP/FTPS, WebDAV-style routes | [Tagged README protocol scope](https://github.com/daptin/daptin/blob/v0.12.36/README.md) and the corresponding protocol guides |
-| OpenAPI integrations and OpenAI-compatible LLM routing | [Tagged integration and LLM guides](https://github.com/daptin/daptin/tree/v0.12.36/wiki) plus maintained integration-auth and LLM demos |
-| Plans, quotas, credits, rate limits, cluster/runtime operations | [Tagged metering, clustering, and monitoring guides](https://github.com/daptin/daptin/tree/v0.12.36/wiki) plus maintained metering demo |
-| Native artifacts and container architecture | GitHub release API and Docker manifest for `v0.12.36` |
+| Schema, column types, relationships, validation, translations, imports | [`docs/data-modeling/`](docs/data-modeling/) plus the latest-release schema implementation and tests |
+| JSON:API, aggregation, GraphQL, OpenAPI, metadata, JS model routes | [`docs/apis/`](docs/apis/) and [`docs/graphql/`](docs/graphql/) plus latest-release route tests |
+| Users, groups, row/relation/action permissions, JWT, OTP, OAuth/OIDC | [`docs/authentication/`](docs/authentication/), [`docs/permissions/`](docs/permissions/), and [`docs/oauth-provider/`](docs/oauth-provider/) plus latest-release tests |
+| Actions, scheduled tasks, state tracking, data exchange | [`docs/actions/`](docs/actions/), [`docs/scheduled-work/`](docs/scheduled-work/), and [`docs/state-tracking/`](docs/state-tracking/); state tracking is never described as an action-triggering workflow engine |
+| Asset columns, local/cloud stores, sites, templates | [`docs/files/`](docs/files/), [`docs/cloud-storage/`](docs/cloud-storage/), and [`docs/sites/`](docs/sites/) plus latest-release implementation |
+| WebSockets, YJS, feeds, mail, FTP/FTPS, WebDAV-style routes | [`docs/realtime/`](docs/realtime/), [`docs/collaboration/`](docs/collaboration/), [`docs/mail/`](docs/mail/), and [`docs/protocols/`](docs/protocols/) plus latest-release protocol tests |
+| OpenAPI integrations and OpenAI-compatible LLM routing | [`docs/integrations/`](docs/integrations/) and [`docs/ai-routing/`](docs/ai-routing/) plus maintained integration-auth and LLM demos |
+| Plans, quotas, credits, rate limits, cluster/runtime operations | [`docs/metering/`](docs/metering/) and [`docs/operations/`](docs/operations/) plus the maintained metering demo |
+| Invisible data/runtime engineering claims | [`ENGINEERING_BENEFITS_AUDIT.md`](ENGINEERING_BENEFITS_AUDIT.md), then the latest-release implementation and focused tests; the audit is an internal evidence map, not public navigation |
+| Native artifacts and container architecture | GitHub release API and Docker manifest for the latest release |
 | Compose and Kubernetes status | The tagged `docker-compose-examples/daptin-postgres.yml`, empty top-level `docker-compose.yml`, and tagged `kubernetes/` files |
 
 ## Claim verification standard
@@ -39,6 +42,12 @@ release being described. Use the tagged source and its tests for runtime
 behavior, the release API and Docker manifest for artifacts, and the linked
 demo repository for a demo assertion. Do not promote an inferred behavior to a
 product guarantee.
+
+Security and reliability copy describes the mechanism and its scope. It does
+not turn a useful defense into an absolute guarantee: parameterized query
+values are not described as proof that SQL injection is impossible, database
+transactions do not cover external side effects, and retryable delivery is not
+called exactly-once delivery.
 
 The following boundaries are intentionally explicit on the site:
 
@@ -50,6 +59,9 @@ The following boundaries are intentionally explicit on the site:
   change; do not claim immediate revocation for an established subscription.
 - WebSocket events use separate `type`, `topic`, and `event` fields. Client
   examples must check those fields rather than inventing a combined event name.
+- The asset endpoint checks permissions before serving a file. Do not promise
+  that non-owner asset access has been verified universally; instruct operators
+  to test that boundary in their deployment before storing sensitive files.
 - Actions run from HTTP, GraphQL, or scheduled tasks. State tracking validates
   and records allowed transitions; it does not supply entry/exit actions or
   automatically run an action on transition.
@@ -57,7 +69,8 @@ The following boundaries are intentionally explicit on the site:
   demo. Credit hooks write ledger records after metering and must not be
   described as a generic prepaid hard limit.
 - The historical Kubernetes files and minimal Compose example are not presented
-  as production-ready templates. Their exact limitations belong on Deploy.
+  as production-ready templates. Release-scoped pages must not label newer,
+  untagged Kubernetes work as a latest-release feature.
 
 ## Editorial voice
 

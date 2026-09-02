@@ -3,34 +3,29 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Daptin examples | Run real backend product flows</title>
+    <title>Configure static site hosting in Daptin</title>
     <meta
       name="description"
-      content="Run maintained Daptin examples for OAuth sign-in, per-user provider credentials, metered APIs, and OpenAI-compatible model routing."
+      content="Configure storage and site routing, synchronize files, and verify TLS, Basic Auth, and FTP access in Daptin."
     />
-    <meta name="theme-color" content="#17242a" />
-    <link rel="canonical" href="https://daptin.github.io/examples/" />
-    <link rel="icon" href="../images/theme-favicon.png" />
-    <link rel="stylesheet" href="../styles.css" />
-    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://daptin.github.io/docs/sites/" />
+    <link rel="icon" href="../../images/theme-favicon.png" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <meta property="og:type" content="article" />
     <meta
       property="og:title"
-      content="Daptin examples | Run real backend product flows"
+      content="Configure static site hosting in Daptin"
     />
     <meta
       property="og:description"
-      content="Run maintained Daptin examples for OAuth sign-in, per-user provider credentials, metered APIs, and OpenAI-compatible model routing."
+      content="A source-backed guide to storage, routing, synchronization, protection, TLS, and FTP for Daptin sites."
     />
-    <meta property="og:url" content="https://daptin.github.io/examples/" />
+    <meta property="og:url" content="https://daptin.github.io/docs/sites/" />
     <meta
       property="og:image"
       content="https://daptin.github.io/images/og-card.png"
     />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:image"
-      content="https://daptin.github.io/images/og-card.png"
-    />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -45,8 +40,14 @@
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Daptin examples",
-            "item": "https://daptin.github.io/examples/"
+            "name": "Documentation",
+            "item": "https://daptin.github.io/docs/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Configure static site hosting in Daptin",
+            "item": "https://daptin.github.io/docs/sites/"
           }
         ]
       }
@@ -71,156 +72,181 @@
         >Run Daptin <span>→</span></a
       >
     </header>
-    <main id="main">
+    <main id="main" class="feature-detail">
       <section class="page-hero">
         <div>
-          <p class="eyebrow">Runnable proof</p>
-          <h1>See the complete flow—including what Daptin refuses to allow.</h1>
+          <p class="eyebrow">Sites guide</p>
+          <h1>Serve a storage directory as a website.</h1>
         </div>
         <div class="page-hero-copy">
           <p>
-            Evaluate working outcomes instead of another feature list. Each
-            focused repository shows the useful path and the backend boundary
-            protecting it on a clean Daptin instance.
+            Create a storage connection, map it to a hostname and path, load
+            content, synchronize the cache, and test the public route before
+            adding access controls or TLS.
           </p>
           <ul class="hero-facts">
-            <li>Working outcome</li>
-            <li>Protected boundary</li>
-            <li>Runnable setup</li>
+            <li>Storage</li>
+            <li>Site record</li>
+            <li>Route verification</li>
           </ul>
-          <a
-            class="button button-light"
-            href="https://daptin.github.io/docs/getting-started/"
-            >Start with the server →</a
+          <a class="button button-light" href="../../features/sites/"
+            >What Sites provides →</a
           >
         </div>
       </section>
       <section class="content-section">
-        <div class="examples-grid">
-          <article class="example-card">
-            <span>OAuth 2.0 + OpenID Connect</span>
-            <h2>Run Daptin as an OAuth 2.0 and OIDC provider.</h2>
-            <p>
-              Register a client, complete authorization code with PKCE, obtain
-              tokens, and read the signed-in user. The server's provider tests
-              additionally reject invalid redirects and authorization-code
-              replay.
-            </p>
-            <a href="https://github.com/daptin/daptin-oauth-provider-demo"
-              >Run the OAuth provider demo ↗</a
-            >
-          </article>
-          <article class="example-card">
-            <span>Per-user credentials</span>
-            <h2>Keep each user's provider credential isolated.</h2>
-            <p>
-              Store OAuth or API credentials for each user and execute an
-              installed operation with the matching secret. The demo verifies
-              that one signed-in user cannot use another user's credential.
-            </p>
-            <a href="https://github.com/daptin/daptin-integration-auth-demo"
-              >Run the integration-auth demo ↗</a
-            >
-          </article>
-          <article class="example-card">
-            <span>Usage, quotas, and credits</span>
-            <h2>Apply quotas and record credit hooks.</h2>
-            <p>
-              Record API calls and model tokens, set a plan quota that rejects
-              excess requests, and write usage and debit records. The included
-              credit hook runs after metering, so align a prepaid balance with
-              the plan quota instead of treating the wallet alone as a limit.
-            </p>
-            <a href="https://github.com/daptin/daptin-metering-credit-demo"
-              >Run the metering demo ↗</a
-            >
-          </article>
-          <article class="example-card">
-            <span>OpenAI-compatible API</span>
-            <h2>Point the OpenAI SDK at Daptin.</h2>
-            <p>
-              Point the official OpenAI SDK at Daptin. Exercise model listing,
-              chat, streaming, completions, embeddings, tool calls, usage
-              fields, and structured errors.
-            </p>
-            <a href="https://github.com/daptin/daptin-llm-demo"
-              >Run the LLM demo ↗</a
-            >
-          </article>
-        </div>
-      </section>
-      <section class="content-section alt">
         <div class="split">
           <div>
-            <p class="kicker">Older schema examples</p>
-            <h2>Older schemas, useful as syntax references.</h2>
+            <p class="kicker">Before you start</p>
+            <h2>Choose the route and content source.</h2>
           </div>
           <div class="split-copy">
             <p>
-              The schema-samples repository contains YAML and JSON definitions
-              for blogs, FAQs, stores, payments, transactions, and todos. Its
-              latest published changes are from 2020, so treat it as a syntax
-              reference and compare each model with the current schema
-              documentation before starting a new application.
+              You need a hostname that resolves to the deployment, a directory
+              of static output, and a cloud store that can read that directory.
+              Start with <code>localstore</code> before introducing remote
+              credentials and synchronization.
             </p>
-            <a
-              class="text-link"
-              href="https://github.com/daptin/daptin-schema-samples"
-              >Browse schema samples ↗</a
-            ><a
-              class="text-link"
-              href="https://daptin.github.io/features/data-modeling/"
-              >Read current schema documentation ↗</a
-            >
+            <div class="detail-grid">
+              <article class="detail-card">
+                <h3>Hostname</h3>
+                <p>
+                  Use the host visitors will request. Public DNS must point it
+                  to the server or load balancer.
+                </p>
+              </article>
+              <article class="detail-card">
+                <h3>Path</h3>
+                <p>
+                  Choose the directory within storage and avoid overlapping host
+                  and path combinations.
+                </p>
+              </article>
+              <article class="detail-card">
+                <h3>Content</h3>
+                <p>
+                  Build static HTML, CSS, JavaScript, images, or generated
+                  documentation into that directory.
+                </p>
+              </article>
+              <article class="detail-card">
+                <h3>Remote credentials</h3>
+                <p>
+                  Create the credential and set the cloud store's
+                  <code>credential_name</code> to its exact name.
+                </p>
+              </article>
+            </div>
           </div>
         </div>
       </section>
       <section class="content-section alt">
         <div class="split">
           <div>
-            <p class="kicker">Proof beyond the happy path</p>
-            <h2>A useful demo shows the boundary holding.</h2>
+            <p class="kicker">Configuration sequence</p>
+            <h2>Create storage before the site.</h2>
+          </div>
+          <div class="split-copy">
+            <ol class="guide-steps">
+              <li>
+                <strong>Create or select a cloud store.</strong> Confirm Daptin
+                can list and retrieve a disposable file.
+              </li>
+              <li>
+                <strong>Place files in one directory.</strong> Include
+                <code>index.html</code> at its root for the initial test.
+              </li>
+              <li>
+                <strong>Create the site record.</strong> Set its hostname and
+                path, then link the intended cloud store.
+              </li>
+              <li>
+                <strong>Synchronize storage.</strong> Run
+                <code>site.storage.sync</code> or restart where required so the
+                cache and route load.
+              </li>
+              <li>
+                <strong>Request the public URL.</strong> Check the homepage, a
+                nested asset, a missing file, and cache refresh after a change.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+      <section class="content-section">
+        <div class="split">
+          <div>
+            <p class="kicker">Optional controls</p>
+            <h2>Add only what this site needs.</h2>
           </div>
           <div class="detail-grid">
             <article class="detail-card">
-              <h3>OAuth code replay fails</h3>
+              <h3>Basic Authentication</h3>
               <p>
-                Complete a PKCE sign-in, then see why the same authorization
-                code cannot be exchanged twice.
+                Configure the site username and bcrypt password hash. Verify
+                anonymous and incorrect credentials are denied.
               </p>
             </article>
             <article class="detail-card">
-              <h3>Credentials stay with their owner</h3>
+              <h3>HTTPS</h3>
               <p>
-                Connect two users and verify that one cannot execute an
-                integration with the other's stored credential.
+                Associate a certificate matching the hostname and test SNI
+                selection when hosting several TLS sites.
               </p>
+              <a href="../tls-certificates/">TLS guide →</a>
             </article>
             <article class="detail-card">
-              <h3>Quota stops the request</h3>
+              <h3>FTP</h3>
               <p>
-                Record usage, exhaust the configured plan allowance, and observe
-                the server reject the next request.
+                Enable FTP globally and set <code>ftpenabled</code> for the
+                site. Verify access is limited to the intended path.
               </p>
+              <a href="../../features/protocols/">Protocol support →</a>
             </article>
             <article class="detail-card">
-              <h3>One SDK, several providers</h3>
+              <h3>Remote synchronization</h3>
               <p>
-                Use an OpenAI-compatible client for model discovery, chat,
-                streaming, embeddings, tools, and structured errors.
+                Change a file in the provider, synchronize the site, and confirm
+                the public response refreshes.
               </p>
+              <a href="../../features/cloud-storage/">Cloud storage →</a>
             </article>
+          </div>
+        </div>
+      </section>
+      <section class="content-section alt">
+        <div class="split">
+          <div>
+            <p class="kicker">Verification</p>
+            <h2>Test the boundary visitors use.</h2>
+          </div>
+          <div class="split-copy">
+            <ul class="check-list">
+              <li>The hostname resolves to the intended deployment.</li>
+              <li>
+                The site links to a valid cloud store and non-conflicting path.
+              </li>
+              <li>Directory requests return the expected index file.</li>
+              <li>Nested assets use correct content types and paths.</li>
+              <li>Remote changes appear after synchronization.</li>
+              <li>Basic Auth denies missing and incorrect credentials.</li>
+              <li>The certificate matches the requested hostname.</li>
+              <li>FTP remains disabled unless deliberately configured.</li>
+            </ul>
+            <p>
+              Daptin Sites serves static files and generated output. Put dynamic
+              behavior behind APIs and actions; do not treat it as a general
+              server-side code runtime.
+            </p>
           </div>
         </div>
       </section>
       <section class="final-cta">
-        <h2>Choose a working flow and inspect the result yourself.</h2>
+        <h2>Connect the site to its backend.</h2>
         <div class="final-links">
-          <a
-            class="button button-light"
-            href="https://github.com/orgs/daptin/repositories"
-            >Choose an example →</a
-          ><a href="../engineering/">See what is built in ↗</a>
+          <a class="button button-light" href="../../features/sites/"
+            >Return to Sites →</a
+          ><a href="../cloud-storage/">Cloud storage guide ↗</a>
         </div>
       </section>
     </main>

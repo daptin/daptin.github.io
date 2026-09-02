@@ -2,11 +2,61 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Page not found | Daptin</title>
-    <meta name="robots" content="noindex" />
-    <link rel="icon" href="/images/theme-favicon.png" />
-    <link rel="stylesheet" href="/styles.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Configure SQLite, MySQL, or PostgreSQL for Daptin</title>
+    <meta
+      name="description"
+      content="Choose a Daptin database, configure its connection and pool, verify persistence, and plan backups before moving the application to production."
+    />
+    <link
+      rel="canonical"
+      href="https://daptin.github.io/docs/database-setup/"
+    />
+    <link rel="stylesheet" href="../../styles.css" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Configure SQLite, MySQL, or PostgreSQL for Daptin"
+    />
+    <meta
+      property="og:description"
+      content="Choose a Daptin database, configure its connection and pool, verify persistence, and plan backups before moving the application to production."
+    />
+    <meta
+      property="og:url"
+      content="https://daptin.github.io/docs/database-setup/"
+    />
+    <meta
+      property="og:image"
+      content="https://daptin.github.io/images/og-card.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Daptin",
+            "item": "https://daptin.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Documentation",
+            "item": "https://daptin.github.io/docs/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Configure SQLite, MySQL, or PostgreSQL for Daptin",
+            "item": "https://daptin.github.io/docs/database-setup/"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -27,24 +77,62 @@
         >Run Daptin <span>→</span></a
       >
     </header>
-    <main id="main" class="not-found">
-      <a class="brand" href="/"
-        ><img src="/images/theme-logo.png" width="40" height="40" alt="" /><span
-          >Daptin</span
-        ></a
-      >
-      <p class="kicker">404 / PAGE NOT FOUND</p>
-      <h1>Looking for the docs?</h1>
-      <p>
-        The requested page does not exist. Open the local documentation or
-        return to the Daptin homepage.
-      </p>
-      <div class="actions">
-        <a class="button button-primary" href="https://daptin.github.io/docs/"
-          >Open documentation <span>→</span></a
-        >
-        <a class="button button-secondary" href="/">Back to Daptin</a>
-      </div>
+    <main id="main" class="feature-detail">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">Database setup</p>
+          <h1>Choose the database for this deployment.</h1>
+        </div>
+        <div class="page-hero-copy">
+          <p>
+            Daptin supports SQLite, MySQL, and PostgreSQL. The application model
+            stays the same while the persistence layer fits the environment.
+          </p>
+        </div>
+      </section>
+      <section class="content-section">
+        <div class="split">
+          <div><h2>Pick deliberately</h2></div>
+          <div class="detail-grid">
+            <article class="detail-card">
+              <h3>SQLite</h3>
+              <p>
+                A low-setup choice for local work, evaluation, and compact
+                single-process deployments. Persist the database file.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>PostgreSQL</h3>
+              <p>
+                A strong default for multi-user production systems and
+                deployments with an independently operated database.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>MySQL</h3>
+              <p>
+                Use existing MySQL infrastructure while retaining Daptin’s
+                application model and runtime.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>Pool the connections</h3>
+              <p>
+                Set open and idle connection bounds for the database capacity
+                available to Daptin.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="final-cta">
+        <h2>Prepare the rest of the deployment.</h2>
+        <div class="final-links">
+          <a class="button button-light" href="../production-deployment/"
+            >Production guide →</a
+          ><a href="../../deploy/">Deployment options ↗</a>
+        </div>
+      </section>
     </main>
     <footer class="grand-footer">
       <div class="footer-intro">

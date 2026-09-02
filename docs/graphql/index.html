@@ -2,11 +2,55 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Page not found | Daptin</title>
-    <meta name="robots" content="noindex" />
-    <link rel="icon" href="/images/theme-favicon.png" />
-    <link rel="stylesheet" href="/styles.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Configure and verify the Daptin GraphQL API</title>
+    <meta
+      name="description"
+      content="Enable Daptin GraphQL, inspect the generated schema, and verify queries, mutations, relationships, actions, permissions, and error behavior."
+    />
+    <link rel="canonical" href="https://daptin.github.io/docs/graphql/" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Configure and verify the Daptin GraphQL API"
+    />
+    <meta
+      property="og:description"
+      content="Enable Daptin GraphQL, inspect the generated schema, and verify queries, mutations, relationships, actions, permissions, and error behavior."
+    />
+    <meta property="og:url" content="https://daptin.github.io/docs/graphql/" />
+    <meta
+      property="og:image"
+      content="https://daptin.github.io/images/og-card.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Daptin",
+            "item": "https://daptin.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Documentation",
+            "item": "https://daptin.github.io/docs/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Configure and verify the Daptin GraphQL API",
+            "item": "https://daptin.github.io/docs/graphql/"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -27,24 +71,62 @@
         >Run Daptin <span>→</span></a
       >
     </header>
-    <main id="main" class="not-found">
-      <a class="brand" href="/"
-        ><img src="/images/theme-logo.png" width="40" height="40" alt="" /><span
-          >Daptin</span
-        ></a
-      >
-      <p class="kicker">404 / PAGE NOT FOUND</p>
-      <h1>Looking for the docs?</h1>
-      <p>
-        The requested page does not exist. Open the local documentation or
-        return to the Daptin homepage.
-      </p>
-      <div class="actions">
-        <a class="button button-primary" href="https://daptin.github.io/docs/"
-          >Open documentation <span>→</span></a
-        >
-        <a class="button button-secondary" href="/">Back to Daptin</a>
-      </div>
+    <main id="main" class="feature-detail">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">GraphQL API</p>
+          <h1>Query connected application data in one request.</h1>
+        </div>
+        <div class="page-hero-copy">
+          <p>
+            Enable Daptin’s optional GraphQL interface when a client benefits
+            from selecting fields and relationships as a graph.
+          </p>
+        </div>
+      </section>
+      <section class="content-section">
+        <div class="split">
+          <div><h2>Use the generated schema</h2></div>
+          <div class="split-copy">
+            <p>
+              Daptin derives GraphQL types, queries, mutations, and available
+              actions from the application model. Authentication and permissions
+              continue to apply at the server boundary.
+            </p>
+            <div class="detail-grid">
+              <article class="detail-card">
+                <h3>Query records</h3>
+                <p>Select the fields and connected data needed by a screen.</p>
+              </article>
+              <article class="detail-card">
+                <h3>Mutate data</h3>
+                <p>Create and change records through generated mutations.</p>
+              </article>
+              <article class="detail-card">
+                <h3>Invoke actions</h3>
+                <p>
+                  Expose named backend operations through the GraphQL interface.
+                </p>
+              </article>
+              <article class="detail-card">
+                <h3>Keep JSON:API available</h3>
+                <p>
+                  Different clients can use GraphQL or resource routes against
+                  the same model.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="final-cta">
+        <h2>Choose the interface that fits the client.</h2>
+        <div class="final-links">
+          <a class="button button-light" href="../../features/apis/"
+            >Explore Daptin APIs →</a
+          ><a href="../">All guides ↗</a>
+        </div>
+      </section>
     </main>
     <footer class="grand-footer">
       <div class="footer-intro">

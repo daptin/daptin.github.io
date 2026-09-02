@@ -2,11 +2,58 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Page not found | Daptin</title>
-    <meta name="robots" content="noindex" />
-    <link rel="icon" href="/images/theme-favicon.png" />
-    <link rel="stylesheet" href="/styles.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Monitor Daptin liveness, statistics, logs, and pools</title>
+    <meta
+      name="description"
+      content="Use Daptin liveness, runtime statistics, logs, counters, and database-pool information without confusing an admin route for readiness."
+    />
+    <link rel="canonical" href="https://daptin.github.io/docs/monitoring/" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Monitor Daptin liveness, statistics, logs, and pools"
+    />
+    <meta
+      property="og:description"
+      content="Use Daptin liveness, runtime statistics, logs, counters, and database-pool information without confusing an admin route for readiness."
+    />
+    <meta
+      property="og:url"
+      content="https://daptin.github.io/docs/monitoring/"
+    />
+    <meta
+      property="og:image"
+      content="https://daptin.github.io/images/og-card.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Daptin",
+            "item": "https://daptin.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Documentation",
+            "item": "https://daptin.github.io/docs/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Monitor Daptin liveness, statistics, logs, and pools",
+            "item": "https://daptin.github.io/docs/monitoring/"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -27,24 +74,64 @@
         >Run Daptin <span>→</span></a
       >
     </header>
-    <main id="main" class="not-found">
-      <a class="brand" href="/"
-        ><img src="/images/theme-logo.png" width="40" height="40" alt="" /><span
-          >Daptin</span
-        ></a
-      >
-      <p class="kicker">404 / PAGE NOT FOUND</p>
-      <h1>Looking for the docs?</h1>
-      <p>
-        The requested page does not exist. Open the local documentation or
-        return to the Daptin homepage.
-      </p>
-      <div class="actions">
-        <a class="button button-primary" href="https://daptin.github.io/docs/"
-          >Open documentation <span>→</span></a
-        >
-        <a class="button button-secondary" href="/">Back to Daptin</a>
-      </div>
+    <main id="main" class="feature-detail">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">Monitoring</p>
+          <h1>Know whether Daptin is serving the application.</h1>
+        </div>
+        <div class="page-hero-copy">
+          <p>
+            Use process liveness, runtime statistics, logs, database-pool
+            information, and live counters as inputs to the monitoring system
+            you already operate.
+          </p>
+        </div>
+      </section>
+      <section class="content-section">
+        <div class="split">
+          <div><h2>Signals worth watching</h2></div>
+          <div class="detail-grid">
+            <article class="detail-card">
+              <h3>Process liveness</h3>
+              <p>
+                Probe <code>/ping</code> and alert on failed responses or
+                sustained latency. Define readiness around the dependencies your
+                deployment actually requires.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>Runtime statistics</h3>
+              <p>
+                Inspect server counters and resource information when traffic or
+                failure patterns change.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>Database pool</h3>
+              <p>
+                Watch open, idle, and waiting connections for evidence of
+                exhaustion or poor sizing.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>Logs and history</h3>
+              <p>
+                Retain structured operational logs and use record history for
+                application-level investigation.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="final-cta">
+        <h2>Add monitoring before the launch.</h2>
+        <div class="final-links">
+          <a class="button button-light" href="../production-deployment/"
+            >Production checklist →</a
+          ><a href="../../features/operations/">Operations feature ↗</a>
+        </div>
+      </section>
     </main>
     <footer class="grand-footer">
       <div class="footer-intro">

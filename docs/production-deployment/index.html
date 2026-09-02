@@ -2,11 +2,58 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Page not found | Daptin</title>
-    <meta name="robots" content="noindex" />
-    <link rel="icon" href="/images/theme-favicon.png" />
-    <link rel="stylesheet" href="/styles.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Deploy Daptin in production</title>
+    <meta
+      name="description"
+      content="A practical production checklist for Daptin persistence, TLS, limits, monitoring, backups, and upgrades."
+    />
+    <link
+      rel="canonical"
+      href="https://daptin.github.io/docs/production-deployment/"
+    />
+    <link rel="stylesheet" href="../../styles.css" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Deploy Daptin in production" />
+    <meta
+      property="og:description"
+      content="A practical production checklist for Daptin persistence, TLS, limits, monitoring, backups, and upgrades."
+    />
+    <meta
+      property="og:url"
+      content="https://daptin.github.io/docs/production-deployment/"
+    />
+    <meta
+      property="og:image"
+      content="https://daptin.github.io/images/og-card.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Daptin",
+            "item": "https://daptin.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Documentation",
+            "item": "https://daptin.github.io/docs/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Deploy Daptin in production",
+            "item": "https://daptin.github.io/docs/production-deployment/"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -27,24 +74,64 @@
         >Run Daptin <span>→</span></a
       >
     </header>
-    <main id="main" class="not-found">
-      <a class="brand" href="/"
-        ><img src="/images/theme-logo.png" width="40" height="40" alt="" /><span
-          >Daptin</span
-        ></a
-      >
-      <p class="kicker">404 / PAGE NOT FOUND</p>
-      <h1>Looking for the docs?</h1>
-      <p>
-        The requested page does not exist. Open the local documentation or
-        return to the Daptin homepage.
-      </p>
-      <div class="actions">
-        <a class="button button-primary" href="https://daptin.github.io/docs/"
-          >Open documentation <span>→</span></a
-        >
-        <a class="button button-secondary" href="/">Back to Daptin</a>
-      </div>
+    <main id="main" class="feature-detail">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">Production deployment</p>
+          <h1>Prepare the server for real traffic and real data.</h1>
+        </div>
+        <div class="page-hero-copy">
+          <p>
+            Choose durable persistence, protect transport, bound resource use,
+            collect operational signals, and rehearse recovery before users
+            depend on the application.
+          </p>
+        </div>
+      </section>
+      <section class="content-section">
+        <div class="split">
+          <div><h2>Production checklist</h2></div>
+          <div class="detail-grid">
+            <article class="detail-card">
+              <h3>Persist and back up</h3>
+              <p>
+                Keep the database, configuration, and managed storage outside
+                disposable container layers. Test restoration.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>Terminate TLS</h3>
+              <p>
+                Use a trusted certificate through Daptin or an intentional
+                reverse-proxy boundary.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>Set limits</h3>
+              <p>
+                Configure Daptin concurrency, rate limits, and database pools.
+                Enforce request size and connection timeouts at a trusted
+                reverse proxy for the latest release.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>Observe and upgrade</h3>
+              <p>
+                Collect liveness, statistics, and logs. Test the latest release,
+                schema, and application behavior before promotion.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="final-cta">
+        <h2>Choose a supported artifact.</h2>
+        <div class="final-links">
+          <a class="button button-light" href="../../deploy/"
+            >Open deployment options →</a
+          ><a href="../monitoring/">Set up monitoring ↗</a>
+        </div>
+      </section>
     </main>
     <footer class="grand-footer">
       <div class="footer-intro">

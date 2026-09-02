@@ -3,20 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Product | Daptin</title>
+    <title>Daptin product | A complete self-hosted application server</title>
     <meta
       name="description"
-      content="See how Daptin creates APIs, accounts, permissions, files, actions, integrations, and live updates from a data model."
+      content="Build on a self-hosted application server where data integrity, access control, validation, resource limits, files, automation, and APIs work together."
     />
     <meta name="theme-color" content="#17242a" />
     <link rel="canonical" href="https://daptin.github.io/product/" />
     <link rel="icon" href="../images/theme-favicon.png" />
     <link rel="stylesheet" href="../styles.css" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Daptin product" />
+    <meta
+      property="og:title"
+      content="Daptin product | A complete self-hosted application server"
+    />
     <meta
       property="og:description"
-      content="Define records and relationships, then use their APIs immediately."
+      content="Build on a self-hosted application server where data integrity, access control, validation, resource limits, files, automation, and APIs work together."
     />
     <meta property="og:url" content="https://daptin.github.io/product/" />
     <meta
@@ -28,57 +31,66 @@
       name="twitter:image"
       content="https://daptin.github.io/images/og-card.png"
     />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Daptin",
+            "item": "https://daptin.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Daptin product",
+            "item": "https://daptin.github.io/product/"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
-      <a class="brand" href="../" aria-label="Daptin home"
-        ><img src="../images/theme-logo.png" alt="" /><span>Daptin</span></a
+      <a class="brand" href="/"
+        ><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a
       >
       <nav class="desktop-nav" aria-label="Primary">
-        <a aria-current="page" href="./">Product</a
-        ><a href="../use-cases/">Use cases</a><a href="../deploy/">Deploy</a
-        ><a href="../examples/">Examples</a
-        ><a href="https://github.com/daptin/daptin/wiki">Docs</a
-        ><a href="https://github.com/daptin/daptin">GitHub</a>
+        <a href="/product/">Product</a>
+        <a href="/features/">Features</a>
+        <a href="/engineering/">Engineering</a>
+        <a href="/use-cases/">Use cases</a>
+        <a href="/deploy/">Deploy</a>
+        <a href="/examples/">Examples</a>
+        <a href="/docs/">Docs</a>
       </nav>
-      <a
-        class="header-cta"
-        href="https://github.com/daptin/daptin/wiki/Getting-Started-Guide"
+      <a class="header-cta" href="/docs/getting-started/"
         >Run Daptin <span>→</span></a
       >
-      <details class="mobile-nav">
-        <summary>Menu</summary>
-        <div>
-          <a href="./">Product</a><a href="../use-cases/">Use cases</a
-          ><a href="../deploy/">Deploy</a><a href="../examples/">Examples</a
-          ><a href="https://github.com/daptin/daptin/wiki">Docs</a
-          ><a href="https://github.com/daptin/daptin">GitHub</a>
-        </div>
-      </details>
     </header>
     <main id="main">
       <section class="page-hero">
         <div>
           <p class="eyebrow">Product</p>
-          <h1>
-            Follow one application model through the running server.
-          </h1>
+          <h1>One server for your application backend.</h1>
         </div>
         <div class="page-hero-copy">
           <p>
-            This page follows a table into database structure, request handling,
-            access decisions, file storage, server-side work, and record events.
+            Model your application, then use its data APIs, access rules, files,
+            actions, integrations, live updates, and operational controls.
           </p>
-          <ul class="hero-facts" aria-label="Product highlights">
-            <li>Schema input</li>
-            <li>Runtime behavior</li>
-            <li>Operational boundaries</li>
+          <ul class="hero-facts">
+            <li>Data model</li>
+            <li>Access and validation</li>
+            <li>Standard interfaces</li>
           </ul>
           <a
             class="button button-light"
-            href="https://github.com/daptin/daptin/wiki/Getting-Started-Guide"
-            >Create your first table →</a
+            href="https://daptin.github.io/docs/getting-started/"
+            >Run Daptin locally →</a
           >
         </div>
       </section>
@@ -86,59 +98,60 @@
       <section class="content-section">
         <div class="split">
           <div>
-            <p class="kicker">Generated from the model</p>
-            <h2>Loading a model creates a data runtime and its attached surfaces.</h2>
+            <p class="kicker">From model to runtime</p>
+            <h2>Define data and the rules around it.</h2>
           </div>
           <div>
             <div class="detail-grid">
               <article class="detail-card">
-                <h3>Schema and data runtime</h3>
+                <h3>Define the data model</h3>
                 <p>
-                  YAML or JSON can declare 41 column types, indexes, relations
-                  and joins, composite keys, validation, conformation,
-                  translations, and audit, state, or metering flags.
+                  Define tables, fields, relationships, validation, indexes, and
+                  access in YAML or JSON. Daptin carries those decisions into
+                  storage and every generated interface.
                 </p>
                 <a
                   class="text-link"
-                  href="https://github.com/daptin/daptin/wiki/Database-Setup"
+                  href="https://daptin.github.io/docs/database-setup/"
                   >Database support →</a
                 >
               </article>
               <article class="detail-card">
-                <h3>Resources and discovery</h3>
+                <h3>Apply the same safeguards</h3>
                 <p>
-                  Each application table becomes a permission-aware JSON:API
-                  resource with collection, record, relationship, filter, sort,
-                  pagination, and separate aggregation routes.
+                  Relationship checks, parameterized query values,
+                  transaction-scoped writes, URL rate limits, request caps, and
+                  bounded database pools arrive with the runtime.
                 </p>
-                <a
-                  class="text-link"
-                  href="https://github.com/daptin/daptin/wiki/CRUD-Operations"
-                  >CRUD requests →</a
+                <a class="text-link" href="../engineering/"
+                  >Engineering decisions →</a
                 >
               </article>
               <article class="detail-card">
-                <h3>Optional query interfaces</h3>
+                <h3>Add query and discovery tools</h3>
                 <p>
-                  Enable GraphQL queries, mutations, and actions when useful.
+                  Enable GraphQL queries, mutations, and actions when they fit.
                   <code>/openapi.yaml</code>, <code>/meta</code>, and
-                  <code>/jsmodel/{typename}</code> expose the generated model
-                  to tools and clients.
+                  <code>/jsmodel/{typename}</code> expose the generated model to
+                  tools and clients.
                 </p>
                 <a
                   class="text-link"
-                  href="https://github.com/daptin/daptin/wiki/API-Overview"
+                  href="https://daptin.github.io/features/apis/"
                   >API overview →</a
                 >
               </article>
               <article class="detail-card">
-                <h3>Configuration as data</h3>
+                <h3>Configure services as data</h3>
                 <p>
                   System-table rows configure actions, schedules, state
                   definitions, storage, sites, integrations, model providers,
                   plans, and more. dashboard3 exposes those live records to
                   administrators.
                 </p>
+                <a class="text-link" href="../features/"
+                  >Explore the complete feature map →</a
+                >
               </article>
             </div>
           </div>
@@ -147,22 +160,22 @@
 
       <section class="product-row" id="data">
         <div>
-          <p class="kicker">Data and APIs</p>
-          <h2>Collections, records, relationships, filters, and pages.</h2>
+          <p class="kicker">Data foundations</p>
+          <h2>Keep the database efficient without exposing its internals.</h2>
           <p>
-            A JSON:API resource has collection and record routes, relationship
-            requests, filters, sorting, pagination, and aggregation. The routes
-            below show the ordinary record operations for <code>product</code>.
+            Daptin stores compact integer keys for joins and exposes indexed
+            UUIDv7 references to clients. Before storing a relationship, it
+            checks that the related record exists and that the caller may refer
+            to it.
           </p>
           <p>
-            OpenAPI describes routes and action inputs; GraphQL is available for
-            clients that use it. dashboard3 is useful for inspecting records and
-            requests during development.
+            The model creates indexes, unique fields, composite keys, and
+            duplicate-resistant join tables. Core record changes share a
+            transaction so related database writes normally commit together or
+            roll back together.
           </p>
-          <a
-            class="text-link"
-            href="https://github.com/daptin/daptin/wiki/Schema-Definition"
-            >Define a schema →</a
+          <a class="text-link" href="../engineering/"
+            >See the engineering foundations →</a
           >
           <div class="code-card">
             <pre><code>GET /api/product?page[size]=20
@@ -211,7 +224,7 @@ PATCH /api/product/{reference_id}</code></pre>
           </p>
           <a
             class="text-link"
-            href="https://github.com/daptin/daptin/wiki/Permissions"
+            href="https://daptin.github.io/features/permissions/"
             >Configure permissions →</a
           >
         </div>
@@ -220,13 +233,13 @@ PATCH /api/product/{reference_id}</code></pre>
       <section class="product-row" id="files">
         <div>
           <p class="kicker">Files and content</p>
-          <h2>
-            Attach files to records. They inherit the record's permissions.
-          </h2>
+          <h2>Attach files to records and configure their access rules.</h2>
           <p>
             Add an asset column to store a product image with its product, an
             invoice with its order, or a support attachment with its ticket. The
-            record's access rules determine who can retrieve the file.
+            asset endpoint checks permissions before serving a file. Test
+            non-owner access in your deployment before using it for sensitive
+            files.
           </p>
           <p>
             Use local storage for a small installation or configure an
@@ -236,7 +249,7 @@ PATCH /api/product/{reference_id}</code></pre>
           </p>
           <a
             class="text-link"
-            href="https://github.com/daptin/daptin/wiki/Cloud-Storage-Complete-Guide"
+            href="https://daptin.github.io/features/cloud-storage/"
             >Configure file storage →</a
           >
         </div>
@@ -291,9 +304,7 @@ PATCH /api/product/{reference_id}</code></pre>
             outcomes. State tracking records allowed transitions; invoke an
             action separately when a transition should perform work.
           </p>
-          <a
-            class="text-link"
-            href="https://github.com/daptin/daptin/wiki/Custom-Actions"
+          <a class="text-link" href="https://daptin.github.io/features/actions/"
             >Build an action →</a
           >
         </div>
@@ -302,7 +313,9 @@ PATCH /api/product/{reference_id}</code></pre>
       <section class="product-row" id="integrations">
         <div>
           <p class="kicker">External services</p>
-          <h2>Expose selected provider operations without sending their secrets.</h2>
+          <h2>
+            Expose selected provider operations without sending their secrets.
+          </h2>
           <p>
             Install an OpenAPI description and expose selected operations as
             Daptin actions. Store one shared provider credential on the server
@@ -349,7 +362,9 @@ socket.onmessage = ({ data }) =&gt; {
         </div>
         <div>
           <p class="kicker">Live updates</p>
-          <h2>Each table has a live topic for create, update, and delete events.</h2>
+          <h2>
+            Each table has a live topic for create, update, and delete events.
+          </h2>
           <p>
             Daptin publishes record events through its <code>/live</code>
             WebSocket endpoint. Subscribe a dashboard to order changes, a
@@ -362,7 +377,7 @@ socket.onmessage = ({ data }) =&gt; {
           </p>
           <a
             class="text-link"
-            href="https://github.com/daptin/daptin/wiki/WebSocket-API"
+            href="https://daptin.github.io/features/realtime/"
             >Subscribe to record events →</a
           >
         </div>
@@ -375,42 +390,42 @@ socket.onmessage = ({ data }) =&gt; {
             <h2>Turn on mail, feeds, FTP, collaboration, or metering.</h2>
           </div>
           <div class="capability-list">
-            <a href="https://github.com/daptin/daptin/wiki/Email-Actions"
+            <a href="https://daptin.github.io/docs/email-actions/"
               ><strong>Mail</strong
               ><span
                 >SMTP delivery, mail accounts, boxes, and message actions.</span
               ></a
-            ><a href="https://github.com/daptin/daptin/wiki/FTP-Server"
+            ><a href="https://daptin.github.io/features/protocols/"
               ><strong>FTP and FTPS</strong
               ><span
                 >Serve configured site storage to file-transfer clients.</span
               ></a
-            ><a href="https://github.com/daptin/daptin/wiki/CalDAV-CardDAV"
+            ><a href="https://daptin.github.io/docs/webdav/"
               ><strong>CalDAV and CardDAV</strong
               ><span
                 >Basic WebDAV-style calendar and contact file storage.</span
               ></a
-            ><a href="https://github.com/daptin/daptin/wiki/RSS-Atom-Feeds"
+            ><a href="https://daptin.github.io/features/protocols/"
               ><strong>Feeds</strong
               ><span
                 >Publish RSS, Atom, or JSON feeds from stored records.</span
               ></a
-            ><a href="https://github.com/daptin/daptin/wiki/YJS-Collaboration"
+            ><a href="https://daptin.github.io/features/collaboration/"
               ><strong>YJS</strong
               ><span>Store and relay collaborative document updates.</span></a
-            ><a href="https://github.com/daptin/daptin/wiki/LLM-Providers"
+            ><a href="https://daptin.github.io/features/ai-routing/"
               ><strong>AI routing</strong
               ><span
                 >Use OpenAI-compatible clients with configured model
                 providers.</span
               ></a
-            ><a href="https://github.com/daptin/daptin/wiki/API-Metering"
+            ><a href="https://daptin.github.io/features/metering/"
               ><strong>Metering</strong
               ><span
                 >Record requests or tokens, apply quotas, and debit
                 credits.</span
               ></a
-            ><a href="https://github.com/daptin/daptin/wiki/OAuth-Provider"
+            ><a href="https://daptin.github.io/features/oauth-provider/"
               ><strong>OAuth provider</strong
               ><span
                 >Sign other applications in through Daptin with OAuth 2.0 and
@@ -421,32 +436,110 @@ socket.onmessage = ({ data }) =&gt; {
         </div>
       </section>
       <section class="final-cta">
-        <h2>Load a schema and call the generated API.</h2>
+        <h2>Give your application a backend it can grow on.</h2>
         <div class="final-links">
           <a
             class="button button-light"
-            href="https://github.com/daptin/daptin/wiki/Getting-Started-Guide"
+            href="https://daptin.github.io/docs/getting-started/"
             >Follow the quickstart →</a
           ><a href="../examples/">Run an example ↗</a>
         </div>
       </section>
     </main>
-    <footer>
-      <div>
-        <a class="brand" href="../"
-          ><img src="../images/theme-logo.png" alt="" /><span>Daptin</span></a
+    <footer class="grand-footer">
+      <div class="footer-intro">
+        <a class="brand" href="/"
+          ><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a
         >
-        <p>
-          Self-hosted application server for data, APIs, access control, files,
-          and workflows.
-        </p>
+        <p>The self-hosted application server behind your product.</p>
+        <a class="footer-run" href="/docs/getting-started/">Run Daptin →</a>
       </div>
-      <nav>
-        <a href="./">Product</a><a href="../use-cases/">Use cases</a
-        ><a href="../deploy/">Deploy</a><a href="../examples/">Examples</a
-        ><a href="https://github.com/daptin/daptin/wiki">Docs</a>
-      </nav>
-      <small>v0.12.36 · LGPL-3.0</small>
+      <div class="footer-directory">
+        <div>
+          <h2>Data and access</h2>
+          <a href="/features/data-modeling/">Data modeling</a
+          ><a href="/features/apis/">APIs and discovery</a
+          ><a href="/features/authentication/">Authentication</a
+          ><a href="/features/permissions/">Permissions and tenancy</a
+          ><a href="/features/oauth-provider/">OAuth and OIDC provider</a>
+        </div>
+        <div>
+          <h2>Files and work</h2>
+          <a href="/features/files/">Files and assets</a
+          ><a href="/features/cloud-storage/">Cloud storage</a
+          ><a href="/features/sites/">Sites and publishing</a
+          ><a href="/features/actions/">Backend actions</a
+          ><a href="/features/scheduled-work/">Scheduled work</a
+          ><a href="/features/state-tracking/">State tracking</a>
+        </div>
+        <div>
+          <h2>Connected products</h2>
+          <a href="/features/integrations/">External integrations</a
+          ><a href="/features/ai-routing/">AI model gateway</a
+          ><a href="/features/realtime/">Realtime events</a
+          ><a href="/features/collaboration/">Collaborative documents</a
+          ><a href="/features/mail/">Mail server</a
+          ><a href="/features/protocols/">File and feed protocols</a>
+        </div>
+        <div>
+          <h2>Operate and sell</h2>
+          <a href="/features/metering/">Metering and quotas</a
+          ><a href="/features/operations/">Operations</a
+          ><a href="/engineering/">Engineering</a
+          ><a href="/deploy/">Deployment</a><a href="/examples/">Examples</a
+          ><a href="/use-cases/">Use cases</a>
+        </div>
+        <div>
+          <h2>Feature guides</h2>
+          <a href="/docs/data-modeling/">Model data</a
+          ><a href="/docs/apis/">Use the APIs</a
+          ><a href="/docs/authentication/">Configure authentication</a
+          ><a href="/docs/permissions/">Set permissions</a
+          ><a href="/docs/oauth-provider/">Run an OAuth provider</a
+          ><a href="/docs/files/">Manage files</a
+          ><a href="/docs/cloud-storage/">Connect cloud storage</a
+          ><a href="/docs/sites/">Publish sites</a
+          ><a href="/docs/actions/">Build actions</a
+          ><a href="/docs/scheduled-work/">Schedule work</a>
+        </div>
+        <div>
+          <h2>More feature guides</h2>
+          <a href="/docs/state-tracking/">Track state</a
+          ><a href="/docs/integrations/">Connect integrations</a
+          ><a href="/docs/ai-routing/">Route AI models</a
+          ><a href="/docs/realtime/">Stream events</a
+          ><a href="/docs/collaboration/">Add collaboration</a
+          ><a href="/docs/mail/">Configure mail</a
+          ><a href="/docs/protocols/">Enable protocols</a
+          ><a href="/docs/metering/">Configure metering</a
+          ><a href="/docs/operations/">Operate Daptin</a>
+        </div>
+        <div>
+          <h2>Core documentation</h2>
+          <a href="/docs/">Documentation home</a
+          ><a href="/docs/getting-started/">Getting started</a
+          ><a href="/docs/server-configuration/">Server configuration</a
+          ><a href="/docs/database-setup/">Database setup</a
+          ><a href="/docs/production-deployment/">Production deployment</a
+          ><a href="/docs/monitoring/">Monitoring</a
+          ><a href="/docs/clustering/">Clustering</a>
+        </div>
+        <div>
+          <h2>Focused guides</h2>
+          <a href="/docs/graphql/">GraphQL</a
+          ><a href="/docs/two-factor-auth/">Two-factor authentication</a
+          ><a href="/docs/email-actions/">Email actions</a
+          ><a href="/docs/webdav/">WebDAV-style access</a
+          ><a href="/docs/tls-certificates/">TLS certificates</a
+          ><a href="/product/">Product overview</a
+          ><a href="/features/">All features</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Daptin · Latest release · LGPL-3.0</span
+        ><a href="/docs/">Documentation</a
+        ><a href="https://github.com/daptin/daptin">Source code ↗</a>
+      </div>
     </footer>
   </body>
 </html>

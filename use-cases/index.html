@@ -3,20 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Use cases | Daptin</title>
+    <title>Daptin use cases | Ship complete backend products</title>
     <meta
       name="description"
-      content="Use Daptin for a customer portal, internal operations system, content-backed application, or authenticated API service."
+      content="See how Daptin supports customer portals, internal operations systems, content-backed applications, connected products, and authenticated API services."
     />
     <meta name="theme-color" content="#17242a" />
     <link rel="canonical" href="https://daptin.github.io/use-cases/" />
     <link rel="icon" href="../images/theme-favicon.png" />
     <link rel="stylesheet" href="../styles.css" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="What to build with Daptin" />
+    <meta
+      property="og:title"
+      content="Daptin use cases | Ship complete backend products"
+    />
     <meta
       property="og:description"
-      content="Four concrete application backends built from records, access rules, files, and actions."
+      content="See how Daptin supports customer portals, internal operations systems, content-backed applications, connected products, and authenticated API services."
     />
     <meta property="og:url" content="https://daptin.github.io/use-cases/" />
     <meta
@@ -28,50 +31,61 @@
       name="twitter:image"
       content="https://daptin.github.io/images/og-card.png"
     />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Daptin",
+            "item": "https://daptin.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Daptin use cases",
+            "item": "https://daptin.github.io/use-cases/"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
-      <a class="brand" href="../"
-        ><img src="../images/theme-logo.png" alt="" /><span>Daptin</span></a
+      <a class="brand" href="/"
+        ><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a
       >
       <nav class="desktop-nav" aria-label="Primary">
-        <a href="../product/">Product</a
-        ><a aria-current="page" href="./">Use cases</a
-        ><a href="../deploy/">Deploy</a><a href="../examples/">Examples</a
-        ><a href="https://github.com/daptin/daptin/wiki">Docs</a
-        ><a href="https://github.com/daptin/daptin">GitHub</a>
+        <a href="/product/">Product</a>
+        <a href="/features/">Features</a>
+        <a href="/engineering/">Engineering</a>
+        <a href="/use-cases/">Use cases</a>
+        <a href="/deploy/">Deploy</a>
+        <a href="/examples/">Examples</a>
+        <a href="/docs/">Docs</a>
       </nav>
-      <a
-        class="header-cta"
-        href="https://github.com/daptin/daptin/wiki/Getting-Started-Guide"
+      <a class="header-cta" href="/docs/getting-started/"
         >Run Daptin <span>→</span></a
       >
-      <details class="mobile-nav">
-        <summary>Menu</summary>
-        <div>
-          <a href="../product/">Product</a><a href="./">Use cases</a
-          ><a href="../deploy/">Deploy</a><a href="../examples/">Examples</a
-          ><a href="https://github.com/daptin/daptin/wiki">Docs</a
-          ><a href="https://github.com/daptin/daptin">GitHub</a>
-        </div>
-      </details>
     </header>
     <main id="main">
       <section class="page-hero">
         <div>
-          <p class="eyebrow">Common backend jobs</p>
-          <h1>Compare four backend patterns before you model one.</h1>
+          <p class="eyebrow">Use cases</p>
+          <h1>Where Daptin fits.</h1>
         </div>
         <div class="page-hero-copy">
           <p>
-            Each pattern names the records, the access boundary, the work Daptin
-            handles, and the work that remains in your frontend.
+            Four examples show the application, its data and access model, what
+            Daptin handles, and what remains in your frontend.
           </p>
-          <ul class="hero-facts" aria-label="Use case highlights">
-            <li>Records</li>
-            <li>Enforcement point</li>
-            <li>Application boundary</li>
+          <ul class="hero-facts">
+            <li>Application</li>
+            <li>Backend</li>
+            <li>Frontend</li>
           </ul>
           <a class="button button-light" href="../examples/"
             >Open runnable examples →</a
@@ -82,7 +96,7 @@
       <section class="use-case" id="portal">
         <div>
           <span class="case-number">01 / CUSTOMER PORTAL</span>
-          <h2>Customer portals with isolated private workspaces.</h2>
+          <h2>Customer portals and private workspaces</h2>
         </div>
         <dl class="case-answers">
           <div>
@@ -109,9 +123,9 @@
           <div>
             <dt>Daptin handles</dt>
             <dd>
-              Sign-in, group membership, row permissions, file storage, ticket
-              APIs, server actions, and table-topic live events. Reconnect live
-              clients when membership changes.
+              Stable public record IDs, sign-in, group membership, checked
+              relationships, row permissions, file storage, ticket APIs, server
+              actions, URL limits, and table-topic live events.
             </dd>
           </div>
           <div>
@@ -124,9 +138,8 @@
           <div>
             <dt>Starting point</dt>
             <dd>
-              Use the schema guide for records and the permission guide for
-              workspace membership. No maintained full portal demo is listed
-              yet.
+              Model customers, workspaces, and membership. Let Daptin carry
+              those relationships and access decisions through the backend.
             </dd>
           </div>
         </dl>
@@ -135,7 +148,7 @@
       <section class="use-case" id="operations">
         <div>
           <span class="case-number">02 / INTERNAL OPERATIONS</span>
-          <h2>Internal tools with approvals and full audit history.</h2>
+          <h2>Internal operations and approvals</h2>
         </div>
         <dl class="case-answers">
           <div>
@@ -162,10 +175,9 @@
           <div>
             <dt>Daptin handles</dt>
             <dd>
-              Generated record APIs, CSV and spreadsheet import, dashboard3
-              record views, actions, schedules, state tracking, and audit
-              logging. State tracking records allowed transitions; an action
-              performs any transition-related work.
+              Transaction-scoped database writes, validation, composite
+              uniqueness, record APIs, imports, dashboard3, actions, schedules,
+              state tracking, and record-level change history.
             </dd>
           </div>
           <div>
@@ -188,7 +200,7 @@
       <section class="use-case" id="content">
         <div>
           <span class="case-number">03 / CONTENT AND ASSETS</span>
-          <h2>File and content delivery with record-level access.</h2>
+          <h2>Content, documents, and assets</h2>
         </div>
         <dl class="case-answers">
           <div>
@@ -210,14 +222,15 @@
             <dd>
               Editors change drafts, reviewers approve them, signed-in customers
               retrieve private assets, and public records can be read without an
-              account.
+              account. Test non-owner asset access in the target deployment.
             </dd>
           </div>
           <div>
             <dt>Daptin handles</dt>
             <dd>
-              Content APIs, asset columns, local or cloud-backed storage,
-              download checks, feeds, templates, and site routes.
+              Content APIs, asset columns, access checks, local or cloud-backed
+              storage, ETags, compression-aware caching, large-file streaming,
+              feeds, templates, and site routes.
             </dd>
           </div>
           <div>
@@ -241,7 +254,7 @@
       <section class="use-case" id="api-service">
         <div>
           <span class="case-number">04 / AUTHENTICATED API</span>
-          <h2>A metered, authenticated API with server-held credentials.</h2>
+          <h2>Authenticated APIs and provider gateways</h2>
         </div>
         <dl class="case-answers">
           <div>
@@ -269,9 +282,9 @@
           <div>
             <dt>Daptin handles</dt>
             <dd>
-              API keys, stored credentials, OpenAPI integrations,
-              OpenAI-compatible routing, request and token metering, quotas, and
-              credit hooks.
+              API keys, server-stored credentials, URL and concurrent-request
+              limits, access rules, OpenAPI integrations, OpenAI-compatible
+              routing, usage metering, quotas, and credit hooks.
             </dd>
           </div>
           <div>
@@ -295,11 +308,11 @@
         <div class="split">
           <div>
             <p class="kicker">Add one service</p>
-            <h2>Add Daptin beside the backend you already run.</h2>
+            <h2>Use Daptin alongside an existing backend.</h2>
           </div>
           <div class="split-copy">
             <p>
-              Keep the application you already run. Add Daptin as a file
+              You do not need to replace your application. Add Daptin as a file
               service, OAuth provider, connected-account gateway, metered API,
               mail service, or live-record channel. The frontend can call that
               service directly or your existing backend can call it over HTTP.
@@ -309,32 +322,110 @@
         </div>
       </section>
       <section class="final-cta">
-        <h2>Model one workflow and run it through Daptin.</h2>
+        <h2>Build the experience. Start with the backend underneath it.</h2>
         <div class="final-links">
           <a
             class="button button-light"
-            href="https://github.com/daptin/daptin/wiki/Schema-Definition"
+            href="https://daptin.github.io/features/data-modeling/"
             >Open the schema guide →</a
           ><a href="../examples/">Run a demo ↗</a>
         </div>
       </section>
     </main>
-    <footer>
-      <div>
-        <a class="brand" href="../"
-          ><img src="../images/theme-logo.png" alt="" /><span>Daptin</span></a
+    <footer class="grand-footer">
+      <div class="footer-intro">
+        <a class="brand" href="/"
+          ><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a
         >
-        <p>
-          Self-hosted application server for data, APIs, access control, files,
-          and workflows.
-        </p>
+        <p>The self-hosted application server behind your product.</p>
+        <a class="footer-run" href="/docs/getting-started/">Run Daptin →</a>
       </div>
-      <nav>
-        <a href="../product/">Product</a><a href="./">Use cases</a
-        ><a href="../deploy/">Deploy</a><a href="../examples/">Examples</a
-        ><a href="https://github.com/daptin/daptin/wiki">Docs</a>
-      </nav>
-      <small>v0.12.36 · LGPL-3.0</small>
+      <div class="footer-directory">
+        <div>
+          <h2>Data and access</h2>
+          <a href="/features/data-modeling/">Data modeling</a
+          ><a href="/features/apis/">APIs and discovery</a
+          ><a href="/features/authentication/">Authentication</a
+          ><a href="/features/permissions/">Permissions and tenancy</a
+          ><a href="/features/oauth-provider/">OAuth and OIDC provider</a>
+        </div>
+        <div>
+          <h2>Files and work</h2>
+          <a href="/features/files/">Files and assets</a
+          ><a href="/features/cloud-storage/">Cloud storage</a
+          ><a href="/features/sites/">Sites and publishing</a
+          ><a href="/features/actions/">Backend actions</a
+          ><a href="/features/scheduled-work/">Scheduled work</a
+          ><a href="/features/state-tracking/">State tracking</a>
+        </div>
+        <div>
+          <h2>Connected products</h2>
+          <a href="/features/integrations/">External integrations</a
+          ><a href="/features/ai-routing/">AI model gateway</a
+          ><a href="/features/realtime/">Realtime events</a
+          ><a href="/features/collaboration/">Collaborative documents</a
+          ><a href="/features/mail/">Mail server</a
+          ><a href="/features/protocols/">File and feed protocols</a>
+        </div>
+        <div>
+          <h2>Operate and sell</h2>
+          <a href="/features/metering/">Metering and quotas</a
+          ><a href="/features/operations/">Operations</a
+          ><a href="/engineering/">Engineering</a
+          ><a href="/deploy/">Deployment</a><a href="/examples/">Examples</a
+          ><a href="/use-cases/">Use cases</a>
+        </div>
+        <div>
+          <h2>Feature guides</h2>
+          <a href="/docs/data-modeling/">Model data</a
+          ><a href="/docs/apis/">Use the APIs</a
+          ><a href="/docs/authentication/">Configure authentication</a
+          ><a href="/docs/permissions/">Set permissions</a
+          ><a href="/docs/oauth-provider/">Run an OAuth provider</a
+          ><a href="/docs/files/">Manage files</a
+          ><a href="/docs/cloud-storage/">Connect cloud storage</a
+          ><a href="/docs/sites/">Publish sites</a
+          ><a href="/docs/actions/">Build actions</a
+          ><a href="/docs/scheduled-work/">Schedule work</a>
+        </div>
+        <div>
+          <h2>More feature guides</h2>
+          <a href="/docs/state-tracking/">Track state</a
+          ><a href="/docs/integrations/">Connect integrations</a
+          ><a href="/docs/ai-routing/">Route AI models</a
+          ><a href="/docs/realtime/">Stream events</a
+          ><a href="/docs/collaboration/">Add collaboration</a
+          ><a href="/docs/mail/">Configure mail</a
+          ><a href="/docs/protocols/">Enable protocols</a
+          ><a href="/docs/metering/">Configure metering</a
+          ><a href="/docs/operations/">Operate Daptin</a>
+        </div>
+        <div>
+          <h2>Core documentation</h2>
+          <a href="/docs/">Documentation home</a
+          ><a href="/docs/getting-started/">Getting started</a
+          ><a href="/docs/server-configuration/">Server configuration</a
+          ><a href="/docs/database-setup/">Database setup</a
+          ><a href="/docs/production-deployment/">Production deployment</a
+          ><a href="/docs/monitoring/">Monitoring</a
+          ><a href="/docs/clustering/">Clustering</a>
+        </div>
+        <div>
+          <h2>Focused guides</h2>
+          <a href="/docs/graphql/">GraphQL</a
+          ><a href="/docs/two-factor-auth/">Two-factor authentication</a
+          ><a href="/docs/email-actions/">Email actions</a
+          ><a href="/docs/webdav/">WebDAV-style access</a
+          ><a href="/docs/tls-certificates/">TLS certificates</a
+          ><a href="/product/">Product overview</a
+          ><a href="/features/">All features</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Daptin · Latest release · LGPL-3.0</span
+        ><a href="/docs/">Documentation</a
+        ><a href="https://github.com/daptin/daptin">Source code ↗</a>
+      </div>
     </footer>
   </body>
 </html>

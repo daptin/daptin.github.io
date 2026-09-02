@@ -3,34 +3,35 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Daptin examples | Run real backend product flows</title>
+    <title>Complete user account authentication in Daptin</title>
     <meta
       name="description"
-      content="Run maintained Daptin examples for OAuth sign-in, per-user provider credentials, metered APIs, and OpenAI-compatible model routing."
+      content="Ship account signup, signin, password recovery, sessions, and two-factor authentication with Daptin."
     />
-    <meta name="theme-color" content="#17242a" />
-    <link rel="canonical" href="https://daptin.github.io/examples/" />
-    <link rel="icon" href="../images/theme-favicon.png" />
-    <link rel="stylesheet" href="../styles.css" />
+    <link
+      rel="canonical"
+      href="https://daptin.github.io/features/authentication/"
+    />
+    <link rel="icon" href="../../images/theme-favicon.png" />
+    <link rel="stylesheet" href="../../styles.css" />
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
-      content="Daptin examples | Run real backend product flows"
+      content="Complete user account authentication in Daptin"
     />
     <meta
       property="og:description"
-      content="Run maintained Daptin examples for OAuth sign-in, per-user provider credentials, metered APIs, and OpenAI-compatible model routing."
+      content="Ship account signup, signin, password recovery, sessions, and two-factor authentication with Daptin."
     />
-    <meta property="og:url" content="https://daptin.github.io/examples/" />
+    <meta
+      property="og:url"
+      content="https://daptin.github.io/features/authentication/"
+    />
     <meta
       property="og:image"
       content="https://daptin.github.io/images/og-card.png"
     />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:image"
-      content="https://daptin.github.io/images/og-card.png"
-    />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -45,8 +46,14 @@
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Daptin examples",
-            "item": "https://daptin.github.io/examples/"
+            "name": "Features",
+            "item": "https://daptin.github.io/features/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Complete user account authentication in Daptin",
+            "item": "https://daptin.github.io/features/authentication/"
           }
         ]
       }
@@ -71,156 +78,144 @@
         >Run Daptin <span>→</span></a
       >
     </header>
-    <main id="main">
+    <main id="main" class="feature-detail">
       <section class="page-hero">
         <div>
-          <p class="eyebrow">Runnable proof</p>
-          <h1>See the complete flow—including what Daptin refuses to allow.</h1>
+          <p class="eyebrow">Authentication</p>
+          <h1>Account lifecycle, handled by the server.</h1>
         </div>
         <div class="page-hero-copy">
           <p>
-            Evaluate working outcomes instead of another feature list. Each
-            focused repository shows the useful path and the backend boundary
-            protecting it on a clean Daptin instance.
+            Give people a secure path from signup to an authenticated session,
+            without turning identity plumbing into a second product.
           </p>
           <ul class="hero-facts">
-            <li>Working outcome</li>
-            <li>Protected boundary</li>
-            <li>Runnable setup</li>
+            <li>JWT</li>
+            <li>Password reset</li>
+            <li>TOTP</li>
           </ul>
-          <a
-            class="button button-light"
-            href="https://daptin.github.io/docs/getting-started/"
-            >Start with the server →</a
-          >
+          <div class="actions">
+            <a class="button button-light" href="../../docs/authentication/"
+              >Open the authentication guide →</a
+            >
+          </div>
         </div>
       </section>
       <section class="content-section">
-        <div class="examples-grid">
-          <article class="example-card">
-            <span>OAuth 2.0 + OpenID Connect</span>
-            <h2>Run Daptin as an OAuth 2.0 and OIDC provider.</h2>
-            <p>
-              Register a client, complete authorization code with PKCE, obtain
-              tokens, and read the signed-in user. The server's provider tests
-              additionally reject invalid redirects and authorization-code
-              replay.
-            </p>
-            <a href="https://github.com/daptin/daptin-oauth-provider-demo"
-              >Run the OAuth provider demo ↗</a
-            >
-          </article>
-          <article class="example-card">
-            <span>Per-user credentials</span>
-            <h2>Keep each user's provider credential isolated.</h2>
-            <p>
-              Store OAuth or API credentials for each user and execute an
-              installed operation with the matching secret. The demo verifies
-              that one signed-in user cannot use another user's credential.
-            </p>
-            <a href="https://github.com/daptin/daptin-integration-auth-demo"
-              >Run the integration-auth demo ↗</a
-            >
-          </article>
-          <article class="example-card">
-            <span>Usage, quotas, and credits</span>
-            <h2>Apply quotas and record credit hooks.</h2>
-            <p>
-              Record API calls and model tokens, set a plan quota that rejects
-              excess requests, and write usage and debit records. The included
-              credit hook runs after metering, so align a prepaid balance with
-              the plan quota instead of treating the wallet alone as a limit.
-            </p>
-            <a href="https://github.com/daptin/daptin-metering-credit-demo"
-              >Run the metering demo ↗</a
-            >
-          </article>
-          <article class="example-card">
-            <span>OpenAI-compatible API</span>
-            <h2>Point the OpenAI SDK at Daptin.</h2>
-            <p>
-              Point the official OpenAI SDK at Daptin. Exercise model listing,
-              chat, streaming, completions, embeddings, tool calls, usage
-              fields, and structured errors.
-            </p>
-            <a href="https://github.com/daptin/daptin-llm-demo"
-              >Run the LLM demo ↗</a
-            >
-          </article>
-        </div>
-      </section>
-      <section class="content-section alt">
         <div class="split">
           <div>
-            <p class="kicker">Older schema examples</p>
-            <h2>Older schemas, useful as syntax references.</h2>
+            <p class="kicker">Built in</p>
+            <h2>The flows users expect are already connected.</h2>
           </div>
           <div class="split-copy">
             <p>
-              The schema-samples repository contains YAML and JSON definitions
-              for blogs, FAQs, stores, payments, transactions, and todos. Its
-              latest published changes are from 2020, so treat it as a syntax
-              reference and compare each model with the current schema
-              documentation before starting a new application.
+              Run signup, signin, email verification, password recovery, JWT
+              sessions, and optional one-time-password verification against the
+              same user and group model used by the rest of Daptin.
             </p>
-            <a
-              class="text-link"
-              href="https://github.com/daptin/daptin-schema-samples"
-              >Browse schema samples ↗</a
-            ><a
-              class="text-link"
-              href="https://daptin.github.io/features/data-modeling/"
-              >Read current schema documentation ↗</a
-            >
+            <div class="detail-grid">
+              <article class="detail-card">
+                <h3>Passwords are not stored as passwords</h3>
+                <p>
+                  Daptin hashes credentials with bcrypt and compares them
+                  through the authentication path.
+                </p>
+              </article>
+              <article class="detail-card">
+                <h3>Credential changes end old access</h3>
+                <p>
+                  Authentication-version checks let password or account changes
+                  invalidate previously issued sessions.
+                </p>
+              </article>
+              <article class="detail-card">
+                <h3>Two factors when the product needs them</h3>
+                <p>
+                  Use TOTP enrollment and verification with bounded attempts and
+                  replay protection.
+                </p>
+              </article>
+              <article class="detail-card">
+                <h3>Groups travel with identity</h3>
+                <p>
+                  The authenticated user and group membership feed directly into
+                  record, relationship, and action permissions.
+                </p>
+              </article>
+            </div>
           </div>
         </div>
       </section>
       <section class="content-section alt">
         <div class="split">
           <div>
-            <p class="kicker">Proof beyond the happy path</p>
-            <h2>A useful demo shows the boundary holding.</h2>
+            <p class="kicker">Account journeys</p>
+            <h2>Cover the moments after the first sign-in.</h2>
           </div>
           <div class="detail-grid">
             <article class="detail-card">
-              <h3>OAuth code replay fails</h3>
+              <h3>Consumer and member products</h3>
               <p>
-                Complete a PKCE sign-in, then see why the same authorization
-                code cannot be exchanged twice.
+                Enroll users, verify the identity path, recover passwords, and
+                place people into the groups used by the application.
               </p>
             </article>
             <article class="detail-card">
-              <h3>Credentials stay with their owner</h3>
+              <h3>Administrative tools</h3>
               <p>
-                Connect two users and verify that one cannot execute an
-                integration with the other's stored credential.
+                Use the same accounts for dashboard3 and product APIs while
+                keeping administrator membership explicit.
               </p>
             </article>
             <article class="detail-card">
-              <h3>Quota stops the request</h3>
+              <h3>Sensitive accounts</h3>
               <p>
-                Record usage, exhaust the configured plan allowance, and observe
-                the server reject the next request.
+                Add TOTP with attempt limits and replay checks after defining a
+                practical recovery path for lost authenticators.
               </p>
             </article>
             <article class="detail-card">
-              <h3>One SDK, several providers</h3>
+              <h3>Connected applications</h3>
               <p>
-                Use an OpenAI-compatible client for model discovery, chat,
-                streaming, embeddings, tools, and structured errors.
+                Use Daptin authentication for its own clients, or let other
+                registered apps obtain identity through the separate OAuth/OIDC
+                provider.
               </p>
             </article>
+          </div>
+        </div>
+      </section>
+      <section class="content-section">
+        <div class="split">
+          <div>
+            <p class="kicker">What the server protects</p>
+            <h2>Credential changes can end old sessions.</h2>
+          </div>
+          <div class="split-copy">
+            <p>
+              Passwords are compared through bcrypt hashes. JWTs carry
+              authenticated context into APIs and actions, while an
+              authentication version ties issued sessions to the current account
+              state so password and credential changes can invalidate older
+              tokens.
+            </p>
+            <p>
+              Authentication establishes who is calling. It does not grant
+              blanket access: table, row, relationship, and action permissions
+              still decide what that identity may do.
+            </p>
+            <a class="text-link" href="../permissions/"
+              >Explore authorization →</a
+            >
           </div>
         </div>
       </section>
       <section class="final-cta">
-        <h2>Choose a working flow and inspect the result yourself.</h2>
+        <h2>Start with users, not auth plumbing.</h2>
         <div class="final-links">
-          <a
-            class="button button-light"
-            href="https://github.com/orgs/daptin/repositories"
-            >Choose an example →</a
-          ><a href="../engineering/">See what is built in ↗</a>
+          <a class="button button-light" href="../../docs/authentication/"
+            >Set up authentication →</a
+          ><a href="../permissions/">See permissions ↗</a>
         </div>
       </section>
     </main>

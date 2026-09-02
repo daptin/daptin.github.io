@@ -2,11 +2,58 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Page not found | Daptin</title>
-    <meta name="robots" content="noindex" />
-    <link rel="icon" href="/images/theme-favicon.png" />
-    <link rel="stylesheet" href="/styles.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Configure TLS certificates for Daptin</title>
+    <meta
+      name="description"
+      content="Protect Daptin traffic with configured or ACME-managed TLS certificates, then verify hostname coverage, renewal, redirects, and failure behavior."
+    />
+    <link
+      rel="canonical"
+      href="https://daptin.github.io/docs/tls-certificates/"
+    />
+    <link rel="stylesheet" href="../../styles.css" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Configure TLS certificates for Daptin" />
+    <meta
+      property="og:description"
+      content="Protect Daptin traffic with configured or ACME-managed TLS certificates, then verify hostname coverage, renewal, redirects, and failure behavior."
+    />
+    <meta
+      property="og:url"
+      content="https://daptin.github.io/docs/tls-certificates/"
+    />
+    <meta
+      property="og:image"
+      content="https://daptin.github.io/images/og-card.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Daptin",
+            "item": "https://daptin.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Documentation",
+            "item": "https://daptin.github.io/docs/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Configure TLS certificates for Daptin",
+            "item": "https://daptin.github.io/docs/tls-certificates/"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -27,24 +74,62 @@
         >Run Daptin <span>→</span></a
       >
     </header>
-    <main id="main" class="not-found">
-      <a class="brand" href="/"
-        ><img src="/images/theme-logo.png" width="40" height="40" alt="" /><span
-          >Daptin</span
-        ></a
-      >
-      <p class="kicker">404 / PAGE NOT FOUND</p>
-      <h1>Looking for the docs?</h1>
-      <p>
-        The requested page does not exist. Open the local documentation or
-        return to the Daptin homepage.
-      </p>
-      <div class="actions">
-        <a class="button button-primary" href="https://daptin.github.io/docs/"
-          >Open documentation <span>→</span></a
-        >
-        <a class="button button-secondary" href="/">Back to Daptin</a>
-      </div>
+    <main id="main" class="feature-detail">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">TLS certificates</p>
+          <h1>Protect traffic to the application server.</h1>
+        </div>
+        <div class="page-hero-copy">
+          <p>
+            Serve Daptin over TLS with configured certificate material or an
+            ACME-backed certificate workflow.
+          </p>
+        </div>
+      </section>
+      <section class="content-section">
+        <div class="split">
+          <div><h2>Choose the termination boundary</h2></div>
+          <div class="detail-grid">
+            <article class="detail-card">
+              <h3>Daptin termination</h3>
+              <p>
+                Configure the server to present certificates directly when it
+                owns the public TLS endpoint.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>ACME workflow</h3>
+              <p>
+                Use automated issuance and renewal where the environment can
+                satisfy the required challenge.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>Reverse proxy</h3>
+              <p>
+                Terminate at an intentional proxy or load balancer when that is
+                the platform’s established boundary.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>Renewal monitoring</h3>
+              <p>
+                Alert before expiry and verify the full certificate chain from
+                an external client.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="final-cta">
+        <h2>Include transport security in deployment planning.</h2>
+        <div class="final-links">
+          <a class="button button-light" href="../production-deployment/"
+            >Production guide →</a
+          ><a href="../../features/operations/">Operations feature ↗</a>
+        </div>
+      </section>
     </main>
     <footer class="grand-footer">
       <div class="footer-intro">

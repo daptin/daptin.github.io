@@ -3,34 +3,31 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Daptin examples | Run real backend product flows</title>
+    <title>Schedule backend work in Daptin</title>
     <meta
       name="description"
-      content="Run maintained Daptin examples for OAuth sign-in, per-user provider credentials, metered APIs, and OpenAI-compatible model routing."
+      content="Create cron and interval tasks that execute Daptin actions with an explicit user and permission context."
     />
-    <meta name="theme-color" content="#17242a" />
-    <link rel="canonical" href="https://daptin.github.io/examples/" />
-    <link rel="icon" href="../images/theme-favicon.png" />
-    <link rel="stylesheet" href="../styles.css" />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="Daptin examples | Run real backend product flows"
+    <link
+      rel="canonical"
+      href="https://daptin.github.io/docs/scheduled-work/"
     />
+    <link rel="stylesheet" href="../../styles.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Schedule backend work in Daptin" />
     <meta
       property="og:description"
-      content="Run maintained Daptin examples for OAuth sign-in, per-user provider credentials, metered APIs, and OpenAI-compatible model routing."
+      content="Configure active tasks, schedules, inputs, and execution identity, then verify transaction behavior."
     />
-    <meta property="og:url" content="https://daptin.github.io/examples/" />
+    <meta
+      property="og:url"
+      content="https://daptin.github.io/docs/scheduled-work/"
+    />
     <meta
       property="og:image"
       content="https://daptin.github.io/images/og-card.png"
     />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:image"
-      content="https://daptin.github.io/images/og-card.png"
-    />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -45,8 +42,14 @@
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Daptin examples",
-            "item": "https://daptin.github.io/examples/"
+            "name": "Documentation",
+            "item": "https://daptin.github.io/docs/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Schedule backend work in Daptin",
+            "item": "https://daptin.github.io/docs/scheduled-work/"
           }
         ]
       }
@@ -71,156 +74,151 @@
         >Run Daptin <span>→</span></a
       >
     </header>
-    <main id="main">
+    <main id="main" class="feature-detail">
       <section class="page-hero">
         <div>
-          <p class="eyebrow">Runnable proof</p>
-          <h1>See the complete flow—including what Daptin refuses to allow.</h1>
+          <p class="eyebrow">Scheduled work guide</p>
+          <h1>Run a proven action at the right time.</h1>
         </div>
         <div class="page-hero-copy">
           <p>
-            Evaluate working outcomes instead of another feature list. Each
-            focused repository shows the useful path and the backend boundary
-            protecting it on a clean Daptin instance.
+            Create a task with a valid action, schedule, input, and user
+            context. Load it at server startup and verify its behavior before
+            making it recurring.
           </p>
           <ul class="hero-facts">
-            <li>Working outcome</li>
-            <li>Protected boundary</li>
-            <li>Runnable setup</li>
+            <li>Cron</li>
+            <li>Intervals</li>
+            <li>User context</li>
           </ul>
-          <a
-            class="button button-light"
-            href="https://daptin.github.io/docs/getting-started/"
-            >Start with the server →</a
+          <a class="button button-light" href="../../features/scheduled-work/"
+            >Why schedule in Daptin →</a
           >
         </div>
       </section>
       <section class="content-section">
-        <div class="examples-grid">
-          <article class="example-card">
-            <span>OAuth 2.0 + OpenID Connect</span>
-            <h2>Run Daptin as an OAuth 2.0 and OIDC provider.</h2>
+        <div class="split">
+          <div><h2>A runnable task needs five things.</h2></div>
+          <div class="detail-grid">
+            <article class="detail-card">
+              <h3>Existing action</h3>
+              <p>
+                <code>action_name</code> must resolve on the target
+                <code>entity_name</code> and succeed when called directly.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>Valid schedule</h3>
+              <p>
+                Use a five-field cron expression, a descriptor such as
+                <code>@daily</code>, or an interval such as
+                <code>@every 5m</code>.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>Execution user</h3>
+              <p>
+                Link <code>as_user_id</code>. Tasks without user context do not
+                execute.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>Active state and restart</h3>
+              <p>
+                Set <code>active</code> and restart the latest release after
+                creating or changing tasks so the scheduler registers them.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="content-section alt">
+        <div class="split">
+          <div><h2>Create, then observe one run.</h2></div>
+          <div class="split-copy">
+            <pre><code>{
+  "name": "daily_cleanup",
+  "action_name": "cleanup_old_data",
+  "entity_name": "session",
+  "schedule": "@daily",
+  "active": true,
+  "attributes": "{\"days_old\":30}",
+  "as_user_id": "scheduler@example.com"
+}</code></pre>
             <p>
-              Register a client, complete authorization code with PKCE, obtain
-              tokens, and read the signed-in user. The server's provider tests
-              additionally reject invalid redirects and authorization-code
-              replay.
+              Link the task to the intended user through
+              <code>as_user_id</code>. Start with <code>@every 1m</code> in an
+              isolated environment, observe the result, then change to the
+              production schedule and restart.
             </p>
-            <a href="https://github.com/daptin/daptin-oauth-provider-demo"
-              >Run the OAuth provider demo ↗</a
-            >
-          </article>
-          <article class="example-card">
-            <span>Per-user credentials</span>
-            <h2>Keep each user's provider credential isolated.</h2>
-            <p>
-              Store OAuth or API credentials for each user and execute an
-              installed operation with the matching secret. The demo verifies
-              that one signed-in user cannot use another user's credential.
-            </p>
-            <a href="https://github.com/daptin/daptin-integration-auth-demo"
-              >Run the integration-auth demo ↗</a
-            >
-          </article>
-          <article class="example-card">
-            <span>Usage, quotas, and credits</span>
-            <h2>Apply quotas and record credit hooks.</h2>
-            <p>
-              Record API calls and model tokens, set a plan quota that rejects
-              excess requests, and write usage and debit records. The included
-              credit hook runs after metering, so align a prepaid balance with
-              the plan quota instead of treating the wallet alone as a limit.
-            </p>
-            <a href="https://github.com/daptin/daptin-metering-credit-demo"
-              >Run the metering demo ↗</a
-            >
-          </article>
-          <article class="example-card">
-            <span>OpenAI-compatible API</span>
-            <h2>Point the OpenAI SDK at Daptin.</h2>
-            <p>
-              Point the official OpenAI SDK at Daptin. Exercise model listing,
-              chat, streaming, completions, embeddings, tool calls, usage
-              fields, and structured errors.
-            </p>
-            <a href="https://github.com/daptin/daptin-llm-demo"
-              >Run the LLM demo ↗</a
-            >
-          </article>
+          </div>
+        </div>
+      </section>
+      <section class="content-section">
+        <div class="split">
+          <div><h2>Verify the background identity.</h2></div>
+          <div class="split-copy">
+            <ul class="check-list">
+              <li>
+                The linked user still exists and has the groups required by the
+                action.
+              </li>
+              <li>An inactive task does not run.</li>
+              <li>
+                An invalid schedule or action does not silently appear
+                successful.
+              </li>
+              <li>Action input arrives with the intended types and values.</li>
+              <li>
+                Database work commits on success and rolls back on returned
+                failure.
+              </li>
+              <li>
+                External side effects are made retry-safe by the action design.
+              </li>
+              <li>
+                Multiple Daptin instances do not produce unintended duplicate
+                business effects.
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
       <section class="content-section alt">
         <div class="split">
           <div>
-            <p class="kicker">Older schema examples</p>
-            <h2>Older schemas, useful as syntax references.</h2>
+            <p class="kicker">Repeat safely</p>
+            <h2>Assume a scheduled operation can run again.</h2>
           </div>
           <div class="split-copy">
             <p>
-              The schema-samples repository contains YAML and JSON definitions
-              for blogs, FAQs, stores, payments, transactions, and todos. Its
-              latest published changes are from 2020, so treat it as a syntax
-              reference and compare each model with the current schema
-              documentation before starting a new application.
+              Choose an explicit <code>as_user_id</code> whose permissions match
+              the work, then restart after creating or changing the schedule.
+              Exercise the action manually before waiting for the clock.
             </p>
-            <a
-              class="text-link"
-              href="https://github.com/daptin/daptin-schema-samples"
-              >Browse schema samples ↗</a
-            ><a
-              class="text-link"
-              href="https://daptin.github.io/features/data-modeling/"
-              >Read current schema documentation ↗</a
-            >
-          </div>
-        </div>
-      </section>
-      <section class="content-section alt">
-        <div class="split">
-          <div>
-            <p class="kicker">Proof beyond the happy path</p>
-            <h2>A useful demo shows the boundary holding.</h2>
-          </div>
-          <div class="detail-grid">
-            <article class="detail-card">
-              <h3>OAuth code replay fails</h3>
-              <p>
-                Complete a PKCE sign-in, then see why the same authorization
-                code cannot be exchanged twice.
-              </p>
-            </article>
-            <article class="detail-card">
-              <h3>Credentials stay with their owner</h3>
-              <p>
-                Connect two users and verify that one cannot execute an
-                integration with the other's stored credential.
-              </p>
-            </article>
-            <article class="detail-card">
-              <h3>Quota stops the request</h3>
-              <p>
-                Record usage, exhaust the configured plan allowance, and observe
-                the server reject the next request.
-              </p>
-            </article>
-            <article class="detail-card">
-              <h3>One SDK, several providers</h3>
-              <p>
-                Use an OpenAI-compatible client for model discovery, chat,
-                streaming, embeddings, tools, and structured errors.
-              </p>
-            </article>
+            <ul class="check-list">
+              <li>Confirm inactive and malformed schedules do not run.</li>
+              <li>
+                Make external effects idempotent, especially with several server
+                instances.
+              </li>
+              <li>
+                Record a durable business key when duplicate work would matter.
+              </li>
+              <li>
+                Verify database rollback separately from irreversible provider
+                calls.
+              </li>
+            </ul>
           </div>
         </div>
       </section>
       <section class="final-cta">
-        <h2>Choose a working flow and inspect the result yourself.</h2>
+        <h2>Build the action before scheduling it.</h2>
         <div class="final-links">
-          <a
-            class="button button-light"
-            href="https://github.com/orgs/daptin/repositories"
-            >Choose an example →</a
-          ><a href="../engineering/">See what is built in ↗</a>
+          <a class="button button-light" href="../../features/scheduled-work/"
+            >Return to Scheduled work →</a
+          ><a href="../actions/">Actions guide ↗</a>
         </div>
       </section>
     </main>

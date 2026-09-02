@@ -2,11 +2,61 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Page not found | Daptin</title>
-    <meta name="robots" content="noindex" />
-    <link rel="icon" href="/images/theme-favicon.png" />
-    <link rel="stylesheet" href="/styles.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Configure Daptin two-factor authentication with TOTP</title>
+    <meta
+      name="description"
+      content="Add TOTP enrollment and verification to Daptin accounts, then test invalid codes, recovery expectations, and the complete sign-in path."
+    />
+    <link
+      rel="canonical"
+      href="https://daptin.github.io/docs/two-factor-auth/"
+    />
+    <link rel="stylesheet" href="../../styles.css" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Configure Daptin two-factor authentication with TOTP"
+    />
+    <meta
+      property="og:description"
+      content="Add TOTP enrollment and verification to Daptin accounts, then test invalid codes, recovery expectations, and the complete sign-in path."
+    />
+    <meta
+      property="og:url"
+      content="https://daptin.github.io/docs/two-factor-auth/"
+    />
+    <meta
+      property="og:image"
+      content="https://daptin.github.io/images/og-card.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Daptin",
+            "item": "https://daptin.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Documentation",
+            "item": "https://daptin.github.io/docs/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Configure Daptin two-factor authentication with TOTP",
+            "item": "https://daptin.github.io/docs/two-factor-auth/"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -27,24 +77,62 @@
         >Run Daptin <span>→</span></a
       >
     </header>
-    <main id="main" class="not-found">
-      <a class="brand" href="/"
-        ><img src="/images/theme-logo.png" width="40" height="40" alt="" /><span
-          >Daptin</span
-        ></a
-      >
-      <p class="kicker">404 / PAGE NOT FOUND</p>
-      <h1>Looking for the docs?</h1>
-      <p>
-        The requested page does not exist. Open the local documentation or
-        return to the Daptin homepage.
-      </p>
-      <div class="actions">
-        <a class="button button-primary" href="https://daptin.github.io/docs/"
-          >Open documentation <span>→</span></a
-        >
-        <a class="button button-secondary" href="/">Back to Daptin</a>
-      </div>
+    <main id="main" class="feature-detail">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">Two-factor authentication</p>
+          <h1>Add a second check to account access.</h1>
+        </div>
+        <div class="page-hero-copy">
+          <p>
+            Enroll a TOTP authenticator, verify time-based codes during sign-in,
+            and use bounded attempts and replay checks around verification.
+          </p>
+        </div>
+      </section>
+      <section class="content-section">
+        <div class="split">
+          <div><h2>Account flow</h2></div>
+          <div class="detail-grid">
+            <article class="detail-card">
+              <h3>Enroll</h3>
+              <p>
+                Associate a generated TOTP secret with the authenticated
+                account.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>Confirm</h3>
+              <p>
+                Require a valid authenticator code before treating enrollment as
+                complete.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>Verify</h3>
+              <p>
+                Check the time window, attempt allowance, and prior accepted
+                value during authentication.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>Recover deliberately</h3>
+              <p>
+                Design an administrator or product recovery path before
+                requiring a second factor.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="final-cta">
+        <h2>Start with the complete account model.</h2>
+        <div class="final-links">
+          <a class="button button-light" href="../../features/authentication/"
+            >Authentication feature →</a
+          ><a href="../">All guides ↗</a>
+        </div>
+      </section>
     </main>
     <footer class="grand-footer">
       <div class="footer-intro">

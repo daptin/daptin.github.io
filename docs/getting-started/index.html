@@ -2,11 +2,61 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Page not found | Daptin</title>
-    <meta name="robots" content="noindex" />
-    <link rel="icon" href="/images/theme-favicon.png" />
-    <link rel="stylesheet" href="/styles.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Getting started with the Daptin application server</title>
+    <meta
+      name="description"
+      content="Run the latest Daptin release locally, verify the server, create the first application model, and make an authenticated request to its generated API."
+    />
+    <link
+      rel="canonical"
+      href="https://daptin.github.io/docs/getting-started/"
+    />
+    <link rel="stylesheet" href="../../styles.css" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Getting started with the Daptin application server"
+    />
+    <meta
+      property="og:description"
+      content="Run the latest Daptin release locally, verify the server, create the first application model, and make an authenticated request to its generated API."
+    />
+    <meta
+      property="og:url"
+      content="https://daptin.github.io/docs/getting-started/"
+    />
+    <meta
+      property="og:image"
+      content="https://daptin.github.io/images/og-card.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Daptin",
+            "item": "https://daptin.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Documentation",
+            "item": "https://daptin.github.io/docs/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Getting started with the Daptin application server",
+            "item": "https://daptin.github.io/docs/getting-started/"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -27,24 +77,71 @@
         >Run Daptin <span>→</span></a
       >
     </header>
-    <main id="main" class="not-found">
-      <a class="brand" href="/"
-        ><img src="/images/theme-logo.png" width="40" height="40" alt="" /><span
-          >Daptin</span
-        ></a
-      >
-      <p class="kicker">404 / PAGE NOT FOUND</p>
-      <h1>Looking for the docs?</h1>
-      <p>
-        The requested page does not exist. Open the local documentation or
-        return to the Daptin homepage.
-      </p>
-      <div class="actions">
-        <a class="button button-primary" href="https://daptin.github.io/docs/"
-          >Open documentation <span>→</span></a
-        >
-        <a class="button button-secondary" href="/">Back to Daptin</a>
-      </div>
+    <main id="main" class="feature-detail">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">Getting started</p>
+          <h1>Run Daptin, then describe your application.</h1>
+        </div>
+        <div class="page-hero-copy">
+          <p>
+            Use a release binary or container, open dashboard3, and create or
+            import the schema that defines your product.
+          </p>
+        </div>
+      </section>
+      <section class="content-section">
+        <div class="split">
+          <div><h2>The shortest useful path</h2></div>
+          <div class="split-copy">
+            <p>
+              Download the release for your platform, start the server, and open
+              <code>http://localhost:6336</code>. Configure the first
+              administrator when prompted. Define tables and relationships in
+              dashboard3, or start Daptin with a YAML or JSON schema you can
+              keep in version control.
+            </p>
+            <div class="detail-grid">
+              <article class="detail-card">
+                <h3>1. Start the server</h3>
+                <p>
+                  Use the native artifact for a direct local run or the
+                  published container for a container workflow.
+                </p>
+              </article>
+              <article class="detail-card">
+                <h3>2. Define the model</h3>
+                <p>
+                  Add fields, validation, indexes, relationships, permissions,
+                  and asset columns.
+                </p>
+              </article>
+              <article class="detail-card">
+                <h3>3. Use the result</h3>
+                <p>
+                  Open dashboard3 and the generated API, then inspect OpenAPI
+                  and metadata discovery routes.
+                </p>
+              </article>
+              <article class="detail-card">
+                <h3>4. Add product behavior</h3>
+                <p>
+                  Configure actions, authentication, files, integrations, or
+                  live subscriptions as the product needs them.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="final-cta">
+        <h2>Choose the deployment that fits your machine.</h2>
+        <div class="final-links">
+          <a class="button button-light" href="../../deploy/"
+            >Download or run Daptin →</a
+          ><a href="../../features/data-modeling/">Define the data model ↗</a>
+        </div>
+      </section>
     </main>
     <footer class="grand-footer">
       <div class="footer-intro">
