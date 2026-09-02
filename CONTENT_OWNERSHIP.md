@@ -37,7 +37,7 @@ it is deliberately a map of claims, not an inventory of unverified ideas.
 | Plans, quotas, credits, rate limits, cluster/runtime operations | [`docs/metering/`](docs/metering/) and [`docs/operations/`](docs/operations/) plus the maintained metering demo |
 | Invisible data/runtime engineering claims | [`ENGINEERING_BENEFITS_AUDIT.md`](ENGINEERING_BENEFITS_AUDIT.md), then the latest-release implementation and focused tests; the audit is an internal evidence map, not public navigation |
 | Native artifacts and container architecture | GitHub release API and Docker manifest for the latest release |
-| Compose and Kubernetes status | The tagged `docker-compose-examples/daptin-postgres.yml`, empty top-level `docker-compose.yml`, and tagged `kubernetes/` files |
+| Compose and Kubernetes status | Current Compose files, the maintained `kubernetes/` Kustomize base and overlays, and `.github/workflows/deployments.yml`; distinguish current source from older tags |
 
 ## Claim verification standard
 
@@ -72,9 +72,9 @@ The following boundaries are intentionally explicit on the site:
 - A plan quota is the demonstrated request-denial boundary in the metering
   demo. Credit hooks write ledger records after metering and must not be
   described as a generic prepaid hard limit.
-- The historical Kubernetes files and minimal Compose example are not presented
-  as production-ready templates. Release-scoped pages must not label newer,
-  untagged Kubernetes work as a latest-release feature.
+- Current-source Kubernetes assets are presented as maintained after the
+  deployment workflow passes. Release-scoped pages must still distinguish
+  older tagged manifests from the current branch.
 
 ## Editorial voice
 
