@@ -77,7 +77,7 @@
       <aside class="docs-context" aria-label="Documentation section">
         <strong>Application behavior</strong>
         <ul><li><a href="/docs/actions/" aria-current="page">Backend actions</a></li><li><a href="/docs/scheduled-work/">Scheduled work</a></li><li><a href="/docs/state-tracking/">State tracking</a></li><li><a href="/docs/email-actions/">Email actions</a></li></ul>
-        <details class="page-toc"><summary>On this page</summary><ul><li><a href="#start-with-one-observable-action">Start with one observable action.</a></li><li><a href="#build-the-operation-in-layers">Build the operation in layers.</a></li><li><a href="#test-the-operation-boundary">Test the operation boundary.</a></li><li><a href="#test-the-operation-as-a-single-contract">Test the operation as a single contract.</a></li></ul></details>
+        <details class="page-toc"><summary>On this page</summary><ul><li><a href="#start-with-one-observable-action">Start with one observable action.</a></li><li><a href="#build-the-operation-in-layers">Build the operation in layers.</a></li><li><a href="#test-the-operation-boundary">Test the action permissions and effects.</a></li><li><a href="#test-the-operation-as-a-single-contract">Test the operation as a single contract.</a></li></ul></details>
         <p class="guide-meta"><span>Last reviewed: 2026-09-02</span><span>Applies to the latest release available on the review date; check your installed release</span><a href="https://github.com/daptin/daptin">Review source ↗</a></p>
       </aside>
       <section class="page-hero">
@@ -165,7 +165,7 @@
       </section>
       <section class="content-section">
         <div class="split">
-          <div><h2 id="test-the-operation-boundary">Test the operation boundary.</h2></div>
+          <div><h2 id="test-the-operation-boundary">Test the action permissions and effects.</h2></div>
           <div class="split-copy">
             <ul class="check-list">
               <li>
@@ -226,11 +226,11 @@
         </div>
       </section>
       <section class="related-content" aria-labelledby="related-title">
-        <p class="kicker">Continue the task</p>
-        <h2 id="related-title">Understand the connections, then implement them.</h2>
-        <p>These are the prerequisites, implementation details, boundaries, and proof most relevant to this page.</p>
+        <p class="kicker">Related pages</p>
+        <h2 id="related-title">Read next.</h2>
+
         <div class="related-links">
-          <a href="/docs/permissions/"><span>Security</span><strong>Authorize execution</strong><span>Give each named operation an explicit caller boundary.</span></a>          <a href="/features/scheduled-work/"><span>Works with</span><strong>Run the action later</strong><span>Schedule a proven operation with an explicit execution identity.</span></a>          <a href="/features/integrations/"><span>Works with</span><strong>Call a provider</strong><span>Put an external operation behind an application-owned action.</span></a>
+          <a href="/docs/permissions/"><span>Security</span><strong>Authorize execution</strong><span>Give each named operation caller permissions.</span></a>          <a href="/features/scheduled-work/"><span>Works with</span><strong>Run the action later</strong><span>Schedule a proven operation with an explicit execution identity.</span></a>          <a href="/features/integrations/"><span>Works with</span><strong>Call a provider</strong><span>Put an external operation behind an application-owned action.</span></a>
         </div>
       </section>
       <nav class="guide-sequence" aria-label="Previous and next guides"><a rel="prev" href="/docs/webdav/"><span>Previous</span><strong>WebDAV-style access</strong></a><a rel="next" href="/docs/scheduled-work/"><span>Next</span><strong>Scheduled work</strong></a></nav>
@@ -247,7 +247,7 @@
       <h2 class="visually-hidden">Daptin site links</h2>
       <div class="footer-intro">
         <a class="brand" href="/"><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a>
-        <p>The self-hosted application server behind your product.</p>
+        <p>Daptin is a self-hosted application server.</p>
         <a class="footer-run" href="/docs/getting-started/">Run Daptin →</a>
       </div>
       <nav class="footer-directory" aria-label="Footer">

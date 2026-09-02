@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Daptin engineering | Backend safeguards built in</title>
+    <title>Daptin engineering | Backend safeguards</title>
     <meta
       name="description"
       content="See the backend engineering built into Daptin: data integrity, access control, transactions, prepared values, request limits, and bounded resources."
@@ -15,7 +15,7 @@
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
-      content="Daptin engineering | Backend safeguards built in"
+      content="Daptin engineering | Backend safeguards"
     />
     <meta
       property="og:description"
@@ -73,8 +73,8 @@
       </nav>
       <section class="page-hero">
         <div>
-          <p class="eyebrow">Engineering built in</p>
-          <h1>The engineering behind Daptin.</h1>
+          <p class="eyebrow">Engineering</p>
+          <h1>How Daptin handles data integrity, access, and operations.</h1>
         </div>
         <div class="page-hero-copy">
           <p>
@@ -219,7 +219,7 @@
           </div>
           <div class="detail-grid">
             <article class="detail-card">
-              <h3>Efficient file delivery</h3>
+              <h3>File delivery and caching</h3>
               <p>
                 ETags avoid retransmitting unchanged assets. Compression uses
                 representation-specific cache identities, while large files can
@@ -227,12 +227,12 @@
               </p>
             </article>
             <article class="detail-card">
-              <h3>Retryable mail delivery</h3>
+              <h3>Mail queues and retries</h3>
               <p>
-                Outgoing mail is persisted, leased to a worker, sent with a
-                timeout, and retried with backoff. Delivery is designed for
-                at-least-once processing instead of disappearing with a process
-                restart.
+                Daptin stores outgoing mail before a worker sends it. Failed
+                attempts time out and return to the queue with backoff. A
+                message may be sent more than once, but it is not lost when the
+                process restarts.
               </p>
             </article>
             <article class="detail-card">
@@ -270,7 +270,7 @@
       <h2 class="visually-hidden">Daptin site links</h2>
       <div class="footer-intro">
         <a class="brand" href="/"><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a>
-        <p>The self-hosted application server behind your product.</p>
+        <p>Daptin is a self-hosted application server.</p>
         <a class="footer-run" href="/docs/getting-started/">Run Daptin →</a>
       </div>
       <nav class="footer-directory" aria-label="Footer">

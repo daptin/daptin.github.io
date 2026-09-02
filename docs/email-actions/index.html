@@ -126,7 +126,7 @@
             <ul class="check-list">
               <li>The action returns the documented result and creates the expected queued/outbox record.</li>
               <li>The worker delivers to a disposable inbox and records success.</li>
-              <li>A temporary SMTP failure leaves retryable work rather than losing the message.</li>
+              <li>After a temporary SMTP failure, the message stays in the queue for another attempt.</li>
               <li>A permanent invalid recipient reaches a bounded failure state.</li>
               <li>An unauthorized caller cannot execute the action or read another user’s message context.</li>
             </ul>
@@ -196,7 +196,7 @@
       <h2 class="visually-hidden">Daptin site links</h2>
       <div class="footer-intro">
         <a class="brand" href="/"><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a>
-        <p>The self-hosted application server behind your product.</p>
+        <p>Daptin is a self-hosted application server.</p>
         <a class="footer-run" href="/docs/getting-started/">Run Daptin →</a>
       </div>
       <nav class="footer-directory" aria-label="Footer">

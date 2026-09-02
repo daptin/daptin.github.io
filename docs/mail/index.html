@@ -187,7 +187,7 @@
                 together.
               </li>
               <li>
-                Retryable delivery is described as at-least-once behavior, not
+                Mail retries provide at-least-once behavior, not
                 exactly once.
               </li>
               <li>Open relay behavior is explicitly tested and denied.</li>
@@ -205,7 +205,7 @@
             <p>
               Send one disposable message through a permissioned action, verify
               it enters the outbox, and observe the delivery record. Then point
-              the test environment at a deliberately unavailable SMTP
+              the test environment at a unavailable SMTP
               destination and confirm bounded retry scheduling.
             </p>
             <p>
@@ -218,11 +218,11 @@
         </div>
       </section>
       <section class="related-content" aria-labelledby="related-title">
-        <p class="kicker">Continue the task</p>
-        <h2 id="related-title">Understand the connections, then implement them.</h2>
-        <p>These are the prerequisites, implementation details, boundaries, and proof most relevant to this page.</p>
+        <p class="kicker">Related pages</p>
+        <h2 id="related-title">Read next.</h2>
+
         <div class="related-links">
-          <a href="/docs/email-actions/"><span>Works with</span><strong>Send from an action</strong><span>Connect a product event to validated, permissioned mail delivery.</span></a>          <a href="/docs/tls-certificates/"><span>Operate</span><strong>Protect mail transport</strong><span>Configure certificates and monitor the transport boundary.</span></a>          <a href="/docs/monitoring/"><span>Operate</span><strong>Observe delivery</strong><span>Make queue, retry, and protocol failures visible.</span></a>
+          <a href="/docs/email-actions/"><span>Works with</span><strong>Send from an action</strong><span>Connect a product event to validated, permissioned mail delivery.</span></a>          <a href="/docs/tls-certificates/"><span>Operate</span><strong>Protect mail transport</strong><span>Configure certificates and monitor the transport security.</span></a>          <a href="/docs/monitoring/"><span>Operate</span><strong>Observe delivery</strong><span>Make queue, retry, and protocol failures visible.</span></a>
         </div>
       </section>
       <nav class="guide-sequence" aria-label="Previous and next guides"><a rel="prev" href="/docs/collaboration/"><span>Previous</span><strong>Collaborative documents</strong></a><a rel="next" href="/docs/metering/"><span>Next</span><strong>Metering and quotas</strong></a></nav>
@@ -239,7 +239,7 @@
       <h2 class="visually-hidden">Daptin site links</h2>
       <div class="footer-intro">
         <a class="brand" href="/"><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a>
-        <p>The self-hosted application server behind your product.</p>
+        <p>Daptin is a self-hosted application server.</p>
         <a class="footer-run" href="/docs/getting-started/">Run Daptin →</a>
       </div>
       <nav class="footer-directory" aria-label="Footer">

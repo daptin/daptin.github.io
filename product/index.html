@@ -77,7 +77,7 @@
       <section class="page-hero">
         <div>
           <p class="eyebrow">Product</p>
-          <h1>One server for your application backend.</h1>
+          <h1>Data APIs, permissions, files, and services in one server.</h1>
         </div>
         <div class="page-hero-copy">
           <p>
@@ -163,7 +163,7 @@
       <section class="product-row" id="data">
         <div>
           <p class="kicker">Data foundations</p>
-          <h2>Keep the database efficient without exposing its internals.</h2>
+          <h2>Use public IDs without giving up compact database joins.</h2>
           <p>
             Daptin stores compact integer keys for joins and exposes indexed
             UUIDv7 references to clients. Before storing a relationship, it
@@ -212,11 +212,12 @@ PATCH /api/product/{reference_id}</code></pre>
         </figure>
         <div>
           <p class="kicker">Accounts and access</p>
-          <h2>Access decisions follow the record across service boundaries.</h2>
+          <h2>The same permissions apply to records, relationships, files, and actions.</h2>
           <p>
-            Daptin signs users in and evaluates guest, user, owner, and group
-            permissions for each table. A customer portal can give every person
-            private records and grant a team access through one workspace group.
+            Users sign in with their own accounts. Table permissions then decide
+            what guests, signed-in users, record owners, and groups may do. A
+            customer portal can keep personal records private while a workspace
+            group shares records with a team.
           </p>
           <p>
             Relationship and asset requests evaluate table and row access;
@@ -452,7 +453,7 @@ socket.onmessage = ({ data }) =&gt; {
       <h2 class="visually-hidden">Daptin site links</h2>
       <div class="footer-intro">
         <a class="brand" href="/"><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a>
-        <p>The self-hosted application server behind your product.</p>
+        <p>Daptin is a self-hosted application server.</p>
         <a class="footer-run" href="/docs/getting-started/">Run Daptin →</a>
       </div>
       <nav class="footer-directory" aria-label="Footer">

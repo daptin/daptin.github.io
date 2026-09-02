@@ -78,8 +78,19 @@ The following boundaries are intentionally explicit on the site:
 
 ## Editorial voice
 
+- Follow the older web-writing baseline documented by
+  [Nielsen Norman Group (1997)](https://www.nngroup.com/articles/concise-scannable-and-objective-how-to-write-for-the-web/)
+  and the
+  [GOV.UK content principles](https://www.gov.uk/government/publications/govuk-content-principles-conventions-and-research-background/govuk-content-principles-conventions-and-research-background):
+  concise, scannable, specific, and written in active voice.
 - Name the product category and the user outcome directly.
 - Use headings that summarize the section. Do not use teaser copy, dramatic fragments, or slogan-like contrasts.
+- Prefer a concrete subject and verb: “the server checks row permissions” rather
+  than “permission-aware access provides a secure boundary.”
+- Remove adjectives and adverbs that make a claim without adding a testable
+  fact. Do not use stock promotional terms such as “robust,” “seamless,”
+  “efficient,” “powerful,” “comprehensive,” or “retryable.”
+- Link labels must name the destination or task. Do not use “Why it matters.”
 - Explain a standard or protocol through its practical value: existing clients work, familiar tools remain useful, and one component can be replaced without rewriting the rest of the application.
 - Prefer concrete nouns, verbs, endpoints, and examples over claims such as "powerful," "seamless," or "future-proof."
 - State compatibility limits beside the related capability.

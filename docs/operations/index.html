@@ -80,7 +80,7 @@
       <aside class="docs-context" aria-label="Documentation section">
         <strong>Operate</strong>
         <ul><li><a href="/docs/server-configuration/">Server configuration</a></li><li><a href="/docs/database-setup/">Database setup</a></li><li><a href="/docs/production-deployment/">Production deployment</a></li><li><a href="/docs/tls-certificates/">TLS certificates</a></li><li><a href="/docs/monitoring/">Monitoring</a></li><li><a href="/docs/clustering/">Clustering</a></li><li><a href="/docs/operations/" aria-current="page">Operations</a></li></ul>
-        <details class="page-toc"><summary>On this page</summary><ul><li><a href="#monitor-the-correct-endpoint">Monitor the correct endpoint.</a></li><li><a href="#bound-shared-resources">Bound shared resources.</a></li><li><a href="#keep-the-release-boundary-honest">Keep the release boundary honest.</a></li><li><a href="#operate-from-evidence-not-a-green-process-alone">Operate from evidence, not a green process alone.</a></li></ul></details>
+        <details class="page-toc"><summary>On this page</summary><ul><li><a href="#monitor-the-correct-endpoint">Monitor the correct endpoint.</a></li><li><a href="#bound-shared-resources">Bound shared resources.</a></li><li><a href="#keep-the-release-boundary-honest">Match operational claims to the deployed release.</a></li><li><a href="#operate-from-evidence-not-a-green-process-alone">Operate from evidence, not a green process alone.</a></li></ul></details>
         <p class="guide-meta"><span>Last reviewed: 2026-09-02</span><span>Applies to the latest release available on the review date; check your installed release</span><a href="https://github.com/daptin/daptin">Review source ↗</a></p>
       </aside>
       <section class="page-hero">
@@ -181,7 +181,7 @@
       </section>
       <section class="content-section">
         <div class="split">
-          <div><h2 id="keep-the-release-boundary-honest">Keep the release boundary honest.</h2></div>
+          <div><h2 id="keep-the-release-boundary-honest">Match operational claims to the deployed release.</h2></div>
           <div class="split-copy">
             <p>
               Use <code>/ping</code> and runtime statistics as documented
@@ -233,9 +233,9 @@
         </div>
       </section>
       <section class="related-content" aria-labelledby="related-title">
-        <p class="kicker">Continue the task</p>
-        <h2 id="related-title">Understand the connections, then implement them.</h2>
-        <p>These are the prerequisites, implementation details, boundaries, and proof most relevant to this page.</p>
+        <p class="kicker">Related pages</p>
+        <h2 id="related-title">Read next.</h2>
+
         <div class="related-links">
           <a href="/deploy/"><span>Prerequisite</span><strong>Choose a deployment artifact</strong><span>Start from a release, container, or cluster approach you can operate.</span></a>          <a href="/docs/server-configuration/"><span>Implementation</span><strong>Configure the runtime</strong><span>Set database, network, storage, limits, and optional services.</span></a>          <a href="/docs/production-deployment/"><span>Operate</span><strong>Prepare production</strong><span>Persist data, terminate TLS, observe health, and plan upgrades.</span></a>          <a href="/docs/monitoring/"><span>Operate</span><strong>Monitor the server</strong><span>Interpret liveness, statistics, database pressure, logs, and history.</span></a>          <a href="/docs/clustering/"><span>Operate</span><strong>Plan multiple instances</strong><span>Understand shared runtime behavior and degraded operation.</span></a>
         </div>
@@ -254,7 +254,7 @@
       <h2 class="visually-hidden">Daptin site links</h2>
       <div class="footer-intro">
         <a class="brand" href="/"><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a>
-        <p>The self-hosted application server behind your product.</p>
+        <p>Daptin is a self-hosted application server.</p>
         <a class="footer-run" href="/docs/getting-started/">Run Daptin →</a>
       </div>
       <nav class="footer-directory" aria-label="Footer">

@@ -80,7 +80,7 @@
       <aside class="docs-context" aria-label="Documentation section">
         <strong>Files and publishing</strong>
         <ul><li><a href="/docs/files/">Files and assets</a></li><li><a href="/docs/cloud-storage/">Cloud storage</a></li><li><a href="/docs/sites/" aria-current="page">Sites and publishing</a></li><li><a href="/docs/protocols/">File and feed protocols</a></li><li><a href="/docs/webdav/">WebDAV-style access</a></li></ul>
-        <details class="page-toc"><summary>On this page</summary><ul><li><a href="#choose-the-route-and-content-source">Choose the route and content source.</a></li><li><a href="#create-storage-before-the-site">Create storage before the site.</a></li><li><a href="#add-only-what-this-site-needs">Add only what this site needs.</a></li><li><a href="#test-the-boundary-visitors-use">Test the boundary visitors use.</a></li></ul></details>
+        <details class="page-toc"><summary>On this page</summary><ul><li><a href="#choose-the-route-and-content-source">Choose the route and content source.</a></li><li><a href="#create-storage-before-the-site">Create storage before the site.</a></li><li><a href="#add-only-what-this-site-needs">Add only what this site needs.</a></li><li><a href="#test-the-boundary-visitors-use">Test the public site.</a></li></ul></details>
         <p class="guide-meta"><span>Last reviewed: 2026-09-02</span><span>Applies to the latest release available on the review date; check your installed release</span><a href="https://github.com/daptin/daptin">Review source ↗</a></p>
       </aside>
       <section class="page-hero">
@@ -228,7 +228,7 @@
         <div class="split">
           <div>
             <p class="kicker">Verification</p>
-            <h2 id="test-the-boundary-visitors-use">Test the boundary visitors use.</h2>
+            <h2 id="test-the-boundary-visitors-use">Test the public site.</h2>
           </div>
           <div class="split-copy">
             <ul class="check-list">
@@ -241,7 +241,7 @@
               <li>Remote changes appear after synchronization.</li>
               <li>Basic Auth denies missing and incorrect credentials.</li>
               <li>The certificate matches the requested hostname.</li>
-              <li>FTP remains disabled unless deliberately configured.</li>
+              <li>FTP remains disabled unless configured.</li>
             </ul>
             <p>
               Daptin Sites serves static files and generated output. Put dynamic
@@ -252,11 +252,11 @@
         </div>
       </section>
       <section class="related-content" aria-labelledby="related-title">
-        <p class="kicker">Continue the task</p>
-        <h2 id="related-title">Understand the connections, then implement them.</h2>
-        <p>These are the prerequisites, implementation details, boundaries, and proof most relevant to this page.</p>
+        <p class="kicker">Related pages</p>
+        <h2 id="related-title">Read next.</h2>
+
         <div class="related-links">
-          <a href="/docs/cloud-storage/"><span>Prerequisite</span><strong>Create the content store</strong><span>Configure credentials and storage before attaching a site route.</span></a>          <a href="/features/permissions/"><span>Security</span><strong>Understand the access boundary</strong><span>Separate permission-aware application APIs from public static delivery.</span></a>          <a href="/docs/tls-certificates/"><span>Operate</span><strong>Protect site traffic</strong><span>Choose the TLS boundary and verify certificates and renewal.</span></a>          <a href="/docs/protocols/"><span>Works with</span><strong>Manage content with FTP</strong><span>Enable only the file-management protocol the workflow needs.</span></a>
+          <a href="/docs/cloud-storage/"><span>Prerequisite</span><strong>Create the content store</strong><span>Configure credentials and storage before attaching a site route.</span></a>          <a href="/features/permissions/"><span>Security</span><strong>Understand the access rules</strong><span>Separate permission-aware application APIs from public static delivery.</span></a>          <a href="/docs/tls-certificates/"><span>Operate</span><strong>Protect site traffic</strong><span>Choose the TLS boundary and verify certificates and renewal.</span></a>          <a href="/docs/protocols/"><span>Works with</span><strong>Manage content with FTP</strong><span>Enable only the file-management protocol the workflow needs.</span></a>
         </div>
       </section>
       <nav class="guide-sequence" aria-label="Previous and next guides"><a rel="prev" href="/docs/cloud-storage/"><span>Previous</span><strong>Cloud storage</strong></a><a rel="next" href="/docs/protocols/"><span>Next</span><strong>File and feed protocols</strong></a></nav>
@@ -273,7 +273,7 @@
       <h2 class="visually-hidden">Daptin site links</h2>
       <div class="footer-intro">
         <a class="brand" href="/"><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a>
-        <p>The self-hosted application server behind your product.</p>
+        <p>Daptin is a self-hosted application server.</p>
         <a class="footer-run" href="/docs/getting-started/">Run Daptin →</a>
       </div>
       <nav class="footer-directory" aria-label="Footer">

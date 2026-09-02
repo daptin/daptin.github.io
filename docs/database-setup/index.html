@@ -104,7 +104,7 @@
             <table class="reference-table">
               <thead><tr><th>Database</th><th>Use it when</th><th>Do not overlook</th></tr></thead>
               <tbody>
-                <tr><td>SQLite</td><td>Local evaluation or a deliberately single-process deployment.</td><td>Persist and back up the database file; do not mount one file writable from several Daptin instances.</td></tr>
+                <tr><td>SQLite</td><td>Local evaluation or a single-process deployment.</td><td>Persist and back up the database file; do not mount one file writable from several Daptin instances.</td></tr>
                 <tr><td>PostgreSQL</td><td>Multi-user production, independently operated persistence, or multiple application instances.</td><td>Require transport security where the network is untrusted and reserve connections for administration and recovery.</td></tr>
                 <tr><td>MySQL</td><td>Your team already operates a compatible MySQL service and has tested the Daptin release against it.</td><td>Verify server/version compatibility and schema initialization in a disposable database first.</td></tr>
               </tbody>
@@ -134,7 +134,7 @@
               <li>Request <code>/ping</code>, then create and read a disposable application record.</li>
               <li>Restart Daptin with the same connection settings and read the record again.</li>
               <li>Run the database’s native backup, restore into a separate database, and start a disposable Daptin instance against the restore.</li>
-              <li>Confirm that a deliberately invalid password or unreachable host fails clearly and does not silently create a different local database.</li>
+              <li>Confirm that a invalid password or unreachable host fails clearly and does not silently create a different local database.</li>
             </ol>
             <h2 id="pool">Bound the connection pool</h2>
             <p>
@@ -151,7 +151,7 @@
               missing objects. Document retention, encryption, restore order,
               and a regularly rehearsed recovery target.</span>
             </div>
-            <h2 id="production">Prepare the production boundary</h2>
+            <h2 id="production">Prepare the production database</h2>
             <p>
               Use a dedicated least-privilege database account, restrict network
               access, enable database TLS when traffic crosses an untrusted
@@ -174,7 +174,7 @@
       </section>
       <section class="content-section">
         <div class="split">
-          <div><h2>Pick deliberately</h2></div>
+          <div><h2>Pick</h2></div>
           <div class="detail-grid">
             <article class="detail-card">
               <h3>SQLite</h3>
@@ -221,7 +221,7 @@
       <h2 class="visually-hidden">Daptin site links</h2>
       <div class="footer-intro">
         <a class="brand" href="/"><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a>
-        <p>The self-hosted application server behind your product.</p>
+        <p>Daptin is a self-hosted application server.</p>
         <a class="footer-run" href="/docs/getting-started/">Run Daptin →</a>
       </div>
       <nav class="footer-directory" aria-label="Footer">

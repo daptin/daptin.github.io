@@ -7,7 +7,7 @@
     <title>Configure WebDAV-style file access in Daptin</title>
     <meta
       name="description"
-      content="Enable and verify Daptin WebDAV-style file operations with a compatible client while keeping the supported protocol boundary explicit."
+      content="Enable and verify Daptin WebDAV-style file operations with a compatible client while keeping the supported supported protocol operations explicit."
     />
     <link rel="canonical" href="https://daptin.github.io/docs/webdav/" />
     <link rel="icon" href="/images/theme-favicon.png" />
@@ -19,7 +19,7 @@
     />
     <meta
       property="og:description"
-      content="Enable and verify Daptin WebDAV-style file operations with a compatible client while keeping the supported protocol boundary explicit."
+      content="Enable and verify Daptin WebDAV-style file operations with a compatible client while keeping the supported supported protocol operations explicit."
     />
     <meta property="og:url" content="https://daptin.github.io/docs/webdav/" />
     <meta
@@ -134,7 +134,7 @@ curl --fail --user 'user@example.com:password' \
               <li>A user cannot list, read, overwrite, or delete another user’s protected path.</li>
               <li>Parent traversal and encoded traversal attempts cannot escape the configured root.</li>
               <li>Oversized uploads and unsupported methods fail with understandable responses.</li>
-              <li>Removing permission takes effect according to the documented cache/session boundary.</li>
+              <li>Removing permission takes effect according to the documented cache and session behavior.</li>
             </ul>
             <div class="callout"><strong>Calendar and contact sync are separate compatibility claims.</strong><span>Do not advertise CalDAV or CardDAV based only on basic HTTP file operations; verify the required protocol reports and clients independently.</span></div>
           </article>
@@ -146,7 +146,7 @@ curl --fail --user 'user@example.com:password' \
       </section>
       <section class="content-section">
         <div class="split">
-          <div><h2>Fit and boundaries</h2></div>
+          <div><h2>Supported operations</h2></div>
           <div class="detail-grid">
             <article class="detail-card">
               <h3>Basic file clients</h3>
@@ -192,7 +192,7 @@ curl --fail --user 'user@example.com:password' \
       <h2 class="visually-hidden">Daptin site links</h2>
       <div class="footer-intro">
         <a class="brand" href="/"><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a>
-        <p>The self-hosted application server behind your product.</p>
+        <p>Daptin is a self-hosted application server.</p>
         <a class="footer-run" href="/docs/getting-started/">Run Daptin →</a>
       </div>
       <nav class="footer-directory" aria-label="Footer">

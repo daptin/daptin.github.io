@@ -16,7 +16,7 @@
     <meta property="og:title" content="Configure cloud storage in Daptin" />
     <meta
       property="og:description"
-      content="Create named credentials and cloud stores, connect them correctly, attach file fields, and verify the storage boundary."
+      content="Create named credentials and cloud stores, connect them correctly, attach file fields, and verify the storage setup."
     />
     <meta
       property="og:url"
@@ -80,7 +80,7 @@
       <aside class="docs-context" aria-label="Documentation section">
         <strong>Files and publishing</strong>
         <ul><li><a href="/docs/files/">Files and assets</a></li><li><a href="/docs/cloud-storage/" aria-current="page">Cloud storage</a></li><li><a href="/docs/sites/">Sites and publishing</a></li><li><a href="/docs/protocols/">File and feed protocols</a></li><li><a href="/docs/webdav/">WebDAV-style access</a></li></ul>
-        <details class="page-toc"><summary>On this page</summary><ul><li><a href="#prove-the-application-path-without-provider-setup">Prove the application path without provider setup.</a></li><li><a href="#create-and-link-all-three-layers">Create and link all three layers.</a></li><li><a href="#keep-backend-details-out-of-product-records">Keep backend details out of product records.</a></li><li><a href="#test-the-provider-before-attaching-production-data">Test the provider before attaching production data.</a></li></ul></details>
+        <details class="page-toc"><summary>On this page</summary><ul><li><a href="#prove-the-application-path-without-provider-setup">Test the application path without provider setup.</a></li><li><a href="#create-and-link-all-three-layers">Create and link all three layers.</a></li><li><a href="#keep-backend-details-out-of-product-records">Keep backend details out of product records.</a></li><li><a href="#test-the-provider-before-attaching-production-data">Test the provider before attaching production data.</a></li></ul></details>
         <p class="guide-meta"><span>Last reviewed: 2026-09-02</span><span>Applies to the latest release available on the review date; check your installed release</span><a href="https://github.com/daptin/daptin">Review source ↗</a></p>
       </aside>
       <section class="page-hero">
@@ -108,7 +108,7 @@
         <div class="split">
           <div>
             <p class="kicker">Local first</p>
-            <h2 id="prove-the-application-path-without-provider-setup">Prove the application path without provider setup.</h2>
+            <h2 id="prove-the-application-path-without-provider-setup">Test the application path without provider setup.</h2>
           </div>
           <div class="split-copy">
             <pre><code>{
@@ -118,7 +118,7 @@
   "root_path": "/srv/daptin/storage"
 }</code></pre>
             <p>
-              A local store does not need a provider credential. Ensure the
+              A local store does not need a provider credential. Check that the
               Daptin process can read and write the directory and that it
               resides on durable storage in production.
             </p>
@@ -249,9 +249,9 @@
         </div>
       </section>
       <section class="related-content" aria-labelledby="related-title">
-        <p class="kicker">Continue the task</p>
-        <h2 id="related-title">Understand the connections, then implement them.</h2>
-        <p>These are the prerequisites, implementation details, boundaries, and proof most relevant to this page.</p>
+        <p class="kicker">Related pages</p>
+        <h2 id="related-title">Read next.</h2>
+
         <div class="related-links">
           <a href="/features/files/"><span>Concept</span><strong>Files and records</strong><span>See how stored bytes remain attached to application records.</span></a>          <a href="/features/sites/"><span>Works with</span><strong>Publish a site</strong><span>Serve a managed storage directory at a hostname and path.</span></a>
         </div>
@@ -270,7 +270,7 @@
       <h2 class="visually-hidden">Daptin site links</h2>
       <div class="footer-intro">
         <a class="brand" href="/"><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a>
-        <p>The self-hosted application server behind your product.</p>
+        <p>Daptin is a self-hosted application server.</p>
         <a class="footer-run" href="/docs/getting-started/">Run Daptin →</a>
       </div>
       <nav class="footer-directory" aria-label="Footer">

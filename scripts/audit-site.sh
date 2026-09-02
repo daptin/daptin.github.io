@@ -3,6 +3,10 @@ set -euo pipefail
 
 root_dir="$(cd "$(dirname "$0")/.." && pwd)"
 pages=("$root_dir/index.html" "$root_dir/product/index.html" "$root_dir/use-cases/index.html" "$root_dir/deploy/index.html" "$root_dir/examples/index.html")
+public_pages=()
+while IFS= read -r page; do
+  public_pages+=("$page")
+done < <(find "$root_dir" -name '*.html' -not -path '*/.git/*' -print | sort)
 
 printf 'Marketing pages: %s\n' "${#pages[@]}"
 
@@ -76,14 +80,14 @@ if (( homepage_words > 950 )); then
   exit 1
 fi
 
-banned='powerful|robust|seamless|comprehensive|modern|flexible|unlock|leverage|future-proof|not just|all-in-one|build anything|everything you need'
-if rg -ni "${banned}" "${pages[@]}"; then
+banned='powerful|robust|seamless|effortless|efficiently?|retryable|comprehensive|unlock|leverage|future-proof|not just|all-in-one|build anything|everything you need|why it matters'
+if rg -ni "${banned}" "${public_pages[@]}"; then
   printf 'FAIL: banned marketing phrase found\n' >&2
   exit 1
 fi
 
-ai_style='the model is not|it is the contract|one runtime speaks|where your data lives|hard backend rules|reliability is enforced|parts that are hard to fake|one model becomes|short list on purpose|put a complete operation'
-if rg -ni "${ai_style}" "${pages[@]}"; then
+ai_style='the model is not|it is the contract|one runtime speaks|where your data lives|hard backend rules|reliability is enforced|parts that are hard to fake|one model becomes|short list on purpose|put a complete operation|continue the task|understand the connections, then implement them|these are the prerequisites, implementation details, boundaries, and proof|daptin signs users in and evaluates|demonstrated leverage|compounds value'
+if rg -ni "${ai_style}" "${public_pages[@]}"; then
   printf 'FAIL: slogan-like AI copy found\n' >&2
   exit 1
 fi
