@@ -107,7 +107,7 @@ fi
 # Guard release-backed examples whose earlier marketing versions overstated the
 # schema or WebSocket contract. Keep these checks narrow and factual; source
 # verification remains required for every new technical claim.
-if rg -n 'ColumnType:</span> image</code>|Record events stop|Every Daptin service honors it|event\.type === "order\.update"' "${pages[@]}"; then
+if rg -n 'ColumnType:</span> image</code>|Record events stop|Every Daptin service honors it|event\.type === "order\.update"|runs an action.*transition|state transitions, data exchanges|Enforce quotas and credit balances|repository Compose file pins|evaluation PostgreSQL overlay' "${pages[@]}"; then
   printf 'FAIL: unsupported schema or WebSocket claim found\n' >&2
   exit 1
 fi

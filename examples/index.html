@@ -87,8 +87,9 @@
             <h2>Run Daptin as an OAuth 2.0 and OIDC provider.</h2>
             <p>
               Register a client, complete authorization code with PKCE, obtain
-              tokens, and read the signed-in user. The test covers invalid
-              redirect URLs and expired or reused authorization codes.
+              tokens, and read the signed-in user. The server's provider tests
+              additionally reject invalid redirects and authorization-code
+              replay.
             </p>
             <a href="https://github.com/daptin/daptin-oauth-provider-demo"
               >Run the OAuth provider demo ↗</a
@@ -108,11 +109,12 @@
           </article>
           <article class="example-card">
             <span>Usage, quotas, and credits</span>
-            <h2>Enforce quotas and credit balances.</h2>
+            <h2>Apply quotas and record credit hooks.</h2>
             <p>
-              Record ordinary API calls and model tokens, apply a quota, reject
-              excess requests, debit a credit wallet, and keep the resulting
-              usage and debit records.
+              Record API calls and model tokens, set a plan quota that rejects
+              excess requests, and write usage and debit records. The included
+              credit hook runs after metering, so align a prepaid balance with
+              the plan quota instead of treating the wallet alone as a limit.
             </p>
             <a href="https://github.com/daptin/daptin-metering-credit-demo"
               >Run the metering demo ↗</a
@@ -204,11 +206,11 @@
           </div>
           <div class="split-copy">
             <p>
-              The OAuth demo shows issued codes and tokens. The integration demo
-              proves which user owns a credential. The metering demo shows
-              usage, quota, credit, and debit records. The LLM demo compares
-              streaming and non-streaming responses through the same
-              OpenAI-compatible address.
+              The OAuth demo runs the successful PKCE exchange. The integration
+              demo proves which user owns a credential. The metering demo shows
+              usage, quota, credit, and debit records, with quota as its denial
+              boundary. The LLM demo compares streaming and non-streaming
+              responses through the same OpenAI-compatible address.
             </p>
             <p>
               Read the repository tests when you need the exact assertion. Copy

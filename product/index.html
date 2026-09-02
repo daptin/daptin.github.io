@@ -87,16 +87,16 @@
         <div class="split">
           <div>
             <p class="kicker">Generated from the model</p>
-            <h2>Loading a model creates four concrete surfaces.</h2>
+            <h2>Loading a model creates a data runtime and its attached surfaces.</h2>
           </div>
           <div>
             <div class="detail-grid">
               <article class="detail-card">
-                <h3>Tables, indexes, and relationships</h3>
+                <h3>Schema and data runtime</h3>
                 <p>
-                  Daptin creates tables, base identifiers, timestamps, declared
-                  columns, indexes, and relationship tables in SQLite, MySQL, or
-                  PostgreSQL.
+                  YAML or JSON can declare 41 column types, indexes, relations
+                  and joins, composite keys, validation, conformation,
+                  translations, and audit, state, or metering flags.
                 </p>
                 <a
                   class="text-link"
@@ -105,11 +105,11 @@
                 >
               </article>
               <article class="detail-card">
-                <h3>JSON:API resources</h3>
+                <h3>Resources and discovery</h3>
                 <p>
-                  Each application table receives JSON:API collection, record,
-                  relationship, filter, sort, pagination, and aggregation
-                  requests.
+                  Each application table becomes a permission-aware JSON:API
+                  resource with collection, record, relationship, filter, sort,
+                  pagination, and separate aggregation routes.
                 </p>
                 <a
                   class="text-link"
@@ -118,10 +118,12 @@
                 >
               </article>
               <article class="detail-card">
-                <h3>OpenAPI and GraphQL interfaces</h3>
+                <h3>Optional query interfaces</h3>
                 <p>
-                  OpenAPI describes routes and action inputs. GraphQL exposes
-                  generated query access for clients that use it.
+                  Enable GraphQL queries, mutations, and actions when useful.
+                  <code>/openapi.yaml</code>, <code>/meta</code>, and
+                  <code>/jsmodel/{typename}</code> expose the generated model
+                  to tools and clients.
                 </p>
                 <a
                   class="text-link"
@@ -130,11 +132,12 @@
                 >
               </article>
               <article class="detail-card">
-                <h3>Admin screens</h3>
+                <h3>Configuration as data</h3>
                 <p>
-                  dashboard3 reads the live model and gives administrators
-                  screens for records, permissions, actions, users, storage, and
-                  system configuration.
+                  System-table rows configure actions, schedules, state
+                  definitions, storage, sites, integrations, model providers,
+                  plans, and more. dashboard3 exposes those live records to
+                  administrators.
                 </p>
               </article>
             </div>
@@ -201,8 +204,10 @@ PATCH /api/product/{reference_id}</code></pre>
             private records and grant a team access through one workspace group.
           </p>
           <p>
-            The same decision is checked when someone follows a relationship,
-            downloads an attachment, runs an action, or receives a record event.
+            Relationship and asset requests evaluate table and row access;
+            action calls use action permissions. A <code>/live</code> system
+            topic checks table-level <code>CanPeek</code> when the client
+            subscribes.
           </p>
           <a
             class="text-link"
@@ -281,8 +286,10 @@ PATCH /api/product/{reference_id}</code></pre>
             coordinating those steps in the browser.
           </p>
           <p>
-            Run actions from HTTP requests, state transitions, data exchanges,
-            or schedules. Each action declares its input and output fields.
+            Run actions through HTTP, GraphQL, or scheduled tasks. Each action
+            declares inputs, validation or conformation, conditions, and ordered
+            outcomes. State tracking records allowed transitions; invoke an
+            action separately when a transition should perform work.
           </p>
           <a
             class="text-link"

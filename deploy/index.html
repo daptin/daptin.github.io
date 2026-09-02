@@ -194,15 +194,15 @@
         <div class="split">
           <div>
             <p class="kicker">Docker Compose</p>
-            <h2>Daptin plus PostgreSQL, with persistent volumes.</h2>
+            <h2>Start with a Compose example, then make persistence explicit.</h2>
           </div>
           <div class="split-copy">
             <p>
-              The repository Compose file pins Daptin v0.12.36, waits for
-              PostgreSQL to become healthy, and stores database and file data in
-              named volumes. Its current <code>/ready</code> probe targets newer
-              source; the published v0.12.36 binary exposes <code>/ping</code>,
-              so do not copy that probe unchanged.
+              The tagged repository includes a small PostgreSQL Compose example,
+              but it uses an unpinned image, no persistent volumes, and no
+              health check. Treat it as connection-string syntax, not a
+              production manifest. Pin Daptin and PostgreSQL, mount database and
+              asset storage, and probe <code>/ping</code> yourself.
             </p>
             <div class="code-card">
               <pre><code>git clone https://github.com/daptin/daptin.git
@@ -213,8 +213,8 @@ curl --fail http://127.0.0.1:6336/ping</code></pre>
             </div>
             <a
               class="text-link"
-              href="https://github.com/daptin/daptin/blob/master/docker-compose.yml"
-              >Inspect docker-compose.yml →</a
+              href="https://github.com/daptin/daptin/blob/v0.12.36/docker-compose-examples/daptin-postgres.yml"
+              >Inspect the tagged Compose example →</a
             >
           </div>
         </div>
@@ -224,25 +224,25 @@ curl --fail http://127.0.0.1:6336/ping</code></pre>
         <div class="split">
           <div>
             <p class="kicker">Kubernetes status</p>
-            <h2>Kubernetes manifests to start from, with their limits.</h2>
+            <h2>The checked-in Kubernetes files are historical, not a starter.</h2>
           </div>
           <div class="split-copy">
             <p>
-              The current repository contains a single-replica base, an
-              evaluation PostgreSQL overlay, and an nginx ingress example for
-              Kubernetes 1.25 or newer. The base expects an external PostgreSQL
-              secret and persistent asset storage.
+              At v0.12.36 the repository's Kubernetes files use deprecated
+              <code>extensions/v1beta1</code> APIs, a <code>latest</code> image,
+              and a hard-coded external MySQL address. They are useful project
+              history, not production-ready manifests.
             </p>
             <p>
-              Do not add replicas to the default base. Multi-instance operation
-              requires shared cloud or RWX asset storage, validated concurrent
-              schema startup, exposed Olric ports, and configured seed
-              discovery.
+              Build current <code>apps/v1</code> manifests from the installation
+              guide, use a persistent volume or cloud store, and pin the image.
+              For multiple instances, share the database and file storage and
+              configure reachable Olric ports plus peer or DNS-seed discovery.
             </p>
             <a
               class="text-link"
               href="https://github.com/daptin/daptin/tree/master/kubernetes"
-              >Read the manifest status and commands →</a
+              >Inspect the historical manifests →</a
             >
           </div>
         </div>
