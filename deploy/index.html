@@ -246,34 +246,24 @@ curl --fail http://127.0.0.1:8090/ping</code></pre>
           </div>
           <div class="split-copy">
             <p>
-              Current source includes a Kubernetes 1.25+ Kustomize base with a
-              non-root security context, startup/readiness/liveness probes,
-              resource limits, persistent asset storage, an external database
-              Secret, graceful shutdown, and headless Olric peer discovery.
+              The current source includes a maintained Kubernetes 1.25+
+              Kustomize base. It supplies persistent asset storage, external
+              database secrets, health probes, resource limits, graceful
+              shutdown, a non-root security context, and Olric peer discovery.
             </p>
             <p>
-              Use <code>kubernetes/base</code> with external PostgreSQL,
-              <code>overlays/demo-postgres</code> for isolated local evaluation,
-              or <code>overlays/ingress</code> as the nginx ingress starting
-              point. CI renders every variant, validates Kubernetes 1.30
-              schemas, builds the current image, and smoke-tests
-              <code>/ready</code>.
+              Start with the base for an external PostgreSQL deployment. The
+              repository also includes a local evaluation overlay with
+              PostgreSQL and an nginx ingress overlay. Each variant is rendered
+              and schema-validated in CI, followed by a container readiness
+              smoke test.
             </p>
-            <pre><code>kubectl apply -f kubernetes/base/namespace.yaml
-kubectl -n daptin create secret generic daptin-database \
-  --from-literal='connection-string=host=postgres.example.net port=5432 user=daptin password=replace-me dbname=daptin sslmode=require'
-kubectl apply -k kubernetes/base
-kubectl -n daptin rollout status deployment/daptin --timeout=5m</code></pre>
-            <p>
-              The base deliberately stays at one replica because its PVC is
-              ReadWriteOnce. Configure shared cloud/RWX storage and validate
-              concurrent startup before scaling. Pin a tested image tag or
-              digest in your production overlay.
+            <p class="release-note">
+              The base uses one replica and ReadWriteOnce storage. Use shared
+              storage and validate concurrent startup before scaling, and pin a
+              tested image in your production overlay.
             </p>
-            <div class="link-row">
-              <a class="text-link" href="https://github.com/daptin/daptin/tree/master/kubernetes">Browse Kubernetes manifests →</a>
-              <a class="text-link" href="https://github.com/daptin/daptin/blob/master/kubernetes/README.md">Read the deployment guide →</a>
-            </div>
+            <a class="text-link" href="https://github.com/daptin/daptin/tree/master/kubernetes">Open the Kubernetes deployment →</a>
           </div>
         </div>
       </section>
