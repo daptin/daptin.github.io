@@ -61,13 +61,18 @@
       <section class="page-hero">
         <div>
           <p class="eyebrow">Runnable examples</p>
-          <h1>See Daptin accept the right request and reject the wrong one.</h1>
+          <h1>Inspect the requests Daptin must reject.</h1>
         </div>
         <div class="page-hero-copy">
           <p>
-            Each repository configures Daptin, sends real requests, and checks
-            both successful responses and expected rejections.
+            Each repository starts a clean instance, sends real requests, and
+            records the success condition alongside a failure it must reject.
           </p>
+          <ul class="hero-facts" aria-label="Example highlights">
+            <li>Clean instance</li>
+            <li>Expected success</li>
+            <li>Required rejection</li>
+          </ul>
           <a
             class="button button-light"
             href="https://github.com/daptin/daptin/wiki/Getting-Started-Guide"

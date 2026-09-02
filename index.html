@@ -95,13 +95,11 @@
         <div class="hero-copy">
           <p class="eyebrow">Self-hosted application server · LGPL-3.0</p>
           <h1>
-            Give Daptin your tables and relationships. Get a running application
-            server.
+            Define the data. Run the server around it.
           </h1>
           <p class="lede">
-            Define the tables and relationships your product needs. Daptin
-            creates the database, APIs, access controls, admin interface, files,
-            workflows, events, and integrations.
+            Daptin turns an application schema into database tables, JSON:API
+            resources, permissions, actions, and record events.
           </p>
           <div class="actions">
             <a
@@ -157,13 +155,14 @@
         <div>
           <p class="kicker">What Daptin creates</p>
           <h2>
-            Define a table once. Daptin runs its API, access, admin, and events.
+            A field can change more than a database table.
           </h2>
         </div>
         <div>
           <p>
-            Daptin uses the same table and relationship definitions for APIs,
-            permissions, files, actions, events, and the admin interface.
+            The <code>photo</code> field below attaches an asset to a product.
+            It can be stored, exposed through record APIs, and protected by the
+            product's access rules.
           </p>
           <a
             class="text-link"
@@ -208,12 +207,13 @@
         <div class="section-heading">
           <div>
             <p class="kicker">Why Daptin uses established protocols</p>
-            <h2>Works with the SDKs, clients, and tools you already use.</h2>
+            <h2>Protocols on the wire, not a required Daptin client.</h2>
           </div>
           <div>
             <p>
-              Published protocols let you inspect, replace, and maintain
-              integrations without a Daptin-specific client.
+              Use generated HTTP APIs, an OAuth library, a mail client, or a
+              file-transfer tool. The groups below name Daptin's interfaces and
+              the outbound services it can call.
             </p>
             <a
               class="text-link"
@@ -407,36 +407,35 @@
           <div>
             <p class="kicker">Server-side controls</p>
             <h2>
-              Access checks, secrets, and transactions stay on the server.
+              Authentication, execution, and runtime state stay observable.
             </h2>
           </div>
           <p>
-            Every client and protocol receives the same access decisions. The
-            browser does not hold provider credentials.
+            Handle reused credentials, interrupted multi-step work, and process
+            health on the server.
           </p>
         </div>
         <div class="reliability-grid">
           <article>
-            <span>Permissions</span>
+            <span>Credentials</span>
             <h3>
-              One access rule covers rows, files, actions, and subscriptions.
+              Provider secrets stay on the server, not in browser code.
             </h3>
             <p>
-              Guest, owner, and group permissions cover rows, relationships,
-              assets, actions, WebSocket topics, Yjs rooms, and FTP site paths.
+              An integration uses a shared credential or the signed-in user's
+              encrypted OAuth token. The caller supplies input, not the secret.
             </p>
             <a
-              href="https://github.com/daptin/daptin/blob/v0.12.36/websocket_test.go"
-              >Inspect authorization tests ↗</a
+              href="https://github.com/daptin/daptin/wiki/Integrations"
+              >Configure an integration →</a
             >
           </article>
           <article>
             <span>Authentication</span>
             <h3>Single-use codes, token rotation, and replay protection.</h3>
             <p>
-              Actions and scheduled work use database transactions. OAuth codes
-              are single-use, refresh tokens rotate, provider PKCE is required,
-              and OTP attempts are cluster-shared.
+              OAuth codes are single-use, refresh tokens rotate, provider PKCE
+              is required, and OTP attempts are cluster-shared.
             </p>
             <a href="https://github.com/daptin/daptin/wiki/OAuth-Provider"
               >Read the token lifecycle →</a

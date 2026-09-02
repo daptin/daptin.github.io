@@ -62,15 +62,19 @@
         <div>
           <p class="eyebrow">Product</p>
           <h1>
-            One application model. APIs, access control, files, and automation.
+            Follow one application model through the running server.
           </h1>
         </div>
         <div class="page-hero-copy">
           <p>
-            Define tables and relationships in YAML, JSON, or dashboard3. Daptin
-            uses that model to create the database, APIs, permissions, file
-            handling, actions, integrations, and live events.
+            This page follows a table into database structure, request handling,
+            access decisions, file storage, server-side work, and record events.
           </p>
+          <ul class="hero-facts" aria-label="Product highlights">
+            <li>Schema input</li>
+            <li>Runtime behavior</li>
+            <li>Operational boundaries</li>
+          </ul>
           <a
             class="button button-light"
             href="https://github.com/daptin/daptin/wiki/Getting-Started-Guide"
@@ -83,7 +87,7 @@
         <div class="split">
           <div>
             <p class="kicker">Generated from the model</p>
-            <h2>What Daptin builds when it loads your model.</h2>
+            <h2>Loading a model creates four concrete surfaces.</h2>
           </div>
           <div>
             <div class="detail-grid">
@@ -141,16 +145,16 @@
       <section class="product-row" id="data">
         <div>
           <p class="kicker">Data and APIs</p>
-          <h2>Create, query, filter, and relate records immediately.</h2>
+          <h2>Collections, records, relationships, filters, and pages.</h2>
           <p>
-            Define fields and relationships for a product, customer, order, or
-            ticket. Daptin creates database tables and JSON:API routes for
-            create, list, filter, update, delete, and related-record requests.
+            A JSON:API resource has collection and record routes, relationship
+            requests, filters, sorting, pagination, and aggregation. The routes
+            below show the ordinary record operations for <code>product</code>.
           </p>
           <p>
-            The running server also exposes OpenAPI and GraphQL descriptions.
-            Use dashboard3 to browse records while a frontend is still being
-            built.
+            OpenAPI describes routes and action inputs; GraphQL is available for
+            clients that use it. dashboard3 is useful for inspecting records and
+            requests during development.
           </p>
           <a
             class="text-link"
@@ -190,15 +194,15 @@ PATCH /api/product/{reference_id}</code></pre>
         </figure>
         <div>
           <p class="kicker">Accounts and access</p>
-          <h2>One permission system for rows, files, actions, and events.</h2>
+          <h2>Access decisions follow the record across service boundaries.</h2>
           <p>
             Daptin signs users in and evaluates guest, user, owner, and group
             permissions for each table. A customer portal can give every person
             private records and grant a team access through one workspace group.
           </p>
           <p>
-            Those checks also apply when someone follows a relationship,
-            downloads a file, runs an action, or subscribes to record changes.
+            The same decision is checked when someone follows a relationship,
+            downloads an attachment, runs an action, or receives a record event.
           </p>
           <a
             class="text-link"
@@ -291,16 +295,15 @@ PATCH /api/product/{reference_id}</code></pre>
       <section class="product-row" id="integrations">
         <div>
           <p class="kicker">External services</p>
-          <h2>Call providers with credentials kept on the server.</h2>
+          <h2>Expose selected provider operations without sending their secrets.</h2>
           <p>
             Install an OpenAPI description and expose selected operations as
             Daptin actions. Store one shared provider credential on the server
             or keep a separate OAuth token for each signed-in user.
           </p>
           <p>
-            The integration-auth demo proves that one user cannot borrow another
-            user's connected-account credential. The OAuth provider demo shows
-            another application signing in through Daptin.
+            The integration-auth demo verifies that one signed-in user cannot
+            invoke another user's connected-account credential.
           </p>
           <a class="text-link" href="../examples/"
             >Run the integration demos →</a
@@ -337,15 +340,15 @@ socket.onmessage = ({ data }) =&gt; {
         </div>
         <div>
           <p class="kicker">Live updates</p>
-          <h2>Subscribe to allowed record changes over WebSocket.</h2>
+          <h2>Send clients the record changes they are allowed to receive.</h2>
           <p>
             Daptin publishes record events through its live WebSocket endpoint.
             Subscribe a dashboard to order changes, a customer portal to ticket
             updates, or a monitoring screen to new usage records.
           </p>
           <p>
-            Read permissions determine which topics and records a connection may
-            receive.
+            Read permissions determine the topics and records a connection may
+            receive; the socket does not bypass the record model.
           </p>
           <a
             class="text-link"
