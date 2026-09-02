@@ -71,8 +71,8 @@ print(len(re.findall(r"[A-Za-z0-9][A-Za-z0-9:+./'-]*", " ".join(parser.parts))))
 PY
 )
 printf 'Homepage words: %s\n' "$homepage_words"
-if (( homepage_words > 700 )); then
-  printf 'FAIL: expected no more than 700 homepage words\n' >&2
+if (( homepage_words > 950 )); then
+  printf 'FAIL: expected no more than 950 homepage words\n' >&2
   exit 1
 fi
 

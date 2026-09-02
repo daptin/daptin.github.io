@@ -108,11 +108,14 @@
           </div>
           <pre><code><span class="code-key">Tables:</span>
   - <span class="code-key">TableName:</span> <span class="code-value">product</span>
-    <span class="code-key">Columns:</span>
-      - <span class="code-key">Name:</span> title
-        <span class="code-key">DataType:</span> varchar(200)
-      - <span class="code-key">Name:</span> price
-        <span class="code-key">DataType:</span> float
+    <span class="code-key">IsAuditEnabled:</span> true
+    <span class="code-key">IsStateTrackingEnabled:</span> true
+    <span class="code-key">DefaultGroups:</span> [catalog-editors]
+    <span class="code-key">Metering:</span>
+      <span class="code-key">Enabled:</span> true
+      <span class="code-key">MeterType:</span> request
+    <span class="code-key">Columns:</span> <span class="code-value">[...]</span>
+    <span class="code-key">Relations:</span> <span class="code-value">[...]</span>
 
 <span class="code-value">POST</span> /api/product     <span class="code-key">201</span>
 <span class="code-value">GET</span>  /api/product     <span class="code-key">200</span></code></pre>
@@ -156,25 +159,70 @@
       <section class="mechanism">
         <div class="mechanism-grid">
           <div class="mechanism-code">
-            <strong>One definition</strong>
+            <strong>A complete table definition</strong>
             <pre><code><span class="code-key">TableName:</span> product
+<span class="code-key">TableDescription:</span> Sellable catalog item
+<span class="code-key">DefaultPermission:</span> 208
+<span class="code-key">Permission:</span> 208
+<span class="code-key">IsHidden:</span> false
+<span class="code-key">IsAuditEnabled:</span> true
+<span class="code-key">TranslationsEnabled:</span> true
+<span class="code-key">IsStateTrackingEnabled:</span> true
+<span class="code-key">DefaultGroups:</span> [catalog-editors]
+<span class="code-key">AccessGroups:</span> [catalog-admins]
+<span class="code-key">DefaultOrder:</span> <span class="code-value">+title</span>
+<span class="code-key">Icon:</span> fa-box
+<span class="code-key">CompositeKeys:</span>
+  - [tenant_code, sku]
+<span class="code-key">Validations:</span>
+  - <span class="code-key">ColumnName:</span> title
+    <span class="code-key">Tags:</span> required,min=3,max=200
+<span class="code-key">Conformations:</span>
+  - <span class="code-key">ColumnName:</span> title
+    <span class="code-key">Tags:</span> trim
+<span class="code-key">Metering:</span>
+  <span class="code-key">Enabled:</span> true
+  <span class="code-key">CostExpr:</span> <span class="code-value">1</span>
+  <span class="code-key">MeterType:</span> request
 <span class="code-key">Columns:</span>
   - <span class="code-key">Name:</span> title
+    <span class="code-key">ColumnName:</span> title
+    <span class="code-key">ColumnDescription:</span> Display title
     <span class="code-key">DataType:</span> varchar(200)
+    <span class="code-key">ColumnType:</span> label
+    <span class="code-key">IsNullable:</span> false
+    <span class="code-key">IsIndexed:</span> true
+    <span class="code-key">IsUnique:</span> true
+    <span class="code-key">ExcludeFromApi:</span> false
+    <span class="code-key">Permission:</span> 208
+  - <span class="code-key">Name:</span> status
+    <span class="code-key">DataType:</span> varchar(20)
+    <span class="code-key">ColumnType:</span> enum
+    <span class="code-key">DefaultValue:</span> <span class="code-value">'draft'</span>
+    <span class="code-key">Options:</span>
+      - {<span class="code-key">Value:</span> draft, <span class="code-key">Label:</span> Draft}
+      - {<span class="code-key">Value:</span> published, <span class="code-key">Label:</span> Published}
   - <span class="code-key">Name:</span> photo
     <span class="code-key">DataType:</span> text
-    <span class="code-key">IsNullable:</span> true
     <span class="code-key">ColumnType:</span> image.png|jpg|jpeg|gif|tiff
+    <span class="code-key">IsNullable:</span> true
     <span class="code-key">IsForeignKey:</span> true
     <span class="code-key">ForeignKeyData:</span>
       <span class="code-key">DataSource:</span> cloud_store
       <span class="code-key">Namespace:</span> local-store
-      <span class="code-key">KeyName:</span> images</code></pre>
+      <span class="code-key">KeyName:</span> images
+<span class="code-key">Relations:</span>
+  - <span class="code-key">Subject:</span> product
+    <span class="code-key">Relation:</span> belongs_to
+    <span class="code-key">Object:</span> category
+<span class="code-key">DefaultRelations:</span>
+  <span class="code-key">category_id:</span>
+    - <span class="code-value">&lt;category-reference-id&gt;</span></code></pre>
           </div>
           <div class="mechanism-result">
             <div>
-              <span>01 / model</span
-              ><strong>Tables, relations, types, IDs, and timestamps</strong>
+              <span>01 / structure</span
+              ><strong>Columns, relations, constraints, defaults, and ordering</strong>
             </div>
             <div>
               <span>02 / expose</span
@@ -182,14 +230,15 @@
             </div>
             <div>
               <span>03 / govern</span
-              ><strong>Accounts, groups, row permissions, and history</strong>
+              ><strong>Permissions, groups, validation, audit, state, and translations</strong>
             </div>
             <div>
               <span>04 / operate</span
-              ><strong>Actions, schedules, events, storage, and servers</strong>
+              ><strong>Metering, actions, schedules, events, storage, and servers</strong>
             </div>
           </div>
         </div>
+        <p class="schema-boundary">This example covers the author-facing <code>TableInfo</code> and <code>ColumnInfo</code> controls used by the runtime. Daptin derives internal table identity, ownership, join/top-level status, explicit-field merge tracking, standard columns, owner/group relations, and generated audit, translation, or state tables. <a href="/platform/">See every table field and all built-in entities →</a></p>
       </section>
 
       <section class="protocols" id="protocols">

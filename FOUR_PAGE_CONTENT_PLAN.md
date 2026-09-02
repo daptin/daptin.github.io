@@ -24,9 +24,11 @@ Content sequence:
 1. Define Daptin as a running application server rather than generated source.
 2. Trace schema → world metadata/resource graph → shared middleware → runtime surfaces.
 3. Explain identity, request bounds, authorization, transactions, and delivery in request order.
-4. Map the system tables that configure actions, schedules, state, storage, sites, integrations, model providers, and plans.
-5. Separate application APIs, file delivery, realtime/collaboration, and protocol services.
-6. State the deployment and external-side-effect boundary explicitly.
+4. Inventory every built-in entity in `StandardTables`, grouped by the runtime responsibility its rows configure; distinguish the tagged release from current source when their LLM registries differ.
+5. Map every `TableInfo` field to its runtime use and distinguish author-controlled configuration from derived metadata.
+6. Explain the full `ColumnInfo` contract: physical and semantic types, constraints, field policy, API visibility, options, and external bindings.
+7. Separate application APIs, file delivery, realtime/collaboration, and protocol services.
+8. State the deployment and external-side-effect boundary explicitly.
 
 Primary evidence: tagged README; schema/resource, permission, action, server, endpoint, and deployment source; local implementation guides.
 

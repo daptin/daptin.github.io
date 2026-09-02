@@ -7,7 +7,7 @@
     "description": "Turn a data model into a self-hosted application server with APIs, permissions, validation, files, automation, integrations, and operational controls.",
     "primaryNavigation": "",
     "relationshipKey": null,
-    "mainWordCount": 717,
+    "mainWordCount": 862,
     "mainDestinations": [
       "/ecosystem/",
       "/open-source/",
@@ -1479,28 +1479,24 @@
     "description": "Understand Daptin's schema-driven resource runtime, permission pipeline, system tables, attached services, data flow, and deployment boundaries.",
     "primaryNavigation": "Product",
     "relationshipKey": "platform",
-    "mainWordCount": 717,
+    "mainWordCount": 1388,
     "mainDestinations": [
       "/",
-      "/docs/actions/",
-      "/docs/ai-routing/",
       "/docs/apis/",
-      "/docs/cloud-storage/",
       "/docs/data-modeling/",
       "/docs/getting-started/",
-      "/docs/integrations/",
-      "/docs/metering/",
       "/docs/production-deployment/",
       "/docs/realtime/",
-      "/docs/scheduled-work/",
-      "/docs/sites/",
-      "/docs/state-tracking/",
       "/ecosystem/",
       "/engineering/",
       "/features/",
       "/features/files/",
       "/why-daptin/",
-      "https://github.com/daptin/daptin"
+      "https://github.com/daptin/daptin",
+      "https://github.com/daptin/daptin/blob/master/server/resource/column_types.go",
+      "https://github.com/daptin/daptin/blob/master/server/resource/columns.go",
+      "https://github.com/daptin/daptin/blob/master/server/table_info/tableinfo.go",
+      "https://github.com/daptin/daptin/blob/v0.12.36/server/resource/columns.go"
     ]
   },
   {

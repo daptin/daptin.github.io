@@ -380,7 +380,20 @@ h2 em {
   font-size: 0.875rem;
   line-height: 1.75;
   margin: 1.5rem 0 0;
+  max-height: 760px;
   overflow: auto;
+}
+.schema-boundary {
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.65;
+  margin: 1.25rem 0 0;
+}
+.schema-boundary a {
+  color: var(--blue-dark);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
 }
 .mechanism-result {
   background: #fff;
@@ -667,6 +680,35 @@ h2 em {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   margin-top: 2.5rem;
+}
+.entity-groups {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 2.5rem;
+}
+.entity-groups article {
+  background: var(--white);
+  border: 1px solid var(--line);
+  margin: -1px 0 0 -1px;
+  padding: clamp(1.35rem, 2.5vw, 2rem);
+}
+.entity-groups article > span {
+  color: var(--blue-dark);
+  font: 750 0.8rem/1.4 monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.entity-groups h3 {
+  font-size: 1.25rem;
+  margin: 1rem 0 0.75rem;
+}
+.entity-groups p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+.entity-groups code {
+  color: var(--ink);
+  font-size: 0.84rem;
 }
 .architecture-flow > div,
 .project-directory > a {
@@ -1512,6 +1554,9 @@ footer nav a {
     grid-template-columns: repeat(2, 1fr);
   }
   .evidence-gallery {
+    grid-template-columns: 1fr;
+  }
+  .entity-groups {
     grid-template-columns: 1fr;
   }
   .reliability-grid {
