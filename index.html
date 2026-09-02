@@ -64,14 +64,13 @@
       <a class="brand" href="/"
         ><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a
       >
-      <nav class="desktop-nav" aria-label="Primary">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">Menu</button>
+      <nav id="primary-navigation" class="desktop-nav" aria-label="Primary">
         <a href="/product/">Product</a>
-        <a href="/features/">Features</a>
-        <a href="/engineering/">Engineering</a>
-        <a href="/use-cases/">Use cases</a>
-        <a href="/deploy/">Deploy</a>
-        <a href="/examples/">Examples</a>
+        <a href="/use-cases/">Solutions</a>
+        <a href="/engineering/">Developers</a>
         <a href="/docs/">Docs</a>
+        <a class="nav-run" href="/docs/getting-started/">Run Daptin →</a>
       </nav>
       <a class="header-cta" href="/docs/getting-started/"
         >Run Daptin <span>→</span></a
@@ -85,7 +84,7 @@
           </p>
           <h1>Build the application, not the backend plumbing.</h1>
           <p class="lede">
-            Daptin turns your data model into a self-hosted backend—with access
+            Daptin turns your data model into a self-hosted backend with access
             control, validation, relationships, files, automation, and
             operational safeguards already connected.
           </p>
@@ -471,104 +470,34 @@
             class="button button-light"
             href="https://daptin.github.io/docs/getting-started/"
             >Follow the quickstart →</a
+          ><a href="/use-cases/">Explore use cases ↗</a
           ><a href="https://github.com/daptin/daptin">Inspect the source ↗</a>
         </div>
       </section>
     </main>
-    <footer class="grand-footer">
+    <footer class="grand-footer compact-footer">
+      <h2 class="visually-hidden">Daptin site links</h2>
       <div class="footer-intro">
-        <a class="brand" href="/"
-          ><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a
-        >
+        <a class="brand" href="/"><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a>
         <p>The self-hosted application server behind your product.</p>
         <a class="footer-run" href="/docs/getting-started/">Run Daptin →</a>
       </div>
-      <div class="footer-directory">
-        <div>
-          <h2>Data and access</h2>
-          <a href="/features/data-modeling/">Data modeling</a
-          ><a href="/features/apis/">APIs and discovery</a
-          ><a href="/features/authentication/">Authentication</a
-          ><a href="/features/permissions/">Permissions and tenancy</a
-          ><a href="/features/oauth-provider/">OAuth and OIDC provider</a>
-        </div>
-        <div>
-          <h2>Files and work</h2>
-          <a href="/features/files/">Files and assets</a
-          ><a href="/features/cloud-storage/">Cloud storage</a
-          ><a href="/features/sites/">Sites and publishing</a
-          ><a href="/features/actions/">Backend actions</a
-          ><a href="/features/scheduled-work/">Scheduled work</a
-          ><a href="/features/state-tracking/">State tracking</a>
-        </div>
-        <div>
-          <h2>Connected products</h2>
-          <a href="/features/integrations/">External integrations</a
-          ><a href="/features/ai-routing/">AI model gateway</a
-          ><a href="/features/realtime/">Realtime events</a
-          ><a href="/features/collaboration/">Collaborative documents</a
-          ><a href="/features/mail/">Mail server</a
-          ><a href="/features/protocols/">File and feed protocols</a>
-        </div>
-        <div>
-          <h2>Operate and sell</h2>
-          <a href="/features/metering/">Metering and quotas</a
-          ><a href="/features/operations/">Operations</a
-          ><a href="/engineering/">Engineering</a
-          ><a href="/deploy/">Deployment</a><a href="/examples/">Examples</a
-          ><a href="/use-cases/">Use cases</a>
-        </div>
-        <div>
-          <h2>Feature guides</h2>
-          <a href="/docs/data-modeling/">Model data</a
-          ><a href="/docs/apis/">Use the APIs</a
-          ><a href="/docs/authentication/">Configure authentication</a
-          ><a href="/docs/permissions/">Set permissions</a
-          ><a href="/docs/oauth-provider/">Run an OAuth provider</a
-          ><a href="/docs/files/">Manage files</a
-          ><a href="/docs/cloud-storage/">Connect cloud storage</a
-          ><a href="/docs/sites/">Publish sites</a
-          ><a href="/docs/actions/">Build actions</a
-          ><a href="/docs/scheduled-work/">Schedule work</a>
-        </div>
-        <div>
-          <h2>More feature guides</h2>
-          <a href="/docs/state-tracking/">Track state</a
-          ><a href="/docs/integrations/">Connect integrations</a
-          ><a href="/docs/ai-routing/">Route AI models</a
-          ><a href="/docs/realtime/">Stream events</a
-          ><a href="/docs/collaboration/">Add collaboration</a
-          ><a href="/docs/mail/">Configure mail</a
-          ><a href="/docs/protocols/">Enable protocols</a
-          ><a href="/docs/metering/">Configure metering</a
-          ><a href="/docs/operations/">Operate Daptin</a>
-        </div>
-        <div>
-          <h2>Core documentation</h2>
-          <a href="/docs/">Documentation home</a
-          ><a href="/docs/getting-started/">Getting started</a
-          ><a href="/docs/server-configuration/">Server configuration</a
-          ><a href="/docs/database-setup/">Database setup</a
-          ><a href="/docs/production-deployment/">Production deployment</a
-          ><a href="/docs/monitoring/">Monitoring</a
-          ><a href="/docs/clustering/">Clustering</a>
-        </div>
-        <div>
-          <h2>Focused guides</h2>
-          <a href="/docs/graphql/">GraphQL</a
-          ><a href="/docs/two-factor-auth/">Two-factor authentication</a
-          ><a href="/docs/email-actions/">Email actions</a
-          ><a href="/docs/webdav/">WebDAV-style access</a
-          ><a href="/docs/tls-certificates/">TLS certificates</a
-          ><a href="/product/">Product overview</a
-          ><a href="/features/">All features</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>Daptin · Latest release · LGPL-3.0</span
-        ><a href="/docs/">Documentation</a
-        ><a href="https://github.com/daptin/daptin">Source code ↗</a>
-      </div>
+      <nav class="footer-directory" aria-label="Footer">
+        <div><p class="footer-heading">Product</p><ul>
+          <li><a href="/product/">Overview</a></li><li><a href="/features/">Features</a></li><li><a href="/use-cases/">Use cases</a></li>
+        </ul></div>
+        <div><p class="footer-heading">Learn</p><ul>
+          <li><a href="/docs/">Documentation</a></li><li><a href="/docs/getting-started/">Getting started</a></li><li><a href="/examples/">Examples</a></li>
+        </ul></div>
+        <div><p class="footer-heading">Operate</p><ul>
+          <li><a href="/deploy/">Deploy</a></li><li><a href="/docs/operations/">Operations</a></li><li><a href="/engineering/">Engineering</a></li>
+        </ul></div>
+        <div><p class="footer-heading">Project</p><ul>
+          <li><a href="https://github.com/daptin/daptin">Source code ↗</a></li><li><a href="https://github.com/daptin/daptin/releases">Releases ↗</a></li><li><a href="https://github.com/daptin/daptin/blob/master/LICENSE">LGPL-3.0 ↗</a></li>
+        </ul></div>
+      </nav>
+      <div class="footer-bottom"><span>Daptin · Open source · Self-hosted</span><a href="/docs/">Documentation</a><a href="https://github.com/daptin/daptin">GitHub ↗</a></div>
     </footer>
+      <script src="/site.js"></script>
   </body>
 </html>

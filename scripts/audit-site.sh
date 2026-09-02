@@ -6,8 +6,34 @@ pages=("$root_dir/index.html" "$root_dir/product/index.html" "$root_dir/use-case
 
 printf 'Marketing pages: %s\n' "${#pages[@]}"
 
-heading_count=$(rg -o '<h[1-6][ >]' "${pages[@]}" | wc -l | tr -d ' ')
-printf 'Headings: %s\n' "$heading_count"
+heading_count=$(python3 - "${pages[@]}" <<'PY'
+from html.parser import HTMLParser
+from pathlib import Path
+import sys
+
+class MainHeadings(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.in_main = False
+        self.count = 0
+    def handle_starttag(self, tag, attrs):
+        if tag == "main":
+            self.in_main = True
+        elif self.in_main and tag in {"h1", "h2", "h3", "h4", "h5", "h6"}:
+            self.count += 1
+    def handle_endtag(self, tag):
+        if tag == "main":
+            self.in_main = False
+
+count = 0
+for filename in sys.argv[1:]:
+    parser = MainHeadings()
+    parser.feed(Path(filename).read_text())
+    count += parser.count
+print(count)
+PY
+)
+printf 'Main-content headings: %s\n' "$heading_count"
 if (( heading_count >= 80 )); then
   printf 'FAIL: expected fewer than 80 headings\n' >&2
   exit 1
@@ -23,15 +49,20 @@ class VisibleText(HTMLParser):
     def __init__(self):
         super().__init__()
         self.skip = 0
+        self.in_main = False
         self.parts = []
     def handle_starttag(self, tag, attrs):
+        if tag == "main":
+            self.in_main = True
         if tag in {"script", "style"}:
             self.skip += 1
     def handle_endtag(self, tag):
         if tag in {"script", "style"} and self.skip:
             self.skip -= 1
+        if tag == "main":
+            self.in_main = False
     def handle_data(self, data):
-        if not self.skip:
+        if self.in_main and not self.skip:
             self.parts.append(data)
 
 parser = VisibleText()
@@ -159,3 +190,5 @@ if duplicates:
 PY
 
 printf 'Editorial audit passed.\n'
+
+python3 "$root_dir/scripts/audit-site.py"

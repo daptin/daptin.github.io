@@ -3,12 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#17242a" />
     <title>Send product email from Daptin backend actions</title>
     <meta
       name="description"
       content="Configure permissioned Daptin email actions, submit an outbound message, and verify queue, retry, delivery, and duplicate-safe behavior."
     />
     <link rel="canonical" href="https://daptin.github.io/docs/email-actions/" />
+    <link rel="icon" href="/images/theme-favicon.png" />
     <link rel="stylesheet" href="../../styles.css" />
     <meta property="og:type" content="website" />
     <meta
@@ -28,6 +30,7 @@
       content="https://daptin.github.io/images/og-card.png"
     />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://daptin.github.io/images/og-card.png" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -61,20 +64,27 @@
       <a class="brand" href="/"
         ><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a
       >
-      <nav class="desktop-nav" aria-label="Primary">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">Menu</button>
+      <nav id="primary-navigation" class="desktop-nav" aria-label="Primary">
         <a href="/product/">Product</a>
-        <a href="/features/">Features</a>
-        <a href="/engineering/">Engineering</a>
-        <a href="/use-cases/">Use cases</a>
-        <a href="/deploy/">Deploy</a>
-        <a href="/examples/">Examples</a>
-        <a href="/docs/">Docs</a>
+        <a href="/use-cases/">Solutions</a>
+        <a href="/engineering/">Developers</a>
+        <a href="/docs/" aria-current="page">Docs</a>
+        <a class="nav-run" href="/docs/getting-started/">Run Daptin →</a>
       </nav>
       <a class="header-cta" href="/docs/getting-started/"
         >Run Daptin <span>→</span></a
       >
     </header>
     <main id="main" class="feature-detail">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol><li><a href="/">Home</a></li><li><a href="/docs/">Docs</a></li><li>Application behavior</li><li aria-current="page">Email actions</li></ol>
+      </nav>
+      <aside class="docs-context" aria-label="Documentation section">
+        <strong>Application behavior</strong>
+        <ul><li><a href="/docs/actions/">Backend actions</a></li><li><a href="/docs/scheduled-work/">Scheduled work</a></li><li><a href="/docs/state-tracking/">State tracking</a></li><li><a href="/docs/email-actions/" aria-current="page">Email actions</a></li></ul>
+        <p class="guide-meta"><span>Last reviewed: 2026-09-02</span><span>Applies to the latest release available on the review date; check your installed release</span><a href="https://github.com/daptin/daptin">Review source ↗</a></p>
+      </aside>
       <section class="page-hero">
         <div>
           <p class="eyebrow">Email actions</p>
@@ -85,6 +95,59 @@
             Add email as an outcome of a named action for invitations,
             confirmations, alerts, and workflow messages.
           </p>
+        </div>
+      </section>
+      <section class="content-section">
+        <div class="guide-layout">
+          <article class="guide-body">
+            <h2 id="prerequisites">Prepare mail delivery first</h2>
+            <p>
+              Complete <a href="../mail/">mail server configuration</a> and send
+              a disposable message through the intended domain before attaching
+              delivery to a product operation. Verify DNS, TLS, relay policy,
+              sender identity, storage, and retry behavior independently.
+            </p>
+            <h2 id="contract">Define a narrow action contract</h2>
+            <p>
+              Accept only the product inputs the caller should control, such as a
+              record public ID and validated message data. Resolve recipients and
+              sensitive context from server-owned records when possible. Do not
+              accept an arbitrary relay host, sender, template path, or unrestricted
+              recipient list from an untrusted client.
+            </p>
+            <ol class="guide-steps">
+              <li>Create or select a template and render it with disposable data.</li>
+              <li>Define an action input schema and reject missing, malformed, or oversized values.</li>
+              <li>Authorize Execute separately from permission to read the referenced record.</li>
+              <li>Add the mail outcome and queue the message through the server-side mail path.</li>
+              <li>Invoke the action as the real application role and retain its response.</li>
+            </ol>
+            <h2 id="verify">Verify queueing, delivery, and failure separately</h2>
+            <ul class="check-list">
+              <li>The action returns the documented result and creates the expected queued/outbox record.</li>
+              <li>The worker delivers to a disposable inbox and records success.</li>
+              <li>A temporary SMTP failure leaves retryable work rather than losing the message.</li>
+              <li>A permanent invalid recipient reaches a bounded failure state.</li>
+              <li>An unauthorized caller cannot execute the action or read another user’s message context.</li>
+            </ul>
+            <div class="callout">
+              <strong>Mail delivery is at-least-once, not exactly-once.</strong>
+              <span>A crash after SMTP acceptance but before success is recorded
+              can produce a duplicate. Make templates and product flows tolerant
+              of retries; do not send irreversible secrets through an unbounded retry path.</span>
+            </div>
+            <h2 id="operate">Operate the workflow</h2>
+            <p>
+              Monitor queue age, attempts, last error, delivery latency, and
+              domain-level failures. Redact credentials and message bodies from
+              ordinary logs. Provide a controlled way to stop retries, inspect a
+              failed item, and replay only after the cause is understood.
+            </p>
+          </article>
+          <aside class="guide-aside" aria-labelledby="email-action-toc">
+            <h2 id="email-action-toc">On this page</h2>
+            <ul><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#contract">Action contract</a></li><li><a href="#verify">Verification</a></li><li><a href="#operate">Operations</a></li></ul>
+          </aside>
         </div>
       </section>
       <section class="content-section">
@@ -119,6 +182,7 @@
           </div>
         </div>
       </section>
+      <nav class="guide-sequence" aria-label="Previous and next guides"><a rel="prev" href="/docs/state-tracking/"><span>Previous</span><strong>State tracking</strong></a><a rel="next" href="/docs/integrations/"><span>Next</span><strong>External integrations</strong></a></nav>
       <section class="final-cta">
         <h2>Connect mail to a real product operation.</h2>
         <div class="final-links">
@@ -128,100 +192,29 @@
         </div>
       </section>
     </main>
-    <footer class="grand-footer">
+    <footer class="grand-footer compact-footer">
+      <h2 class="visually-hidden">Daptin site links</h2>
       <div class="footer-intro">
-        <a class="brand" href="/"
-          ><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a
-        >
+        <a class="brand" href="/"><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a>
         <p>The self-hosted application server behind your product.</p>
         <a class="footer-run" href="/docs/getting-started/">Run Daptin →</a>
       </div>
-      <div class="footer-directory">
-        <div>
-          <h2>Data and access</h2>
-          <a href="/features/data-modeling/">Data modeling</a
-          ><a href="/features/apis/">APIs and discovery</a
-          ><a href="/features/authentication/">Authentication</a
-          ><a href="/features/permissions/">Permissions and tenancy</a
-          ><a href="/features/oauth-provider/">OAuth and OIDC provider</a>
-        </div>
-        <div>
-          <h2>Files and work</h2>
-          <a href="/features/files/">Files and assets</a
-          ><a href="/features/cloud-storage/">Cloud storage</a
-          ><a href="/features/sites/">Sites and publishing</a
-          ><a href="/features/actions/">Backend actions</a
-          ><a href="/features/scheduled-work/">Scheduled work</a
-          ><a href="/features/state-tracking/">State tracking</a>
-        </div>
-        <div>
-          <h2>Connected products</h2>
-          <a href="/features/integrations/">External integrations</a
-          ><a href="/features/ai-routing/">AI model gateway</a
-          ><a href="/features/realtime/">Realtime events</a
-          ><a href="/features/collaboration/">Collaborative documents</a
-          ><a href="/features/mail/">Mail server</a
-          ><a href="/features/protocols/">File and feed protocols</a>
-        </div>
-        <div>
-          <h2>Operate and sell</h2>
-          <a href="/features/metering/">Metering and quotas</a
-          ><a href="/features/operations/">Operations</a
-          ><a href="/engineering/">Engineering</a
-          ><a href="/deploy/">Deployment</a><a href="/examples/">Examples</a
-          ><a href="/use-cases/">Use cases</a>
-        </div>
-        <div>
-          <h2>Feature guides</h2>
-          <a href="/docs/data-modeling/">Model data</a
-          ><a href="/docs/apis/">Use the APIs</a
-          ><a href="/docs/authentication/">Configure authentication</a
-          ><a href="/docs/permissions/">Set permissions</a
-          ><a href="/docs/oauth-provider/">Run an OAuth provider</a
-          ><a href="/docs/files/">Manage files</a
-          ><a href="/docs/cloud-storage/">Connect cloud storage</a
-          ><a href="/docs/sites/">Publish sites</a
-          ><a href="/docs/actions/">Build actions</a
-          ><a href="/docs/scheduled-work/">Schedule work</a>
-        </div>
-        <div>
-          <h2>More feature guides</h2>
-          <a href="/docs/state-tracking/">Track state</a
-          ><a href="/docs/integrations/">Connect integrations</a
-          ><a href="/docs/ai-routing/">Route AI models</a
-          ><a href="/docs/realtime/">Stream events</a
-          ><a href="/docs/collaboration/">Add collaboration</a
-          ><a href="/docs/mail/">Configure mail</a
-          ><a href="/docs/protocols/">Enable protocols</a
-          ><a href="/docs/metering/">Configure metering</a
-          ><a href="/docs/operations/">Operate Daptin</a>
-        </div>
-        <div>
-          <h2>Core documentation</h2>
-          <a href="/docs/">Documentation home</a
-          ><a href="/docs/getting-started/">Getting started</a
-          ><a href="/docs/server-configuration/">Server configuration</a
-          ><a href="/docs/database-setup/">Database setup</a
-          ><a href="/docs/production-deployment/">Production deployment</a
-          ><a href="/docs/monitoring/">Monitoring</a
-          ><a href="/docs/clustering/">Clustering</a>
-        </div>
-        <div>
-          <h2>Focused guides</h2>
-          <a href="/docs/graphql/">GraphQL</a
-          ><a href="/docs/two-factor-auth/">Two-factor authentication</a
-          ><a href="/docs/email-actions/">Email actions</a
-          ><a href="/docs/webdav/">WebDAV-style access</a
-          ><a href="/docs/tls-certificates/">TLS certificates</a
-          ><a href="/product/">Product overview</a
-          ><a href="/features/">All features</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>Daptin · Latest release · LGPL-3.0</span
-        ><a href="/docs/">Documentation</a
-        ><a href="https://github.com/daptin/daptin">Source code ↗</a>
-      </div>
+      <nav class="footer-directory" aria-label="Footer">
+        <div><p class="footer-heading">Product</p><ul>
+          <li><a href="/product/">Overview</a></li><li><a href="/features/">Features</a></li><li><a href="/use-cases/">Use cases</a></li>
+        </ul></div>
+        <div><p class="footer-heading">Learn</p><ul>
+          <li><a href="/docs/">Documentation</a></li><li><a href="/docs/getting-started/">Getting started</a></li><li><a href="/examples/">Examples</a></li>
+        </ul></div>
+        <div><p class="footer-heading">Operate</p><ul>
+          <li><a href="/deploy/">Deploy</a></li><li><a href="/docs/operations/">Operations</a></li><li><a href="/engineering/">Engineering</a></li>
+        </ul></div>
+        <div><p class="footer-heading">Project</p><ul>
+          <li><a href="https://github.com/daptin/daptin">Source code ↗</a></li><li><a href="https://github.com/daptin/daptin/releases">Releases ↗</a></li><li><a href="https://github.com/daptin/daptin/blob/master/LICENSE">LGPL-3.0 ↗</a></li>
+        </ul></div>
+      </nav>
+      <div class="footer-bottom"><span>Daptin · Open source · Self-hosted</span><a href="/docs/">Documentation</a><a href="https://github.com/daptin/daptin">GitHub ↗</a></div>
     </footer>
+      <script src="/site.js"></script>
   </body>
 </html>

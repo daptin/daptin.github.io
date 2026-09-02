@@ -1,0 +1,112 @@
+{
+  "data-modeling": [
+    {"type": "Concept", "path": "/features/permissions/", "title": "Permissions and tenancy", "description": "Connect ownership, groups, and record access to the model."},
+    {"type": "Implementation", "path": "/docs/data-modeling/", "title": "Define the data model", "description": "Create fields, relationships, indexes, and generated interfaces."},
+    {"type": "Next", "path": "/docs/apis/", "title": "Use the generated APIs", "description": "Create, query, relate, and inspect records through the running model."}
+  ],
+  "apis": [
+    {"type": "Prerequisite", "path": "/features/data-modeling/", "title": "Data modeling", "description": "Understand the application model behind every generated interface."},
+    {"type": "Security", "path": "/docs/permissions/", "title": "Test API permissions", "description": "Verify allowed and denied operations with real application roles."},
+    {"type": "Implementation", "path": "/docs/apis/", "title": "Use JSON:API and discovery", "description": "Follow complete request, query, relationship, and discovery examples."},
+    {"type": "Works with", "path": "/docs/graphql/", "title": "Use GraphQL", "description": "Choose GraphQL when a connected view benefits from one query."}
+  ],
+  "authentication": [
+    {"type": "Implementation", "path": "/docs/authentication/", "title": "Implement account lifecycle", "description": "Cover signup, verification, sign-in, recovery, and session invalidation."},
+    {"type": "Security", "path": "/features/permissions/", "title": "Authorize the signed-in user", "description": "Decide what authenticated users, owners, groups, and guests may do."},
+    {"type": "Next", "path": "/docs/two-factor-auth/", "title": "Add two-factor authentication", "description": "Enroll and verify TOTP after the recovery path is ready."}
+  ],
+  "permissions": [
+    {"type": "Prerequisite", "path": "/features/authentication/", "title": "Authentication", "description": "Establish the account and group identities used by access rules."},
+    {"type": "Implementation", "path": "/docs/permissions/", "title": "Configure and test permissions", "description": "Exercise table, record, owner, group, and action access."},
+    {"type": "Works with", "path": "/features/files/", "title": "Protected files", "description": "Carry record authorization through file delivery."},
+    {"type": "Works with", "path": "/features/realtime/", "title": "Permission-aware subscriptions", "description": "Understand the access boundary for live table topics."}
+  ],
+  "oauth-provider": [
+    {"type": "Prerequisite", "path": "/features/authentication/", "title": "Account system", "description": "Use Daptin accounts as the identity behind connected applications."},
+    {"type": "Implementation", "path": "/docs/oauth-provider/", "title": "Run the OAuth and OIDC flow", "description": "Register a client and verify authorization code with PKCE."},
+    {"type": "Proof", "path": "/examples/", "title": "Run the OAuth example", "description": "Inspect successful exchange and code-replay refusal."}
+  ],
+  "files": [
+    {"type": "Prerequisite", "path": "/features/data-modeling/", "title": "File fields in the model", "description": "Attach managed file metadata to the record it describes."},
+    {"type": "Security", "path": "/docs/permissions/", "title": "Protect file access", "description": "Test authorization before storing sensitive application files."},
+    {"type": "Implementation", "path": "/docs/files/", "title": "Upload and deliver files", "description": "Configure the field, write bytes and metadata, and verify delivery."},
+    {"type": "Works with", "path": "/features/cloud-storage/", "title": "Choose file storage", "description": "Keep product records stable while changing storage infrastructure."}
+  ],
+  "cloud-storage": [
+    {"type": "Concept", "path": "/features/files/", "title": "Files and records", "description": "See how stored bytes remain attached to application records."},
+    {"type": "Implementation", "path": "/docs/cloud-storage/", "title": "Connect a cloud store", "description": "Create credentials, a store, and a file-field binding."},
+    {"type": "Works with", "path": "/features/sites/", "title": "Publish a site", "description": "Serve a managed storage directory at a hostname and path."}
+  ],
+  "sites": [
+    {"type": "Prerequisite", "path": "/docs/cloud-storage/", "title": "Create the content store", "description": "Configure credentials and storage before attaching a site route."},
+    {"type": "Implementation", "path": "/docs/sites/", "title": "Configure and verify a site", "description": "Connect host, path, content, authentication, TLS, and synchronization."},
+    {"type": "Security", "path": "/features/permissions/", "title": "Understand the access boundary", "description": "Separate permission-aware application APIs from public static delivery."},
+    {"type": "Operate", "path": "/docs/tls-certificates/", "title": "Protect site traffic", "description": "Choose the TLS boundary and verify certificates and renewal."},
+    {"type": "Works with", "path": "/docs/protocols/", "title": "Manage content with FTP", "description": "Enable only the file-management protocol the workflow needs."}
+  ],
+  "actions": [
+    {"type": "Security", "path": "/docs/permissions/", "title": "Authorize execution", "description": "Give each named operation an explicit caller boundary."},
+    {"type": "Implementation", "path": "/docs/actions/", "title": "Build and test an action", "description": "Define inputs, conditions, outcomes, and transaction boundaries."},
+    {"type": "Works with", "path": "/features/scheduled-work/", "title": "Run the action later", "description": "Schedule a proven operation with an explicit execution identity."},
+    {"type": "Works with", "path": "/features/integrations/", "title": "Call a provider", "description": "Put an external operation behind an application-owned action."}
+  ],
+  "scheduled-work": [
+    {"type": "Prerequisite", "path": "/docs/actions/", "title": "Build the action first", "description": "Prove the operation synchronously before scheduling it."},
+    {"type": "Implementation", "path": "/docs/scheduled-work/", "title": "Create and observe a schedule", "description": "Set time, actor, active state, and verify a real run."},
+    {"type": "Security", "path": "/docs/permissions/", "title": "Verify the acting user", "description": "Ensure background work has only the access it needs."},
+    {"type": "Operate", "path": "/docs/monitoring/", "title": "Observe scheduled work", "description": "Make failures and delayed work visible before they matter."}
+  ],
+  "state-tracking": [
+    {"type": "Prerequisite", "path": "/features/data-modeling/", "title": "Model the state field", "description": "Place lifecycle state on the record whose movement is controlled."},
+    {"type": "Implementation", "path": "/docs/state-tracking/", "title": "Define and test transitions", "description": "Start records, apply events, reject invalid jumps, and read history."},
+    {"type": "Works with", "path": "/features/actions/", "title": "Perform transition side effects", "description": "Use explicit actions for business work beyond state validation."}
+  ],
+  "integrations": [
+    {"type": "Security", "path": "/features/authentication/", "title": "Choose the caller identity", "description": "Keep shared credentials server-side or act with a user's connection."},
+    {"type": "Implementation", "path": "/docs/integrations/", "title": "Configure a provider operation", "description": "Discover, authenticate, execute, and expose the product-level action."},
+    {"type": "Works with", "path": "/features/actions/", "title": "Expose stable product intent", "description": "Keep provider-specific plumbing behind a named backend operation."},
+    {"type": "Proof", "path": "/examples/", "title": "Run the integration-auth example", "description": "Verify that provider credentials stay with their owner."}
+  ],
+  "ai-routing": [
+    {"type": "Implementation", "path": "/docs/ai-routing/", "title": "Configure a provider", "description": "Connect an OpenAI-compatible client and verify provider capabilities."},
+    {"type": "Security", "path": "/features/integrations/", "title": "Keep provider credentials server-side", "description": "Apply the same credential and caller boundaries used by integrations."},
+    {"type": "Works with", "path": "/features/metering/", "title": "Meter model usage", "description": "Connect provider calls to application plans and quotas."},
+    {"type": "Proof", "path": "/examples/", "title": "Run the LLM routing example", "description": "Use one SDK contract with configured model providers."}
+  ],
+  "realtime": [
+    {"type": "Prerequisite", "path": "/features/data-modeling/", "title": "Start with the record model", "description": "Subscribe to changes for the tables the application already uses."},
+    {"type": "Security", "path": "/docs/permissions/", "title": "Check subscription access", "description": "Understand permission checks and reconnect requirements."},
+    {"type": "Implementation", "path": "/docs/realtime/", "title": "Connect a live client", "description": "Use the documented topic and event fields and handle reconnects."},
+    {"type": "Operate", "path": "/docs/clustering/", "title": "Share delivery across instances", "description": "Plan pubsub and failure behavior for a multi-node deployment."}
+  ],
+  "collaboration": [
+    {"type": "Concept", "path": "/features/realtime/", "title": "Realtime records", "description": "Choose record notifications when convergent shared editing is unnecessary."},
+    {"type": "Implementation", "path": "/docs/collaboration/", "title": "Connect Yjs clients", "description": "Choose standalone or record-backed rooms and verify persistence."},
+    {"type": "Security", "path": "/docs/permissions/", "title": "Protect record-backed rooms", "description": "Connect editor access to the application record boundary."}
+  ],
+  "mail": [
+    {"type": "Implementation", "path": "/docs/mail/", "title": "Configure send and receive", "description": "Create the mail hierarchy and test SMTP, IMAP, storage, and retries."},
+    {"type": "Works with", "path": "/docs/email-actions/", "title": "Send from an action", "description": "Connect a product event to validated, permissioned mail delivery."},
+    {"type": "Operate", "path": "/docs/tls-certificates/", "title": "Protect mail transport", "description": "Configure certificates and monitor the transport boundary."},
+    {"type": "Operate", "path": "/docs/monitoring/", "title": "Observe delivery", "description": "Make queue, retry, and protocol failures visible."}
+  ],
+  "protocols": [
+    {"type": "Concept", "path": "/features/files/", "title": "Managed files", "description": "Keep protocol access connected to application storage and boundaries."},
+    {"type": "Implementation", "path": "/docs/protocols/", "title": "Configure file and feed protocols", "description": "Choose and verify FTP/FTPS, feeds, or WebDAV-style routes."},
+    {"type": "Implementation", "path": "/docs/webdav/", "title": "Verify WebDAV-style access", "description": "Test supported HTTP file operations with a compatible client."},
+    {"type": "Security", "path": "/docs/tls-certificates/", "title": "Add transport protection", "description": "Protect protocols that cross an untrusted network."}
+  ],
+  "metering": [
+    {"type": "Prerequisite", "path": "/features/authentication/", "title": "Identify the member", "description": "Attach plan decisions to authenticated application users."},
+    {"type": "Implementation", "path": "/docs/metering/", "title": "Configure plan and quota", "description": "Create plan, membership, usage, and quota records and test denial."},
+    {"type": "Works with", "path": "/features/ai-routing/", "title": "Meter AI access", "description": "Apply product limits around model-provider requests."},
+    {"type": "Proof", "path": "/examples/", "title": "Run the quota example", "description": "Observe allowed usage and the demonstrated request-denial boundary."}
+  ],
+  "operations": [
+    {"type": "Prerequisite", "path": "/deploy/", "title": "Choose a deployment artifact", "description": "Start from a release, container, or cluster approach you can operate."},
+    {"type": "Implementation", "path": "/docs/server-configuration/", "title": "Configure the runtime", "description": "Set database, network, storage, limits, and optional services."},
+    {"type": "Operate", "path": "/docs/production-deployment/", "title": "Prepare production", "description": "Persist data, terminate TLS, observe health, and plan upgrades."},
+    {"type": "Operate", "path": "/docs/monitoring/", "title": "Monitor the server", "description": "Interpret liveness, statistics, database pressure, logs, and history."},
+    {"type": "Operate", "path": "/docs/clustering/", "title": "Plan multiple instances", "description": "Understand shared runtime behavior and degraded operation."}
+  ]
+}

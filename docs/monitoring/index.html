@@ -3,12 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#17242a" />
     <title>Monitor Daptin liveness, statistics, logs, and pools</title>
     <meta
       name="description"
       content="Use Daptin liveness, runtime statistics, logs, counters, and database-pool information without confusing an admin route for readiness."
     />
     <link rel="canonical" href="https://daptin.github.io/docs/monitoring/" />
+    <link rel="icon" href="/images/theme-favicon.png" />
     <link rel="stylesheet" href="../../styles.css" />
     <meta property="og:type" content="website" />
     <meta
@@ -28,6 +30,7 @@
       content="https://daptin.github.io/images/og-card.png"
     />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://daptin.github.io/images/og-card.png" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -61,20 +64,27 @@
       <a class="brand" href="/"
         ><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a
       >
-      <nav class="desktop-nav" aria-label="Primary">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">Menu</button>
+      <nav id="primary-navigation" class="desktop-nav" aria-label="Primary">
         <a href="/product/">Product</a>
-        <a href="/features/">Features</a>
-        <a href="/engineering/">Engineering</a>
-        <a href="/use-cases/">Use cases</a>
-        <a href="/deploy/">Deploy</a>
-        <a href="/examples/">Examples</a>
-        <a href="/docs/">Docs</a>
+        <a href="/use-cases/">Solutions</a>
+        <a href="/engineering/">Developers</a>
+        <a href="/docs/" aria-current="page">Docs</a>
+        <a class="nav-run" href="/docs/getting-started/">Run Daptin →</a>
       </nav>
       <a class="header-cta" href="/docs/getting-started/"
         >Run Daptin <span>→</span></a
       >
     </header>
     <main id="main" class="feature-detail">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol><li><a href="/">Home</a></li><li><a href="/docs/">Docs</a></li><li>Operate</li><li aria-current="page">Monitoring</li></ol>
+      </nav>
+      <aside class="docs-context" aria-label="Documentation section">
+        <strong>Operate</strong>
+        <ul><li><a href="/docs/server-configuration/">Server configuration</a></li><li><a href="/docs/database-setup/">Database setup</a></li><li><a href="/docs/production-deployment/">Production deployment</a></li><li><a href="/docs/tls-certificates/">TLS certificates</a></li><li><a href="/docs/monitoring/" aria-current="page">Monitoring</a></li><li><a href="/docs/clustering/">Clustering</a></li><li><a href="/docs/operations/">Operations</a></li></ul>
+        <p class="guide-meta"><span>Last reviewed: 2026-09-02</span><span>Applies to the latest release available on the review date; check your installed release</span><a href="https://github.com/daptin/daptin">Review source ↗</a></p>
+      </aside>
       <section class="page-hero">
         <div>
           <p class="eyebrow">Monitoring</p>
@@ -86,6 +96,70 @@
             information, and live counters as inputs to the monitoring system
             you already operate.
           </p>
+        </div>
+      </section>
+      <section class="content-section">
+        <div class="guide-layout">
+          <article class="guide-body">
+            <h2 id="signals">Give every signal one meaning</h2>
+            <table class="reference-table">
+              <thead><tr><th>Signal</th><th>What it proves</th><th>What it does not prove</th></tr></thead>
+              <tbody>
+                <tr><td><code>GET /ping</code></td><td>The HTTP process can answer a small liveness request.</td><td>Database, storage, providers, protocols, permissions, or a complete user journey.</td></tr>
+                <tr><td><code>GET /statistics</code></td><td>Runtime/process statistics exposed by the deployed release.</td><td>That every value is healthy without a baseline and capacity model.</td></tr>
+                <tr><td>Application probe</td><td>A representative read or write and its authorization boundary work.</td><td>All tables, roles, actions, or external dependencies.</td></tr>
+                <tr><td>Protocol/provider probe</td><td>The exact SMTP, IMAP, FTP, storage, or provider path tested is working.</td><td>Other protocols, accounts, regions, or operations.</td></tr>
+              </tbody>
+            </table>
+            <h2 id="collect">Collect without exposing internals publicly</h2>
+            <p>
+              Poll liveness from the same network path as the load balancer and
+              collect statistics and logs through an operator-only path. Restrict
+              diagnostic endpoints at the edge if they reveal deployment data.
+              Keep clocks synchronized and attach instance, release, request,
+              route, and tenant-safe correlation fields where available. Never
+              log passwords, bearer tokens, provider credentials, or file bodies.
+            </p>
+            <pre><code>curl --fail --silent --show-error http://127.0.0.1:6336/ping
+curl --fail --silent --show-error http://127.0.0.1:6336/statistics</code></pre>
+            <h2 id="alert">Alert on user impact and exhaustion</h2>
+            <ul class="check-list">
+              <li>Sustained liveness or readiness failure, not a single transient sample.</li>
+              <li>Elevated server errors, latency, or authorization failures relative to the normal baseline.</li>
+              <li>Database connection waits, exhaustion, storage capacity, and backup/restore failure.</li>
+              <li>Certificate expiry and renewal failure before clients are affected.</li>
+              <li>Mail backlog/retries, scheduled-work delay, provider failure, and cluster degradation when those services are used.</li>
+            </ul>
+            <p>
+              Set initial thresholds from representative load and revise them
+              from incidents. This guide cannot supply one safe global number for
+              every workload.
+            </p>
+            <h2 id="respond">Make every alert actionable</h2>
+            <p>
+              Each alert needs an owner, severity, user impact, dashboard/log
+              query, immediate containment, escalation path, and recovery check.
+              Test alert delivery and the runbook during a controlled failure.
+              After recovery, verify a real application read/write and the
+              affected dependency rather than clearing the alert on process
+              restart alone.
+            </p>
+            <div class="callout">
+              <strong>Check release-specific health behavior.</strong>
+              <span>Liveness, readiness, and graceful-drain behavior have changed
+              over time. Validate endpoints and response semantics against the
+              exact deployed release before using them for orchestration.</span>
+            </div>
+          </article>
+          <aside class="guide-aside" aria-labelledby="monitoring-toc">
+            <h2 id="monitoring-toc">On this page</h2>
+            <ul>
+              <li><a href="#signals">Signal meanings</a></li>
+              <li><a href="#collect">Collection</a></li>
+              <li><a href="#alert">Alerting</a></li>
+              <li><a href="#respond">Response</a></li>
+            </ul>
+          </aside>
         </div>
       </section>
       <section class="content-section">
@@ -124,6 +198,7 @@
           </div>
         </div>
       </section>
+      <nav class="guide-sequence" aria-label="Previous and next guides"><a rel="prev" href="/docs/tls-certificates/"><span>Previous</span><strong>TLS certificates</strong></a><a rel="next" href="/docs/clustering/"><span>Next</span><strong>Clustering</strong></a></nav>
       <section class="final-cta">
         <h2>Add monitoring before the launch.</h2>
         <div class="final-links">
@@ -133,100 +208,29 @@
         </div>
       </section>
     </main>
-    <footer class="grand-footer">
+    <footer class="grand-footer compact-footer">
+      <h2 class="visually-hidden">Daptin site links</h2>
       <div class="footer-intro">
-        <a class="brand" href="/"
-          ><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a
-        >
+        <a class="brand" href="/"><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a>
         <p>The self-hosted application server behind your product.</p>
         <a class="footer-run" href="/docs/getting-started/">Run Daptin →</a>
       </div>
-      <div class="footer-directory">
-        <div>
-          <h2>Data and access</h2>
-          <a href="/features/data-modeling/">Data modeling</a
-          ><a href="/features/apis/">APIs and discovery</a
-          ><a href="/features/authentication/">Authentication</a
-          ><a href="/features/permissions/">Permissions and tenancy</a
-          ><a href="/features/oauth-provider/">OAuth and OIDC provider</a>
-        </div>
-        <div>
-          <h2>Files and work</h2>
-          <a href="/features/files/">Files and assets</a
-          ><a href="/features/cloud-storage/">Cloud storage</a
-          ><a href="/features/sites/">Sites and publishing</a
-          ><a href="/features/actions/">Backend actions</a
-          ><a href="/features/scheduled-work/">Scheduled work</a
-          ><a href="/features/state-tracking/">State tracking</a>
-        </div>
-        <div>
-          <h2>Connected products</h2>
-          <a href="/features/integrations/">External integrations</a
-          ><a href="/features/ai-routing/">AI model gateway</a
-          ><a href="/features/realtime/">Realtime events</a
-          ><a href="/features/collaboration/">Collaborative documents</a
-          ><a href="/features/mail/">Mail server</a
-          ><a href="/features/protocols/">File and feed protocols</a>
-        </div>
-        <div>
-          <h2>Operate and sell</h2>
-          <a href="/features/metering/">Metering and quotas</a
-          ><a href="/features/operations/">Operations</a
-          ><a href="/engineering/">Engineering</a
-          ><a href="/deploy/">Deployment</a><a href="/examples/">Examples</a
-          ><a href="/use-cases/">Use cases</a>
-        </div>
-        <div>
-          <h2>Feature guides</h2>
-          <a href="/docs/data-modeling/">Model data</a
-          ><a href="/docs/apis/">Use the APIs</a
-          ><a href="/docs/authentication/">Configure authentication</a
-          ><a href="/docs/permissions/">Set permissions</a
-          ><a href="/docs/oauth-provider/">Run an OAuth provider</a
-          ><a href="/docs/files/">Manage files</a
-          ><a href="/docs/cloud-storage/">Connect cloud storage</a
-          ><a href="/docs/sites/">Publish sites</a
-          ><a href="/docs/actions/">Build actions</a
-          ><a href="/docs/scheduled-work/">Schedule work</a>
-        </div>
-        <div>
-          <h2>More feature guides</h2>
-          <a href="/docs/state-tracking/">Track state</a
-          ><a href="/docs/integrations/">Connect integrations</a
-          ><a href="/docs/ai-routing/">Route AI models</a
-          ><a href="/docs/realtime/">Stream events</a
-          ><a href="/docs/collaboration/">Add collaboration</a
-          ><a href="/docs/mail/">Configure mail</a
-          ><a href="/docs/protocols/">Enable protocols</a
-          ><a href="/docs/metering/">Configure metering</a
-          ><a href="/docs/operations/">Operate Daptin</a>
-        </div>
-        <div>
-          <h2>Core documentation</h2>
-          <a href="/docs/">Documentation home</a
-          ><a href="/docs/getting-started/">Getting started</a
-          ><a href="/docs/server-configuration/">Server configuration</a
-          ><a href="/docs/database-setup/">Database setup</a
-          ><a href="/docs/production-deployment/">Production deployment</a
-          ><a href="/docs/monitoring/">Monitoring</a
-          ><a href="/docs/clustering/">Clustering</a>
-        </div>
-        <div>
-          <h2>Focused guides</h2>
-          <a href="/docs/graphql/">GraphQL</a
-          ><a href="/docs/two-factor-auth/">Two-factor authentication</a
-          ><a href="/docs/email-actions/">Email actions</a
-          ><a href="/docs/webdav/">WebDAV-style access</a
-          ><a href="/docs/tls-certificates/">TLS certificates</a
-          ><a href="/product/">Product overview</a
-          ><a href="/features/">All features</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>Daptin · Latest release · LGPL-3.0</span
-        ><a href="/docs/">Documentation</a
-        ><a href="https://github.com/daptin/daptin">Source code ↗</a>
-      </div>
+      <nav class="footer-directory" aria-label="Footer">
+        <div><p class="footer-heading">Product</p><ul>
+          <li><a href="/product/">Overview</a></li><li><a href="/features/">Features</a></li><li><a href="/use-cases/">Use cases</a></li>
+        </ul></div>
+        <div><p class="footer-heading">Learn</p><ul>
+          <li><a href="/docs/">Documentation</a></li><li><a href="/docs/getting-started/">Getting started</a></li><li><a href="/examples/">Examples</a></li>
+        </ul></div>
+        <div><p class="footer-heading">Operate</p><ul>
+          <li><a href="/deploy/">Deploy</a></li><li><a href="/docs/operations/">Operations</a></li><li><a href="/engineering/">Engineering</a></li>
+        </ul></div>
+        <div><p class="footer-heading">Project</p><ul>
+          <li><a href="https://github.com/daptin/daptin">Source code ↗</a></li><li><a href="https://github.com/daptin/daptin/releases">Releases ↗</a></li><li><a href="https://github.com/daptin/daptin/blob/master/LICENSE">LGPL-3.0 ↗</a></li>
+        </ul></div>
+      </nav>
+      <div class="footer-bottom"><span>Daptin · Open source · Self-hosted</span><a href="/docs/">Documentation</a><a href="https://github.com/daptin/daptin">GitHub ↗</a></div>
     </footer>
+      <script src="/site.js"></script>
   </body>
 </html>

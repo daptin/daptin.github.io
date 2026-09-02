@@ -3,15 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#17242a" />
     <title>Daptin server configuration</title>
     <meta
       name="description"
       content="Configure the Daptin runtime, database, storage, networking, limits, and optional services."
     />
-    <link
-      rel="canonical"
-      href="https://daptin.github.io/docs/server-configuration/"
-    />
+    <link rel="canonical" href="https://daptin.github.io/docs/server-configuration/" />
+    <link rel="icon" href="/images/theme-favicon.png" />
     <link rel="stylesheet" href="../../styles.css" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Daptin server configuration" />
@@ -28,6 +27,7 @@
       content="https://daptin.github.io/images/og-card.png"
     />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://daptin.github.io/images/og-card.png" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -61,20 +61,27 @@
       <a class="brand" href="/"
         ><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a
       >
-      <nav class="desktop-nav" aria-label="Primary">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">Menu</button>
+      <nav id="primary-navigation" class="desktop-nav" aria-label="Primary">
         <a href="/product/">Product</a>
-        <a href="/features/">Features</a>
-        <a href="/engineering/">Engineering</a>
-        <a href="/use-cases/">Use cases</a>
-        <a href="/deploy/">Deploy</a>
-        <a href="/examples/">Examples</a>
-        <a href="/docs/">Docs</a>
+        <a href="/use-cases/">Solutions</a>
+        <a href="/engineering/">Developers</a>
+        <a href="/docs/" aria-current="page">Docs</a>
+        <a class="nav-run" href="/docs/getting-started/">Run Daptin →</a>
       </nav>
       <a class="header-cta" href="/docs/getting-started/"
         >Run Daptin <span>→</span></a
       >
     </header>
     <main id="main" class="feature-detail">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol><li><a href="/">Home</a></li><li><a href="/docs/">Docs</a></li><li>Operate</li><li aria-current="page">Server configuration</li></ol>
+      </nav>
+      <aside class="docs-context" aria-label="Documentation section">
+        <strong>Operate</strong>
+        <ul><li><a href="/docs/server-configuration/" aria-current="page">Server configuration</a></li><li><a href="/docs/database-setup/">Database setup</a></li><li><a href="/docs/production-deployment/">Production deployment</a></li><li><a href="/docs/tls-certificates/">TLS certificates</a></li><li><a href="/docs/monitoring/">Monitoring</a></li><li><a href="/docs/clustering/">Clustering</a></li><li><a href="/docs/operations/">Operations</a></li></ul>
+        <p class="guide-meta"><span>Last reviewed: 2026-09-02</span><span>Applies to the latest release available on the review date; check your installed release</span><a href="https://github.com/daptin/daptin">Review source ↗</a></p>
+      </aside>
       <section class="page-hero">
         <div>
           <p class="eyebrow">Server configuration</p>
@@ -86,6 +93,106 @@
             certificates, caches, limits, and optional services for the
             environment where Daptin runs.
           </p>
+        </div>
+      </section>
+      <section class="content-section">
+        <div class="guide-layout">
+          <article class="guide-body">
+            <h2 id="startup">Set startup configuration</h2>
+            <p>
+              Startup flags establish the database, listeners, local asset path,
+              runtime logging, and cluster discovery before Daptin can read
+              application configuration from its database. Run
+              <code>./daptin -help</code> on the installed release before copying
+              flags from another version.
+            </p>
+            <table class="reference-table">
+              <thead><tr><th>Flag</th><th>Default</th><th>Purpose</th><th>Verify</th></tr></thead>
+              <tbody>
+                <tr><td><code>-port</code></td><td><code>:6336</code></td><td>HTTP listen address or port.</td><td><code>curl --fail http://HOST:PORT/ping</code></td></tr>
+                <tr><td><code>-https_port</code></td><td><code>:6443</code></td><td>HTTPS listener used when enabled certificates are available.</td><td>Inspect the certificate with <code>openssl s_client</code>.</td></tr>
+                <tr><td><code>-db_type</code></td><td><code>sqlite3</code></td><td><code>sqlite3</code>, <code>mysql</code>, or <code>postgres</code>.</td><td>Restart and inspect startup errors plus <code>/statistics</code>.</td></tr>
+                <tr><td><code>-db_connection_string</code></td><td><code>daptin.db</code></td><td>Driver-specific file or server connection string.</td><td>Create a disposable record and verify it survives restart.</td></tr>
+                <tr><td><code>-local_storage_path</code></td><td><code>./storage</code></td><td>Local path for asset-column bytes; <code>;</code> disables it.</td><td>Upload and retrieve a disposable file.</td></tr>
+                <tr><td><code>-dashboard</code></td><td><code>daptinweb</code></td><td>Path to the dashboard distribution.</td><td>Load the dashboard root.</td></tr>
+                <tr><td><code>-runtime</code></td><td><code>release</code></td><td>Gin runtime mode: profile, debug, test, or release.</td><td>Inspect startup logs.</td></tr>
+                <tr><td><code>-log_level</code></td><td><code>info</code></td><td>debug, trace, info, warn, error, or fatal logging.</td><td>Trigger a known request and inspect output.</td></tr>
+              </tbody>
+            </table>
+            <p>
+              <code>-port_variable</code> names the environment variable used to
+              override the port and defaults to <code>DAPTIN_PORT</code>.
+              <code>-database_url_variable</code> similarly names the database
+              connection-string variable and defaults to
+              <code>DAPTIN_DB_CONNECTION_STRING</code>. Treat command-line and
+              environment values as deployment inputs; do not commit database
+              passwords or provider secrets to this website or an image.
+            </p>
+            <h2 id="database">Choose and verify the database</h2>
+            <pre><code># SQLite
+./daptin -db_type=sqlite3 -db_connection_string=/var/lib/daptin/daptin.db
+
+# MySQL
+./daptin -db_type=mysql \
+  -db_connection_string='user:password@tcp(db.example:3306)/daptin'
+
+# PostgreSQL
+./daptin -db_type=postgres \
+  -db_connection_string='host=db.example port=5432 user=daptin password=secret dbname=daptin sslmode=require'</code></pre>
+            <p>
+              The database selection is not complete until Daptin starts without
+              connection errors, a record can be written and read, and the same
+              record remains after restart. See
+              <a href="../database-setup/">Database setup</a> for persistence,
+              TLS, pooling, and backup decisions.
+            </p>
+            <h2 id="limits">Bound shared resources</h2>
+            <p>
+              Runtime configuration stored in Daptin includes connection and
+              request-rate limits. Database code also sets maximum open and idle
+              connections plus connection and idle lifetimes. A value is safe
+              only when it fits the database capacity and the number of Daptin
+              instances. Watch wait/saturation behavior under representative
+              load instead of copying a universal pool size.
+            </p>
+            <div class="callout">
+              <strong>A live process is not a ready application.</strong>
+              <span><code>/ping</code> shows that HTTP is alive. Use released
+              health/statistics behavior, a database write/read check, and tests
+              for every enabled protocol or provider before routing traffic.</span>
+            </div>
+            <h2 id="optional-services">Enable optional services deliberately</h2>
+            <p>
+              Sites, FTP/FTPS, SMTP/IMAP, cloud stores, integrations, AI
+              providers, realtime delivery, and clustering each add credentials,
+              ports, storage, or failure behavior. Configure only the services
+              the application uses and verify them through their focused guides:
+              <a href="../sites/">Sites</a>,
+              <a href="../protocols/">Protocols</a>,
+              <a href="../mail/">Mail</a>,
+              <a href="../cloud-storage/">Cloud storage</a>,
+              <a href="../integrations/">Integrations</a>, and
+              <a href="../clustering/">Clustering</a>.
+            </p>
+            <h2 id="change-safely">Change configuration safely</h2>
+            <ol class="guide-steps">
+              <li>Record the current value and a rollback command.</li>
+              <li>Apply the change to one disposable or non-production instance.</li>
+              <li>Restart or reconfigure when the setting requires it.</li>
+              <li>Verify liveness, database access, the changed service, and an expected denial/failure path.</li>
+              <li>Roll out gradually and watch logs, statistics, pool pressure, and client errors.</li>
+            </ol>
+          </article>
+          <aside class="guide-aside" aria-labelledby="config-toc">
+            <h2 id="config-toc">On this page</h2>
+            <ul>
+              <li><a href="#startup">Startup flags</a></li>
+              <li><a href="#database">Database examples</a></li>
+              <li><a href="#limits">Resource limits</a></li>
+              <li><a href="#optional-services">Optional services</a></li>
+              <li><a href="#change-safely">Safe changes</a></li>
+            </ul>
+          </aside>
         </div>
       </section>
       <section class="content-section">
@@ -123,6 +230,7 @@
           </div>
         </div>
       </section>
+      <nav class="guide-sequence" aria-label="Previous and next guides"><a rel="prev" href="/docs/metering/"><span>Previous</span><strong>Metering and quotas</strong></a><a rel="next" href="/docs/database-setup/"><span>Next</span><strong>Database setup</strong></a></nav>
       <section class="final-cta">
         <h2>Move from configuration to production.</h2>
         <div class="final-links">
@@ -132,100 +240,29 @@
         </div>
       </section>
     </main>
-    <footer class="grand-footer">
+    <footer class="grand-footer compact-footer">
+      <h2 class="visually-hidden">Daptin site links</h2>
       <div class="footer-intro">
-        <a class="brand" href="/"
-          ><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a
-        >
+        <a class="brand" href="/"><img src="/images/theme-logo.png" alt="" /><span>Daptin</span></a>
         <p>The self-hosted application server behind your product.</p>
         <a class="footer-run" href="/docs/getting-started/">Run Daptin →</a>
       </div>
-      <div class="footer-directory">
-        <div>
-          <h2>Data and access</h2>
-          <a href="/features/data-modeling/">Data modeling</a
-          ><a href="/features/apis/">APIs and discovery</a
-          ><a href="/features/authentication/">Authentication</a
-          ><a href="/features/permissions/">Permissions and tenancy</a
-          ><a href="/features/oauth-provider/">OAuth and OIDC provider</a>
-        </div>
-        <div>
-          <h2>Files and work</h2>
-          <a href="/features/files/">Files and assets</a
-          ><a href="/features/cloud-storage/">Cloud storage</a
-          ><a href="/features/sites/">Sites and publishing</a
-          ><a href="/features/actions/">Backend actions</a
-          ><a href="/features/scheduled-work/">Scheduled work</a
-          ><a href="/features/state-tracking/">State tracking</a>
-        </div>
-        <div>
-          <h2>Connected products</h2>
-          <a href="/features/integrations/">External integrations</a
-          ><a href="/features/ai-routing/">AI model gateway</a
-          ><a href="/features/realtime/">Realtime events</a
-          ><a href="/features/collaboration/">Collaborative documents</a
-          ><a href="/features/mail/">Mail server</a
-          ><a href="/features/protocols/">File and feed protocols</a>
-        </div>
-        <div>
-          <h2>Operate and sell</h2>
-          <a href="/features/metering/">Metering and quotas</a
-          ><a href="/features/operations/">Operations</a
-          ><a href="/engineering/">Engineering</a
-          ><a href="/deploy/">Deployment</a><a href="/examples/">Examples</a
-          ><a href="/use-cases/">Use cases</a>
-        </div>
-        <div>
-          <h2>Feature guides</h2>
-          <a href="/docs/data-modeling/">Model data</a
-          ><a href="/docs/apis/">Use the APIs</a
-          ><a href="/docs/authentication/">Configure authentication</a
-          ><a href="/docs/permissions/">Set permissions</a
-          ><a href="/docs/oauth-provider/">Run an OAuth provider</a
-          ><a href="/docs/files/">Manage files</a
-          ><a href="/docs/cloud-storage/">Connect cloud storage</a
-          ><a href="/docs/sites/">Publish sites</a
-          ><a href="/docs/actions/">Build actions</a
-          ><a href="/docs/scheduled-work/">Schedule work</a>
-        </div>
-        <div>
-          <h2>More feature guides</h2>
-          <a href="/docs/state-tracking/">Track state</a
-          ><a href="/docs/integrations/">Connect integrations</a
-          ><a href="/docs/ai-routing/">Route AI models</a
-          ><a href="/docs/realtime/">Stream events</a
-          ><a href="/docs/collaboration/">Add collaboration</a
-          ><a href="/docs/mail/">Configure mail</a
-          ><a href="/docs/protocols/">Enable protocols</a
-          ><a href="/docs/metering/">Configure metering</a
-          ><a href="/docs/operations/">Operate Daptin</a>
-        </div>
-        <div>
-          <h2>Core documentation</h2>
-          <a href="/docs/">Documentation home</a
-          ><a href="/docs/getting-started/">Getting started</a
-          ><a href="/docs/server-configuration/">Server configuration</a
-          ><a href="/docs/database-setup/">Database setup</a
-          ><a href="/docs/production-deployment/">Production deployment</a
-          ><a href="/docs/monitoring/">Monitoring</a
-          ><a href="/docs/clustering/">Clustering</a>
-        </div>
-        <div>
-          <h2>Focused guides</h2>
-          <a href="/docs/graphql/">GraphQL</a
-          ><a href="/docs/two-factor-auth/">Two-factor authentication</a
-          ><a href="/docs/email-actions/">Email actions</a
-          ><a href="/docs/webdav/">WebDAV-style access</a
-          ><a href="/docs/tls-certificates/">TLS certificates</a
-          ><a href="/product/">Product overview</a
-          ><a href="/features/">All features</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>Daptin · Latest release · LGPL-3.0</span
-        ><a href="/docs/">Documentation</a
-        ><a href="https://github.com/daptin/daptin">Source code ↗</a>
-      </div>
+      <nav class="footer-directory" aria-label="Footer">
+        <div><p class="footer-heading">Product</p><ul>
+          <li><a href="/product/">Overview</a></li><li><a href="/features/">Features</a></li><li><a href="/use-cases/">Use cases</a></li>
+        </ul></div>
+        <div><p class="footer-heading">Learn</p><ul>
+          <li><a href="/docs/">Documentation</a></li><li><a href="/docs/getting-started/">Getting started</a></li><li><a href="/examples/">Examples</a></li>
+        </ul></div>
+        <div><p class="footer-heading">Operate</p><ul>
+          <li><a href="/deploy/">Deploy</a></li><li><a href="/docs/operations/">Operations</a></li><li><a href="/engineering/">Engineering</a></li>
+        </ul></div>
+        <div><p class="footer-heading">Project</p><ul>
+          <li><a href="https://github.com/daptin/daptin">Source code ↗</a></li><li><a href="https://github.com/daptin/daptin/releases">Releases ↗</a></li><li><a href="https://github.com/daptin/daptin/blob/master/LICENSE">LGPL-3.0 ↗</a></li>
+        </ul></div>
+      </nav>
+      <div class="footer-bottom"><span>Daptin · Open source · Self-hosted</span><a href="/docs/">Documentation</a><a href="https://github.com/daptin/daptin">GitHub ↗</a></div>
     </footer>
+      <script src="/site.js"></script>
   </body>
 </html>
