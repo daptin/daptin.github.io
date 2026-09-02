@@ -17,11 +17,11 @@ Each product fact has one marketing page that owns its explanation. Other pages 
 | Release version, native artifacts, Docker, Compose, Kubernetes, databases, storage, operations | Deploy | GitHub release API, Docker Hub, daptin deployment files |
 | Runnable demos and schema samples | Examples | The linked repositories and their commit history |
 
-Version and artifact claims must be updated on Deploy first. Product capability claims must link to a current guide, source, screenshot, or runnable example.
+Version and artifact claims must be updated on Deploy first. Executable container examples pin the verified release tag and must be refreshed when the documented release changes. Product capability claims must link to a current guide, source, screenshot, or runnable example.
 
 ## Latest-release claim map
 
-Each revision must first resolve GitHub’s current latest release and check claims against that release’s source, artifacts, tests, and notes. Do not hard-code the resolved version into public copy. This is the
+Each revision must first resolve GitHub’s current latest release and check claims against that release’s source, artifacts, tests, and notes. Avoid version numbers in general product copy; pin the verified tag where a runnable container command requires reproducibility. This is the
 evidence map for every capability family surfaced by the five marketing pages;
 it is deliberately a map of claims, not an inventory of unverified ideas.
 

@@ -65,7 +65,7 @@
     "description": "Download the latest Daptin release, run the published container, or prepare persistent storage, TLS, monitoring, and backups for production.",
     "primaryNavigation": "Engineering",
     "relationshipKey": null,
-    "mainWordCount": 639,
+    "mainWordCount": 644,
     "mainDestinations": [
       "/",
       "https://daptin.github.io/docs/clustering/",
@@ -470,7 +470,7 @@
     "description": "Run the latest Daptin release locally, verify the server, create the first application model, and make an authenticated request to its generated API.",
     "primaryNavigation": "Docs",
     "relationshipKey": null,
-    "mainWordCount": 595,
+    "mainWordCount": 597,
     "mainDestinations": [
       "../../deploy/",
       "../../features/data-modeling/",
