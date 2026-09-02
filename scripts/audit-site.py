@@ -122,8 +122,8 @@ def main() -> int:
     parsed: dict[Path, AuditParser] = {}
     incoming_main: dict[Path, set[Path]] = {path: set() for path in pages}
 
-    if len(pages) != 59:
-        failures.append(f"expected 59 HTML pages, found {len(pages)}")
+    if len(pages) != 63:
+        failures.append(f"expected 63 HTML pages, found {len(pages)}")
 
     inventory = json.loads((ROOT / "site-pages.json").read_text())
     if len(inventory) != len(pages):

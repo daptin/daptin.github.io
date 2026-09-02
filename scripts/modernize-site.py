@@ -65,6 +65,10 @@ LABELS = {
     "product": "Product",
     "features": "Features",
     "engineering": "Engineering",
+    "platform": "Platform",
+    "open-source": "Open source",
+    "ecosystem": "Ecosystem",
+    "why-daptin": "Why Daptin",
     "use-cases": "Use cases",
     "deploy": "Deploy",
     "examples": "Examples",
@@ -109,6 +113,10 @@ CURRENT_NAV = {
     "use-cases": "/use-cases/",
     "deploy": "/engineering/",
     "examples": "/use-cases/",
+    "platform": "/product/",
+    "why-daptin": "/product/",
+    "open-source": "/engineering/",
+    "ecosystem": "/engineering/",
     "docs": "/docs/",
 }
 
@@ -129,7 +137,7 @@ COMPACT_FOOTER = '''    <footer class="grand-footer compact-footer">
       </div>
       <nav class="footer-directory" aria-label="Footer">
         <div><p class="footer-heading">Product</p><ul>
-          <li><a href="/product/">Overview</a></li><li><a href="/features/">Features</a></li><li><a href="/use-cases/">Use cases</a></li>
+          <li><a href="/product/">Overview</a></li><li><a href="/platform/">Platform</a></li><li><a href="/features/">Features</a></li><li><a href="/why-daptin/">Why Daptin</a></li>
         </ul></div>
         <div><p class="footer-heading">Learn</p><ul>
           <li><a href="/docs/">Documentation</a></li><li><a href="/docs/getting-started/">Getting started</a></li><li><a href="/examples/">Examples</a></li>
@@ -138,7 +146,7 @@ COMPACT_FOOTER = '''    <footer class="grand-footer compact-footer">
           <li><a href="/deploy/">Deploy</a></li><li><a href="/docs/operations/">Operations</a></li><li><a href="/engineering/">Engineering</a></li>
         </ul></div>
         <div><p class="footer-heading">Project</p><ul>
-          <li><a href="https://github.com/daptin/daptin">Source code ↗</a></li><li><a href="https://github.com/daptin/daptin/releases">Releases ↗</a></li><li><a href="https://github.com/daptin/daptin/blob/master/LICENSE">LGPL-3.0 ↗</a></li>
+          <li><a href="/open-source/">Open source</a></li><li><a href="/ecosystem/">Ecosystem</a></li><li><a href="https://github.com/daptin/daptin">Source code ↗</a></li><li><a href="https://github.com/daptin/daptin/releases">Releases ↗</a></li>
         </ul></div>
       </nav>
       <div class="footer-bottom"><span>Daptin · Open source · Self-hosted</span><a href="/docs/">Documentation</a><a href="https://github.com/daptin/daptin">GitHub ↗</a></div>

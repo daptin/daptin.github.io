@@ -102,6 +102,30 @@
     {"type": "Works with", "path": "/features/ai-routing/", "title": "Meter AI access", "description": "Apply product limits around model-provider requests."},
     {"type": "Proof", "path": "/examples/", "title": "Run the quota example", "description": "Observe allowed usage and the demonstrated request-denial boundary."}
   ],
+  "platform": [
+    {"type": "Capability map", "path": "/features/", "title": "Feature map", "description": "Move from runtime architecture to the complete capability surface."},
+    {"type": "Engineering", "path": "/engineering/", "title": "Backend safeguards", "description": "Inspect the integrity, authorization, resource, and delivery mechanisms behind the runtime."},
+    {"type": "Compatibility", "path": "/ecosystem/", "title": "Ecosystem", "description": "Choose the clients, protocols, providers, and tools that meet the platform."},
+    {"type": "Decision", "path": "/why-daptin/", "title": "Why Daptin", "description": "Evaluate where the integrated runtime creates leverage and where it does not."}
+  ],
+  "open-source": [
+    {"type": "Source", "path": "https://github.com/daptin/daptin", "title": "Daptin repository", "description": "Inspect implementation, tests, release history, issues, and project policy."},
+    {"type": "Architecture", "path": "/platform/", "title": "Platform", "description": "Understand the resource runtime and operational boundary you would own."},
+    {"type": "Operate", "path": "/deploy/", "title": "Deployment", "description": "Choose a release artifact, database, storage, and production approach."},
+    {"type": "Decision", "path": "/why-daptin/", "title": "Why Daptin", "description": "Include project and maintenance risk in the adoption decision."}
+  ],
+  "ecosystem": [
+    {"type": "Architecture", "path": "/platform/", "title": "Platform", "description": "See where APIs, protocols, integrations, and storage attach to the model."},
+    {"type": "Implementation", "path": "/docs/apis/", "title": "API and discovery guide", "description": "Use the generated HTTP interfaces with concrete requests."},
+    {"type": "Proof", "path": "/examples/", "title": "Runnable examples", "description": "Exercise integration, identity, metering, and model-routing contracts."},
+    {"type": "Decision", "path": "/why-daptin/", "title": "Why Daptin", "description": "Decide whether these compatibility surfaces remove meaningful work."}
+  ],
+  "why-daptin": [
+    {"type": "Architecture", "path": "/platform/", "title": "Platform", "description": "Understand what Daptin owns inside the application backend."},
+    {"type": "Capability map", "path": "/features/", "title": "Features", "description": "Match required backend responsibilities to implemented capabilities."},
+    {"type": "Ownership", "path": "/open-source/", "title": "Open source", "description": "Review license, source evidence, contribution, and maintenance responsibilities."},
+    {"type": "Proof", "path": "/examples/", "title": "Examples", "description": "Start the evaluation with a runnable success and denial path."}
+  ],
   "operations": [
     {"type": "Prerequisite", "path": "/deploy/", "title": "Choose a deployment artifact", "description": "Start from a release, container, or cluster approach you can operate."},
     {"type": "Implementation", "path": "/docs/server-configuration/", "title": "Configure the runtime", "description": "Set database, network, storage, limits, and optional services."},

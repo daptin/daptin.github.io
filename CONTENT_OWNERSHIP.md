@@ -5,6 +5,10 @@ Each product fact has one marketing page that owns its explanation. Other pages 
 | Topic | Canonical page | Evidence source |
 | --- | --- | --- |
 | Product definition, primary value proposition, schema-to-runtime mechanism | Home | Tagged Daptin README, server routes, tests, current guides, running server |
+| Runtime architecture, request path, system-table model, attached surfaces, deployment boundary | Platform | Tagged README and source for server initialization, resources, middleware, and service endpoints |
+| Adoption criteria, tradeoffs, comparison categories, proof-of-fit process | Why Daptin | The Platform, Engineering, Deploy, Ecosystem, and current guide evidence maps |
+| Project ownership, source evidence, license orientation, contribution and fork responsibilities | Open source | Repository policy files, release history, GNU LGPL-3.0 text; never presented as legal advice |
+| Clients, CLI, protocols, provider connections, related repositories and demos | Ecosystem | Current Daptin organization metadata, tagged runtime source, focused repositories, and protocol guides |
 | Data APIs, accounts, permissions, files, actions, integrations, live updates | Product | Local implementation guides, latest-release source, tests, dashboard3 |
 | Buyer-oriented map of all capability families and how they fit together | Feature map | Product evidence map below; detailed configuration lives under `docs/` |
 | Buyer-oriented explanation, use cases, and boundaries for an individual capability | The corresponding page under `features/` | Latest-release implementation, tests, and its local guide |
