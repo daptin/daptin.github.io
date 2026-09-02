@@ -329,26 +329,29 @@ PATCH /api/product/{reference_id}</code></pre>
 
       <section class="product-row" id="live">
         <div class="code-card">
-          <pre><code>// subscribe after loading the dashboard
-const socket = new WebSocket("wss://api.example/live")
+          <pre><code>// subscribe after the client has a Daptin token
+const socket = new WebSocket(`wss://api.example/live?token=${token}`)
 
-// refresh only when an allowed order changes
+// refresh when the order topic reports an update
 socket.onmessage = ({ data }) =&gt; {
-  const event = JSON.parse(data)
-  if (event.type === "order.update") refreshOrders()
+  const message = JSON.parse(data)
+  if (message.type === "event" &amp;&amp;
+      message.topic === "order" &amp;&amp;
+      message.event === "update") refreshOrders()
 }</code></pre>
         </div>
         <div>
           <p class="kicker">Live updates</p>
-          <h2>Send clients the record changes they are allowed to receive.</h2>
+          <h2>Each table has a live topic for create, update, and delete events.</h2>
           <p>
-            Daptin publishes record events through its live WebSocket endpoint.
-            Subscribe a dashboard to order changes, a customer portal to ticket
-            updates, or a monitoring screen to new usage records.
+            Daptin publishes record events through its <code>/live</code>
+            WebSocket endpoint. Subscribe a dashboard to order changes, a
+            customer portal to ticket updates, or a monitoring screen to usage.
           </p>
           <p>
-            Read permissions determine the topics and records a connection may
-            receive; the socket does not bypass the record model.
+            A system-topic subscription checks the table's <code>CanPeek</code>
+            permission. Reconnect clients after a membership or permission
+            change so they establish a new subscription.
           </p>
           <a
             class="text-link"

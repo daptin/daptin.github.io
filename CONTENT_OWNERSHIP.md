@@ -12,6 +12,25 @@ Each product fact has one marketing page that owns its explanation. Other pages 
 
 Version and artifact claims must be updated on Deploy first. Product capability claims must link to a current guide, source, screenshot, or runnable example.
 
+## Claim verification standard
+
+Marketing copy may make a technical claim only when it is supported by the
+release being described. Use the tagged source and its tests for runtime
+behavior, the release API and Docker manifest for artifacts, and the linked
+demo repository for a demo assertion. Do not promote an inferred behavior to a
+product guarantee.
+
+The following boundaries are intentionally explicit on the site:
+
+- An image asset column is `DataType: text` with an explicit image
+  `ColumnType` and `cloud_store` foreign-key configuration; bare
+  `ColumnType: image` is not a valid example.
+- A `/live` system-topic subscription checks table-level `CanPeek` when the
+  client subscribes. A client must reconnect after a membership or permission
+  change; do not claim immediate revocation for an established subscription.
+- WebSocket events use separate `type`, `topic`, and `event` fields. Client
+  examples must check those fields rather than inventing a combined event name.
+
 ## Editorial voice
 
 - Name the product category and the user outcome directly.

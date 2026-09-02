@@ -98,8 +98,9 @@
             Define the data. Run the server around it.
           </h1>
           <p class="lede">
-            Daptin turns schemas into tables, JSON:API resources, permissions,
-            actions, and record events.
+            Declare resources once. Daptin runs their APIs, identity,
+            permissions, files, automation, integrations, realtime delivery,
+            and operations.
           </p>
           <div class="actions">
             <a
@@ -155,13 +156,13 @@
         <div>
           <p class="kicker">What Daptin creates</p>
           <h2>
-            A field can change more than a database table.
+            41 column types drive storage, validation, and API types.
           </h2>
         </div>
         <div>
           <p>
-            The <code>photo</code> field limits accepted image types and points
-            to <code>cloud_store</code>. The product record controls retrieval.
+            The <code>photo</code> field limits image types and points to
+            <code>cloud_store</code>; the product controls retrieval.
           </p>
           <a
             class="text-link"
@@ -217,7 +218,7 @@
           </div>
           <div>
             <p>
-              Use generated HTTP APIs, OAuth libraries, mail clients, and
+              Use HTTP APIs, OAuth libraries, mail clients, and
               file-transfer tools. The groups name Daptin's interfaces and
               outbound services.
             </p>
@@ -381,10 +382,11 @@
       <section class="permission-example">
         <div>
           <p class="kicker">Permissions across services</p>
-          <h2>Revoke access once. Every Daptin service honors it.</h2>
+          <h2>Row and asset requests recheck the same access rules.</h2>
           <p>
-            The former member loses access to records, downloads, actions, and
-            live events. Each service checks the same ownership and group rules.
+            Removing a workspace membership denies later row, asset, and action
+            requests. Live subscriptions are authorized at subscribe time;
+            reconnect when membership changes.
           </p>
           <a
             class="text-link"
@@ -404,7 +406,7 @@
             <strong>Attachments and actions denied</strong
             ><span>files + actions</span>
           </div>
-          <div><strong>Record events stop</strong><span>WebSocket</span></div>
+          <div><strong>New live subscription denied</strong><span>WebSocket</span></div>
         </div>
       </section>
 
