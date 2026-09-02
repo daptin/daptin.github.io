@@ -98,8 +98,8 @@
             Define the data. Run the server around it.
           </h1>
           <p class="lede">
-            Daptin turns an application schema into database tables, JSON:API
-            resources, permissions, actions, and record events.
+            Daptin turns schemas into tables, JSON:API resources, permissions,
+            actions, and record events.
           </p>
           <div class="actions">
             <a
@@ -160,9 +160,8 @@
         </div>
         <div>
           <p>
-            The <code>photo</code> field below attaches an asset to a product.
-            It can be stored, exposed through record APIs, and protected by the
-            product's access rules.
+            The <code>photo</code> field limits accepted image types and points
+            to <code>cloud_store</code>. The product record controls retrieval.
           </p>
           <a
             class="text-link"
@@ -180,7 +179,14 @@
   - <span class="code-key">Name:</span> title
     <span class="code-key">DataType:</span> varchar(200)
   - <span class="code-key">Name:</span> photo
-    <span class="code-key">ColumnType:</span> image</code></pre>
+    <span class="code-key">DataType:</span> text
+    <span class="code-key">IsNullable:</span> true
+    <span class="code-key">ColumnType:</span> image.png|jpg|jpeg|gif|tiff
+    <span class="code-key">IsForeignKey:</span> true
+    <span class="code-key">ForeignKeyData:</span>
+      <span class="code-key">DataSource:</span> cloud_store
+      <span class="code-key">Namespace:</span> local-store
+      <span class="code-key">KeyName:</span> images</code></pre>
           </div>
           <div class="mechanism-result">
             <div>
@@ -211,9 +217,9 @@
           </div>
           <div>
             <p>
-              Use generated HTTP APIs, an OAuth library, a mail client, or a
-              file-transfer tool. The groups below name Daptin's interfaces and
-              the outbound services it can call.
+              Use generated HTTP APIs, OAuth libraries, mail clients, and
+              file-transfer tools. The groups name Daptin's interfaces and
+              outbound services.
             </p>
             <a
               class="text-link"
