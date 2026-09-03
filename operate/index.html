@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Operate Daptin | A backend your team can own</title>
+<meta name="description" content="Run Daptin on infrastructure you choose, keep important state together, understand service health, and rehearse recovery before customers depend on it.">
+<link rel="canonical" href="https://daptin.github.io/operate/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Run a backend your team can own, change, and recover">
+<meta property="og:description" content="A practical operating model for a connected, self-hosted application backend.">
+<meta property="og:url" content="https://daptin.github.io/operate/">
+<meta property="og:image" content="https://daptin.github.io/images/og-card-2026.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://daptin.github.io/images/og-card-2026.png">
+<link rel="icon" href="/images/theme-favicon.png">
+<link rel="stylesheet" href="/styles.css">
+<script src="/site.js" defer>
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="shell nav-wrap">
+<a class="brand" href="/">
+<img src="/images/theme-logo.png" alt="" width="35" height="35">Daptin</a>
+<button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>
+<nav class="nav-links" id="site-nav" data-nav-links aria-label="Primary navigation">
+<div class="nav-primary">
+<a href="/product/">Why Daptin</a>
+<details class="nav-menu">
+<summary>Product</summary>
+<div class="mega-panel">
+<div class="mega-grid">
+<a class="mega-link" href="/product/features/data-modeling/">
+<strong>Shape your data</strong>
+<span>Turn the things your product knows into a connected model.</span>
+</a>
+<a class="mega-link" href="/product/features/authentication/">
+<strong>Bring people in</strong>
+<span>Accounts, sign-in, teams, and customer identity.</span>
+</a>
+<a class="mega-link" href="/product/features/permissions/">
+<strong>Decide who can do what</strong>
+<span>Keep access attached to records, files, and actions.</span>
+</a>
+<a class="mega-link" href="/product/features/actions/">
+<strong>Automate the work</strong>
+<span>Make repeatable product behavior part of the backend.</span>
+</a>
+<a class="mega-link" href="/product/features/files-images/">
+<strong>Store and publish content</strong>
+<span>Files, images, cloud storage, and websites.</span>
+</a>
+<a class="mega-link" href="/product/features/integrations/">
+<strong>Connect outside services</strong>
+<span>Bring provider operations into your product workflows.</span>
+</a>
+<a class="mega-link" href="/product/features/realtime-events/">
+<strong>Make experiences live</strong>
+<span>Keep screens and collaborators current as data changes.</span>
+</a>
+<a class="mega-link" href="/product/features/mail/">
+<strong>Build around email</strong>
+<span>Receive, store, read, and send mail as product data.</span>
+</a>
+<a class="mega-link" href="/operate/">
+<strong>Run it your way</strong>
+<span>Choose infrastructure and keep operations visible.</span>
+</a>
+</div>
+<a class="mega-all" href="/product/capabilities/">
+<strong>Explore every capability</strong>
+<span>View the complete product map →</span>
+</a>
+</div>
+</details>
+<a href="/use-cases/">Solutions</a>
+<a href="/developers/">Learn</a>
+<a aria-current="page" href="/operate/">Operate</a>
+</div>
+<div class="nav-actions">
+<a href="https://github.com/daptin/daptin">GitHub</a>
+<a class="button small" href="/developers/#quickstart">Get Daptin</a>
+</div>
+</nav>
+</div>
+</header>
+<main id="main">
+<section class="page-hero">
+<div class="shell">
+<p class="crumb">
+<a href="/">Home</a> / Operate</p>
+<span class="eyebrow">Ownership without mystery</span>
+<h1>Run a backend your team can own, change, and recover.</h1>
+<p class="lede">Choose where Daptin runs and where its data lives. Keep customer records, files, background work, and connected services visible as one operating responsibility—so your team can answer what is healthy, what is failing, and how to bring the product back.</p>
+<div class="hero-actions">
+<a class="button" href="#journey">Plan your production path</a>
+<a class="button secondary" href="/product/features/deployment/">Explore deployment choices</a>
+</div>
+</div>
+</section>
+<section class="outcome-band">
+<div class="shell outcome-grid">
+<div class="outcome">
+<small>Choose</small>
+<strong>Run on infrastructure that matches your product.</strong>
+<span>A versioned container or release binary, with a database and storage you select.</span>
+</div>
+<div class="outcome">
+<small>See</small>
+<strong>Follow the customer paths that matter.</strong>
+<span>Health, logs, queues, limits, storage, and dependencies—not just a green process.</span>
+</div>
+<div class="outcome">
+<small>Recover</small>
+<strong>Restore the whole application context.</strong>
+<span>Records, files, configuration, keys, certificates, and connected-service credentials.</span>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="shell feature-story">
+<div>
+<span class="eyebrow">The operating idea</span>
+<h2>Self-hosting should create control, not guesswork.</h2>
+</div>
+<div class="feature-story-body">
+<p>Daptin brings many recurring backend jobs into one application server. That reduces the number of separate services your team must connect, but it does not make production responsibility disappear.</p>
+<p>The useful trade is clarity. You choose the database, storage, network edge, secrets, capacity, and backup policy. Daptin gives those choices one product context: the same customer path may touch a record, an attached file, a scheduled action, and an outside provider.</p>
+<p>This page starts with the decisions a product owner or operator needs to understand. Exact configuration keys and deployment commands remain in the technical reference once the operating shape is clear.</p>
+</div>
+</div>
+</section>
+<span class="anchor-alias" id="checklist"></span><span class="anchor-alias" id="deploy"></span><span class="anchor-alias" id="bounds"></span><span class="anchor-alias" id="observe"></span>
+<section class="section fit-section" id="journey">
+<div class="shell">
+<div class="section-head">
+<div>
+<span class="eyebrow">A production journey</span>
+<h2>Move from “it runs” to “we can rely on it.”</h2>
+</div>
+<p class="lede">Treat production as a sequence of promises your team can verify and repeat.</p>
+</div>
+<div class="fit-path">
+<div class="fit-step">
+<small>01 · Place it</small>
+<strong>Choose the home.</strong>
+<p>Pin a release, select a database, decide where files live, and put a trusted network edge in front.</p>
+</div>
+<div class="fit-step">
+<small>02 · Protect it</small>
+<strong>Define the boundary.</strong>
+<p>Create administrators privately, manage secrets and certificates, restrict origins and services, and test real user access.</p>
+</div>
+<div class="fit-step">
+<small>03 · Watch it</small>
+<strong>Observe real journeys.</strong>
+<p>Check sign-in, protected records, file delivery, scheduled work, and provider calls alongside process health.</p>
+</div>
+<div class="fit-step">
+<small>04 · Bring it back</small>
+<strong>Rehearse recovery.</strong>
+<p>Restore data, assets, keys, and configuration away from production and prove the product still works.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="shell">
+<div class="section-head">
+<div>
+<span class="eyebrow">What your team gains</span>
+<h2>Operations stay connected to customer experience.</h2>
+</div>
+<p class="lede">The most useful operating signal is not “the server is up.” It is “the work customers depend on still completes.”</p>
+</div>
+<div class="benefit-grid">
+<article class="benefit-card">
+<span class="number">01</span>
+<h3>Fewer seams to diagnose</h3>
+<p>Records, permissions, files, actions, live updates, and scheduled work share one application context. An investigation begins closer to the product problem.</p>
+<a class="card-link" href="/product/features/monitoring/">Monitoring and health →</a>
+</article>
+<article class="benefit-card">
+<span class="number">02</span>
+<h3>Capacity choices you can name</h3>
+<p>Set boundaries for requests, uploads, connections, background work, database use, and traffic before overload chooses them for you.</p>
+<a class="card-link" href="/product/features/traffic-controls/">Traffic controls →</a>
+</article>
+<article class="benefit-card">
+<span class="number">03</span>
+<h3>State you can account for</h3>
+<p>Know which records, assets, settings, credentials, and certificates must move together during backup, restore, or migration.</p>
+<a class="card-link" href="/product/features/configuration/">Configuration →</a>
+</article>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="shell">
+<div class="section-head">
+<div>
+<span class="eyebrow">Choose a shape</span>
+<h2>Start with the level of control your team can support.</h2>
+</div>
+<p class="lede">The package is the easy part. Persistent state, secure exposure, upgrades, and recovery determine whether a deployment is ready for customers.</p>
+</div>
+<div class="cards-3">
+<article class="card">
+<h3>Versioned container</h3>
+<p>A good fit when your team already operates containers. Pin the image, mount persistent state, pass secrets safely, add resource limits, and keep the previous artifact available.</p>
+</article>
+<article class="card">
+<h3>Release binary</h3>
+<p>A direct fit for a single host or service manager. Give the process a dedicated identity, durable directories, supervision, log rotation, and an explicit rollback path.</p>
+</article>
+<article class="card">
+<h3>Source build</h3>
+<p>Useful for auditing or maintained internal changes. Your team also owns the toolchain, reproducibility, dependency review, and the cost of carrying a fork.</p>
+</article>
+</div>
+<div class="callout">
+<strong>Small starts are valid.</strong> SQLite and local files can make evaluation straightforward. Before the product grows, decide whether their durability, concurrency, backup, and restore characteristics still fit.</div>
+</div>
+</section>
+<section class="section" id="security">
+<div class="shell">
+<div class="section-head">
+<div>
+<span class="eyebrow">Protect the product</span>
+<h2>Security follows identity from the edge to the record.</h2>
+</div>
+<p class="lede">There is no single switch that makes an application safe. The goal is a short, understandable chain of trust.</p>
+</div>
+<div class="chapter-grid">
+<article class="chapter-card">
+<span class="chapter-number">Who is this?</span>
+<h3>Establish a trustworthy identity.</h3>
+<p>Keep initial administration private, choose sign-in methods deliberately, protect session and signing material, and test account recovery.</p>
+<div class="feature-links">
+<a href="/product/features/authentication/">Authentication</a>
+<a href="/product/features/two-factor-auth/">Two-factor sign-in</a>
+</div>
+</article>
+<article class="chapter-card">
+<span class="chapter-number">May they do this?</span>
+<h3>Let access follow the actual work.</h3>
+<p>Review table, record, relationship, file, and action access with representative customer identities—not only an administrator.</p>
+<div class="feature-links">
+<a href="/product/features/permissions/">Permissions</a>
+<a href="/product/features/audit-history/">Audit history</a>
+</div>
+</article>
+<article class="chapter-card">
+<span class="chapter-number">What is exposed?</span>
+<h3>Open only the surfaces the product needs.</h3>
+<p>Put TLS at a trusted boundary, restrict origins and proxy trust, and decide whether mail, FTP, DAV, metrics, or profiling should be reachable at all.</p>
+<div class="feature-links">
+<a href="/product/features/certificates/">Certificates</a>
+<a href="/product/features/protocols/">Protocols</a>
+</div>
+</article>
+<article class="chapter-card">
+<span class="chapter-number">What can leave?</span>
+<h3>Control connections to outside providers.</h3>
+<p>Review provider definitions, destinations, permissions, credential owners, and the identity used when an integration performs work.</p>
+<div class="feature-links">
+<a href="/product/features/credentials/">Credentials</a>
+<a href="/product/features/integrations/">Integrations</a>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="shell feature-story">
+<div>
+<span class="eyebrow">Observe the promise</span>
+<h2>Monitor what a customer would notice.</h2>
+</div>
+<div class="feature-story-body">
+<p>A health response proves the process can answer. It does not prove a customer can sign in, read a protected record, download a file, receive an email, or see scheduled work complete.</p>
+<p>Choose a few representative journeys and check them from outside the process. Combine those checks with structured logs, database and storage health, queue age, repeated provider failures, and capacity signals.</p>
+<p>Protect diagnostic data as carefully as product data. Keep sensitive values out of logs and make profiling available only to trusted operators for limited periods.</p>
+<a class="card-link" href="/product/features/monitoring/">See how Daptin exposes health and runtime evidence →</a>
+</div>
+</div>
+</section>
+<section class="section" id="recovery">
+<div class="shell">
+<div class="section-head">
+<div>
+<span class="eyebrow">Recovery</span>
+<h2>A backup is only real after the product returns.</h2>
+</div>
+<p class="lede">A database-only copy can leave files, credentials, certificates, or scheduled behavior unusable. Recover the application as one state.</p>
+</div>
+<ol class="numbered-list">
+<li>
+<div>
+<strong>List everything the product needs.</strong>
+<p class="muted">Database records, local or remote assets, settings, encryption and signing keys, certificates, provider credentials, and the pinned release artifact.</p>
+</div>
+</li>
+<li>
+<div>
+<strong>Back up on a schedule the business understands.</strong>
+<p class="muted">Set an acceptable amount of lost work and an acceptable recovery time, then make retention and frequency match those promises.</p>
+</div>
+</li>
+<li>
+<div>
+<strong>Restore somewhere isolated.</strong>
+<p class="muted">Avoid learning the process during an incident. Practice without risking the live environment.</p>
+</div>
+</li>
+<li>
+<div>
+<strong>Prove representative journeys.</strong>
+<p class="muted">Sign in, read protected data, deliver an asset, run an action, and check a provider or protocol path before declaring recovery successful.</p>
+</div>
+</li>
+</ol>
+</div>
+</section>
+<section class="section">
+<div class="shell">
+<div class="boundary-box">
+<div>
+<span class="eyebrow">Honest boundary</span>
+<h2>Daptin is self-hosted software, not an operations team.</h2>
+</div>
+<div>
+<p>Daptin gives you a broad connected backend and the controls to run it. Your team remains responsible for infrastructure, database and storage durability, secrets, DNS, TLS, provider terms, capacity, monitoring, incident response, upgrades, and tested recovery.</p>
+<p>Production guidance on this site is pinned to release v0.12.36. Later source includes additional lifecycle and Kubernetes-oriented work; evaluate that separately until it appears in a published release.</p>
+<div class="hero-actions">
+<a class="button" href="https://github.com/daptin/daptin/wiki/Production-Deployment">Open the production reference ↗</a>
+<a class="button secondary" href="https://github.com/daptin/daptin/releases/tag/v0.12.36">Inspect the release ↗</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="feature-cta">
+<div class="shell">
+<span class="eyebrow">Make ownership concrete</span>
+<h2>Choose the data, deployment, and recovery path before customers depend on it.</h2>
+<p class="lede">Then use Daptin’s operating features to keep that responsibility visible.</p>
+<div class="hero-actions" style="justify-content:center">
+<a class="button" href="/product/features/deployment/">Explore deployment</a>
+<a class="button secondary" href="/product/features/databases/">Choose a database path</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="shell">
+<div class="footer-grid">
+<div class="footer-brand">
+<a class="brand" href="/">
+<img src="/images/theme-logo.png" alt="" width="35" height="35">Daptin</a>
+<p>Build and run a complete application backend around one connected model.</p>
+<a class="button small" href="/developers/#quickstart">Get Daptin</a>
+</div>
+<div>
+<h3>Product</h3>
+<a href="/product/features/data-modeling/">Data models</a>
+<a href="/product/features/permissions/">Permissions</a>
+<a href="/product/features/actions/">Actions</a>
+<a href="/product/features/files-images/">Files & images</a>
+<a href="/product/features/integrations/">Integrations</a>
+<a href="/product/capabilities/">All capabilities</a>
+</div>
+<div>
+<h3>Build</h3>
+<a href="/use-cases/#multi-tenant">Multi-tenant products</a>
+<a href="/use-cases/#provider">Connected workflows</a>
+<a href="/use-cases/#hosted">Sites & content</a>
+<a href="/use-cases/#mail">Mail-enabled products</a>
+<a href="/developers/">Learning center</a>
+<a href="/product/architecture/">How it works</a>
+</div>
+<div>
+<h3>Run & own</h3>
+<a href="/operate/">Operations</a>
+<a href="/operate/#security">Security model</a>
+<a href="/open-source/">Open source</a>
+<a href="https://github.com/daptin/daptin/releases">Releases ↗</a>
+<a href="https://github.com/daptin/daptin/wiki">Technical reference ↗</a>
+<a href="https://github.com/daptin/daptin/security">Report a vulnerability ↗</a>
+</div>
+</div>
+<div class="footer-bottom">
+<span>© 2026 Daptin contributors · LGPL-3.0</span>
+<span>Current product pages describe v0.12.36</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

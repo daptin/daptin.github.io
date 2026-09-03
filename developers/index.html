@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Learn Daptin | From product idea to working backend</title>
+<meta name="description" content="Learn how Daptin turns a product idea into connected data, customer access, files, workflows, integrations, and live experiences—then run the current release.">
+<link rel="canonical" href="https://daptin.github.io/developers/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Turn one product idea into a working backend">
+<meta property="og:description" content="Start with what customers should accomplish, then see how Daptin connects the backend pieces.">
+<meta property="og:url" content="https://daptin.github.io/developers/">
+<meta property="og:image" content="https://daptin.github.io/images/og-card-2026.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://daptin.github.io/images/og-card-2026.png">
+<link rel="icon" href="/images/theme-favicon.png">
+<link rel="stylesheet" href="/styles.css">
+<script src="/site.js" defer>
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="shell nav-wrap">
+<a class="brand" href="/">
+<img src="/images/theme-logo.png" alt="" width="35" height="35">Daptin</a>
+<button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>
+<nav class="nav-links" id="site-nav" data-nav-links aria-label="Primary navigation">
+<div class="nav-primary">
+<a href="/product/">Why Daptin</a>
+<details class="nav-menu">
+<summary>Product</summary>
+<div class="mega-panel">
+<div class="mega-grid">
+<a class="mega-link" href="/product/features/data-modeling/">
+<strong>Shape your data</strong>
+<span>Turn the things your product knows into a connected model.</span>
+</a>
+<a class="mega-link" href="/product/features/authentication/">
+<strong>Bring people in</strong>
+<span>Accounts, sign-in, teams, and customer identity.</span>
+</a>
+<a class="mega-link" href="/product/features/permissions/">
+<strong>Decide who can do what</strong>
+<span>Keep access attached to records, files, and actions.</span>
+</a>
+<a class="mega-link" href="/product/features/actions/">
+<strong>Automate the work</strong>
+<span>Make repeatable product behavior part of the backend.</span>
+</a>
+<a class="mega-link" href="/product/features/files-images/">
+<strong>Store and publish content</strong>
+<span>Files, images, cloud storage, and websites.</span>
+</a>
+<a class="mega-link" href="/product/features/integrations/">
+<strong>Connect outside services</strong>
+<span>Bring provider operations into your product workflows.</span>
+</a>
+<a class="mega-link" href="/product/features/realtime-events/">
+<strong>Make experiences live</strong>
+<span>Keep screens and collaborators current as data changes.</span>
+</a>
+<a class="mega-link" href="/product/features/mail/">
+<strong>Build around email</strong>
+<span>Receive, store, read, and send mail as product data.</span>
+</a>
+<a class="mega-link" href="/operate/">
+<strong>Run it your way</strong>
+<span>Choose infrastructure and keep operations visible.</span>
+</a>
+</div>
+<a class="mega-all" href="/product/capabilities/">
+<strong>Explore every capability</strong>
+<span>View the complete product map →</span>
+</a>
+</div>
+</details>
+<a href="/use-cases/">Solutions</a>
+<a aria-current="page" href="/developers/">Learn</a>
+<a href="/operate/">Operate</a>
+</div>
+<div class="nav-actions">
+<a href="https://github.com/daptin/daptin">GitHub</a>
+<a class="button small" href="#quickstart">Get Daptin</a>
+</div>
+</nav>
+</div>
+</header>
+<main id="main">
+<section class="page-hero">
+<div class="shell">
+<p class="crumb">
+<a href="/">Home</a> / Learn</p>
+<span class="eyebrow">Start with the product</span>
+<h1>Turn one product idea into a working backend.</h1>
+<p class="lede">Begin with the people, information, and outcome your product needs. Daptin can connect the accounts, access, files, actions, outside services, and live updates around that idea—without making you understand every mechanism first.</p>
+<div class="hero-actions">
+<a class="button" href="#choose">Choose what you want to build</a>
+<a class="button secondary" href="#quickstart">Run Daptin locally</a>
+</div>
+</div>
+</section>
+<span class="anchor-alias" id="first-path"></span><span class="anchor-alias" id="tasks"></span><span class="anchor-alias" id="surfaces"></span>
+<section class="section" id="choose">
+<div class="shell">
+<div class="section-head">
+<div>
+<span class="eyebrow">Choose a starting point</span>
+<h2>What should someone be able to do?</h2>
+</div>
+<p class="lede">Each path explains the customer benefit, shows the connected backend pieces, and points to exact reference material only when you need it.</p>
+</div>
+<div class="chapter-grid">
+<article class="chapter-card">
+<span class="chapter-number">A customer joins</span>
+<h3>Create accounts, teams, and private workspaces.</h3>
+<p>Give every person a clear identity, place them in the right group, and make their access follow the records and files they own.</p>
+<div class="feature-links">
+<a href="/product/features/authentication/">Sign-in</a>
+<a href="/product/features/users-groups/">Teams</a>
+<a href="/product/features/permissions/">Access</a>
+</div>
+</article>
+<article class="chapter-card">
+<span class="chapter-number">Work moves forward</span>
+<h3>Turn a repeatable decision into a product action.</h3>
+<p>Let someone approve, invite, publish, submit, or synchronize through one named operation your product can reuse.</p>
+<div class="feature-links">
+<a href="/product/features/actions/">Actions</a>
+<a href="/product/features/state-tracking/">Progress</a>
+<a href="/product/features/scheduled-work/">Schedules</a>
+</div>
+</article>
+<article class="chapter-card">
+<span class="chapter-number">Content belongs somewhere</span>
+<h3>Keep documents and images attached to the work.</h3>
+<p>Store customer files with their records, choose local or cloud storage, transform images, and publish selected content as a site.</p>
+<div class="feature-links">
+<a href="/product/features/files-images/">Files & images</a>
+<a href="/product/features/cloud-storage/">Cloud storage</a>
+<a href="/product/features/sites/">Sites</a>
+</div>
+</article>
+<article class="chapter-card">
+<span class="chapter-number">Another service helps</span>
+<h3>Let customers connect the tools they already use.</h3>
+<p>Ask for approval, remember the right account, and bring useful provider operations into a familiar product workflow.</p>
+<div class="feature-links">
+<a href="/product/features/oauth-connections/">Customer connections</a>
+<a href="/product/features/integrations/">Integrations</a>
+<a href="/product/features/credentials/">Credentials</a>
+</div>
+</article>
+<article class="chapter-card">
+<span class="chapter-number">Everyone stays current</span>
+<h3>Make changes appear while people work.</h3>
+<p>Update live screens, notify connected systems, or let several people collaborate without inventing a separate identity model.</p>
+<div class="feature-links">
+<a href="/product/features/realtime-events/">Live updates</a>
+<a href="/product/features/event-publication/">Events</a>
+<a href="/product/features/collaboration/">Collaboration</a>
+</div>
+</article>
+<article class="chapter-card">
+<span class="chapter-number">Email is part of the product</span>
+<h3>Receive and send messages around customer records.</h3>
+<p>Build an inbox, route incoming mail, send product messages, and keep communication connected to the same application data.</p>
+<div class="feature-links">
+<a href="/product/features/mail/">Inbound mail</a>
+<a href="/product/features/outbound-mail/">Outbound mail</a>
+<a href="/product/features/templates/">Templates</a>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="shell">
+<div class="workflow-story">
+<span class="eyebrow">One concrete example</span>
+<h2>A client portal can grow without becoming six unrelated backends.</h2>
+<p class="lede">The same shared model can carry a customer from invitation to completed work.</p>
+<div class="workflow-path">
+<div>
+<small>01</small>
+<strong>Invite the customer</strong>
+</div>
+<div>
+<small>02</small>
+<strong>Place them in an account</strong>
+</div>
+<div>
+<small>03</small>
+<strong>Show only their records</strong>
+</div>
+<div>
+<small>04</small>
+<strong>Collect files and approval</strong>
+</div>
+<div>
+<small>05</small>
+<strong>Send updates and stay live</strong>
+</div>
+</div>
+<p>That journey combines accounts, groups, permissions, records, files, actions, templates, mail, and realtime updates. Because they share customer and ownership context, the team spends less time translating the same rule between services.</p>
+<a class="button secondary" href="/use-cases/#multi-tenant">See the full portal story</a>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="shell">
+<div class="section-head">
+<div>
+<span class="eyebrow">How Daptin grows with the idea</span>
+<h2>Add capability around a shared foundation.</h2>
+</div>
+<p class="lede">You do not need to design every surface on day one. Start from the product vocabulary, then add the next useful customer experience.</p>
+</div>
+<div class="fit-path">
+<div class="fit-step">
+<small>01 · Describe</small>
+<strong>Name the real things.</strong>
+<p>Customers, projects, bookings, articles, invoices, or any other records and relationships the product understands.</p>
+</div>
+<div class="fit-step">
+<small>02 · Protect</small>
+<strong>Attach people and access.</strong>
+<p>Decide who owns, sees, changes, or performs work on each kind of information.</p>
+</div>
+<div class="fit-step">
+<small>03 · Behave</small>
+<strong>Add meaningful actions.</strong>
+<p>Turn the product's verbs into reusable operations, schedules, templates, and integrations.</p>
+</div>
+<div class="fit-step">
+<small>04 · Deliver</small>
+<strong>Choose how people interact.</strong>
+<p>Use APIs, the admin surface, live updates, mail, sites, feeds, or established protocols as needed.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="quickstart">
+<div class="shell">
+<div class="section-head">
+<div>
+<span class="eyebrow">Ready to try it?</span>
+<h2>Run the current release locally.</h2>
+</div>
+<p class="lede">This starts Daptin v0.12.36 with persistent local data and makes its administration surface available on port 6336.</p>
+</div>
+<div class="quickstart">
+<div>
+<h3>Docker</h3>
+<pre>
+<code>docker volume create daptin-data
+docker run --name daptin \
+  -p 6336:6336 \
+  -v daptin-data:/opt/daptin \
+  daptin/daptin:v0.12.36</code>
+</pre>
+</div>
+<div>
+<h3>What happens next</h3>
+<p>Open <code>http://localhost:6336</code>. A new instance guides you through establishing its first administrator. Keep that setup private until you have reviewed access, storage, secrets, TLS, and recovery.</p>
+<p>
+<a class="card-link" href="https://github.com/daptin/daptin/releases/tag/v0.12.36">Release files and notes ↗</a>
+</p>
+</div>
+</div>
+<div class="callout">
+<strong>Taking it beyond a local trial?</strong> Use the <a href="/operate/">plain-language production path</a> before exposing it to customers.</div>
+</div>
+</section>
+<section class="section">
+<div class="shell">
+<div class="section-head">
+<div>
+<span class="eyebrow">When you need exact details</span>
+<h2>Move from product story to technical contract.</h2>
+</div>
+<p class="lede">The feature pages explain value and fit. The project reference provides version-specific fields, routes, configuration, and examples.</p>
+</div>
+<div class="cards-3">
+<article class="card">
+<h3>Understand the whole system</h3>
+<p>See how the shared model connects people, records, permissions, behavior, delivery surfaces, and operator-owned infrastructure.</p>
+<a class="card-link" href="/product/architecture/">How Daptin works →</a>
+</article>
+<article class="card">
+<h3>Find one capability</h3>
+<p>Browse all released product features by the job they help someone accomplish.</p>
+<a class="card-link" href="/product/capabilities/">Explore the product map →</a>
+</article>
+<article class="card">
+<h3>Look up a contract</h3>
+<p>Use the maintained wiki when you need an endpoint, schema field, configuration key, default, or code-level example.</p>
+<a class="card-link" href="https://github.com/daptin/daptin/wiki">Browse the technical reference ↗</a>
+</article>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="shell">
+<div class="footer-grid">
+<div class="footer-brand">
+<a class="brand" href="/">
+<img src="/images/theme-logo.png" alt="" width="35" height="35">Daptin</a>
+<p>Build and run a complete application backend around one connected model.</p>
+<a class="button small" href="#quickstart">Get Daptin</a>
+</div>
+<div>
+<h3>Product</h3>
+<a href="/product/features/data-modeling/">Data models</a>
+<a href="/product/features/permissions/">Permissions</a>
+<a href="/product/features/actions/">Actions</a>
+<a href="/product/features/files-images/">Files & images</a>
+<a href="/product/features/integrations/">Integrations</a>
+<a href="/product/capabilities/">All capabilities</a>
+</div>
+<div>
+<h3>Build</h3>
+<a href="/use-cases/#multi-tenant">Multi-tenant products</a>
+<a href="/use-cases/#provider">Connected workflows</a>
+<a href="/use-cases/#hosted">Sites & content</a>
+<a href="/use-cases/#mail">Mail-enabled products</a>
+<a href="/developers/">Learning center</a>
+<a href="/product/architecture/">How it works</a>
+</div>
+<div>
+<h3>Run & own</h3>
+<a href="/operate/">Operations</a>
+<a href="/operate/#security">Security model</a>
+<a href="/open-source/">Open source</a>
+<a href="https://github.com/daptin/daptin/releases">Releases ↗</a>
+<a href="https://github.com/daptin/daptin/wiki">Technical reference ↗</a>
+<a href="https://github.com/daptin/daptin/security">Report a vulnerability ↗</a>
+</div>
+</div>
+<div class="footer-bottom">
+<span>© 2026 Daptin contributors · LGPL-3.0</span>
+<span>Current product pages describe v0.12.36</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
