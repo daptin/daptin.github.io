@@ -59,8 +59,8 @@ button, input { font: inherit; }
 .eyebrow::before { content: ''; width: 26px; height: 2px; background: currentColor; }
 h1, h2, h3, p { margin-top: 0; }
 h1, h2 { font-family: var(--serif); letter-spacing: -.045em; line-height: 1.02; }
-h1 { font-size: clamp(3.2rem, 7.3vw, 6.7rem); font-weight: 600; }
-h2 { font-size: clamp(2.25rem, 4.2vw, 4.15rem); font-weight: 600; }
+h1 { font-size: clamp(2.85rem, 6.8vw, 6.325rem); font-weight: 600; }
+h2 { font-size: clamp(1.9rem, 3.8vw, 3.775rem); font-weight: 600; }
 h3 { font-size: 1.22rem; line-height: 1.3; letter-spacing: -.02em; }
 .lede { color: var(--ink-2); font-size: clamp(1.05rem, 1.8vw, 1.28rem); line-height: 1.65; max-width: 680px; }
 .muted { color: var(--muted); }
@@ -144,14 +144,14 @@ h3 { font-size: 1.22rem; line-height: 1.3; letter-spacing: -.02em; }
 
 /* Interior pages */
 .page-hero { padding: clamp(4.8rem, 9vw, 8rem) 0 4rem; border-bottom: 1px solid var(--line); }
-.page-hero h1 { max-width: 970px; margin: 1rem 0 1.5rem; font-size: clamp(3rem, 7vw, 6.2rem); }
+.page-hero h1 { max-width: 970px; margin: 1rem 0 1.5rem; font-size: clamp(2.625rem, 6.5vw, 5.825rem); }
 .page-hero .lede { max-width: 780px; }
 .crumb { color: var(--muted); font: 400 .72rem/1.5 var(--mono); }
 .crumb a { text-decoration: none; }
 .intro-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 5rem; }
 .sticky-label { position: sticky; top: 110px; align-self: start; }
 .prose { max-width: 760px; }
-.prose h2 { margin: 4.5rem 0 1.3rem; font-size: clamp(2rem, 3.7vw, 3.3rem); }
+.prose h2 { margin: 4.5rem 0 1.3rem; font-size: clamp(1.625rem, 3.3vw, 2.925rem); }
 .prose h2:first-child { margin-top: 0; }
 .prose h3 { margin-top: 2.2rem; }
 .prose p, .prose li { color: var(--ink-2); }
@@ -220,7 +220,7 @@ code { font-family: var(--mono); font-size: .88em; }
 /* Dedicated feature pages */
 .feature-hero { padding: clamp(5rem, 9vw, 8rem) 0 5.5rem; overflow: hidden; }
 .feature-hero-grid { display: grid; grid-template-columns: .92fr 1.08fr; gap: clamp(2.5rem, 7vw, 6.5rem); align-items: center; }
-.feature-hero h1 { margin: 1rem 0 1.4rem; font-size: clamp(3rem, 6.5vw, 5.9rem); }
+.feature-hero h1 { margin: 1rem 0 1.4rem; font-size: clamp(2.625rem, 6vw, 5.525rem); }
 .feature-visual { position: relative; min-height: 470px; display: grid; place-items: center; padding: 2rem; border: 1px solid #bed9e3; border-radius: 28px; background: linear-gradient(145deg, #eef9fc 0%, #fff 52%, #fff4e2 100%); overflow: hidden; }
 .feature-visual::before, .feature-visual::after { content: ''; position: absolute; border-radius: 50%; filter: blur(1px); opacity: .8; }
 .feature-visual::before { width: 220px; height: 220px; right: -80px; top: -80px; background: rgba(50,153,187,.18); }
@@ -241,7 +241,7 @@ code { font-family: var(--mono); font-size: .88em; }
 .outcome small { display: block; color: #9dd8ea; font: 500 .65rem/1.4 var(--mono); text-transform: uppercase; letter-spacing: .06em; }
 .outcome strong { display: block; margin-top: 1.25rem; font-size: 1.05rem; line-height: 1.4; }
 .feature-story { display: grid; grid-template-columns: .75fr 1.25fr; gap: clamp(3rem, 8vw, 7rem); }
-.feature-story h2 { font-size: clamp(2.4rem, 4.3vw, 4.2rem); }
+.feature-story h2 { font-size: clamp(2.025rem, 3.9vw, 3.825rem); }
 .feature-story-body { max-width: 760px; }
 .feature-story-body > p { color: var(--ink-2); font-size: 1.08rem; line-height: 1.75; }
 .benefit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 3rem; }
@@ -276,7 +276,7 @@ code { font-family: var(--mono); font-size: .88em; }
 
 /* Product-story homepage */
 .home-hero { padding: clamp(5.2rem, 10vw, 9rem) 0 5rem; }
-.home-hero h1 { max-width: 900px; margin: 1rem 0 1.5rem; font-size: clamp(3.4rem, 7.8vw, 7rem); }
+.home-hero h1 { max-width: 900px; margin: 1rem 0 1.5rem; font-size: clamp(3.025rem, 7.3vw, 6.625rem); }
 .home-hero-copy { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(2rem, 8vw, 7rem); align-items: end; }
 .home-hero .lede { font-size: clamp(1.12rem, 2vw, 1.42rem); }
 .hero-product { margin-top: 4rem; display: grid; grid-template-columns: 1fr 230px; gap: 1rem; align-items: stretch; }
@@ -364,7 +364,8 @@ code { font-family: var(--mono); font-size: .88em; }
   .nav-actions { margin-left: auto; }
   .nav-actions .button { display: none; }
   .hero { padding-top: 4.5rem; }
-  h1 { font-size: clamp(3rem, 16vw, 4.4rem); }
+  h1, .page-hero h1, .feature-hero h1, .home-hero h1 { font-size: clamp(2.625rem, 12vw, 4.025rem); }
+  h2, .prose h2, .feature-story h2 { font-size: clamp(1.875rem, 8.5vw, 3.4rem); }
   .signal-grid, .cap-group-head, .cards-2 { grid-template-columns: 1fr; }
   .signal { padding: 1rem 0; border-right: 0; border-bottom: 1px solid var(--line); }
   .signal:nth-child(2) { border-bottom: 1px solid var(--line); }
