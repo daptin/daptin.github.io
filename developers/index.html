@@ -247,7 +247,7 @@
 <span class="eyebrow">Ready to try it?</span>
 <h2>Run the current release locally.</h2>
 </div>
-<p class="lede">This starts Daptin v0.12.36 with persistent local data and makes its administration surface available on port 6336.</p>
+<p class="lede">This starts the latest published Daptin image with persistent local data and makes its administration surface available on port 6336.</p>
 </div>
 <div class="quickstart">
 <div>
@@ -257,14 +257,14 @@
 docker run --name daptin \
   -p 6336:6336 \
   -v daptin-data:/opt/daptin \
-  daptin/daptin:v0.12.36</code>
+  daptin/daptin:latest</code>
 </pre>
 </div>
 <div>
 <h3>What happens next</h3>
 <p>Open <code>http://localhost:6336</code>. A new instance guides you through establishing its first administrator. Keep that setup private until you have reviewed access, storage, secrets, TLS, and recovery.</p>
 <p>
-<a class="card-link" href="https://github.com/daptin/daptin/releases/tag/v0.12.36">Release files and notes ↗</a>
+<a class="card-link" href="https://github.com/daptin/daptin/releases/latest">Current release files and notes ↗</a>
 </p>
 </div>
 </div>
@@ -300,6 +300,7 @@ docker run --name daptin \
 </div>
 </div>
 </section>
+<section class="section"><div class="shell boundary-box"><div><span class="eyebrow">Build a paid product</span><h2>Follow one complete checkout path.</h2></div><div><p>Use the maintained payment guide and runnable Stripe test-mode example to connect an owned checkout attempt, a private provider credential, verified payment state, and Daptin plan membership.</p><p><a class="card-link" href="https://github.com/daptin/daptin/wiki/Payments-and-Checkout">Read the payment guide ↗</a></p><p><a class="card-link" href="https://github.com/daptin/daptin/tree/master/examples/payment-checkout">Run the checkout example ↗</a></p></div></div></section>
 </main>
 <footer class="site-footer">
 <div class="shell">
