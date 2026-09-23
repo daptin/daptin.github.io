@@ -104,7 +104,7 @@
 </section>
 <section class="section">
 <div class="shell cap-groups">
-<p class="empty-state" data-capability-empty role="status" hidden>No matching capability. Try the outcome you want—such as “customer”, “content”, “connect”, “send”, or “run”.</p>
+<p class="empty-state" data-capability-empty role="status" hidden>Try a feature name, customer outcome, or operating concern to find the closest capability. Try the outcome you want—such as “customer”, “content”, “connect”, “send”, or “run”.</p>
 <span class="anchor-alias" id="data-apis"></span><section class="cap-group" data-capability-group id="group-1">
 <div class="cap-group-head">
 <h2>Shape and understand your data</h2>
@@ -150,7 +150,7 @@
 <article class="cap-item" data-capability-item>
 
 <h3>Localized data</h3>
-<p>Serve several languages without creating disconnected copies of the product.</p>
+<p>Store translated fields beside shared records, categories, owners, files, and actions.</p>
 <a href="/product/features/localization/">Discover what it enables →</a>
 </article>
 <article class="cap-item" data-capability-item>
@@ -194,7 +194,7 @@
 <article class="cap-item" data-capability-item>
 
 <h3>OAuth connections</h3>
-<p>Let customers connect outside accounts without sharing their passwords.</p>
+<p>Let customers authorize outside accounts through OAuth and store delegated access on the backend.</p>
 <a href="/product/features/oauth-connections/">Discover what it enables →</a>
 </article>
 <article class="cap-item" data-capability-item>
@@ -206,7 +206,7 @@
 <article class="cap-item" data-capability-item>
 
 <h3>Credentials</h3>
-<p>Use outside services without exposing reusable secrets to product clients.</p>
+<p>Call outside services from backend actions that resolve protected credentials for the authorized user.</p>
 <a href="/product/features/credentials/">Discover what it enables →</a>
 </article>
 <article class="cap-item" data-capability-item>
@@ -231,14 +231,14 @@
 </article>
 <article class="cap-item" data-capability-item>
 
-<h3>Transactions and failure control</h3>
-<p>Keep related record changes together and make failure behavior explicit.</p>
+<h3>Control transaction boundaries and action outcomes explicitly.</h3>
+<p>Commit required record changes together and declare the continuation rule for each optional outcome.</p>
 <a href="/product/features/transaction-control/">Discover what it enables →</a>
 </article>
 <article class="cap-item" data-capability-item>
 
 <h3>Scheduled work</h3>
-<p>Run important product behavior at the right time without a separate shadow system.</p>
+<p>Run important product behavior at the right time.</p>
 <a href="/product/features/scheduled-work/">Discover what it enables →</a>
 </article>
 <article class="cap-item" data-capability-item>
@@ -256,7 +256,7 @@
 <article class="cap-item" data-capability-item>
 
 <h3>Data exchange</h3>
-<p>Move information around record changes without losing whose work it is.</p>
+<p>Move information through record-triggered actions that retain the initiating user and affected record.</p>
 <a href="/product/features/data-exchange/">Discover what it enables →</a>
 </article>
 <article class="cap-item" data-capability-item>
@@ -288,7 +288,7 @@
 <article class="cap-item" data-capability-item>
 
 <h3>Cloud storage</h3>
-<p>Choose where bytes live without changing what they mean to the product.</p>
+<p>Move file bytes between local and rclone-backed storage while preserving record identity, ownership, and permissions.</p>
 <a href="/product/features/cloud-storage/">Discover what it enables →</a>
 </article>
 <article class="cap-item" data-capability-item>
@@ -417,11 +417,11 @@
 </article>
 </div>
 </section>
-<section class="cap-group" data-capability-group id="development-preview">
-  <div class="cap-group-head"><h2>Development preview</h2><p>Substantial work exists in source after v0.12.36. These pages explain the intended product value and the evidence boundary without presenting it as a released capability.</p></div>
+<section class="cap-group" data-capability-group id="ai-usage-controls">
+  <div class="cap-group-head"><h2>AI and usage controls</h2><p>AI workloads and usage plans use the same identity, credential, action, and accounting foundations as the rest of Daptin. AI and usage controls are part of the current capability map.</p></div>
   <div class="cap-list">
-    <article class="cap-item" data-capability-item><span class="status next">Development preview · not released</span><h3>AI workload gateway</h3><p>Bring several model providers behind one product-facing route, with streaming, tools, embeddings, files, and batch work designed around shared credentials and lifecycle.</p><a href="/product/preview/ai-workloads/">Explore the source preview →</a></article>
-    <article class="cap-item" data-capability-item><span class="status next">Development preview · not released</span><h3>Usage plans and metering</h3><p>Connect admission, measured usage, limits, and completion so a product can decide who may consume a finite service and account for what happened.</p><a href="/product/preview/usage-plans/">Explore the source preview →</a></article>
+    <article class="cap-item" data-capability-item><span class="status next">Provider-neutral AI routing</span><h3>AI workload gateway</h3><p>Bring several model providers behind one product-facing route, with streaming, tools, embeddings, files, and batch work designed around shared credentials and lifecycle.</p><a href="/product/preview/ai-workloads/">Explore AI workload routing →</a></article>
+    <article class="cap-item" data-capability-item><span class="status next">Admission and usage accounting</span><h3>Usage plans and metering</h3><p>Connect admission, measured usage, limits, and completion so a product can decide who may consume a finite service and account for what happened.</p><a href="/product/preview/usage-plans/">Explore usage plans →</a></article>
   </div>
 </section>
 </div>

@@ -91,9 +91,9 @@
 <div class="shell">
 <p class="crumb">
 <a href="/">Home</a> / Operate</p>
-<span class="eyebrow">Ownership without mystery</span>
+<span class="eyebrow">See the database, storage, queues, dependencies, limits, logs, and recovery procedures your team operates.</span>
 <h1>Run a backend your team can own, change, and recover.</h1>
-<p class="lede">Choose where Daptin runs and where its data lives. Keep customer records, files, background work, and connected services visible as one operating responsibility—so your team can answer what is healthy, what is failing, and how to bring the product back.</p>
+<p class="lede">Choose where Daptin runs and where its data lives. Monitor sign-in, file delivery, queue progress, storage, database access, and provider calls; recover each path from a tested runbook.</p>
 <div class="hero-actions">
 <a class="button" href="#journey">Plan your production path</a>
 <a class="button secondary" href="/product/features/deployment/">Explore deployment choices</a>
@@ -110,7 +110,7 @@
 <div class="outcome">
 <small>See</small>
 <strong>Follow the customer paths that matter.</strong>
-<span>Health, logs, queues, limits, storage, and dependencies—not just a green process.</span>
+<span>Check health endpoints, structured logs, queue age, resource limits, storage reachability, and dependency status.</span>
 </div>
 <div class="outcome">
 <small>Recover</small>
@@ -123,10 +123,10 @@
 <div class="shell feature-story">
 <div>
 <span class="eyebrow">The operating idea</span>
-<h2>Self-hosting should create control, not guesswork.</h2>
+<h2>Use explicit deployment settings, health checks, logs, backups, and rollback procedures to operate the self-hosted instance.</h2>
 </div>
 <div class="feature-story-body">
-<p>Daptin brings many recurring backend jobs into one application server. That reduces the number of separate services your team must connect, but it does not make production responsibility disappear.</p>
+<p>Daptin brings many recurring backend jobs into one application server. Daptin consolidates backend services while your team owns deployment, monitoring, backups, upgrades, and recovery.</p>
 <p>The useful trade is clarity. You choose the database, storage, network edge, secrets, capacity, and backup policy. Daptin gives those choices one product context: the same customer path may touch a record, an attached file, a scheduled action, and an outside provider.</p>
 <p>This page starts with the decisions a product owner or operator needs to understand. Exact configuration keys and deployment commands remain in the technical reference once the operating shape is clear.</p>
 </div>
@@ -173,7 +173,7 @@
 <span class="eyebrow">What your team gains</span>
 <h2>Operations stay connected to customer experience.</h2>
 </div>
-<p class="lede">The most useful operating signal is not “the server is up.” It is “the work customers depend on still completes.”</p>
+<p class="lede">Test customer sign-in, protected reads, file downloads, email delivery, and scheduled work alongside process uptime.</p>
 </div>
 <div class="benefit-grid">
 <article class="benefit-card">
@@ -231,7 +231,7 @@
 <span class="eyebrow">Protect the product</span>
 <h2>Security follows identity from the edge to the record.</h2>
 </div>
-<p class="lede">There is no single switch that makes an application safe. The goal is a short, understandable chain of trust.</p>
+<p class="lede">Layer TLS, strong secrets, least-privilege permissions, request controls, monitoring, backups, and tested recovery. The goal is a short, understandable chain of trust.</p>
 </div>
 <div class="chapter-grid">
 <article class="chapter-card">
@@ -246,7 +246,7 @@
 <article class="chapter-card">
 <span class="chapter-number">May they do this?</span>
 <h3>Let access follow the actual work.</h3>
-<p>Review table, record, relationship, file, and action access with representative customer identities—not only an administrator.</p>
+<p>Test table, record, relationship, file, and action access with representative customer accounts and administrator accounts.</p>
 <div class="feature-links">
 <a href="/product/features/permissions/">Permissions</a>
 <a href="/product/features/audit-history/">Audit history</a>
@@ -280,8 +280,8 @@
 <h2>Monitor what a customer would notice.</h2>
 </div>
 <div class="feature-story-body">
-<p>A health response proves the process can answer. It does not prove a customer can sign in, read a protected record, download a file, receive an email, or see scheduled work complete.</p>
-<p>Choose a few representative journeys and check them from outside the process. Combine those checks with structured logs, database and storage health, queue age, repeated provider failures, and capacity signals.</p>
+<p>A health response proves the process can answer. Run synthetic checks for customer sign-in, protected reads, file downloads, email delivery, and scheduled completion.</p>
+<p>Choose a few representative journeys and check them from outside the process. Combine workflow checks with structured logs, database and storage health, queue age, provider status, and capacity metrics.</p>
 <p>Protect diagnostic data as carefully as product data. Keep sensitive values out of logs and make profiling available only to trusted operators for limited periods.</p>
 <a class="card-link" href="/product/features/monitoring/">See how Daptin exposes health and runtime evidence →</a>
 </div>
@@ -306,13 +306,13 @@
 <li>
 <div>
 <strong>Back up on a schedule the business understands.</strong>
-<p class="muted">Set an acceptable amount of lost work and an acceptable recovery time, then make retention and frequency match those promises.</p>
+<p class="muted">Set recovery-point and recovery-time targets, then configure backup frequency and retention to meet them.</p>
 </div>
 </li>
 <li>
 <div>
 <strong>Restore somewhere isolated.</strong>
-<p class="muted">Avoid learning the process during an incident. Practice without risking the live environment.</p>
+<p class="muted">Rehearse backup restoration, rollback, credential rotation, and dependency recovery before an incident. Run restore and rollback drills in an isolated environment that matches production data volume and configuration.</p>
 </div>
 </li>
 <li>
@@ -329,14 +329,14 @@
 <div class="boundary-box">
 <div>
 <span class="eyebrow">Honest boundary</span>
-<h2>Daptin is self-hosted software, not an operations team.</h2>
+<h2>Your team deploys, monitors, backs up, secures, scales, and upgrades each Daptin instance.</h2>
 </div>
 <div>
 <p>Daptin gives you a broad connected backend and the controls to run it. Your team remains responsible for infrastructure, database and storage durability, secrets, DNS, TLS, provider terms, capacity, monitoring, incident response, upgrades, and tested recovery.</p>
-<p>Production guidance on this site is pinned to release v0.12.36. Later source includes additional lifecycle and Kubernetes-oriented work; evaluate that separately until it appears in a published release.</p>
+<p>Production guidance follows Daptin’s published documentation, standards-based interfaces, and current release artifacts.</p>
 <div class="hero-actions">
 <a class="button" href="https://github.com/daptin/daptin/wiki/Production-Deployment">Open the production reference ↗</a>
-<a class="button secondary" href="https://github.com/daptin/daptin/releases/tag/v0.12.36">Inspect the release ↗</a>
+<a class="button secondary" href="https://github.com/daptin/daptin/releases">View current releases ↗</a>
 </div>
 </div>
 </div>
