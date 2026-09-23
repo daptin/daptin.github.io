@@ -1,0 +1,38 @@
+flowchart TB
+    ACCOUNT["Daptin account<br/>a person or a dedicated company account"]
+    OPERATION["Service task<br/>create a payment, update a ticket, or fetch an order"]
+    PROVIDER["Connected business service"]
+
+    subgraph oauth["Connect a person's account"]
+        OAUTH_CONNECTION["Connection setup<br/>sign-in page and requested permissions"]
+        APPROVAL["Customer approval<br/>the person allows the requested access"]
+        TOKEN["Secure account connection<br/>keeps the approved access ready"]
+        OAUTH_CONNECTION -->|starts| APPROVAL
+        APPROVAL -->|creates| TOKEN
+    end
+
+    subgraph custom["Connect a company account"]
+        CREDENTIAL["Secure company sign-in details<br/>service key, username, or password"]
+        PLACEMENT["Service sign-in rules<br/>Daptin places each detail where the service expects it"]
+        CREDENTIAL -->|follows| PLACEMENT
+    end
+
+    CHECK["Ownership check<br/>the connection belongs to the account starting the task"]
+
+    ACCOUNT -->|owns| TOKEN
+    ACCOUNT -->|owns| CREDENTIAL
+    TOKEN -->|selected for this task| CHECK
+    PLACEMENT -->|selected for this task| CHECK
+    CHECK -->|opens the connected account for| OPERATION
+    OPERATION -->|completes the task with| PROVIDER
+
+    classDef account fill:#EEF2FF,stroke:#6366F1,color:#312E81,stroke-width:2px;
+    classDef config fill:#FFF7ED,stroke:#D97706,color:#7C2D12,stroke-width:2px;
+    classDef secret fill:#FDF4FF,stroke:#C026D3,color:#701A75,stroke-width:2px;
+    classDef gate fill:#FEF3C7,stroke:#B45309,color:#78350F,stroke-width:2px;
+    classDef work fill:#ECFDF5,stroke:#10B981,color:#064E3B,stroke-width:2px;
+    class ACCOUNT account;
+    class OAUTH_CONNECTION,APPROVAL config;
+    class TOKEN,CREDENTIAL,PLACEMENT secret;
+    class CHECK gate;
+    class OPERATION,PROVIDER work;

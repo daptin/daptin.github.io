@@ -1,0 +1,43 @@
+flowchart TB
+    ACCOUNT["Account<br/>keeps the person's name, email, and sign-in details"]
+
+    subgraph everyday["Everyday access"]
+        PASSWORD["Password<br/>protected when the account is saved"]
+        SIGNIN["Sign in<br/>matches the email and password to the account"]
+        SESSION["Signed-in visit<br/>opens the product for the person and their teams"]
+    end
+
+    subgraph codes["Extra account protection"]
+        OTP_PROFILE["One-time-code setup<br/>links verified codes to this account"]
+        ENROLL["First code check<br/>confirms the setup for the account owner"]
+        OTP["Fresh one-time code<br/>expires quickly and works once"]
+    end
+
+    subgraph recovery["Password recovery"]
+        REQUEST["Recovery request<br/>uses the email on the account"]
+        MESSAGE["Recovery email<br/>delivers a one-time verification code"]
+        RESET["Password change<br/>checks the code and saves a new password"]
+        OLD["Fresh sign-in<br/>protects the account after the password changes"]
+    end
+
+    ACCOUNT -->|has| PASSWORD
+    PASSWORD -->|is checked by| SIGNIN
+    SIGNIN -->|creates| SESSION
+    ACCOUNT -->|can set up| OTP_PROFILE
+    OTP_PROFILE -->|creates| OTP
+    OTP -->|confirms| ENROLL
+    ENROLL -->|completes| OTP_PROFILE
+    ACCOUNT -->|can begin| REQUEST
+    REQUEST -->|sends| MESSAGE
+    MESSAGE -->|supplies the code for| RESET
+    RESET -->|replaces| PASSWORD
+    RESET -->|requires| OLD
+
+    classDef identity fill:#EEF2FF,stroke:#6366F1,color:#1E1B4B,stroke-width:2px;
+    classDef secure fill:#FFF7ED,stroke:#F59E0B,color:#7C2D12,stroke-width:2px;
+    classDef verify fill:#FDF4FF,stroke:#C026D3,color:#701A75,stroke-width:2px;
+    classDef result fill:#ECFDF5,stroke:#10B981,color:#064E3B,stroke-width:2px;
+    class ACCOUNT,SESSION identity;
+    class PASSWORD,SIGNIN,OTP_PROFILE secure;
+    class ENROLL,OTP,REQUEST,MESSAGE,RESET verify;
+    class OLD result;

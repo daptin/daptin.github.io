@@ -1,0 +1,34 @@
+flowchart LR
+    account["Customer account"] -->|has| membership["Active subscription"]
+    membership -->|selects| plan["AI usage plan"]
+    plan -->|includes| limits["Customer allowances<br/>AI text, requests, cost, or another measure"]
+
+    request["Customer asks AI for help"] --> permission["Access check<br/>is this AI choice included for the customer?"]
+    permission --> admission["Plan allowance check"]
+    limits -->|guide| admission
+    admission -->|adds to| usage["Customer activity history"]
+    admission -->|sets aside the expected amount in| reservation["Temporary allowance hold"]
+    reservation --> quota["Allowance for this period<br/>amount set aside and amount used"]
+
+    admission --> provider["AI service prepares the answer"]
+    provider --> measures["Amount used<br/>AI text, searches, pages, or other included units"]
+    pricing["Price for the chosen AI service"] -->|converts the amount into| cost["Cost of this request"]
+    measures --> cost
+
+    measures --> completion["Answer finished"]
+    cost --> completion
+    completion -->|replaces the estimate in| reservation
+    completion -->|adds the final amount to| usage
+    completion -->|updates the amount used in| quota
+
+    usage --> history["Customer's AI usage and cost history"]
+
+    classDef identity fill:#e8f4ff,stroke:#2274a5,color:#102a43,stroke-width:1.5px;
+    classDef policy fill:#fff4d6,stroke:#d97706,color:#451a03,stroke-width:1.5px;
+    classDef record fill:#f3e8ff,stroke:#7c3aed,color:#2e1065,stroke-width:2px;
+    classDef outcome fill:#eefbf3,stroke:#15803d,color:#052e16,stroke-width:1.5px;
+
+    class account,membership identity;
+    class plan,limits,permission,admission,pricing policy;
+    class usage,reservation,quota record;
+    class request,provider,measures,cost,completion,history outcome;

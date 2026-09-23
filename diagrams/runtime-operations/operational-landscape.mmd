@@ -1,0 +1,69 @@
+flowchart TB
+    product["Customers can keep using your product"]
+
+    subgraph truth["Information Daptin keeps safe"]
+        direction LR
+        records["Customer and business information"]
+        settings["Product settings"]
+        jobs["Scheduled business routines"]
+        assets["Uploaded documents and media"]
+    end
+
+    subgraph delivery["What Daptin delivers"]
+        direction LR
+        requests["Website and app requests"]
+        schedules["Scheduled business routines"]
+        protocols["Web pages, email, files, feeds and live updates"]
+        certificates["Web addresses and secure connections"]
+    end
+
+    subgraph coordination["How Daptin stays consistent as traffic grows"]
+        direction LR
+        cache["Recently requested information"]
+        updates["Immediate update notices"]
+        limits["Request counts and duplicate-prevention markers"]
+        members["Every active Daptin service"]
+    end
+
+    subgraph teamchecks["What your team can see and restore"]
+        direction LR
+        alive["Daptin answers"]
+        ready["Safe to send customer traffic"]
+        stats["Customer traffic and available capacity"]
+        logs["Request and error history"]
+        backup["Restorable business information and files"]
+    end
+
+    product --> requests
+    product --> schedules
+    product --> protocols
+    product --> certificates
+
+    records <-->|"reads and saves"| requests
+    settings -->|"controls"| protocols
+    jobs -->|"starts on time"| schedules
+    assets <-->|"stores and delivers"| protocols
+
+    cache -->|"speeds up repeat requests"| requests
+    updates -->|"delivers changes immediately"| protocols
+    limits -->|"shares available capacity"| requests
+    members -->|"receive the same alerts"| updates
+
+    alive -.->|"confirms an answer"| product
+    ready -.->|"directs traffic"| requests
+    stats -.->|"shows demand"| requests
+    logs -.->|"records each result"| schedules
+    records -->|"can be restored with"| backup
+    assets -->|"can be restored with"| backup
+
+    classDef outcome fill:#e8f7ef,stroke:#21845b,color:#12372a,stroke-width:2px;
+    classDef durable fill:#eaf2ff,stroke:#4475c4,color:#17365d;
+    classDef deliveryStyle fill:#f4edff,stroke:#7755b7,color:#34205b;
+    classDef live fill:#fff3db,stroke:#c78620,color:#5e3d0c;
+    classDef operate fill:#f4f5f7,stroke:#687386,color:#29313d;
+
+    class product outcome;
+    class records,settings,jobs,assets durable;
+    class requests,schedules,protocols,certificates deliveryStyle;
+    class cache,updates,limits,members live;
+    class alive,ready,stats,logs,backup operate;

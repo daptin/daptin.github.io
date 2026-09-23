@@ -1,0 +1,31 @@
+flowchart LR
+    RECORD["Business item<br/>a product, article, profile, order, or anything else you manage"]
+    COLUMN["Named place for files<br/>such as product photos or case attachments"]
+    SET["Attached files<br/>one or more named files"]
+    META["File details<br/>name, type, size, location, and upload progress"]
+    BYTES["File content<br/>the actual image, document, audio, or video"]
+    INLINE["Kept with the business item<br/>a simple home for smaller files"]
+    STORE["Chosen file destination<br/>one reusable location and starting folder"]
+    LOCAL["Your own server"]
+    CLOUD["Your cloud file service<br/>Amazon, Google, Microsoft, and compatible services"]
+    CREDENTIAL["Protected connection details<br/>used when the file service requires sign-in"]
+
+    RECORD -->|includes| COLUMN
+    COLUMN -->|holds| SET
+    SET -->|keeps with the record| META
+    SET -->|points to| BYTES
+    BYTES -->|can stay in| INLINE
+    COLUMN -->|can select| STORE
+    STORE -->|keeps the content in| LOCAL
+    STORE -->|or keeps the content in| CLOUD
+    CREDENTIAL -->|opens access to| CLOUD
+
+    classDef product fill:#e8f4ff,stroke:#2274a5,color:#102a43,stroke-width:2px;
+    classDef record fill:#f3e8ff,stroke:#7c3aed,color:#2e1065,stroke-width:2px;
+    classDef storage fill:#f3f4f6,stroke:#64748b,color:#1f2937,stroke-width:1.5px;
+    classDef control fill:#fff4d6,stroke:#d97706,color:#451a03,stroke-width:1.5px;
+
+    class RECORD product;
+    class COLUMN,SET,META record;
+    class BYTES,INLINE,STORE,LOCAL,CLOUD storage;
+    class CREDENTIAL control;

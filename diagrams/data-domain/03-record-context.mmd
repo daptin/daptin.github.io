@@ -1,0 +1,41 @@
+flowchart TB
+    RECORD["Business item<br/>an article, product, case, order, or other familiar item"]
+
+    subgraph LANGUAGE_DOMAIN["Language editions"]
+        LANGUAGE["Language preference"]
+        EDITION["Language-specific values"]
+        VIEW["The same item in the reader's language"]
+        LANGUAGE -->|selects| EDITION
+        EDITION -->|presents| VIEW
+    end
+
+    subgraph HISTORY_DOMAIN["A dependable change history"]
+        CHANGE["Saved change"]
+        SNAPSHOT["Information before the change"]
+        CONTEXT["What changed, when it changed, and who was responsible"]
+        CHANGE -->|preserves| SNAPSHOT
+        SNAPSHOT -->|keeps| CONTEXT
+    end
+
+    subgraph STATE_DOMAIN["Clear progress stages"]
+        WORKFLOW["Business process<br/>starting stage and allowed decisions"]
+        CURRENT["Current stage"]
+        EVENT["Allowed decision"]
+        NEXT["Next stage"]
+        WORKFLOW -->|starts at| CURRENT
+        CURRENT -->|accepts an| EVENT
+        EVENT -->|moves to| NEXT
+    end
+
+    RECORD -->|can have| EDITION
+    CHANGE -->|updates| RECORD
+    RECORD -->|can follow| WORKFLOW
+
+    classDef record fill:#ECFDF5,stroke:#10B981,color:#064E3B,stroke-width:2px;
+    classDef language fill:#EEF2FF,stroke:#6366F1,color:#1E1B4B,stroke-width:2px;
+    classDef history fill:#FFF7ED,stroke:#F59E0B,color:#7C2D12,stroke-width:2px;
+    classDef state fill:#FDF4FF,stroke:#C026D3,color:#701A75,stroke-width:2px;
+    class RECORD record;
+    class LANGUAGE,EDITION,VIEW language;
+    class CHANGE,SNAPSHOT,CONTEXT history;
+    class WORKFLOW,CURRENT,EVENT,NEXT state;

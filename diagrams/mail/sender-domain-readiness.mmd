@@ -1,0 +1,35 @@
+flowchart TB
+    DOMAIN["Company email name<br/>what customers see after the @ sign"]
+    ADDRESS["Sender address<br/>the owned account shown in From"]
+    SMTP["Company mail service<br/>presents and delivers the message"]
+    CERT["Protected company proof<br/>added to every outgoing message"]
+    DNS["Public email settings"]
+    MX["Incoming mail destination"]
+    SPF["Approved sending services"]
+    DKIM["Proof receiving services can verify"]
+    DMARC["From address matches the company proof"]
+    PTR["Sending address points back to the company mail service"]
+    TRUST["Recognizable sender identity<br/>consistent proof for receiving email services"]
+
+    DOMAIN -->|forms| ADDRESS
+    ADDRESS -->|belongs to| SMTP
+    DOMAIN -->|provides the signing name for| CERT
+    CERT -->|publishes verification through| DKIM
+    DOMAIN --> DNS
+    DNS --> MX
+    DNS --> SPF
+    DNS --> DKIM
+    DNS --> DMARC
+    SMTP --> PTR
+    MX --> TRUST
+    SPF --> TRUST
+    DKIM --> TRUST
+    DMARC --> TRUST
+    PTR --> TRUST
+
+    classDef identity fill:#FFF7ED,stroke:#F59E0B,color:#7C2D12,stroke-width:2px;
+    classDef proof fill:#EEF2FF,stroke:#6366F1,color:#1E1B4B,stroke-width:2px;
+    classDef outcome fill:#ECFDF5,stroke:#10B981,color:#064E3B,stroke-width:2px;
+    class DOMAIN,ADDRESS,SMTP identity;
+    class CERT,DNS,MX,SPF,DKIM,DMARC,PTR proof;
+    class TRUST outcome;

@@ -1,0 +1,28 @@
+flowchart TB
+    PERSON["Person<br/>uses one account throughout the product"]
+    ACCOUNT["Account<br/>keeps their name, email, and sign-in details"]
+    SESSION["Signed-in visit<br/>brings their account and teams into each page"]
+    MEMBERSHIP["Team membership<br/>places the person in a team"]
+    GROUP["Team<br/>people who share the same work"]
+    RECORDS["Business information<br/>customers, cases, documents, orders, and more"]
+    SECURITY["Account protection<br/>password, recovery, and verified one-time codes"]
+    CONNECTIONS["Approved services<br/>outside accounts the person has connected"]
+
+    PERSON -->|uses| ACCOUNT
+    ACCOUNT -->|opens| SESSION
+    PERSON -->|has| MEMBERSHIP
+    MEMBERSHIP -->|joins| GROUP
+    PERSON -->|owns| RECORDS
+    GROUP -->|can share| RECORDS
+    SECURITY -->|protects| ACCOUNT
+    ACCOUNT -->|keeps| CONNECTIONS
+    MEMBERSHIP -->|appears in| SESSION
+
+    classDef identity fill:#EEF2FF,stroke:#6366F1,color:#1E1B4B,stroke-width:2px;
+    classDef access fill:#FFF7ED,stroke:#F59E0B,color:#7C2D12,stroke-width:2px;
+    classDef product fill:#ECFDF5,stroke:#10B981,color:#064E3B,stroke-width:2px;
+    classDef trust fill:#FDF4FF,stroke:#C026D3,color:#701A75,stroke-width:2px;
+    class PERSON,ACCOUNT,SESSION identity;
+    class MEMBERSHIP,GROUP access;
+    class RECORDS product;
+    class SECURITY,CONNECTIONS trust;

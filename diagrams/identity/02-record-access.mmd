@@ -1,0 +1,24 @@
+flowchart TB
+    RECORD["Customer, case, document, or order<br/>one saved item in the product"]
+    OWNER["Owner<br/>the person responsible for this item"]
+    SHARED["Shared team<br/>the people invited to work with this item"]
+    MEMBER["Team member<br/>a person in the shared team"]
+    PUBLIC["Public visitor<br/>anyone browsing the product"]
+    ADMIN["Administrator<br/>a person trusted to manage every item"]
+    GRANT["Who can do what<br/>find, view, add, change, remove, use, or connect"]
+
+    RECORD -->|is owned by| OWNER
+    RECORD -->|can be shared with| SHARED
+    MEMBER -->|belongs to| SHARED
+    RECORD -->|records| GRANT
+    GRANT -->|sets what the owner can do| OWNER
+    GRANT -->|sets what team members can do| MEMBER
+    GRANT -->|sets what visitors can do| PUBLIC
+    ADMIN -->|can manage every| RECORD
+
+    classDef record fill:#ECFDF5,stroke:#10B981,color:#064E3B,stroke-width:2px;
+    classDef audience fill:#EEF2FF,stroke:#6366F1,color:#1E1B4B,stroke-width:2px;
+    classDef access fill:#FFF7ED,stroke:#F59E0B,color:#7C2D12,stroke-width:2px;
+    class RECORD record;
+    class OWNER,SHARED,MEMBER,PUBLIC,ADMIN audience;
+    class GRANT access;

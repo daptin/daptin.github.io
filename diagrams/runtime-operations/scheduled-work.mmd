@@ -1,0 +1,45 @@
+flowchart TB
+    task["Saved recurring routine"]
+
+    subgraph definition["What each automation remembers"]
+        direction LR
+        schedule["Day and time"]
+        account["Account and group access"]
+        target["Business item and chosen task"]
+        input["Details the task needs"]
+    end
+
+    subgraph execution["What Daptin does at that time"]
+        direction LR
+        identity["Confirm the responsible account and teams"]
+        transaction["Keep related business updates together"]
+        action["Run the chosen task with the same access\nas a customer request"]
+        result["Save every update together,\nor save none if the task fails"]
+    end
+
+    subgraph examples["Automations included with Daptin"]
+        direction LR
+        mail["Refresh configured mail connections"]
+        outbox["Send messages waiting in the outbox"]
+        exchange["Send scheduled updates to connected services"]
+        storage["Copy files to and from connected file services"]
+        recovery["Return timed-out allowance holds\nto the available balance"]
+    end
+
+    task --> definition
+    definition --> execution
+    schedule --> identity
+    account --> identity
+    target --> action
+    input --> action
+    identity --> transaction --> action --> result
+    examples --> task
+
+    classDef focus fill:#f4edff,stroke:#7755b7,color:#34205b,stroke-width:2px;
+    classDef define fill:#eaf2ff,stroke:#4475c4,color:#17365d;
+    classDef execute fill:#e8f7ef,stroke:#21845b,color:#12372a;
+    classDef example fill:#fff3db,stroke:#c78620,color:#5e3d0c;
+    class task focus;
+    class schedule,account,target,input define;
+    class identity,transaction,action,result execute;
+    class mail,outbox,exchange,storage,recovery example;

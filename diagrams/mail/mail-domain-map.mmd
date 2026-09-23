@@ -1,0 +1,26 @@
+flowchart TB
+    SERVER["Mail service<br/>the public home for your company email name"]
+    ACCOUNT["Email account<br/>one owned sending and receiving address"]
+    BOXES["Mailboxes<br/>INBOX, Spam, Sent, and custom folders"]
+    MESSAGE["Messages<br/>content, sender, recipients, dates, and delivery status"]
+    PARTS["Useful message content<br/>text, pictures, and attachments"]
+    OUTBOX["Individual deliveries<br/>one per recipient"]
+    DELIVERY["Delivery history<br/>sent status, attempts, next try, and latest problem"]
+    OWNER["Daptin account<br/>owns the address and its mail"]
+
+    SERVER -->|hosts| ACCOUNT
+    OWNER -->|owns| ACCOUNT
+    ACCOUNT -->|organizes mail into| BOXES
+    BOXES -->|contain| MESSAGE
+    MESSAGE -->|can be unpacked into| PARTS
+    ACCOUNT -->|sends through| OUTBOX
+    OUTBOX -->|records| DELIVERY
+
+    classDef foundation fill:#EEF2FF,stroke:#6366F1,color:#1E1B4B,stroke-width:2px;
+    classDef identity fill:#FFF7ED,stroke:#F59E0B,color:#7C2D12,stroke-width:2px;
+    classDef content fill:#ECFDF5,stroke:#10B981,color:#064E3B,stroke-width:2px;
+    classDef delivery fill:#FDF4FF,stroke:#C026D3,color:#701A75,stroke-width:2px;
+    class SERVER foundation;
+    class OWNER,ACCOUNT identity;
+    class BOXES,MESSAGE,PARTS content;
+    class OUTBOX,DELIVERY delivery;

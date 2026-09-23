@@ -1,0 +1,42 @@
+flowchart TB
+    ACCOUNT["One Daptin account<br/>recognizes the same person throughout the product"]
+
+    subgraph inbound["Let people use an account they already trust"]
+        PROVIDER["Familiar service<br/>Google, GitHub, or another place people sign in"]
+        CONNECTION["Connection choice<br/>names the service and what Daptin may use"]
+        APPROVAL["Person's approval<br/>allows the requested connection"]
+        SAVED["Protected connection<br/>remembers the person's approval"]
+        USE["Connected feature<br/>sign in or use an approved service"]
+        PROVIDER -->|appears as| CONNECTION
+        CONNECTION -->|asks for| APPROVAL
+        APPROVAL -->|returns| SAVED
+        SAVED -->|powers| USE
+    end
+
+    subgraph outbound["Let a trusted app connect to Daptin"]
+        APP["Trusted app<br/>has a registered name, return address, and allowed account details"]
+        PERSON["Signed-in person<br/>starts the connection from the trusted app"]
+        CHECK["Connection check<br/>matches the person, app, return address, and allowed details"]
+        CODE["One-use handoff<br/>returns directly to the trusted app"]
+        TOKENS["Protected app connection<br/>keeps the app signed in"]
+        PROFILE["Account controls<br/>share allowed details, check access, and disconnect apps"]
+        APP -->|requests| CHECK
+        PERSON -->|is recognized by| CHECK
+        CHECK -->|creates| CODE
+        CODE -->|opens| TOKENS
+        TOKENS -->|opens| PROFILE
+    end
+
+    SAVED -->|belongs to| ACCOUNT
+    CONNECTION -->|connects the person with| ACCOUNT
+    ACCOUNT -->|recognizes| PERSON
+    TOKENS -->|acts for| ACCOUNT
+
+    classDef identity fill:#EEF2FF,stroke:#6366F1,color:#1E1B4B,stroke-width:2px;
+    classDef provider fill:#FFF7ED,stroke:#F59E0B,color:#7C2D12,stroke-width:2px;
+    classDef approval fill:#FDF4FF,stroke:#C026D3,color:#701A75,stroke-width:2px;
+    classDef result fill:#ECFDF5,stroke:#10B981,color:#064E3B,stroke-width:2px;
+    class ACCOUNT identity;
+    class PROVIDER,CONNECTION,APP provider;
+    class APPROVAL,PERSON,CHECK,CODE approval;
+    class SAVED,USE,TOKENS,PROFILE result;

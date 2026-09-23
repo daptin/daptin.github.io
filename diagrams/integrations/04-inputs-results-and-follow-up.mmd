@@ -1,0 +1,38 @@
+flowchart TB
+    DATA["Business details<br/>customer, order, payment, or ticket information"]
+    ACCESS["Secure service connection<br/>approved for the account starting the task"]
+
+    subgraph contract["One service task"]
+        INPUTS["Required details<br/>the customer, order, amount, or other requested values"]
+        OPERATION["Defined task<br/>for example, create a payment or update a ticket"]
+        PAYLOAD["Returned details<br/>the answer from the connected service"]
+        STATUS["Completion status<br/>whether the service accepted the task"]
+        INPUTS -->|supply| OPERATION
+        OPERATION -->|returns| PAYLOAD
+        OPERATION -->|reports| STATUS
+    end
+
+    REFERENCE["Saved answer<br/>available to the next steps"]
+
+    subgraph followup["What happens next"]
+        UPDATE["Update the order, customer, or ticket"]
+        RESPONSE["Show the answer in the product"]
+        NEXT["Continue the automatic sequence"]
+    end
+
+    DATA -->|fills| INPUTS
+    ACCESS -->|opens the connected account for| OPERATION
+    PAYLOAD -->|is saved as| REFERENCE
+    STATUS -->|is saved with| REFERENCE
+    REFERENCE -->|provides details for| UPDATE
+    REFERENCE -->|provides details for| RESPONSE
+    REFERENCE -->|provides details for| NEXT
+
+    classDef source fill:#EEF2FF,stroke:#6366F1,color:#312E81,stroke-width:2px;
+    classDef contract fill:#FFF7ED,stroke:#D97706,color:#7C2D12,stroke-width:2px;
+    classDef work fill:#FDF4FF,stroke:#C026D3,color:#701A75,stroke-width:2px;
+    classDef result fill:#ECFDF5,stroke:#10B981,color:#064E3B,stroke-width:2px;
+    class DATA,ACCESS source;
+    class INPUTS,OPERATION contract;
+    class REFERENCE work;
+    class PAYLOAD,STATUS,UPDATE,RESPONSE,NEXT result;

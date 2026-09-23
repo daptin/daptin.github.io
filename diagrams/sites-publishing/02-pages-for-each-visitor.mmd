@@ -1,0 +1,22 @@
+flowchart LR
+    classDef core fill:#2563eb,color:#ffffff,stroke:#1d4ed8,stroke-width:2px
+    classDef source fill:#ecfdf5,color:#14532d,stroke:#22c55e,stroke-width:1.5px
+    classDef setting fill:#f5f3ff,color:#4c1d95,stroke:#8b5cf6,stroke-width:1.5px
+    classDef result fill:#fff7ed,color:#7c2d12,stroke:#f97316,stroke-width:1.5px
+
+    route["Visitor opens a page address<br/>/profiles/alex"]:::setting
+    values["Details from the address<br/>alex and the visitor's choices"]:::source
+    current["Current business information<br/>customer, article or order details"]:::source
+    design["Saved page design<br/>in Daptin or with the website files"]:::source
+    page["Page ready for this visitor<br/>design plus current details"]:::core
+    presentation["What the visitor receives<br/>a web page, shared data or plain text"]:::setting
+    freshness["Freshness rules<br/>reuse a saved page for faster visits"]:::setting
+    published["Page or information shown to the visitor"]:::result
+
+    route -->|collects| values
+    values -->|personalize the| page
+    current -->|fills the| page
+    design -->|shapes the| page
+    page -->|becomes the| published
+    presentation -->|chooses how to present the| published
+    freshness -->|speeds up repeat visits to the| published

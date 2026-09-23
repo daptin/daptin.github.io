@@ -1,0 +1,53 @@
+flowchart LR
+    subgraph ARRIVE["Bring existing business information in"]
+        INPUT["Existing file"]
+        JSON_IN["File from another business system"]
+        CSV_IN["Simple table file"]
+        SHEET_IN["Spreadsheet"]
+        INPUT --> JSON_IN
+        INPUT --> CSV_IN
+        INPUT --> SHEET_IN
+    end
+
+    RECORDS["Organized business information<br/>with useful details and connections"]
+
+    subgraph UNDERSTAND["Turn business information into answers"]
+        FILTER["Choose what matters<br/>such as active customers or this month's orders"]
+        GROUP["Organize it<br/>by category, progress, date, or another useful detail"]
+        RELATED["Use connected information<br/>such as customers with their orders"]
+        SUMMARY["Calculate useful totals<br/>count, total, average, lowest, and highest"]
+        FILTER --> GROUP
+        GROUP --> SUMMARY
+        RELATED --> SUMMARY
+    end
+
+    subgraph SHARE["Share the result in a useful format"]
+        EXPORT["Choose what to share"]
+        JSON_OUT["File for another business system"]
+        CSV_OUT["Simple table file"]
+        SHEET_OUT["Spreadsheet"]
+        PDF_OUT["Ready-to-share document"]
+        HTML_OUT["Web page"]
+        EXPORT --> JSON_OUT
+        EXPORT --> CSV_OUT
+        EXPORT --> SHEET_OUT
+        EXPORT --> PDF_OUT
+        EXPORT --> HTML_OUT
+    end
+
+    JSON_IN -->|creates| RECORDS
+    CSV_IN -->|creates| RECORDS
+    SHEET_IN -->|creates| RECORDS
+    RECORDS -->|supplies| FILTER
+    RECORDS -->|connect through| RELATED
+    RECORDS -->|supplies selected fields to| EXPORT
+    SUMMARY -->|can guide a report or view| EXPORT
+
+    classDef input fill:#EEF2FF,stroke:#6366F1,color:#1E1B4B,stroke-width:2px;
+    classDef record fill:#ECFDF5,stroke:#10B981,color:#064E3B,stroke-width:2px;
+    classDef insight fill:#FFF7ED,stroke:#F59E0B,color:#7C2D12,stroke-width:2px;
+    classDef output fill:#FDF4FF,stroke:#C026D3,color:#701A75,stroke-width:2px;
+    class INPUT,JSON_IN,CSV_IN,SHEET_IN input;
+    class RECORDS record;
+    class FILTER,GROUP,RELATED,SUMMARY insight;
+    class EXPORT,JSON_OUT,CSV_OUT,SHEET_OUT,PDF_OUT,HTML_OUT output;

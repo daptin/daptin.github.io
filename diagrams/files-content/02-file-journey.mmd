@@ -1,0 +1,35 @@
+flowchart LR
+    PERSON["A customer or teammate<br/>adds a file to a business item"]
+    CHOICE{"Best upload route<br/>for this file and destination"}
+    DIRECT["Everyday upload<br/>Daptin sends the file to its destination"]
+    PRESIGNED["Direct-to-cloud upload<br/>the browser sends the file straight to your cloud service"]
+    PARTS["Reliable large-file upload<br/>the file travels in manageable pieces"]
+    COMPLETE["File ready<br/>its name, type, size, and contents are confirmed"]
+    RECORD["Business item updated<br/>the new file is ready to use"]
+    DELIVERY{"What the customer needs"}
+    VIEW["View or download<br/>with access checks and faster repeat delivery"]
+    MEDIA["Audio and video<br/>customers can jump to any point"]
+    IMAGE["Image ready for its purpose<br/>resize, crop, rotate, adjust, or convert"]
+
+    PERSON --> CHOICE
+    CHOICE -->|ordinary upload| DIRECT
+    CHOICE -->|direct cloud upload| PRESIGNED
+    CHOICE -->|very large file| PARTS
+    DIRECT --> COMPLETE
+    PRESIGNED --> COMPLETE
+    PARTS --> COMPLETE
+    COMPLETE -->|saves the confirmed file details with| RECORD
+    RECORD --> DELIVERY
+    DELIVERY -->|document or other file| VIEW
+    DELIVERY -->|audio or video| MEDIA
+    DELIVERY -->|a new image size or format| IMAGE
+
+    classDef person fill:#e8f4ff,stroke:#2274a5,color:#102a43,stroke-width:2px;
+    classDef decision fill:#fff4d6,stroke:#d97706,color:#451a03,stroke-width:1.5px;
+    classDef managed fill:#f3e8ff,stroke:#7c3aed,color:#2e1065,stroke-width:2px;
+    classDef result fill:#e9f9ef,stroke:#2f855a,color:#123524,stroke-width:1.5px;
+
+    class PERSON person;
+    class CHOICE,DELIVERY decision;
+    class DIRECT,PRESIGNED,PARTS,COMPLETE,RECORD managed;
+    class VIEW,MEDIA,IMAGE result;

@@ -1,0 +1,26 @@
+flowchart LR
+    product["Your product"] -->|offers one clear AI choice| model["AI option shown to customers"]
+
+    model -->|explains| work["Ways it can help<br/>conversation, writing, images, audio, and search"]
+    model -->|explains| features["What customers can include<br/>documents, pictures, web search, and answers in consistent fields"]
+    model -->|can use| deployment["Available AI service options"]
+    model -.->|can continue with| fallback["Backup AI choices"]
+
+    deployment -->|selects| upstream["AI choice offered by that company"]
+    deployment -->|belongs to| provider["Connected AI service account"]
+    provider -->|uses| credential["Protected sign-in details"]
+    provider -->|connects to| service["AI company"]
+
+    deployment -->|sets| routing["Reliable service choice<br/>preferred order, availability checks, and wait limits"]
+    deployment -->|sets| guardrails["Customer safeguards<br/>answers at once, total requests, and text limits"]
+    deployment -->|sets| pricing["Customer usage price"]
+
+    classDef product fill:#e8f4ff,stroke:#2274a5,color:#102a43,stroke-width:2px;
+    classDef catalog fill:#f3e8ff,stroke:#7c3aed,color:#2e1065,stroke-width:2px;
+    classDef provider fill:#f3f4f6,stroke:#64748b,color:#1f2937,stroke-width:1.5px;
+    classDef control fill:#fff4d6,stroke:#d97706,color:#451a03,stroke-width:1.5px;
+
+    class product product;
+    class model,work,features,deployment,fallback catalog;
+    class upstream,provider,credential,service provider;
+    class routing,guardrails,pricing control;

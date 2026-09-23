@@ -1,0 +1,45 @@
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Inter, ui-sans-serif, system-ui","primaryTextColor":"#172033","lineColor":"#64748b","clusterBkg":"#f8fafc","clusterBorder":"#cbd5e1"},"flowchart":{"curve":"basis","htmlLabels":true}}}%%
+flowchart LR
+    product["Your product"]
+
+    subgraph definition["A reusable business task defines the result"]
+        direction TB
+        action["Named business task<br/><small>for orders, accounts, files, email, or your own business information</small>"]
+        inputs["Details needed<br/><small>the information a person or product supplies</small>"]
+        rules["Quality checks<br/><small>clean and check each value</small>"]
+        permission["Approved people<br/><small>decide who can use the task and which information they can change</small>"]
+        outcomes["Steps in order<br/><small>the concrete results the task delivers</small>"]
+
+        inputs -->|"feed"| action
+        rules -->|"shape"| inputs
+        permission -->|"opens access to"| action
+        action -->|"runs"| outcomes
+    end
+
+    subgraph results["One task can deliver several business results"]
+        direction TB
+        records["Business information<br/><small>find, add, update, or remove it</small>"]
+        service["Connected service<br/><small>charge a payment, update a CRM, or send support details</small>"]
+        template["Ready-made layout<br/><small>turn saved information into a page, message, or document</small>"]
+        event["Live update<br/><small>tell the right audience as soon as something changes</small>"]
+        response["Customer experience<br/><small>show information, a notice, another page, or a download</small>"]
+    end
+
+    product -->|"starts"| action
+    outcomes -->|"changes"| records
+    outcomes -->|"calls"| service
+    outcomes -->|"renders"| template
+    outcomes -->|"publishes"| event
+    outcomes -->|"returns"| response
+    response -->|"continues"| product
+
+    classDef product fill:#dcfce7,stroke:#16a34a,color:#14532d,stroke-width:2px;
+    classDef core fill:#dbeafe,stroke:#2563eb,color:#172554,stroke-width:2px;
+    classDef policy fill:#fef3c7,stroke:#d97706,color:#78350f,stroke-width:2px;
+    classDef work fill:#ede9fe,stroke:#7c3aed,color:#3b0764,stroke-width:2px;
+    classDef result fill:#f0fdf4,stroke:#22c55e,color:#14532d,stroke-width:1.5px;
+    class product,response product;
+    class action,inputs core;
+    class rules,permission policy;
+    class outcomes work;
+    class records,service,template,event result;

@@ -1,0 +1,29 @@
+flowchart LR
+    SENDER["Someone sends an email"]
+    ADDRESS["Recipient address<br/>selects the owned mail account"]
+    TRUST["Trust checks<br/>sender proof contributes to spam scoring"]
+    CHOICE{"Where should the message go?"}
+    INBOX["INBOX"]
+    SPAM["Spam"]
+    RECORD["Saved message<br/>searchable details plus the original email"]
+    PARTS["Useful content<br/>message text, pictures, and attachments"]
+    PRODUCT["Business follow-up<br/>update a customer, order, case, or other business item"]
+
+    SENDER -->|addresses| ADDRESS
+    ADDRESS -->|accepts mail for a known account| TRUST
+    TRUST -->|produces a spam score| CHOICE
+    CHOICE -->|normal placement| INBOX
+    CHOICE -->|high score| SPAM
+    INBOX --> RECORD
+    SPAM --> RECORD
+    RECORD -->|provides content when a follow-up needs it| PARTS
+    PARTS -->|feed selected values and files into| PRODUCT
+
+    classDef person fill:#FFF7ED,stroke:#F59E0B,color:#7C2D12,stroke-width:2px;
+    classDef decision fill:#FEFCE8,stroke:#CA8A04,color:#713F12,stroke-width:2px;
+    classDef mail fill:#ECFDF5,stroke:#10B981,color:#064E3B,stroke-width:2px;
+    classDef result fill:#EFF6FF,stroke:#3B82F6,color:#1E3A8A,stroke-width:2px;
+    class SENDER,ADDRESS person;
+    class TRUST,CHOICE decision;
+    class INBOX,SPAM,RECORD,PARTS mail;
+    class PRODUCT result;

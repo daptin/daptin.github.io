@@ -1,0 +1,36 @@
+flowchart TB
+    model["One AI choice available to the customer"]
+
+    model --> conversation["Answer questions and hold a conversation"]
+    model --> writing["Draft and rewrite text"]
+    model --> embedding["Find content with similar meaning"]
+    model --> images["Create and edit images"]
+    model --> audio["Create speech, write down audio, and translate it"]
+    model --> understanding["Search, read text in images, and screen unsafe content"]
+
+    tools["Live web information"] -->|adds current facts to| conversation
+    files["Customer files and documents"] -->|add useful background to| conversation
+    live["Answers shown as they arrive"] -->|gives immediate progress for| conversation
+    structured["Answers in your chosen fields"] -->|keeps a consistent shape for| conversation
+
+    actions["Product features"] -->|use the same AI choice| model
+    apps["Connected apps"] -->|choose the same AI option| model
+    batches["Large request lists"] -->|send many requests together to| model
+
+    result["Useful answers, matching content, images, audio, or safety decisions"]
+    conversation --> result
+    writing --> result
+    embedding --> result
+    images --> result
+    audio --> result
+    understanding --> result
+
+    classDef entry fill:#e8f4ff,stroke:#2274a5,color:#102a43,stroke-width:1.5px;
+    classDef core fill:#f3e8ff,stroke:#7c3aed,color:#2e1065,stroke-width:2px;
+    classDef work fill:#eefbf3,stroke:#15803d,color:#052e16,stroke-width:1.5px;
+    classDef feature fill:#fff4d6,stroke:#d97706,color:#451a03,stroke-width:1.5px;
+
+    class actions,apps,batches entry;
+    class model core;
+    class conversation,writing,embedding,images,audio,understanding,result work;
+    class tools,files,live,structured feature;

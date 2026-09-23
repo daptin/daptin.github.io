@@ -1,0 +1,32 @@
+flowchart LR
+    subgraph EXAMPLE["Example product vocabulary — you choose these names"]
+        CATEGORY["Category<br/>a browsable collection"]
+        PRODUCT["Product<br/>the item customers discover"]
+        VARIANT["Variant<br/>a purchasable choice"]
+        CUSTOMER["Customer<br/>the person placing an order"]
+        ORDER["Order<br/>the customer's purchase"]
+        LINE["Order line<br/>one chosen product and quantity"]
+    end
+
+    CATEGORY -->|groups many| PRODUCT
+    PRODUCT -->|offers many| VARIANT
+    CUSTOMER -->|places many| ORDER
+    ORDER -->|contains many| LINE
+    LINE -->|selects one| VARIANT
+
+    RELATIONS["Ways business information connects"]
+    ONE["One direct connection<br/>the customer for an order"]
+    OPTIONAL["One optional connection<br/>a featured category"]
+    COLLECTION["One organized collection<br/>the products in a category"]
+    MANY["Flexible connections<br/>products can have several tags, and tags can cover several products"]
+
+    RELATIONS --> ONE
+    RELATIONS --> OPTIONAL
+    RELATIONS --> COLLECTION
+    RELATIONS --> MANY
+    RELATIONS -.->|shape the example| EXAMPLE
+
+    classDef model fill:#ECFDF5,stroke:#10B981,color:#064E3B,stroke-width:2px;
+    classDef relation fill:#EEF2FF,stroke:#6366F1,color:#1E1B4B,stroke-width:2px;
+    class CATEGORY,PRODUCT,VARIANT,CUSTOMER,ORDER,LINE model;
+    class RELATIONS,ONE,OPTIONAL,COLLECTION,MANY relation;

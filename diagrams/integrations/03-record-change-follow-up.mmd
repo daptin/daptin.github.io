@@ -1,0 +1,47 @@
+flowchart TB
+    RECORD["Business item<br/>an order, customer, shipment, or support ticket"]
+    CHANGE["Selected change<br/>created, edited, or deleted"]
+    RULE["Follow-up rule<br/>which change starts which next step"]
+    RUN["Delivery record<br/>the item, number of attempts, and current status"]
+    ACCESS["Assigned account<br/>must still be allowed to read the business item"]
+
+    subgraph destinations["Chosen next step"]
+        ACTION["Product automation<br/>send a notice or update related information"]
+        API["Another business service<br/>send the selected business details"]
+        SHEET["Google Sheet<br/>add a new row with the business details"]
+    end
+
+    DONE["Completed<br/>completion time retained"]
+    RETRY["Another attempt scheduled<br/>each new attempt waits longer"]
+    REVIEW["Needs attention<br/>attempt count and concise error retained"]
+    OUTCOME["Destination answer<br/>accepted or temporarily unavailable"]
+
+    RECORD -->|receives| CHANGE
+    CHANGE -->|matches| RULE
+    RULE -->|creates| RUN
+    ACCESS -->|can read| RECORD
+    ACCESS -->|carries out| RUN
+    RUN -->|chooses one| ACTION
+    RUN -->|chooses one| API
+    RUN -->|chooses one| SHEET
+    ACTION -->|reports| OUTCOME
+    API -->|reports| OUTCOME
+    SHEET -->|reports| OUTCOME
+    OUTCOME -->|accepted| DONE
+    OUTCOME -->|temporarily unavailable| RETRY
+    RETRY -->|tries the same next step again| RUN
+    RETRY -->|attempt limit reached| REVIEW
+    REVIEW -.->|an administrator allows more attempts| RUN
+
+    classDef record fill:#EEF2FF,stroke:#6366F1,color:#312E81,stroke-width:2px;
+    classDef rule fill:#FFF7ED,stroke:#D97706,color:#7C2D12,stroke-width:2px;
+    classDef active fill:#FDF4FF,stroke:#C026D3,color:#701A75,stroke-width:2px;
+    classDef target fill:#F8FAFC,stroke:#64748B,color:#1E293B,stroke-width:2px;
+    classDef success fill:#ECFDF5,stroke:#10B981,color:#064E3B,stroke-width:2px;
+    classDef retry fill:#FEF3C7,stroke:#B45309,color:#78350F,stroke-width:2px;
+    class RECORD,CHANGE record;
+    class RULE,ACCESS rule;
+    class RUN active;
+    class ACTION,API,SHEET target;
+    class DONE,OUTCOME success;
+    class RETRY,REVIEW retry;

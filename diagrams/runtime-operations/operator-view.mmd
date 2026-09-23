@@ -1,0 +1,44 @@
+flowchart TB
+    goal["Keep Daptin available to customers"]
+
+    subgraph signals["See what customers and Daptin are experiencing"]
+        direction LR
+        ping["Daptin answers check requests"]
+        readiness["Business information is ready\nand Daptin can serve customers"]
+        statistics["Customer traffic, response times,\nfile space and available capacity"]
+        logging["Request, automation and error history"]
+    end
+
+    subgraph response["Turn each signal into a clear action"]
+        direction LR
+        route["Send customer requests to copies ready to respond"]
+        size["Add capacity as traffic or machine use rises"]
+        investigate["Find failed requests and automations in the history"]
+        stop["Let accepted requests finish before a restart"]
+    end
+
+    subgraph continuity["Protect customer and business information"]
+        direction LR
+        db["Back up customer and business records"]
+        files["Back up uploaded documents and media"]
+        restore["Practice restoring both together"]
+    end
+
+    goal --> signals
+    ping --> route
+    readiness --> route
+    statistics --> size
+    logging --> investigate
+    readiness --> stop
+    goal --> continuity
+    db --> restore
+    files --> restore
+
+    classDef focus fill:#f4edff,stroke:#7755b7,color:#34205b,stroke-width:2px;
+    classDef signal fill:#eaf2ff,stroke:#4475c4,color:#17365d;
+    classDef response fill:#e8f7ef,stroke:#21845b,color:#12372a;
+    classDef continuity fill:#fff3db,stroke:#c78620,color:#5e3d0c;
+    class goal focus;
+    class ping,readiness,statistics,logging signal;
+    class route,size,investigate,stop response;
+    class db,files,restore continuity;

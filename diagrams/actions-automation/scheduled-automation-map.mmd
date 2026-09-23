@@ -1,0 +1,43 @@
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Inter, ui-sans-serif, system-ui","primaryTextColor":"#172033","lineColor":"#64748b"},"flowchart":{"curve":"basis","htmlLabels":true}}}%%
+flowchart LR
+    subgraph task["A scheduled routine answers six practical questions"]
+        direction TB
+        name["What is this routine called?"]
+        schedule["When should it run?"]
+        target["Which business task should it complete?"]
+        details["Which saved details should it use?"]
+        account["Which account runs it?"]
+        active["Is it active?"]
+    end
+
+    clock["Scheduled time arrives"]
+    identity["Responsible account and team"]
+    sameAction["The chosen business task<br/><small>with its approved people, required details, and ordered results</small>"]
+    changes["Saved business updates"]
+    result["Completed task results"]
+
+    name -.-> sameAction
+    schedule --> clock
+    target --> sameAction
+    details -->|"supplies"| sameAction
+    account -->|"loads"| identity
+    active -->|"enables"| clock
+    clock -->|"starts"| sameAction
+    identity -->|"shows who is responsible"| sameAction
+    sameAction --> changes
+    sameAction --> result
+
+    recurring["Reliable recurring routines<br/><small>reports · partner updates · reminders · housekeeping</small>"]
+    changes --> recurring
+    result --> recurring
+
+    classDef field fill:#f8fafc,stroke:#94a3b8,color:#334155,stroke-width:1.5px;
+    classDef time fill:#fef3c7,stroke:#d97706,color:#78350f,stroke-width:2px;
+    classDef actor fill:#ffedd5,stroke:#ea580c,color:#7c2d12,stroke-width:2px;
+    classDef core fill:#dbeafe,stroke:#2563eb,color:#172554,stroke-width:2px;
+    classDef done fill:#dcfce7,stroke:#16a34a,color:#14532d,stroke-width:2px;
+    class name,schedule,target,details,account,active field;
+    class clock time;
+    class identity actor;
+    class sameAction core;
+    class changes,result,recurring done;

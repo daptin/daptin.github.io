@@ -1,0 +1,26 @@
+flowchart LR
+    upload["Customer uploads a file"] --> file["AI reference file<br/>why it was added, whether it is ready, and when it expires"]
+    file -->|keeps| document["Saved document<br/>file details and contents"]
+
+    file -->|can provide background for| assisted["Answers based on the customer's file"]
+    file -->|can become| input["List of AI requests"]
+
+    input --> batch["Large request list<br/>progress, expected finish time, and totals"]
+    batch -->|contains| items["Individual requests<br/>one named request per line"]
+    items -->|are answered by| model["Customer's chosen AI option"]
+    model -->|produces each| itemResult["Individual result<br/>finished or unsuccessful"]
+    itemResult -->|updates| totals["Overall progress"]
+    totals -->|produces| output["Downloadable results file"]
+
+    owner["Customer account"] -->|controls access to| file
+    owner -->|controls access to| batch
+
+    classDef account fill:#e8f4ff,stroke:#2274a5,color:#102a43,stroke-width:1.5px;
+    classDef durable fill:#f3e8ff,stroke:#7c3aed,color:#2e1065,stroke-width:2px;
+    classDef work fill:#eefbf3,stroke:#15803d,color:#052e16,stroke-width:1.5px;
+    classDef detail fill:#fff4d6,stroke:#d97706,color:#451a03,stroke-width:1.5px;
+
+    class owner account;
+    class file,document,batch,input,output durable;
+    class assisted,model work;
+    class upload,items,itemResult,totals detail;

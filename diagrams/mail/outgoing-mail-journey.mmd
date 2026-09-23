@@ -1,0 +1,29 @@
+flowchart LR
+    DATA["Business information<br/>customer, order, sign-in, or any other useful details"]
+    TEMPLATE["Ready-made message<br/>turns those details into a personal email"]
+    ACTION["Sending rules<br/>choose the sender, recipient, subject, and message"]
+    IDENTITY["Owned sender address<br/>uses the matching company mail service and name"]
+    SENT["Copy in the Sent folder<br/>saved once when the message is ready to leave"]
+    SPLIT["Individual deliveries<br/>one for each recipient"]
+    ATTEMPT["Delivery attempt<br/>sends to each recipient's email service"]
+    SUCCESS["Delivered<br/>marks that recipient as complete"]
+    RETRY["Next delivery attempt<br/>keeps the problem, attempt count, and next try time"]
+
+    DATA -->|fills| TEMPLATE
+    TEMPLATE -->|supplies the body to| ACTION
+    ACTION -->|uses| IDENTITY
+    IDENTITY -->|signs and queues| SENT
+    IDENTITY -->|creates| SPLIT
+    SPLIT --> ATTEMPT
+    ATTEMPT -->|accepted| SUCCESS
+    ATTEMPT -->|needs another attempt| RETRY
+    RETRY -->|when due| ATTEMPT
+
+    classDef product fill:#EFF6FF,stroke:#3B82F6,color:#1E3A8A,stroke-width:2px;
+    classDef identity fill:#FFF7ED,stroke:#F59E0B,color:#7C2D12,stroke-width:2px;
+    classDef mail fill:#ECFDF5,stroke:#10B981,color:#064E3B,stroke-width:2px;
+    classDef status fill:#FDF4FF,stroke:#C026D3,color:#701A75,stroke-width:2px;
+    class DATA,TEMPLATE,ACTION product;
+    class IDENTITY identity;
+    class SENT,SPLIT,ATTEMPT mail;
+    class SUCCESS,RETRY status;

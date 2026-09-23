@@ -1,0 +1,43 @@
+flowchart TB
+    subgraph PUBLISHING["Publishing updates"]
+        RECORDS["Publishable content<br/>articles, releases, listings, or other updates"]
+        STREAM["Chosen updates<br/>selects and presents the right content"]
+        FEED["Feed<br/>title, description, author, link, and page size"]
+        FORMATS["Popular feed formats<br/>work with common reader apps"]
+        READER["Reader or subscriber"]
+
+        RECORDS -->|are selected by| STREAM
+        STREAM -->|supplies items to| FEED
+        FEED -->|publishes enabled| FORMATS
+        FORMATS -->|deliver updates to| READER
+    end
+
+    subgraph PERSONAL["Personal calendars and contacts"]
+        ACCOUNT["Daptin account<br/>owns its personal collections"]
+        CALENDAR["Calendar collection"]
+        EVENTS["Calendar events"]
+        ADDRESS["Address book"]
+        CONTACTS["Contacts"]
+        APPS["Calendar and contacts apps"]
+
+        ACCOUNT -->|owns| CALENDAR
+        CALENDAR -->|contains| EVENTS
+        ACCOUNT -->|owns| ADDRESS
+        ADDRESS -->|contains| CONTACTS
+        APPS -->|keep events up to date in| CALENDAR
+        APPS -->|keep people up to date in| ADDRESS
+    end
+
+    PERMISSION["The same account and access choices<br/>protect published content, calendars, and contacts"]
+    PERMISSION -->|decide which content can be published| RECORDS
+    PERMISSION -->|keep each person's collections separate| ACCOUNT
+
+    classDef source fill:#f3e8ff,stroke:#7c3aed,color:#2e1065,stroke-width:2px;
+    classDef control fill:#fff4d6,stroke:#d97706,color:#451a03,stroke-width:1.5px;
+    classDef result fill:#e9f9ef,stroke:#2f855a,color:#123524,stroke-width:1.5px;
+    classDef person fill:#e8f4ff,stroke:#2274a5,color:#102a43,stroke-width:2px;
+
+    class RECORDS,STREAM,FEED,CALENDAR,EVENTS,ADDRESS,CONTACTS source;
+    class PERMISSION control;
+    class FORMATS result;
+    class READER,ACCOUNT,APPS person;

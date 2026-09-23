@@ -1,0 +1,27 @@
+flowchart LR
+    classDef core fill:#2563eb,color:#ffffff,stroke:#1d4ed8,stroke-width:2px
+    classDef choice fill:#f5f3ff,color:#4c1d95,stroke:#8b5cf6,stroke-width:1.5px
+    classDef content fill:#ecfdf5,color:#14532d,stroke:#22c55e,stroke-width:1.5px
+    classDef reach fill:#fff7ed,color:#7c2d12,stroke:#f97316,stroke-width:1.5px
+    classDef trust fill:#fffbeb,color:#78350f,stroke:#eab308,stroke-width:1.5px
+
+    store["Content home<br/>a local folder or cloud drive"]:::choice
+    folder["Website folder<br/>pages, design files and images"]:::content
+    site["Website<br/>name, web address and content folder"]:::core
+    static["Ready-to-publish website files"]:::choice
+    hugo["Hugo website project"]:::choice
+    serving["Latest published website files"]:::content
+    domain["Web address<br/>marketing.example.com"]:::reach
+    certificate["Secure connection<br/>for this web address"]:::trust
+    visitors["Visitors"]:::reach
+
+    store -->|holds the| folder
+    folder -->|fills the| site
+    site -->|can publish| static
+    site -->|can publish a| hugo
+    static -->|become the| serving
+    hugo -->|creates the| serving
+    site -->|uses the| domain
+    certificate -->|protects the| domain
+    serving -->|appear at the| domain
+    domain -->|opens the website for| visitors

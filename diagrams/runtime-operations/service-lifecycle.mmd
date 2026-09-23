@@ -1,0 +1,40 @@
+flowchart TB
+    subgraph start["Prepare Daptin for customer traffic"]
+        direction TB
+        database["Open business information and product settings"]
+        shared["Connect every active Daptin service"]
+        compose["Load accounts, access choices, email, files, websites, and apps"]
+        automationStart["Load recurring automations and pending AI requests"]
+        listen["Accept website and secure app connections"]
+        available["This Daptin service is ready for customer requests"]
+        database --> shared --> compose --> automationStart --> listen --> available
+    end
+
+    subgraph serve["While customers use the product"]
+        direction TB
+        route["Receive website and app requests"]
+        run["Apply access choices, business tasks, and saved updates"]
+        observe["Track customer requests, response times, and available capacity"]
+        route --> run
+        run --> observe
+    end
+
+    subgraph finish["Restart or stop while protecting customer requests"]
+        direction TB
+        unready["Send new customer requests to another active Daptin service"]
+        pause["Stop starting new automations, mail and file sessions"]
+        accepted["Finish website and app requests already accepted"]
+        drain["Finish live connections, AI requests,\nand immediate business updates"]
+        close["Disconnect this Daptin service after every saved update is safe"]
+        unready --> pause --> accepted --> drain --> close
+    end
+
+    available -->|"begin serving customers"| route
+    observe -->|"restart request or connection failure"| unready
+
+    classDef startNode fill:#eaf2ff,stroke:#4475c4,color:#17365d;
+    classDef serving fill:#e8f7ef,stroke:#21845b,color:#12372a;
+    classDef finishNode fill:#fff3db,stroke:#c78620,color:#5e3d0c;
+    class database,shared,compose,automationStart,listen,available startNode;
+    class route,run,observe serving;
+    class unready,pause,accepted,drain,close finishNode;

@@ -1,0 +1,35 @@
+flowchart TB
+    SITE["Website<br/>name, web address, content folder, and published status"]
+    STORE["Website file location<br/>the source for its pages, images, and downloads"]
+    FOLDER["Website folder<br/>pages, styling, images, and downloads"]
+    SYNC["Publish the latest files<br/>refreshes the visitor-ready copy"]
+    COPY["Visitor-ready copy<br/>prepared for fast website delivery"]
+    HOST["Web address<br/>selects the matching website"]
+    WEBSITE["Published website<br/>serves the files to visitors"]
+    ACCOUNT["Team member<br/>signs in with their existing Daptin account"]
+    PERMISSION["Website access<br/>decides which websites and file changes are available"]
+    FTP["Familiar file-management app<br/>browse, upload, download, rename, and delete website files"]
+
+    SITE -->|uses| STORE
+    SITE -->|selects| FOLDER
+    STORE -->|contains| FOLDER
+    FOLDER -->|refreshes through| SYNC
+    SYNC -->|updates| COPY
+    COPY -->|supplies| WEBSITE
+    HOST -->|routes visitors to| WEBSITE
+    SITE -->|publishes at| HOST
+
+    ACCOUNT -->|is checked against| PERMISSION
+    SITE -->|carries| PERMISSION
+    PERMISSION -->|opens permitted sites through| FTP
+    FTP -->|works with| FOLDER
+
+    classDef identity fill:#e8f4ff,stroke:#2274a5,color:#102a43,stroke-width:2px;
+    classDef content fill:#f3e8ff,stroke:#7c3aed,color:#2e1065,stroke-width:2px;
+    classDef control fill:#fff4d6,stroke:#d97706,color:#451a03,stroke-width:1.5px;
+    classDef result fill:#e9f9ef,stroke:#2f855a,color:#123524,stroke-width:1.5px;
+
+    class ACCOUNT identity;
+    class SITE,STORE,FOLDER,SYNC,COPY content;
+    class PERMISSION control;
+    class HOST,WEBSITE,FTP result;

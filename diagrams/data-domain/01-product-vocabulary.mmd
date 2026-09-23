@@ -1,0 +1,38 @@
+flowchart TB
+    MODEL["Choose what your product keeps<br/>customers, products, orders, cases, articles..."]
+    NAME["Familiar business name<br/>customer, product, order, case, article..."]
+    FIELD["Useful details<br/>the facts kept for each item"]
+    RULES["Quality rules<br/>required details, expected formats, unique values, and sensible defaults"]
+    RELATION["Business connections<br/>customers place orders, categories contain products"]
+    RECORD["Your business information<br/>the customers, products, orders, and cases themselves"]
+    REFERENCE["Reliable reference<br/>a stable way to identify each item"]
+    OWNER["Owner and sharing groups<br/>who is responsible and who can collaborate"]
+    ORDER["Natural display order<br/>how a list is presented"]
+    CAPABILITIES["Add the options your customers need"]
+    LANGUAGE["Customer languages"]
+    HISTORY["Who changed what and when"]
+    STATE["Progress stages<br/>such as draft, approved, and published"]
+    METERING["Customer allowance tracking"]
+
+    MODEL -->|is given a| NAME
+    MODEL -->|is described by| FIELD
+    FIELD -->|uses| RULES
+    MODEL -->|declares| RELATION
+    MODEL -->|organizes| RECORD
+    RECORD -->|keeps a| REFERENCE
+    RECORD -->|keeps| OWNER
+    MODEL -->|sets a| ORDER
+    MODEL -->|can enable| CAPABILITIES
+    CAPABILITIES --> LANGUAGE
+    CAPABILITIES --> HISTORY
+    CAPABILITIES --> STATE
+    CAPABILITIES --> METERING
+
+    classDef definition fill:#EEF2FF,stroke:#6366F1,color:#1E1B4B,stroke-width:2px;
+    classDef record fill:#ECFDF5,stroke:#10B981,color:#064E3B,stroke-width:2px;
+    classDef trust fill:#FFF7ED,stroke:#F59E0B,color:#7C2D12,stroke-width:2px;
+    classDef extension fill:#FDF4FF,stroke:#C026D3,color:#701A75,stroke-width:2px;
+    class MODEL,NAME,FIELD,RULES,RELATION,ORDER definition;
+    class RECORD,REFERENCE record;
+    class OWNER trust;
+    class CAPABILITIES,LANGUAGE,HISTORY,STATE,METERING extension;
