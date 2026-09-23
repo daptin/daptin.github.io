@@ -5,13 +5,14 @@ flowchart TB
     action -->|"contains"| sequence
 
     subgraph choices["Each step delivers a concrete result"]
-        direction LR
+        direction TB
         data["Update business information<br/><small>find · add · change · remove</small>"]
         builtins["Use a ready Daptin feature<br/><small>email · files · accounts · AI · imports</small>"]
         providers["Update a connected service<br/><small>payments · CRM · support · your chosen service</small>"]
         templates["Create customer-ready content<br/><small>combine saved details into a page, message, or document</small>"]
         events["Send a live update<br/><small>tell the right audience immediately</small>"]
         client["Guide the customer<br/><small>show details · notify · open a page · provide a download</small>"]
+        data ~~~ builtins ~~~ providers ~~~ templates ~~~ events ~~~ client
     end
 
     sequence -->|"step 1, 2, 3…"| data

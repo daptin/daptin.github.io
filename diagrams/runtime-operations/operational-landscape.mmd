@@ -1,37 +1,41 @@
-flowchart TB
+flowchart LR
     product["Customers can keep using your product"]
 
     subgraph truth["Information Daptin keeps safe"]
-        direction LR
+        direction TB
         records["Customer and business information"]
         settings["Product settings"]
         jobs["Scheduled business routines"]
         assets["Uploaded documents and media"]
+        records ~~~ settings ~~~ jobs ~~~ assets
     end
 
     subgraph delivery["What Daptin delivers"]
-        direction LR
+        direction TB
         requests["Website and app requests"]
         schedules["Scheduled business routines"]
         protocols["Web pages, email, files, feeds and live updates"]
         certificates["Web addresses and secure connections"]
+        requests ~~~ schedules ~~~ protocols ~~~ certificates
     end
 
     subgraph coordination["How Daptin stays consistent as traffic grows"]
-        direction LR
+        direction TB
         cache["Recently requested information"]
         updates["Immediate update notices"]
         limits["Request counts and duplicate-prevention markers"]
         members["Every active Daptin service"]
+        cache ~~~ updates ~~~ limits ~~~ members
     end
 
     subgraph teamchecks["What your team can see and restore"]
-        direction LR
+        direction TB
         alive["Daptin answers"]
         ready["Safe to send customer traffic"]
         stats["Customer traffic and available capacity"]
         logs["Request and error history"]
         backup["Restorable business information and files"]
+        alive ~~~ ready ~~~ stats ~~~ logs ~~~ backup
     end
 
     product --> requests

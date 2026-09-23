@@ -2,26 +2,29 @@ flowchart TB
     goal["Keep Daptin available to customers"]
 
     subgraph signals["See what customers and Daptin are experiencing"]
-        direction LR
+        direction TB
         ping["Daptin answers check requests"]
         readiness["Business information is ready\nand Daptin can serve customers"]
         statistics["Customer traffic, response times,\nfile space and available capacity"]
         logging["Request, automation and error history"]
+        ping ~~~ readiness ~~~ statistics ~~~ logging
     end
 
     subgraph response["Turn each signal into a clear action"]
-        direction LR
+        direction TB
         route["Send customer requests to copies ready to respond"]
         size["Add capacity as traffic or machine use rises"]
         investigate["Find failed requests and automations in the history"]
         stop["Let accepted requests finish before a restart"]
+        route ~~~ size ~~~ investigate ~~~ stop
     end
 
     subgraph continuity["Protect customer and business information"]
-        direction LR
+        direction TB
         db["Back up customer and business records"]
         files["Back up uploaded documents and media"]
         restore["Practice restoring both together"]
+        db ~~~ files ~~~ restore
     end
 
     goal --> signals
